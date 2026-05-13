@@ -17,6 +17,7 @@ No game implementation is required yet. The immediate goal is to make the projec
 - Keep each game independent under `games/[game-id]/`.
 - Track games through a manifest.
 - Prepare for future agent workflows: planning, implementation, QA, thumbnail creation, registration, docs, and GitHub release.
+- Treat the project as a small AI-agent-operated arcade studio, not only a game website.
 
 ## Recommended Reading Order
 
@@ -25,6 +26,8 @@ No game implementation is required yet. The immediate goal is to make the projec
 3. `docs/new-game-flow.md`
 4. `docs/game-interface.md`
 5. `docs/qa-checklist.md`
+6. `docs/company-model.md`
+7. `docs/marketing-strategy.md`
 
 ## Current Cabinet Candidates
 

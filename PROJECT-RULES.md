@@ -16,6 +16,8 @@ The headquarters chat manages:
 - README and production logs
 - GitHub and release workflow
 - Future Codex agent automation
+- Company model and department design
+- Marketing, analytics, creative, and policy workflow
 
 Individual game chats manage:
 
@@ -161,4 +163,23 @@ Example:
 /Users/ogawakenji/Desktop/codex-arcade/agents/producer-agent.md を読んで、
 Producer Agentとしてゲーム企画案だけを出してください。
 まだ実装やファイル作成はしないでください。
+```
+
+## Company Model
+
+Codex Arcade should be treated as an AI-agent-operated arcade studio.
+
+The public product is the arcade website. The internal experiment is a small company model where a human director and Codex departments operate the whole cycle:
+
+```txt
+plan -> build -> QA -> integrate -> publish -> market -> analyze -> improve
+```
+
+See:
+
+```txt
+docs/company-model.md
+docs/marketing-strategy.md
+docs/analytics-plan.md
+docs/privacy-and-safety.md
 ```

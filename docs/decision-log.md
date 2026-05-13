@@ -21,3 +21,6 @@ This file records decisions made in the Codex Arcade headquarters chat.
 - Phase 1 should not require `postMessage`; games may register with `supportsPostMessage: false`.
 - Credit responsibility is split: the parent arcade manages credit balance and launch parameters, while each game handles its own INSERT COIN flavor.
 - First thumbnails may be in-game screenshots instead of dedicated promotional art.
+- Codex Arcade's higher-level direction is an AI-agent-operated arcade studio, not only a game website.
+- The company model includes Headquarters, Game Studio, QA, Creative, Marketing & Analytics, Publishing, and Policy & Safety.
+- Analytics should not be added immediately; first document measurement goals and privacy guardrails.
