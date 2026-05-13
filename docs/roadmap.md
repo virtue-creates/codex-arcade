@@ -4,11 +4,22 @@ Codex Arcade uses phases to keep the project understandable.
 
 The goal is to grow from a planning folder into an AI-agent-operated arcade studio.
 
+## How To Read This Roadmap
+
+```txt
+Roadmap Board
+= 全体像を見る場所
+
+Phase Board
+= 特定フェーズの中身を見る場所
+
+Current Board
+= 今のフェーズだけを見る場所
+```
+
 ## Roadmap Board
 
-This is the first place to look when asking "where are we now?"
-
-The project moves from left to right.
+This board shows the whole project at a glance.
 
 ```mermaid
 flowchart LR
@@ -24,38 +35,33 @@ flowchart LR
   P0 --> P1 --> P2 --> P3 --> P4 --> P5 --> P6 --> P7
 ```
 
+## Phase Summary
+
+| Phase | Status | Sprint Progress | Next Focus |
+| --- | --- | ---: | --- |
+| Phase 0: 会社化・土台づくり | CLEARED | 4/4 | Done |
+| Phase 1: Arcade MVP構築 | IN PLAY | 1/3 | MVP設計 |
+| Phase 2: Cabinet 01統合 | UP NEXT | 0/3 | 移植計画 |
+| Phase 3: 3ゲーム体制 | UP NEXT | 0/3 | Metro Mender |
+| Phase 4: 公開・計測準備 | UP NEXT | 0/3 | 公開準備 |
+| Phase 5: 半自動運用 | UP NEXT | 0/3 | Agentフロー試運転 |
+| Phase 6: 自働会社リズム | UP NEXT | 0/3 | 週次レビュー |
+| Phase 7: 収益化実験 | UP NEXT | 0/3 | 収益化リサーチ |
+
 ## Current Board
 
-```txt
-Current Position
-Phase 1 Sprint 1/3 - Arcade MVP Design
+This board shows only the current phase.
 
-CLEARED
-- Phase 0 Sprint 1/4: 本部フォルダとGitHub
-- Phase 0 Sprint 2/4: 会社モデルと部署
-- Phase 0 Sprint 3/4: 進行管理の仕組み
-- Phase 0 Sprint 4/4: Phase 1準備確認
+```txt
+Phase 1: Arcade MVP構築
 
 IN PLAY
-- Phase 1 Sprint 1/3: Arcade MVP設計
+- Sprint 1/3: Arcade MVP設計
 
 UP NEXT
-- Phase 1 Sprint 2/3: Arcade MVP実装
-- Phase 1 Sprint 3/3: ローカルQAと調整
+- Sprint 2/3: Arcade MVP実装
+- Sprint 3/3: ローカルQAと調整
 ```
-
-## Phase Overview
-
-| Phase | Status | Purpose | Main Sprints |
-| --- | --- | --- | --- |
-| Phase 0: Company Foundation | CLEARED | 会社の土台づくり | 本部/GitHub, 会社モデル, 進行管理, Phase 1準備 |
-| Phase 1: Arcade MVP | IN PLAY | 親Arcadeサイトを作る | MVP設計, MVP実装, ローカルQA |
-| Phase 2: Cabinet 01 Integration | UP NEXT | Neon Core Survivorを統合 | 移植計画, ゲーム移植, QA/サムネイル |
-| Phase 3: Three-Cabinet Arcade | UP NEXT | 3ゲーム体制にする | Metro Mender, Specimen Night Shift, 3ゲームQA |
-| Phase 4: Public Release Prep | UP NEXT | 人に見せられる形にする | 公開準備, GitHub Pages, 文言/安全確認 |
-| Phase 5: Semi-Automated Operation | UP NEXT | 半自動で追加運用する | Agentフロー試運転, 新作追加試運転, リリースループ |
-| Phase 6: Agent Company Rhythm | UP NEXT | AI会社っぽく定期運用する | 週次レビュー, 分析/マーケレポート, 改善バックログ |
-| Phase 7: Monetization Experiments | UP NEXT | 収益化を小さく検討する | 収益化リサーチ, 低リスク実験案, Policy & Safety確認 |
 
 ## Status Key
 
@@ -70,223 +76,137 @@ UP NEXT
 Not active yet, but planned.
 ```
 
-## Phase 0: Company Foundation
+## Phase Boards
 
-Status: cleared
+## Phase 0 Board: 会社化・土台づくり
 
-Purpose:
-
-```txt
-Create the foundation for Codex Arcade as an AI-agent-operated company.
-```
-
-Scope:
-
-- Project rules
-- GitHub setup
-- Initial cabinet concepts
-- Company model
-- Department agents
-- Marketing and analytics direction
-- Monetization direction
-- Scheduling
-
-Done when:
-
-- Core documents exist.
-- Initial Cabinet 01/02/03 order is recorded.
-- GitHub repository is connected.
-- Next build phase is clear.
-
-Progress board:
-
-```txt
-CLEARED
-- Headquarters setup
-- GitHub connection
-- Initial cabinet lineup
-- Company model
-- Marketing and analytics direction
-- Monetization department
-- Scheduling docs
-- Phase 1 readiness check
-
-IN PLAY
-- Phase 1 Sprint 1/3 - Arcade MVP Design
-
-UP NEXT
-- Phase 1 Sprint 2/3 - Arcade MVP Implementation
-```
-
-## Phase 1: Arcade MVP
-
-Status: in play
+Status: CLEARED
 
 Purpose:
 
 ```txt
-Build the parent Codex Arcade web app.
+AIエージェント会社として動く準備をする。
 ```
 
-Scope:
+CLEARED:
 
-- `index.html`
-- `styles.css`
-- `arcade.js`
-- `games.json`
-- Game card layout
-- Credit display
-- INSERT COIN flow
-- Game launch links
+- Sprint 1/4: 本部フォルダとGitHub
+- Sprint 2/4: 会社モデルと部署
+- Sprint 3/4: 進行管理の仕組み
+- Sprint 4/4: Phase 1準備確認
 
-Done when:
+## Phase 1 Board: Arcade MVP構築
 
-- The arcade opens locally in a browser.
-- Game cards can be rendered from a manifest.
-- The site is ready to register the first game.
-
-Planned sprints:
-
-```txt
-Phase 1 Sprint 1/3: Arcade MVP Design
-Phase 1 Sprint 2/3: Arcade MVP Implementation
-Phase 1 Sprint 3/3: Local QA and Polish
-```
-
-## Phase 2: Cabinet 01 Integration
+Status: IN PLAY
 
 Purpose:
 
 ```txt
-Integrate Neon Core Survivor as the first real cabinet.
+親サイトとして最低限動くCodex Arcadeを作る。
 ```
 
-Scope:
+IN PLAY:
 
-- `games/neon-core-survivor/`
-- `game.json`
-- Game README
-- BACK TO ARCADE link
-- `?from=arcade&credit=1`
-- Thumbnail
-- QA checklist
+- Sprint 1/3: Arcade MVP設計
 
-Done when:
+UP NEXT:
 
-- Cabinet 01 launches from the arcade.
-- The game also works standalone.
-- QA notes are recorded.
+- Sprint 2/3: Arcade MVP実装
+- Sprint 3/3: ローカルQAと調整
 
-## Phase 3: Three-Cabinet Arcade
+## Phase 2 Board: Cabinet 01統合
+
+Status: UP NEXT
 
 Purpose:
 
 ```txt
-Turn the arcade into a multi-game shelf.
+Neon Core Survivorを最初の実ゲームとして統合する。
 ```
 
-Scope:
+UP NEXT:
 
-- Metro Mender
-- Specimen Night Shift
-- Three game cards
-- Three thumbnails
-- Device labels
-- QA for each game
+- Sprint 1/3: 移植計画
+- Sprint 2/3: ゲームファイル移植
+- Sprint 3/3: QAとサムネイル
 
-Done when:
+## Phase 3 Board: 3ゲーム体制
 
-- Three cabinets are visible.
-- Each cabinet can launch.
-- Each has metadata and basic docs.
-
-## Phase 4: Public Release Preparation
+Status: UP NEXT
 
 Purpose:
 
 ```txt
-Make Codex Arcade ready to share publicly.
+3つのゲームが並ぶArcadeにする。
 ```
 
-Scope:
+UP NEXT:
 
-- GitHub Pages
-- About copy
-- Credit policy note
-- Basic SEO
-- Social preview planning
-- Analytics decision
-- Privacy and safety review
+- Sprint 1/3: Metro Mender
+- Sprint 2/3: Specimen Night Shift
+- Sprint 3/3: 3ゲームQA
 
-Done when:
+## Phase 4 Board: 公開・計測準備
 
-- A public URL can be shared.
-- Public-facing wording is reviewed.
-- Analytics is either deferred or approved.
-
-## Phase 5: Semi-Automated Operation
+Status: UP NEXT
 
 Purpose:
 
 ```txt
-Use Codex departments to add and improve games with a repeatable workflow.
+人に見せられる公開版にする。
 ```
 
-Scope:
+UP NEXT:
 
-- Producer Agent concepts
-- Game Builder implementation
-- QA Agent checks
-- Creative Agent copy and thumbnails
-- Integrator Agent registration
-- Marketing Agent announcements
-- Policy & Safety review
+- Sprint 1/3: 公開準備
+- Sprint 2/3: GitHub Pages
+- Sprint 3/3: 公開文言と安全確認
 
-Done when:
+## Phase 5 Board: 半自動運用
 
-- One new game can be added through the documented flow.
-- Human approval points are clear.
-
-## Phase 6: Agent Company Rhythm
+Status: UP NEXT
 
 Purpose:
 
 ```txt
-Run Codex Arcade like a small AI-agent company.
+Codex部署を使って制作、QA、登録、告知を回す。
 ```
 
-Scope:
+UP NEXT:
 
-- Weekly review
-- New game proposals
-- QA reports
-- Marketing ideas
-- Analytics reports
-- Improvement backlog
+- Sprint 1/3: Agentフロー試運転
+- Sprint 2/3: 新作追加試運転
+- Sprint 3/3: リリースループ試運転
 
-Done when:
+## Phase 6 Board: 自働会社リズム
 
-- The project has a repeatable operating rhythm.
-- Decisions and changes are documented.
-
-## Phase 7: Monetization Experiments
+Status: UP NEXT
 
 Purpose:
 
 ```txt
-Explore sustainable revenue models without damaging the arcade experience.
+AI会社っぽく定期提案、分析、改善を回す。
 ```
 
-Scope:
+UP NEXT:
 
-- Support links
-- Production logs
-- Sponsorship ideas
-- Lightweight ads review
-- Premium feature ideas
-- Future paid credit or wallet experiments only after review
+- Sprint 1/3: 週次レビュー
+- Sprint 2/3: 分析/マーケレポート
+- Sprint 3/3: 改善バックログ運用
 
-Done when:
+## Phase 7 Board: 収益化実験
 
-- A low-risk monetization experiment is selected or consciously deferred.
-- Policy & Safety has reviewed the idea.
+Status: UP NEXT
+
+Purpose:
+
+```txt
+体験を壊さない収益化を小さく試す。
+```
+
+UP NEXT:
+
+- Sprint 1/3: 収益化リサーチ
+- Sprint 2/3: 低リスク実験案
+- Sprint 3/3: Policy & Safety確認
+

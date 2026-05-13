@@ -6,26 +6,19 @@ A sprint is a short work unit inside a phase. It may be time-based or deliverabl
 
 ## Current Board
 
-This is the quick human-readable view.
+This is the quick human-readable view of the current phase only.
 
-The full roadmap moves left to right in `docs/roadmap.md`.
+For the full project view, see `docs/roadmap.md`.
 
 ```txt
-Current Position:
-Phase 1 Sprint 1/3 - Arcade MVP Design
-
-CLEARED
-- Phase 0 Sprint 1/4: Headquarters Setup
-- Phase 0 Sprint 2/4: AI Studio Company Model
-- Phase 0 Sprint 3/4: Scheduling and Project Operating System
-- Phase 0 Sprint 4/4: Phase 1 Readiness Check
+Phase 1: Arcade MVP構築
 
 IN PLAY
-- Phase 1 Sprint 1/3: Arcade MVP Design
+- Sprint 1/3: Arcade MVP設計
 
 UP NEXT
-- Phase 1 Sprint 2/3: Arcade MVP Implementation
-- Phase 1 Sprint 3/3: Local QA and Polish
+- Sprint 2/3: Arcade MVP実装
+- Sprint 3/3: ローカルQAと調整
 ```
 
 ## Status Terms
