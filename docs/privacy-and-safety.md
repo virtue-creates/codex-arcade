@@ -21,6 +21,25 @@ Do not add real payments, wallet connection, crypto payments, tokens, prizes, or
 
 Future wallet experiments should start with low-risk identity or badge concepts, not payment or rewards.
 
+## Monetization
+
+Do not add monetization features without human approval.
+
+This includes:
+
+- Ads
+- Support links
+- Sponsor mentions
+- Paid content
+- Premium features
+- Payment processing
+- Paid credits
+- Wallet connection
+- Crypto features
+- Rewards or prizes
+
+Free Arcade Credits and real revenue models must remain separate.
+
 ## Analytics
 
 Before adding analytics:
@@ -56,9 +75,9 @@ Avoid:
 Escalate to the human before:
 
 - Public release
+- Monetization experiments
 - Analytics installation
 - Wallet or payment experiments
 - External asset use
 - Strong horror, violence, or sensitive content direction
 - Any feature with legal, privacy, or safety uncertainty
-

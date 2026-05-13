@@ -24,3 +24,5 @@ This file records decisions made in the Codex Arcade headquarters chat.
 - Codex Arcade's higher-level direction is an AI-agent-operated arcade studio, not only a game website.
 - The company model includes Headquarters, Game Studio, QA, Creative, Marketing & Analytics, Publishing, and Policy & Safety.
 - Analytics should not be added immediately; first document measurement goals and privacy guardrails.
+- Business & Monetization was added as a department to explore support, sponsorship, ads, production logs, education, premium features, future paid credits, and wallet experiments.
+- Monetization should begin with research and low-risk options. Arcade Credits and real revenue must remain separate.

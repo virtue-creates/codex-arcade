@@ -18,6 +18,7 @@ The headquarters chat manages:
 - Future Codex agent automation
 - Company model and department design
 - Marketing, analytics, creative, and policy workflow
+- Business and monetization workflow
 
 Individual game chats manage:
 
@@ -182,4 +183,5 @@ docs/company-model.md
 docs/marketing-strategy.md
 docs/analytics-plan.md
 docs/privacy-and-safety.md
+docs/business-and-monetization.md
 ```

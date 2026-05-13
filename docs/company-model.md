@@ -95,6 +95,18 @@ Owns:
 
 Marketing and analytics may split into separate departments later.
 
+## Business & Monetization Department
+
+Owns:
+
+- Revenue model research
+- Monetization experiments
+- Support, sponsorship, ads, education, premium feature, and future payment analysis
+- User experience impact review
+- Coordination with Marketing, Analytics, and Policy & Safety
+
+This department explores how Codex Arcade could become sustainable. It does not add payment, ads, wallet, crypto, rewards, or cash-like credits without human approval.
+
 ## Publishing Department
 
 Owns:
@@ -129,6 +141,6 @@ Owns:
 7. Publishing prepares release.
 8. Marketing announces and improves entry paths.
 9. Analytics reviews behavior.
-10. Headquarters decides the next cycle.
+10. Business & Monetization reviews sustainability options when appropriate.
+11. Headquarters decides the next cycle.
 ```
-

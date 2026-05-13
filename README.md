@@ -28,6 +28,7 @@ No game implementation is required yet. The immediate goal is to make the projec
 5. `docs/qa-checklist.md`
 6. `docs/company-model.md`
 7. `docs/marketing-strategy.md`
+8. `docs/business-and-monetization.md`
 
 ## Current Cabinet Candidates
 
