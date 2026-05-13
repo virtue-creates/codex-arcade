@@ -10,13 +10,52 @@ This is the first place to look when asking "where are we now?"
 
 The project moves from left to right.
 
-|  | Phase 0<br>Company Foundation | Phase 1<br>Arcade MVP | Phase 2<br>Cabinet 01 Integration | Phase 3<br>Three-Cabinet Arcade | Phase 4<br>Public Release Prep | Phase 5<br>Semi-Automated Operation | Phase 6<br>Agent Company Rhythm | Phase 7<br>Monetization Experiments |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Purpose | 会社の土台づくり | 親Arcadeサイトを作る | Cabinet 01を統合 | 3ゲーム体制にする | 人に見せられる形にする | 半自動で追加運用する | AI会社っぽく定期運用する | 収益化を小さく検討する |
-| Sprint 1 | CLEARED<br>本部フォルダとGitHub | IN PLAY<br>Arcade MVP設計 | UP NEXT<br>移植計画 | UP NEXT<br>Metro Mender | UP NEXT<br>公開準備 | UP NEXT<br>Agentフロー試運転 | UP NEXT<br>週次レビュー | UP NEXT<br>収益化リサーチ |
-| Sprint 2 | CLEARED<br>会社モデルと部署 | UP NEXT<br>Arcade MVP実装 | UP NEXT<br>ゲームファイル移植 | UP NEXT<br>Specimen Night Shift | UP NEXT<br>GitHub Pages | UP NEXT<br>新作追加試運転 | UP NEXT<br>分析/マーケレポート | UP NEXT<br>低リスク実験案 |
-| Sprint 3 | CLEARED<br>進行管理の仕組み | UP NEXT<br>ローカルQAと調整 | UP NEXT<br>QAとサムネイル | UP NEXT<br>3ゲームQA | UP NEXT<br>公開文言/安全確認 | UP NEXT<br>リリースループ試運転 | UP NEXT<br>改善バックログ運用 | UP NEXT<br>Policy & Safety確認 |
-| Sprint 4 | CLEARED<br>Phase 1準備確認 |  |  |  |  |  |  |  |
+```mermaid
+flowchart LR
+  P0["Phase 0<br/>CLEARED<br/>会社化・土台づくり"]
+  P1["Phase 1<br/>IN PLAY<br/>Arcade MVP構築"]
+  P2["Phase 2<br/>UP NEXT<br/>Cabinet 01統合"]
+  P3["Phase 3<br/>UP NEXT<br/>3ゲーム体制"]
+  P4["Phase 4<br/>UP NEXT<br/>公開・計測準備"]
+  P5["Phase 5<br/>UP NEXT<br/>半自動運用"]
+  P6["Phase 6<br/>UP NEXT<br/>自働会社リズム"]
+  P7["Phase 7<br/>UP NEXT<br/>収益化実験"]
+
+  P0 --> P1 --> P2 --> P3 --> P4 --> P5 --> P6 --> P7
+```
+
+## Current Board
+
+```txt
+Current Position
+Phase 1 Sprint 1/3 - Arcade MVP Design
+
+CLEARED
+- Phase 0 Sprint 1/4: 本部フォルダとGitHub
+- Phase 0 Sprint 2/4: 会社モデルと部署
+- Phase 0 Sprint 3/4: 進行管理の仕組み
+- Phase 0 Sprint 4/4: Phase 1準備確認
+
+IN PLAY
+- Phase 1 Sprint 1/3: Arcade MVP設計
+
+UP NEXT
+- Phase 1 Sprint 2/3: Arcade MVP実装
+- Phase 1 Sprint 3/3: ローカルQAと調整
+```
+
+## Phase Overview
+
+| Phase | Status | Purpose | Main Sprints |
+| --- | --- | --- | --- |
+| Phase 0: Company Foundation | CLEARED | 会社の土台づくり | 本部/GitHub, 会社モデル, 進行管理, Phase 1準備 |
+| Phase 1: Arcade MVP | IN PLAY | 親Arcadeサイトを作る | MVP設計, MVP実装, ローカルQA |
+| Phase 2: Cabinet 01 Integration | UP NEXT | Neon Core Survivorを統合 | 移植計画, ゲーム移植, QA/サムネイル |
+| Phase 3: Three-Cabinet Arcade | UP NEXT | 3ゲーム体制にする | Metro Mender, Specimen Night Shift, 3ゲームQA |
+| Phase 4: Public Release Prep | UP NEXT | 人に見せられる形にする | 公開準備, GitHub Pages, 文言/安全確認 |
+| Phase 5: Semi-Automated Operation | UP NEXT | 半自動で追加運用する | Agentフロー試運転, 新作追加試運転, リリースループ |
+| Phase 6: Agent Company Rhythm | UP NEXT | AI会社っぽく定期運用する | 週次レビュー, 分析/マーケレポート, 改善バックログ |
+| Phase 7: Monetization Experiments | UP NEXT | 収益化を小さく検討する | 収益化リサーチ, 低リスク実験案, Policy & Safety確認 |
 
 ## Status Key
 
@@ -29,12 +68,6 @@ Currently active. Multiple workstreams may be active at the same time.
 
 UP NEXT
 Not active yet, but planned.
-```
-
-Current position:
-
-```txt
-Phase 1 Sprint 1/3 - Arcade MVP Design
 ```
 
 ## Phase 0: Company Foundation

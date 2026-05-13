@@ -40,3 +40,4 @@ This file records decisions made in the Codex Arcade headquarters chat.
 - Arcade MVP implementation should wait until the minimum parent site design is reviewed.
 - The roadmap should show a table with phases as rows and sprints as columns so humans can quickly see CLEARED, IN PLAY, and UP NEXT work.
 - The roadmap board was changed to a left-to-right phase table so it feels like progression across the whole project.
+- The wide phase table was replaced with a Mermaid left-to-right timeline plus a compact current board because the table was too hard to read.
