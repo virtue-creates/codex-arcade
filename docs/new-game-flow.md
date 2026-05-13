@@ -69,3 +69,18 @@ Update:
 
 Create a Git branch, commit, review, merge, and publish through GitHub Pages.
 
+## Headquarters Documentation Updates
+
+When this flow changes, update the project documents before or alongside implementation.
+
+Recommended update targets:
+
+- `PROJECT-RULES.md` for global rules
+- `docs/decision-log.md` for decisions
+- `docs/game-interface.md` for game requirements
+- `docs/games-manifest.md` for manifest fields
+- `docs/qa-checklist.md` for QA changes
+- `docs/agent-workflows.md` for automation roles
+
+The headquarters chat should explain which files will change before editing them.
+

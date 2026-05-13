@@ -117,3 +117,48 @@ A human should approve:
 - Any payment, wallet, crypto, reward, or ranking-prize feature
 - Anything with copyright, trademark, legal, or safety risk
 
+## Headquarters Documentation Practice
+
+When the headquarters chat makes a decision, the decision should be reflected in project documents.
+
+Recommended flow:
+
+1. Discuss freely in the headquarters chat.
+2. Identify what became a decision.
+3. Name the documents that should be updated.
+4. Get human approval before editing.
+5. Update the Markdown files.
+6. Commit the changes to Git.
+7. Push or publish through GitHub Desktop or Git.
+
+Update documents when decisions affect:
+
+- Folder structure
+- Game rules
+- Manifest fields
+- Credit policy
+- Device support
+- QA process
+- Agent roles
+- Release process
+- Human approval points
+
+Do not document every rough idea. Keep undecided ideas in chat until they become a clear direction.
+
+## Agent Instruction Files
+
+Agent-facing instructions should live in:
+
+```txt
+agents/
+```
+
+Game chats can be told to read one of these files instead of receiving a long prompt every time.
+
+Example:
+
+```txt
+/Users/ogawakenji/Desktop/codex-arcade/agents/producer-agent.md を読んで、
+Producer Agentとしてゲーム企画案だけを出してください。
+まだ実装やファイル作成はしないでください。
+```

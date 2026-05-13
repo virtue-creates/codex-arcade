@@ -2,6 +2,22 @@
 
 Paste this into each game chat before implementation.
 
+## Short Agent-Based Version
+
+If the game chat can read local files, use this shorter prompt:
+
+```txt
+Codex Arcadeの新作ゲーム企画を進めます。
+まず以下を読んでください。
+
+/Users/ogawakenji/Desktop/codex-arcade/agents/producer-agent.md
+
+まだ実装やファイル作成はしないでください。
+Producer Agentとして、指定フォーマットで企画案だけを出してください。
+```
+
+## Full Paste Version
+
 ```txt
 Codex Arcadeに追加する小型Webゲームの企画を作ってください。
 まだ実装やファイル作成はしないでください。
@@ -38,4 +54,3 @@ Codex Arcadeの共通ルール:
 - required files later:
 - manifest draft:
 ```
-
