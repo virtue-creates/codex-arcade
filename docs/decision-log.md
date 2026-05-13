@@ -38,3 +38,4 @@ This file records decisions made in the Codex Arcade headquarters chat.
 - Phase 0 was treated as cleared after the foundation, company model, cabinet pipeline, monetization, and scheduling documents were established.
 - Phase 1 Sprint 1/3: Arcade MVP Design started.
 - Arcade MVP implementation should wait until the minimum parent site design is reviewed.
+- The roadmap should show a table with phases as rows and sprints as columns so humans can quickly see CLEARED, IN PLAY, and UP NEXT work.

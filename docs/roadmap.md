@@ -4,6 +4,40 @@ Codex Arcade uses phases to keep the project understandable.
 
 The goal is to grow from a planning folder into an AI-agent-operated arcade studio.
 
+## Roadmap Board
+
+This is the first place to look when asking "where are we now?"
+
+| Phase | Sprint 1 | Sprint 2 | Sprint 3 | Sprint 4 |
+| --- | --- | --- | --- | --- |
+| Phase 0: Company Foundation | CLEARED: Headquarters Setup | CLEARED: AI Studio Company Model | CLEARED: Scheduling and Project OS | CLEARED: Phase 1 Readiness Check |
+| Phase 1: Arcade MVP | IN PLAY: Arcade MVP Design | UP NEXT: Arcade MVP Implementation | UP NEXT: Local QA and Polish |  |
+| Phase 2: Cabinet 01 Integration | UP NEXT: Migration Plan | UP NEXT: Import Game Files | UP NEXT: QA and Thumbnail |  |
+| Phase 3: Three-Cabinet Arcade | UP NEXT: Metro Mender | UP NEXT: Specimen Night Shift | UP NEXT: Three-Cabinet QA |  |
+| Phase 4: Public Release Preparation | UP NEXT: Release Readiness | UP NEXT: GitHub Pages | UP NEXT: Public Copy and Safety Review |  |
+| Phase 5: Semi-Automated Operation | UP NEXT: Agent Workflow Trial | UP NEXT: New Game Addition Trial | UP NEXT: Release Loop Trial |  |
+| Phase 6: Agent Company Rhythm | UP NEXT: Weekly Review Rhythm | UP NEXT: Analytics and Marketing Reports | UP NEXT: Improvement Backlog Loop |  |
+| Phase 7: Monetization Experiments | UP NEXT: Monetization Research | UP NEXT: Low-Risk Experiment Proposal | UP NEXT: Policy & Safety Review |  |
+
+## Status Key
+
+```txt
+CLEARED
+Finished.
+
+IN PLAY
+Currently active. Multiple workstreams may be active at the same time.
+
+UP NEXT
+Not active yet, but planned.
+```
+
+Current position:
+
+```txt
+Phase 1 Sprint 1/3 - Arcade MVP Design
+```
+
 ## Phase 0: Company Foundation
 
 Status: cleared

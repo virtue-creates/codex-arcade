@@ -48,3 +48,5 @@ Current recommended build order:
 Current Position: Phase 1 Sprint 1/3 - Arcade MVP Design
 Next Position: Phase 1 Sprint 2/3 - Arcade MVP Implementation
 ```
+
+See `docs/roadmap.md` for the full roadmap board.

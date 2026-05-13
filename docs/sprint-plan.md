@@ -4,6 +4,28 @@ Codex Arcade uses lightweight sprints.
 
 A sprint is a short work unit inside a phase. It may be time-based or deliverable-based, but it should have a clear outcome.
 
+## Current Board
+
+This is the quick human-readable view.
+
+```txt
+Current Position:
+Phase 1 Sprint 1/3 - Arcade MVP Design
+
+CLEARED
+- Phase 0 Sprint 1/4: Headquarters Setup
+- Phase 0 Sprint 2/4: AI Studio Company Model
+- Phase 0 Sprint 3/4: Scheduling and Project Operating System
+- Phase 0 Sprint 4/4: Phase 1 Readiness Check
+
+IN PLAY
+- Phase 1 Sprint 1/3: Arcade MVP Design
+
+UP NEXT
+- Phase 1 Sprint 2/3: Arcade MVP Implementation
+- Phase 1 Sprint 3/3: Local QA and Polish
+```
+
 ## Status Terms
 
 Codex Arcade uses arcade-like status terms.
