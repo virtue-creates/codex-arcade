@@ -8,6 +8,8 @@ A sprint is a short work unit inside a phase. It may be time-based or deliverabl
 
 This is the quick human-readable view.
 
+The full roadmap moves left to right in `docs/roadmap.md`.
+
 ```txt
 Current Position:
 Phase 1 Sprint 1/3 - Arcade MVP Design

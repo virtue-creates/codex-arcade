@@ -8,16 +8,15 @@ The goal is to grow from a planning folder into an AI-agent-operated arcade stud
 
 This is the first place to look when asking "where are we now?"
 
-| Phase | Sprint 1 | Sprint 2 | Sprint 3 | Sprint 4 |
-| --- | --- | --- | --- | --- |
-| Phase 0: Company Foundation | CLEARED: Headquarters Setup | CLEARED: AI Studio Company Model | CLEARED: Scheduling and Project OS | CLEARED: Phase 1 Readiness Check |
-| Phase 1: Arcade MVP | IN PLAY: Arcade MVP Design | UP NEXT: Arcade MVP Implementation | UP NEXT: Local QA and Polish |  |
-| Phase 2: Cabinet 01 Integration | UP NEXT: Migration Plan | UP NEXT: Import Game Files | UP NEXT: QA and Thumbnail |  |
-| Phase 3: Three-Cabinet Arcade | UP NEXT: Metro Mender | UP NEXT: Specimen Night Shift | UP NEXT: Three-Cabinet QA |  |
-| Phase 4: Public Release Preparation | UP NEXT: Release Readiness | UP NEXT: GitHub Pages | UP NEXT: Public Copy and Safety Review |  |
-| Phase 5: Semi-Automated Operation | UP NEXT: Agent Workflow Trial | UP NEXT: New Game Addition Trial | UP NEXT: Release Loop Trial |  |
-| Phase 6: Agent Company Rhythm | UP NEXT: Weekly Review Rhythm | UP NEXT: Analytics and Marketing Reports | UP NEXT: Improvement Backlog Loop |  |
-| Phase 7: Monetization Experiments | UP NEXT: Monetization Research | UP NEXT: Low-Risk Experiment Proposal | UP NEXT: Policy & Safety Review |  |
+The project moves from left to right.
+
+|  | Phase 0<br>Company Foundation | Phase 1<br>Arcade MVP | Phase 2<br>Cabinet 01 Integration | Phase 3<br>Three-Cabinet Arcade | Phase 4<br>Public Release Prep | Phase 5<br>Semi-Automated Operation | Phase 6<br>Agent Company Rhythm | Phase 7<br>Monetization Experiments |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Purpose | 会社の土台づくり | 親Arcadeサイトを作る | Cabinet 01を統合 | 3ゲーム体制にする | 人に見せられる形にする | 半自動で追加運用する | AI会社っぽく定期運用する | 収益化を小さく検討する |
+| Sprint 1 | CLEARED<br>本部フォルダとGitHub | IN PLAY<br>Arcade MVP設計 | UP NEXT<br>移植計画 | UP NEXT<br>Metro Mender | UP NEXT<br>公開準備 | UP NEXT<br>Agentフロー試運転 | UP NEXT<br>週次レビュー | UP NEXT<br>収益化リサーチ |
+| Sprint 2 | CLEARED<br>会社モデルと部署 | UP NEXT<br>Arcade MVP実装 | UP NEXT<br>ゲームファイル移植 | UP NEXT<br>Specimen Night Shift | UP NEXT<br>GitHub Pages | UP NEXT<br>新作追加試運転 | UP NEXT<br>分析/マーケレポート | UP NEXT<br>低リスク実験案 |
+| Sprint 3 | CLEARED<br>進行管理の仕組み | UP NEXT<br>ローカルQAと調整 | UP NEXT<br>QAとサムネイル | UP NEXT<br>3ゲームQA | UP NEXT<br>公開文言/安全確認 | UP NEXT<br>リリースループ試運転 | UP NEXT<br>改善バックログ運用 | UP NEXT<br>Policy & Safety確認 |
+| Sprint 4 | CLEARED<br>Phase 1準備確認 |  |  |  |  |  |  |  |
 
 ## Status Key
 
