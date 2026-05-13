@@ -29,6 +29,8 @@ No game implementation is required yet. The immediate goal is to make the projec
 6. `docs/company-model.md`
 7. `docs/marketing-strategy.md`
 8. `docs/business-and-monetization.md`
+9. `docs/roadmap.md`
+10. `docs/sprint-plan.md`
 
 ## Current Cabinet Candidates
 
@@ -39,3 +41,11 @@ Current recommended build order:
 1. `neon-core-survivor`
 2. `metro-mender`
 3. `specimen-night-shift`
+
+## Current Project Status
+
+```txt
+Current Phase: Phase 0 - Company Foundation
+Current Sprint: Sprint 003 - Scheduling and Project Operating System
+Next Sprint: Sprint 004 - Arcade MVP Design
+```

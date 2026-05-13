@@ -185,3 +185,28 @@ docs/analytics-plan.md
 docs/privacy-and-safety.md
 docs/business-and-monetization.md
 ```
+
+## Scheduling Practice
+
+Codex Arcade uses phases and lightweight sprints.
+
+Phases describe the broad stage of the project.
+
+Sprints describe the current short work unit.
+
+See:
+
+```txt
+docs/roadmap.md
+docs/sprint-plan.md
+docs/backlog.md
+```
+
+Before starting a new implementation sprint, the headquarters chat should confirm:
+
+- Current phase
+- Current sprint
+- Goal
+- Done criteria
+- Human approval points
+- Documents that may need updates

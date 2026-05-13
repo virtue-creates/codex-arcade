@@ -26,3 +26,6 @@ This file records decisions made in the Codex Arcade headquarters chat.
 - Analytics should not be added immediately; first document measurement goals and privacy guardrails.
 - Business & Monetization was added as a department to explore support, sponsorship, ads, production logs, education, premium features, future paid credits, and wallet experiments.
 - Monetization should begin with research and low-risk options. Arcade Credits and real revenue must remain separate.
+- Codex Arcade adopted a phase and lightweight sprint planning model.
+- Current project position is Phase 0: Company Foundation, Sprint 003: Scheduling and Project Operating System.
+- Next planned sprint is Sprint 004: Arcade MVP Design.
