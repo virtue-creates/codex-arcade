@@ -35,8 +35,8 @@ This means the project is in Phase 0, working on the 4th sprint out of 4 planned
 ## Current Position
 
 ```txt
-Current Position: Phase 0 Sprint 4/4 - Phase 1 Readiness Check
-Next Position: Phase 1 Sprint 1/3 - Arcade MVP Design
+Current Position: Phase 1 Sprint 1/3 - Arcade MVP Design
+Next Position: Phase 1 Sprint 2/3 - Arcade MVP Implementation
 ```
 
 ## Phase 0 Progress Board
@@ -71,29 +71,15 @@ Outcome:
 - Added `docs/backlog.md`.
 - Added phase and sprint planning rules.
 
-## IN PLAY
-
 ## Phase 0 Sprint 4/4: Phase 1 Readiness Check
 
-Goal:
+Outcome:
 
-```txt
-Confirm the project is ready to move from company foundation into Arcade MVP design.
-```
+- Confirmed Phase 0 progress board.
+- Confirmed Phase 1 entry path.
+- Confirmed that implementation should wait until Arcade MVP design is reviewed.
 
-Active workstreams:
-
-- Confirm Phase 0 progress board.
-- Confirm Phase 1 entry criteria.
-- Confirm Arcade MVP design scope.
-- Confirm human approval points before creating web app files.
-
-Done when:
-
-- Phase 0 can be marked complete.
-- Phase 1 Sprint 1/3 can begin cleanly.
-
-## UP NEXT
+## IN PLAY
 
 ## Phase 1 Sprint 1/3: Arcade MVP Design
 
@@ -103,13 +89,37 @@ Goal:
 Design the minimum parent arcade before implementation.
 ```
 
-Planned workstreams:
+Active workstreams:
 
-- Confirm folder structure for the web app.
+- Define minimum parent folder structure.
 - Define initial `games.json`.
 - Define initial credit UI.
 - Define initial game card UI.
-- Define what is required before creating `index.html`, `styles.css`, and `arcade.js`.
+- Define implementation approval points.
+
+Done when:
+
+- Arcade MVP design is documented.
+- Human approves creating parent web app files.
+
+## UP NEXT
+
+## Phase 1 Sprint 2/3: Arcade MVP Implementation
+
+Goal:
+
+```txt
+Create the first parent web app files.
+```
+
+Planned workstreams:
+
+- Create `index.html`.
+- Create `styles.css`.
+- Create `arcade.js`.
+- Create `games.json`.
+- Render cabinet cards.
+- Add MVP credit flow.
 
 Human approval needed before:
 
@@ -124,4 +134,3 @@ Phase 1 Sprint 1/3: Arcade MVP Design
 Phase 1 Sprint 2/3: Arcade MVP Implementation
 Phase 1 Sprint 3/3: Local QA and Polish
 ```
-

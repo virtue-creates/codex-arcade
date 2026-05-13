@@ -32,3 +32,9 @@ This file records decisions made in the Codex Arcade headquarters chat.
 - `IN PLAY` may contain multiple parallel workstreams because parallel AI department work is part of the project concept.
 - Current project position is Phase 0 Sprint 4/4: Phase 1 Readiness Check.
 - Next planned sprint is Phase 1 Sprint 1/3: Arcade MVP Design.
+
+## 2026-05-14
+
+- Phase 0 was treated as cleared after the foundation, company model, cabinet pipeline, monetization, and scheduling documents were established.
+- Phase 1 Sprint 1/3: Arcade MVP Design started.
+- Arcade MVP implementation should wait until the minimum parent site design is reviewed.

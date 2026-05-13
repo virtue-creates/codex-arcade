@@ -6,7 +6,7 @@ The goal is to grow from a planning folder into an AI-agent-operated arcade stud
 
 ## Phase 0: Company Foundation
 
-Status: in progress
+Status: cleared
 
 Purpose:
 
@@ -43,15 +43,18 @@ CLEARED
 - Marketing and analytics direction
 - Monetization department
 - Scheduling docs
-
-IN PLAY
 - Phase 1 readiness check
 
-UP NEXT
+IN PLAY
 - Phase 1 Sprint 1/3 - Arcade MVP Design
+
+UP NEXT
+- Phase 1 Sprint 2/3 - Arcade MVP Implementation
 ```
 
 ## Phase 1: Arcade MVP
+
+Status: in play
 
 Purpose:
 
