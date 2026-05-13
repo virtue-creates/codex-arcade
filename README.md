@@ -26,3 +26,12 @@ No game implementation is required yet. The immediate goal is to make the projec
 4. `docs/game-interface.md`
 5. `docs/qa-checklist.md`
 
+## Current Cabinet Candidates
+
+See `docs/game-pipeline.md`.
+
+Current recommended build order:
+
+1. `neon-core-survivor`
+2. `metro-mender`
+3. `specimen-night-shift`
