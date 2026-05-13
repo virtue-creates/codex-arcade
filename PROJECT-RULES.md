@@ -194,6 +194,25 @@ Phases describe the broad stage of the project.
 
 Sprints describe the current short work unit.
 
+Sprint labels should use this style:
+
+```txt
+Phase 0 Sprint 4/4
+```
+
+The project uses three progress terms:
+
+```txt
+CLEARED
+Completed work.
+
+IN PLAY
+Active work. Multiple parallel workstreams are allowed because Codex Arcade is an AI-agent company.
+
+UP NEXT
+Work that is close, but not active yet.
+```
+
 See:
 
 ```txt

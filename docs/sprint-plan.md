@@ -2,19 +2,48 @@
 
 Codex Arcade uses lightweight sprints.
 
-A sprint is a short work unit with a clear outcome. It may be time-based or deliverable-based.
+A sprint is a short work unit inside a phase. It may be time-based or deliverable-based, but it should have a clear outcome.
 
-## Current Status
+## Status Terms
+
+Codex Arcade uses arcade-like status terms.
 
 ```txt
-Current Phase: Phase 0 - Company Foundation
-Current Sprint: Sprint 003 - Scheduling and Project Operating System
-Next Sprint: Sprint 004 - Arcade MVP Design
+CLEARED
+Completed work. These are wins the project has already unlocked.
+
+IN PLAY
+Active work. Multiple parallel workstreams are allowed.
+This is intentional because Codex Arcade is operated like an AI-agent company.
+
+UP NEXT
+Work that is close, but not active yet.
 ```
 
-## Completed Sprints
+## Sprint Numbering
 
-## Sprint 001: Headquarters Setup
+Sprint labels use the phase number and the sprint position inside that phase.
+
+Example:
+
+```txt
+Phase 0 Sprint 4/4
+```
+
+This means the project is in Phase 0, working on the 4th sprint out of 4 planned Phase 0 sprints.
+
+## Current Position
+
+```txt
+Current Position: Phase 0 Sprint 4/4 - Phase 1 Readiness Check
+Next Position: Phase 1 Sprint 1/3 - Arcade MVP Design
+```
+
+## Phase 0 Progress Board
+
+## CLEARED
+
+## Phase 0 Sprint 1/4: Headquarters Setup
 
 Outcome:
 
@@ -23,7 +52,7 @@ Outcome:
 - Initialized Git.
 - Connected GitHub.
 
-## Sprint 002: AI Studio Company Model
+## Phase 0 Sprint 2/4: AI Studio Company Model
 
 Outcome:
 
@@ -33,33 +62,40 @@ Outcome:
 - Added privacy and safety direction.
 - Added monetization department.
 
-## Active Sprint
+## Phase 0 Sprint 3/4: Scheduling and Project Operating System
 
-## Sprint 003: Scheduling and Project Operating System
+Outcome:
+
+- Added `docs/roadmap.md`.
+- Added `docs/sprint-plan.md`.
+- Added `docs/backlog.md`.
+- Added phase and sprint planning rules.
+
+## IN PLAY
+
+## Phase 0 Sprint 4/4: Phase 1 Readiness Check
 
 Goal:
 
 ```txt
-Make the project easier to run by adding roadmap, sprint planning, and backlog documents.
+Confirm the project is ready to move from company foundation into Arcade MVP design.
 ```
 
-Tasks:
+Active workstreams:
 
-- Add `docs/roadmap.md`.
-- Add `docs/sprint-plan.md`.
-- Add `docs/backlog.md`.
-- Update project rules.
-- Update decision log.
+- Confirm Phase 0 progress board.
+- Confirm Phase 1 entry criteria.
+- Confirm Arcade MVP design scope.
+- Confirm human approval points before creating web app files.
 
 Done when:
 
-- Phases are documented.
-- Current sprint and next sprint are clear.
-- Future ideas have a backlog home.
+- Phase 0 can be marked complete.
+- Phase 1 Sprint 1/3 can begin cleanly.
 
-## Next Sprint
+## UP NEXT
 
-## Sprint 004: Arcade MVP Design
+## Phase 1 Sprint 1/3: Arcade MVP Design
 
 Goal:
 
@@ -67,7 +103,7 @@ Goal:
 Design the minimum parent arcade before implementation.
 ```
 
-Planned tasks:
+Planned workstreams:
 
 - Confirm folder structure for the web app.
 - Define initial `games.json`.
@@ -80,4 +116,12 @@ Human approval needed before:
 - Creating parent web app files.
 - Moving or importing game code.
 - Publishing a public site.
+
+## Phase 1 Planned Sprints
+
+```txt
+Phase 1 Sprint 1/3: Arcade MVP Design
+Phase 1 Sprint 2/3: Arcade MVP Implementation
+Phase 1 Sprint 3/3: Local QA and Polish
+```
 

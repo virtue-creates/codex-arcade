@@ -27,5 +27,8 @@ This file records decisions made in the Codex Arcade headquarters chat.
 - Business & Monetization was added as a department to explore support, sponsorship, ads, production logs, education, premium features, future paid credits, and wallet experiments.
 - Monetization should begin with research and low-risk options. Arcade Credits and real revenue must remain separate.
 - Codex Arcade adopted a phase and lightweight sprint planning model.
-- Current project position is Phase 0: Company Foundation, Sprint 003: Scheduling and Project Operating System.
-- Next planned sprint is Sprint 004: Arcade MVP Design.
+- Sprint labels should use `Phase N Sprint X/Y` so the current position is easy to understand.
+- Progress boards use `CLEARED`, `IN PLAY`, and `UP NEXT`.
+- `IN PLAY` may contain multiple parallel workstreams because parallel AI department work is part of the project concept.
+- Current project position is Phase 0 Sprint 4/4: Phase 1 Readiness Check.
+- Next planned sprint is Phase 1 Sprint 1/3: Arcade MVP Design.

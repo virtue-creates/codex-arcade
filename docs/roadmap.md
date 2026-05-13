@@ -32,6 +32,25 @@ Done when:
 - GitHub repository is connected.
 - Next build phase is clear.
 
+Progress board:
+
+```txt
+CLEARED
+- Headquarters setup
+- GitHub connection
+- Initial cabinet lineup
+- Company model
+- Marketing and analytics direction
+- Monetization department
+- Scheduling docs
+
+IN PLAY
+- Phase 1 readiness check
+
+UP NEXT
+- Phase 1 Sprint 1/3 - Arcade MVP Design
+```
+
 ## Phase 1: Arcade MVP
 
 Purpose:
@@ -56,6 +75,14 @@ Done when:
 - The arcade opens locally in a browser.
 - Game cards can be rendered from a manifest.
 - The site is ready to register the first game.
+
+Planned sprints:
+
+```txt
+Phase 1 Sprint 1/3: Arcade MVP Design
+Phase 1 Sprint 2/3: Arcade MVP Implementation
+Phase 1 Sprint 3/3: Local QA and Polish
+```
 
 ## Phase 2: Cabinet 01 Integration
 
@@ -194,4 +221,3 @@ Done when:
 
 - A low-risk monetization experiment is selected or consciously deferred.
 - Policy & Safety has reviewed the idea.
-
