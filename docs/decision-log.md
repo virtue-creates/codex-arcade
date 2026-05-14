@@ -46,3 +46,5 @@ This file records decisions made in the Codex Arcade headquarters chat.
 - Cabinet 01 decisions: copy existing standalone files during Phase 2, keep desktop-only MVP support, use `../../index.html` for BACK TO ARCADE, keep `supportsPostMessage: false`, use an in-game screenshot thumbnail, and register parent status as `prototype`.
 - Cabinet 02 MVP reduction was received from the Metro Mender chat and recorded in `docs/cabinet-02-mvp-plan.md`.
 - Cabinet 02 decisions: keep it planned for Phase 3, register as `concept` during Phase 1, use 90-150 second sessions, keep `supportsPostMessage: false`, use game UI screenshot thumbnails, and mark mobile as not recommended.
+- Cabinet 03 MVP reduction was received from the Specimen Night Shift chat and recorded in `docs/cabinet-03-mvp-plan.md`.
+- Cabinet 03 decisions: keep `specimen-night-shift` as the gameId, register as `concept` during Phase 1, keep desktop/tablet targets with mobile unsupported initially, use 60-second sessions, keep `supportsPostMessage: false`, and do not start implementation during Phase 1.

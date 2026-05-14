@@ -101,6 +101,10 @@ MVP guardrails:
 - Start with 3 insects and a small number of pins.
 - Keep cause and effect readable.
 
+MVP plan:
+
+- See `docs/cabinet-03-mvp-plan.md`.
+
 ## Current Recommended Build Order
 
 1. `neon-core-survivor`
