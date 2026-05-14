@@ -66,3 +66,6 @@ This file records decisions made in the Codex Arcade headquarters chat.
 - Game descriptions shown in the parent arcade were changed to Japanese, while arcade/system labels can remain in English where they support the atmosphere.
 - Human review of Cabinet Row Shell v2 found it improved but still visually close to v1, so Phase 1 Sprint 2/3 added a bolder v3 prototype direction.
 - Arcade Room Prototype v3 was created as a comparison candidate that treats the top page as a night arcade room rather than a game list.
+- Design versions are now discussed separately from roadmap versions, for example `Roadmap v0.7 / Design v3`.
+- Local design comparison ports were normalized for human review: Design v1 on `8081`, Design v2 on `8082`, and Design v3 on `8083`.
+- Design v3 added an initial INSERT COIN ritual: coin slot display, credit consumption on insert, cabinet wake animation, and `PRESS PLAY` state.
