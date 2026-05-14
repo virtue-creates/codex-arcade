@@ -186,3 +186,26 @@ Impact:
 
 - Future department prompts should emphasize specialty, disagreement, alternatives, risks, and tradeoffs.
 - Automation is framed as a way to improve speed and quality of co-creation, not as removal of human judgment.
+
+## Design History Practice
+
+Date:
+
+```txt
+2026-05-15
+```
+
+What changed:
+
+- Added `docs/design-history.md`.
+- Decided not to duplicate old HTML/CSS/JS snapshots for now.
+- Decided that Git keeps code history, while `design-history.md` records human-readable design evolution.
+
+Why:
+
+- The project should preserve the process of making an AI-agent arcade company, including design changes and human feedback.
+- Duplicating old HTML files could make the repository confusing.
+
+Impact:
+
+- Future major visual states should be recorded in Japanese in `docs/design-history.md`.
