@@ -45,14 +45,10 @@ function getCredits() {
 function setCredits(value) {
   localStorage.setItem(CREDIT_STORAGE_KEY, String(value));
   creditCount.textContent = String(value).padStart(2, "0");
-  creditCount.classList.remove("tick");
-  requestAnimationFrame(() => creditCount.classList.add("tick"));
 }
 
 function addFreeCoins() {
   setCredits(getCredits() + FREE_COIN_AMOUNT);
-  freeCoinButton.classList.remove("pulse");
-  requestAnimationFrame(() => freeCoinButton.classList.add("pulse"));
 }
 
 function canPlay(game) {
@@ -60,27 +56,18 @@ function canPlay(game) {
 }
 
 function launchGame(game) {
+  const credits = getCredits();
+
+  if (credits < game.creditCost) {
+    addFreeCoins();
+    return;
+  }
+
+  setCredits(credits - game.creditCost);
   const launchUrl = new URL(game.path, window.location.href);
   launchUrl.searchParams.set("from", "arcade");
   launchUrl.searchParams.set("credit", String(game.creditCost));
   window.location.href = launchUrl.toString();
-}
-
-function flashNeedsCredit(button) {
-  button.textContent = "CREDITを受け取ってください";
-  button.classList.add("needs-credit");
-  setTimeout(() => {
-    button.textContent = "INSERT COIN";
-    button.classList.remove("needs-credit");
-  }, 1100);
-}
-
-function runCoinInsertEffect(cabinet) {
-  cabinet.classList.remove("coin-drop", "credit-ready");
-  void cabinet.offsetWidth;
-  cabinet.classList.add("coin-drop", "credit-ready");
-
-  setTimeout(() => cabinet.classList.remove("coin-drop"), 900);
 }
 
 function createTag(label) {
@@ -139,14 +126,9 @@ function renderGameCard(game, index) {
     button.addEventListener("click", () => {
       if (!creditReady) {
         if (getCredits() < game.creditCost) {
-          flashNeedsCredit(button);
-          freeCoinButton.classList.add("attention");
-          setTimeout(() => freeCoinButton.classList.remove("attention"), 1200);
-          return;
+          addFreeCoins();
         }
 
-        setCredits(getCredits() - game.creditCost);
-        runCoinInsertEffect(cabinet);
         creditReady = true;
         button.textContent = "PRESS PLAY";
         button.classList.add("ready");
