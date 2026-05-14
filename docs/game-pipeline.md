@@ -68,6 +68,10 @@ MVP guardrails:
 - Prefer click-to-repair over deep route simulation.
 - Make first-time goals visually obvious.
 
+MVP plan:
+
+- See `docs/cabinet-02-mvp-plan.md`.
+
 ## Cabinet 03: Specimen Night Shift
 
 ```txt

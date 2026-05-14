@@ -44,3 +44,5 @@ This file records decisions made in the Codex Arcade headquarters chat.
 - Roadmap structure was clarified into three layers: Roadmap Board for the whole project, Phase Board for a selected phase, and Current Board for only the active phase.
 - Cabinet 01 integration preparation was received from the Neon Core Survivor chat and recorded in `docs/cabinet-01-integration-plan.md`.
 - Cabinet 01 decisions: copy existing standalone files during Phase 2, keep desktop-only MVP support, use `../../index.html` for BACK TO ARCADE, keep `supportsPostMessage: false`, use an in-game screenshot thumbnail, and register parent status as `prototype`.
+- Cabinet 02 MVP reduction was received from the Metro Mender chat and recorded in `docs/cabinet-02-mvp-plan.md`.
+- Cabinet 02 decisions: keep it planned for Phase 3, register as `concept` during Phase 1, use 90-150 second sessions, keep `supportsPostMessage: false`, use game UI screenshot thumbnails, and mark mobile as not recommended.
