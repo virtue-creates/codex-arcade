@@ -35,6 +35,10 @@ MVP guardrails:
 - Avoid boss waves in the first integration.
 - Prioritize readable action, retry, result screen, and BACK TO ARCADE.
 
+Integration plan:
+
+- See `docs/cabinet-01-integration-plan.md`.
+
 ## Cabinet 02: Metro Mender
 
 ```txt
@@ -104,4 +108,3 @@ Reason:
 - Start with the clearest arcade action game.
 - Then add a thinking puzzle cabinet.
 - Then add a more distinctive, atmospheric cabinet.
-
