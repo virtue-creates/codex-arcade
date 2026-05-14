@@ -60,3 +60,7 @@ This file records decisions made in the Codex Arcade headquarters chat.
 - Human-agent collaboration policy was added: agent outputs are drafts and inputs, not decisions. Headquarters should distinguish human-originated ideas, agent-drafted input, co-developed ideas, risks, alternatives, tradeoffs, and final decisions.
 - Department operating model was added. Codex Arcade社 is currently defined as a human + AI department co-creation company, not a fully automatic company. Marketing leads strategy, Creative turns strategy into experience, and Headquarters organizes, decides, documents, and implements.
 - Design history practice was added. Git keeps HTML/CSS/JS history, while `docs/design-history.md` records human-readable design evolution in Japanese.
+- The public Arcade shell was redesigned from a dashboard/card feeling toward a Japanese-first Cabinet Row experience.
+- Public-facing Phase/Sprint/Current Board labels were removed from the top page.
+- The current public shell uses `INSERT COIN -> CREDIT READY -> PRESS PLAY` for playable cabinets and `COMING SOON` for concept cabinets.
+- Game descriptions shown in the parent arcade were changed to Japanese, while arcade/system labels can remain in English where they support the atmosphere.

@@ -13,7 +13,7 @@ const fallbackGames = [
     cabinet: "Cabinet 01",
     title: "Neon Core Survivor",
     description:
-      "A neon one-screen bullet-survivor where the player holds the arena for 180 seconds.",
+      "ネオンアリーナで180秒生き残る、1画面弾幕サバイバー。",
     status: "prototype",
     genre: ["survival", "bullet-hell", "arcade"],
     devices: ["desktop"],
@@ -24,6 +24,12 @@ const fallbackGames = [
     creditCost: 1
   }
 ];
+
+const statusLabels = {
+  prototype: "NOW PLAYABLE",
+  playable: "NOW PLAYABLE",
+  concept: "AGENTS TUNING"
+};
 
 function getCredits() {
   const stored = Number.parseInt(localStorage.getItem(CREDIT_STORAGE_KEY), 10);
@@ -71,28 +77,42 @@ function createTag(label) {
   return tag;
 }
 
+function getScreenState(game) {
+  if (canPlay(game)) {
+    return {
+      state: "CABINET ONLINE",
+      title: "INSERT COIN"
+    };
+  }
+
+  return {
+    state: "COMING SOON",
+    title: game.id === "metro-mender" ? "路線修復中" : "夜間展示準備中"
+  };
+}
+
 function renderGameCard(game, index) {
-  const card = cabinetCardTemplate.content.firstElementChild.cloneNode(true);
-  const image = card.querySelector("img");
-  const number = card.querySelector(".cabinet-number");
-  const status = card.querySelector(".cabinet-status");
-  const cost = card.querySelector(".cabinet-cost");
-  const title = card.querySelector("h3");
-  const description = card.querySelector(".cabinet-description");
-  const tagRow = card.querySelector(".tag-row");
-  const button = card.querySelector(".play-button");
+  const cabinet = cabinetCardTemplate.content.firstElementChild.cloneNode(true);
+  const number = cabinet.querySelector(".cabinet-number");
+  const status = cabinet.querySelector(".cabinet-status");
+  const screenState = cabinet.querySelector(".screen-state");
+  const screenTitle = cabinet.querySelector(".screen-overlay strong");
+  const cost = cabinet.querySelector(".cabinet-cost");
+  const signal = cabinet.querySelector(".cabinet-signal");
+  const title = cabinet.querySelector("h3");
+  const description = cabinet.querySelector(".cabinet-description");
+  const tagRow = cabinet.querySelector(".tag-row");
+  const button = cabinet.querySelector(".play-button");
+  const screen = getScreenState(game);
 
-  image.src = game.thumbnail || "";
-  image.alt = `${game.title} thumbnail`;
-  image.addEventListener("error", () => {
-    image.removeAttribute("src");
-    image.alt = "";
-  });
-
+  cabinet.classList.add(game.id, game.status);
   number.textContent = game.cabinet || `Cabinet ${String(index + 1).padStart(2, "0")}`;
-  status.textContent = game.status;
-  status.classList.add(game.status);
-  cost.textContent = `${game.creditCost} credit`;
+  status.textContent = statusLabels[game.status] || game.status;
+  screenState.textContent = screen.state;
+  screenTitle.textContent = screen.title;
+  cost.textContent = `${game.creditCost} CREDIT = 1 PLAY`;
+  signal.textContent = canPlay(game) ? "READY" : "STANDBY";
+  signal.classList.toggle("ready", canPlay(game));
   title.textContent = game.title;
   description.textContent = game.description;
 
@@ -101,14 +121,31 @@ function renderGameCard(game, index) {
   });
 
   if (canPlay(game)) {
-    button.textContent = "INSERT COIN / PLAY";
-    button.addEventListener("click", () => launchGame(game));
+    let creditReady = false;
+    button.textContent = "INSERT COIN";
+    button.addEventListener("click", () => {
+      if (!creditReady) {
+        if (getCredits() < game.creditCost) {
+          addFreeCoins();
+        }
+
+        creditReady = true;
+        button.textContent = "PRESS PLAY";
+        button.classList.add("ready");
+        screenState.textContent = "CREDIT READY";
+        screenTitle.textContent = "CABINET ONLINE";
+        signal.textContent = "ONLINE";
+        return;
+      }
+
+      launchGame(game);
+    });
   } else {
     button.textContent = "COMING SOON";
     button.disabled = true;
   }
 
-  return card;
+  return cabinet;
 }
 
 async function loadGames() {

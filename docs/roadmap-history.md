@@ -16,8 +16,8 @@ Use this for changes that affect:
 ## Current Version
 
 ```txt
-Roadmap Version: v0.6
-Last Updated: 2026-05-14
+Roadmap Version: v0.7
+Last Updated: 2026-05-15
 ```
 
 ## v0.1 - Headquarters Foundation
@@ -209,3 +209,32 @@ Why:
 Impact:
 
 - Future major visual states should be recorded in Japanese in `docs/design-history.md`.
+
+## v0.7 - Cabinet Row Shell Implementation
+
+Date:
+
+```txt
+2026-05-15
+```
+
+What changed:
+
+- Rebuilt the public Arcade MVP shell around a Cabinet Row experience.
+- Removed Phase/Sprint/Current Board labels from the public top page.
+- Changed visible copy to Japanese-first, with arcade terms like `CREDITS`, `INSERT COIN`, and `Cabinet` kept where useful.
+- Added a two-step playable cabinet flow: `INSERT COIN -> CREDIT READY -> PRESS PLAY`.
+- Changed concept cabinets into inactive/being-tuned cabinets rather than ordinary disabled cards.
+- Recorded the design state in `docs/design-history.md`.
+
+Why:
+
+- The first MVP shell worked structurally but felt too much like a web dashboard.
+- Human feedback clarified that the first public impression should be "online arcade" before "AI company".
+- The project needed an implemented design reference, not only a redesign brief.
+
+Impact:
+
+- Phase 1 Sprint 2/3 now has a concrete Cabinet Row shell for human review.
+- Sprint 3/3 can focus on local QA, visual adjustment, and readiness for Cabinet 01 integration.
+- Future Marketing/Creative review can critique an actual screen instead of only text direction.

@@ -5,8 +5,8 @@ Codex Arcade uses phases to keep the project understandable.
 The goal is to grow from a planning folder into an AI-agent-operated arcade studio.
 
 ```txt
-Current Roadmap Version: v0.6
-Last Updated: 2026-05-14
+Current Roadmap Version: v0.7
+Last Updated: 2026-05-15
 ```
 
 For major roadmap changes, see `docs/roadmap-history.md`.
@@ -67,7 +67,6 @@ CLEARED
 
 IN PLAY
 - Sprint 2/3: Arcade MVP実装
-- Marketing/Creative: ゲーセン感の再設計
 
 UP NEXT
 - Sprint 3/3: ローカルQAと調整
@@ -118,11 +117,11 @@ Purpose:
 IN PLAY:
 
 - Sprint 2/3: Arcade MVP実装
-- Marketing/Creative: ゲーセン感の再設計
 
 CLEARED:
 
 - Sprint 1/3: Arcade MVP設計
+- Marketing/Creative: ゲーセン感の再設計
 
 UP NEXT:
 
