@@ -1,93 +1,117 @@
 # Arcade Redesign Direction
 
-This document synthesizes the Marketing Agent and Creative Agent proposals after the first MVP shell review.
+このドキュメントは、最初のMVPシェル確認後に出た人間フィードバック、Marketing Agent案、Creative Agent案を本部で統合したもの。
 
-## Current Context
+## 現在地
 
 ```txt
 Phase 1 Sprint 2/3 - Arcade MVP Implementation
-Workstream: Marketing/Creative arcade-feeling redesign
+Workstream: Marketing/Creative ゲーセン感の再設計
 ```
 
-The first MVP shell works structurally, but the human feedback was clear:
+最初のMVPシェルは構造としては動いた。
+
+ただし、人間フィードバックは明確だった。
 
 ```txt
-It does not yet feel like an arcade.
+オンラインゲーセン感がない。
+ワクワクしない。
 ```
 
-## Shared Direction
+## User-Originated
 
-Marketing and Creative converge on this direction:
+人間から出た方向性:
+
+- 表向きはゲームセンター感を優先したい。
+- 日本語主軸 + アーケード用語は英語を試したい。
+- Phase / Sprint / Current Board は公開トップに出さない方がよい。
+- 3つのCabinetが並ぶこと自体はよい。
+- まだ遊べないCabinet 02/03を見せるのはよい。
+- 今の画面はカード型で、ゲーセン感がない。
+- 100円を入れて1プレイするような感覚を大事にしたい。
+- ただし、昔ながらのゲーセンをそのままコピーしたいわけではない。
+- マーケ/クリエイティブ担当を入れてブレストすべき。
+
+## Agent-Added
+
+Marketing Agent が追加した視点:
+
+- 「Codexが経営する少し未来の無人オンラインゲーセン」という方向。
+- 単なるゲーセン好き向けではなく、Codex / AIエージェント / 自動開発に興味がある人も初期ターゲット候補。
+- `AGENTS TUNING` など、未完成筐体を「裏でエージェントが準備している」状態として見せる案。
+- AI会社感は完全に隠さず、短い文言や状態表示でにじませる案。
+- 裏側の詳しい説明は `Behind the Arcade` / `運営室` / Devlog に分ける案。
+
+Creative Agent が追加した視点:
+
+- `Neon Cabinet Row` 案。
+- `Midnight Game Center` 案。
+- `Operator Console Arcade` 案。
+- 推奨は `Neon Cabinet Row + 少量の Operator Console 感`。
+- Cabinetをカードではなく、看板、画面、操作パネル、ステータスライトを持つ筐体として見せる案。
+- `INSERT COIN -> CREDIT READY -> PLAY` の段階体験。
+- Coming soon筐体を無効カードではなく、停止中/調整中の筐体として扱う案。
+
+## 本部の統合判断
+
+現時点の採用候補:
 
 ```txt
-Public surface:
-An online arcade where the player chooses a cabinet, inserts a credit, and starts one play.
-
-Behind the scenes:
-Codex agents and the human director operate the arcade as an AI-agent company.
+Neon Cabinet Row + 少量の Operator Console 感
 ```
 
-The public first screen should feel like an arcade first.
+意味:
 
-The AI-agent company story should be present as atmosphere or a secondary path, not as the first thing the player has to understand.
+- 最初に見えるのは筐体列。
+- Cabinet 01は起動中。
+- Cabinet 02/03は存在しているが、まだ調整中。
+- AIエージェント会社感は、メイン説明ではなく状態表示や裏導線でにじませる。
+- ダッシュボード感には戻さない。
 
-## Recommended Concept
+## 公開トップの方向
 
-Working concept:
+公開トップで優先すること:
 
-```txt
-Codexが経営する、少し未来の無人オンラインゲーセン。
-```
+- 何のゲームセンターか分かる。
+- どのCabinetが遊べるか分かる。
+- CREDITを入れて1 PLAYする感覚がある。
+- Cabinet 02/03も「これから増える」感じがある。
 
-English working phrase:
+公開トップで優先しないこと:
 
-```txt
-AI agents are setting up the cabinets.
-```
+- Phase
+- Sprint
+- Current Board
+- 詳細なAI部署説明
+- 開発工程
 
-This should not become a long technical explanation on the top screen.
+## コピー方向
 
-## Visual Direction
+日本語主軸。
 
-Recommended first visual direction:
+アーケード用語は英語で残してよい。
 
-```txt
-Neon Cabinet Row + small Operator Console details
-```
-
-Meaning:
-
-- The main screen should show cabinets, not generic cards.
-- Cabinet 01 should feel powered on.
-- Cabinet 02/03 should feel present but not yet playable.
-- Small status language can imply an automated arcade operation.
-- Avoid turning the UI back into a dashboard.
-
-## Public Copy Direction
-
-Japanese-first explanatory copy, with English arcade terms where useful.
-
-Possible top copy:
+候補:
 
 ```txt
 小さなWebゲームが並ぶ、オンラインゲーセン。
 ```
 
-Possible support copy:
+補助コピー候補:
 
 ```txt
 CREDITを入れて、起動中のCabinetを選んでください。
 ```
 
-Possible subtle agent-flavor copy:
+エージェント感を少しだけ出す候補:
 
 ```txt
 AI agents are setting up the cabinets.
 ```
 
-## Public UI Terms
+## UI用語候補
 
-Recommended terms:
+使ってよさそう:
 
 - CREDITS
 - INSERT COIN
@@ -100,12 +124,11 @@ Recommended terms:
 - AGENTS TUNING
 - COMING SOON
 
-Avoid:
+避けたい:
 
 - Phase
 - Sprint
 - Current Board
-- Development workflow
 - Purchase
 - Charge
 - Balance
@@ -113,66 +136,61 @@ Avoid:
 - Token
 - Reward
 - Prize
-- Cash-like language
+- 現金価値を連想させる表現
 
-## Cabinet Presentation
+## Cabinet表現
 
-Move away from "cards" and toward "cabinet selection."
+カードではなく、Cabinetとして見せる。
 
-Each cabinet should feel like it has:
+各Cabinetの構造:
 
-- Marquee / sign area
-- Screen / attract mode area
-- Control panel
-- Status light
+- marquee / 看板
+- screen / attract mode
+- control panel
+- status light
 
 Cabinet 01:
 
-- Powered on
+- 起動中
 - `INSERT COIN`
 - `1 CREDIT = 1 PLAY`
-- Can change to `CREDIT READY` or `CABINET ONLINE`
+- 状態変化: `CREDIT READY` / `CABINET ONLINE`
 
 Cabinet 02:
 
-- Not playable yet
-- Metro / route-map hint
-- Status such as `AGENTS TUNING` or `STANDBY`
+- まだ遊べない
+- Metro / route-map の気配
+- `AGENTS TUNING` または `STANDBY`
 
 Cabinet 03:
 
-- Not playable yet
-- Specimen-box / night-shift hint
-- Status such as `AGENTS TUNING` or `STANDBY`
+- まだ遊べない
+- 標本箱 / night shift の気配
+- `AGENTS TUNING` または `STANDBY`
 
-## Credits and INSERT COIN
+## Credit / INSERT COIN
 
-Recommended experience:
-
-```txt
-CREDITS shown as an arcade display.
-1 CREDIT = 1 PLAY.
-INSERT COIN changes the active cabinet state.
-Then PLAY launches the game.
-```
-
-For MVP, this can be simplified to:
+理想:
 
 ```txt
-INSERT COIN / PLAY
+CREDITSを見る
+-> Cabinet 01を選ぶ
+-> INSERT COIN
+-> Cabinetが起きる
+-> PLAY
 ```
 
-But the next visual iteration should move toward a two-step feeling:
+MVPでは簡略化してもよいが、次の見た目修正では二段階体験を意識する。
 
 ```txt
 INSERT COIN -> CREDIT READY -> PLAY
 ```
 
-## Coming Soon Treatment
+## Coming Soon
 
-Coming soon cabinets should not feel like disabled SaaS cards.
+Coming soonは、単なるdisabled cardにしない。
 
-Possible labels:
+候補:
 
 - AGENTS TUNING
 - STANDBY
@@ -180,52 +198,52 @@ Possible labels:
 - SETUP IN PROGRESS
 - COMING SOON
 
-Preferred direction:
+本部暫定:
 
 ```txt
-Use COMING SOON for clarity, plus a worldbuilding status such as AGENTS TUNING or STANDBY.
+COMING SOON は分かりやすさ用に残す。
+AGENTS TUNING / STANDBY は世界観用のサブ表示として使う。
 ```
 
-## AI-Agent Company Boundary
+## Risks / Concerns
 
-Show lightly:
+- AIエージェント感を出しすぎると、またゲーセンではなくダッシュボードに戻る。
+- 「自動で筐体が増える」と言いすぎると、現状より約束が強くなる。
+- ネオンを盛りすぎると凡庸なサイバーパンクUIになる。
+- 昔のゲーセンを直接模倣すると、古臭さや権利リスクが出る。
+- `AGENTS TUNING` は面白いが、初見で意味が分からない可能性がある。
+- `FREE COIN` は便利だが、ゲーセン演出としては少し軽く見える可能性がある。
 
-- Codex runs the arcade.
-- AI agents are setting up cabinets.
-- Next cabinets are being tuned.
+## Alternatives
 
-Do not show on the top arcade surface:
+まだ保留している別案:
 
-- Phase / Sprint
-- Current Board
-- Agent workflow details
-- Internal development language
+- `Midnight Game Center`
+  - 夜の小さなゲームセンター感を強める。
+  - 日本語主軸と相性がよいが、背景美術が重くなりやすい。
 
-Put deeper explanation in a later page or section:
-
-- Behind the Arcade
-- 運営室
-- Devlog
+- `Operator Console Arcade`
+  - AI運営感を強める。
+  - 独自性はあるが、やりすぎると管理画面っぽくなる。
 
 ## Recommended Next Implementation Changes
 
-Priority order:
+優先順位:
 
-1. Remove Phase / Sprint / Current Board from the public top page.
-2. Change English-heavy copy to Japanese-first arcade copy.
-3. Replace generic card grid feeling with cabinet-row presentation.
-4. Make credits feel like arcade credit display.
-5. Improve Cabinet 01's INSERT COIN / PLAY flow.
-6. Make Cabinet 02/03 feel like inactive cabinets, not disabled cards.
-7. Add subtle agent-operation flavor without making the page a dashboard.
-8. Keep AI-company details for a lower section or future Behind the Arcade page.
+1. Phase / Sprint / Current Board を公開トップから外す。
+2. 日本語主軸のコピーに変える。
+3. generic card grid から cabinet row へ寄せる。
+4. CREDITSを筐体風表示にする。
+5. Cabinet 01の `INSERT COIN / PLAY` 感を強める。
+6. Cabinet 02/03を停止中筐体として見せる。
+7. AI agents感は軽くにじませる。
+8. AI会社の詳しい説明は下部または将来の `Behind the Arcade` に回す。
 
-## Headquarters Questions To Resolve
+## 本部でまだ確認すること
 
-1. Should the top visual direction be `Neon Cabinet Row + small Operator Console details`?
-2. Should the top copy use `小さなWebゲームが並ぶ、オンラインゲーセン。` as the first Japanese line?
-3. Should the public page hide Phase/Sprint immediately?
-4. Should `AGENTS TUNING` be used for concept cabinets, or should it stay as a secondary label?
-5. Should the MVP implement a true two-step `INSERT COIN -> PLAY` flow now, or keep one button and visually imply it?
-6. Should `FREE COIN` remain, or should the wording become more arcade-like?
+- トップ方向は `Neon Cabinet Row + 少量の Operator Console 感` でよいか。
+- トップコピーは `小さなWebゲームが並ぶ、オンラインゲーセン。` で試すか。
+- `AGENTS TUNING` を使うか、意味が分かりにくいので別表現にするか。
+- `INSERT COIN -> PLAY` を今すぐ二段階にするか、見た目だけ先に寄せるか。
+- `FREE COIN` の表現を残すか、別の言い方にするか。
 

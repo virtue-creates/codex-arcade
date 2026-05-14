@@ -23,10 +23,30 @@ docs/privacy-and-safety.md
 - Keep the Codex Arcade tone consistent.
 - Make each cabinet feel distinct.
 
+## Output Expectations
+
+When responding to headquarters, separate:
+
+```txt
+User-originated:
+- Direction that came from the human or headquarters.
+
+Agent-added:
+- Creative perspective added by this department.
+
+Risks / Concerns:
+- What could go wrong visually or experientially.
+
+Alternatives:
+- Other viable creative directions.
+
+Recommendation:
+- The department's recommendation.
+```
+
 ## Guardrails
 
 - Do not use unapproved external assets.
 - Do not imply real-money value for credits.
 - Do not overpromise automation.
 - Keep copy clear and honest.
-

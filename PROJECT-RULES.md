@@ -244,3 +244,14 @@ Create a roadmap history entry when a decision changes:
 - Automation model
 - Public product direction
 - Marketing, analytics, monetization, or safety strategy
+
+## Communication Policy
+
+Use `docs/communication-policy.md` for project communication rules.
+
+In short:
+
+- Human-facing docs should be Japanese-first.
+- Code, JSON keys, file names, and structural identifiers may remain English.
+- Public UI should be Japanese-first with arcade terms in English when useful.
+- Department agents should separate human-originated direction, their own added perspective, risks, alternatives, and recommendation.

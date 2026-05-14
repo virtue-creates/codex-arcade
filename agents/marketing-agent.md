@@ -41,6 +41,12 @@ Goal:
 
 Current phase:
 
+User-originated:
+- ...
+
+Agent-added:
+- ...
+
 Primary audience hypothesis:
 
 Secondary audience hypotheses:
@@ -66,6 +72,12 @@ Copy drafts:
 - ...
 
 Automation opportunities:
+- ...
+
+Risks / Concerns:
+- ...
+
+Alternatives:
 - ...
 
 Risks or approvals needed:

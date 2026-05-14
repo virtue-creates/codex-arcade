@@ -56,3 +56,4 @@ This file records decisions made in the Codex Arcade headquarters chat.
 - Product & Experience was identified as an important function currently covered by Headquarters, Marketing, and Creative rather than a separate agent.
 - Roadmap versioning was added. `docs/roadmap.md` holds the current roadmap, and `docs/roadmap-history.md` records major roadmap and operating-model changes.
 - Marketing and Creative redesign proposals converged on a public-facing direction: arcade first, AI-agent company story secondary. The recommended visual direction is `Neon Cabinet Row + small Operator Console details`.
+- Communication policy was added: human-facing docs should be Japanese-first, and department agents must separate human-originated direction from agent-added perspective, risks, alternatives, and recommendation.
