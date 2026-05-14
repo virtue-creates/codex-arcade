@@ -5,7 +5,7 @@ Codex Arcade uses phases to keep the project understandable.
 The goal is to grow from a planning folder into an AI-agent-operated arcade studio.
 
 ```txt
-Current Roadmap Version: v0.5
+Current Roadmap Version: v0.6
 Last Updated: 2026-05-14
 ```
 

@@ -16,7 +16,7 @@ Use this for changes that affect:
 ## Current Version
 
 ```txt
-Roadmap Version: v0.5
+Roadmap Version: v0.6
 Last Updated: 2026-05-14
 ```
 
@@ -160,3 +160,29 @@ Impact:
 - Public UI should remove internal Phase/Sprint labels.
 - Marketing and Creative should brainstorm before the next visual iteration.
 
+## v0.6 - Human-Agent Co-Creation Operating Model
+
+Date:
+
+```txt
+2026-05-14
+```
+
+What changed:
+
+- Clarified that Codex Arcade社 is currently a human + AI department co-creation company, not a fully automatic company.
+- Added `docs/department-operating-model.md`.
+- Strengthened `docs/human-agent-collaboration.md`.
+- Clarified that Marketing should lead strategy, Creative should translate strategy into visual/experience direction, and Headquarters should organize, decide, document, and implement.
+- Defined that department agents must not act as agreement machines.
+
+Why:
+
+- Real project use showed that AI agents can become too aligned and produce similar-sounding answers.
+- The human value in this project is nuance, taste, discomfort, direction, and final judgment.
+- The company model needs specialists who provide differentiated value.
+
+Impact:
+
+- Future department prompts should emphasize specialty, disagreement, alternatives, risks, and tradeoffs.
+- Automation is framed as a way to improve speed and quality of co-creation, not as removal of human judgment.

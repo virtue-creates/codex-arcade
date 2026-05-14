@@ -256,3 +256,16 @@ In short:
 - Public UI should be Japanese-first with arcade terms in English when useful.
 - Department agents should separate human-originated direction, agent-drafted input, co-developed ideas, risks, alternatives, tradeoffs, and recommendation.
 - Agent outputs are drafts and inputs, not automatic decisions. See `docs/human-agent-collaboration.md`.
+
+## Department Operating Model
+
+Use `docs/department-operating-model.md` for department responsibilities and handoff rules.
+
+In short:
+
+- Marketing leads audience, positioning, and funnel strategy.
+- Creative translates strategy into visual direction, atmosphere, and interaction.
+- Headquarters organizes, records, decides, and implements.
+- QA challenges whether the result works.
+- Policy & Safety stops risky language or mechanics.
+- Automation supports co-creation; it does not remove human judgment.

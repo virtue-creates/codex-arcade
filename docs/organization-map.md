@@ -95,6 +95,14 @@ The company layer should support:
 - Marketing and analytics learning
 - Future monetization exploration
 
+## Operating Philosophy
+
+Codex Arcade社は、現時点では全自動会社ではなく、人間とAI部署の共創会社として動く。
+
+各部署は同意役ではなく、専門性を持つブレスト相手である。
+
+部署ごとの詳しい責任範囲と引き渡しは `docs/department-operating-model.md` を参照する。
+
 ## When To Create More Departments
 
 Do not create departments just because they are conceptually possible.
@@ -105,4 +113,3 @@ Create or split a department when:
 - Its decisions affect other departments.
 - The human needs a clearer approval lane.
 - Automation would benefit from a dedicated prompt or checklist.
-
