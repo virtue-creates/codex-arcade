@@ -55,3 +55,4 @@ This file records decisions made in the Codex Arcade headquarters chat.
 - Organization structure was clarified in `docs/organization-map.md` with Created, Covered, and Planned statuses for positions.
 - Product & Experience was identified as an important function currently covered by Headquarters, Marketing, and Creative rather than a separate agent.
 - Roadmap versioning was added. `docs/roadmap.md` holds the current roadmap, and `docs/roadmap-history.md` records major roadmap and operating-model changes.
+- Marketing and Creative redesign proposals converged on a public-facing direction: arcade first, AI-agent company story secondary. The recommended visual direction is `Neon Cabinet Row + small Operator Console details`.

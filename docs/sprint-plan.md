@@ -128,6 +128,7 @@ Active workstreams:
 - Add MVP credit flow.
 - Rework public arcade feeling using Marketing and Creative input.
 - Remove internal Phase/Sprint status from the public surface.
+- Apply the synthesized redesign direction from `docs/arcade-redesign-direction.md`.
 
 Done when:
 
