@@ -64,3 +64,5 @@ This file records decisions made in the Codex Arcade headquarters chat.
 - Public-facing Phase/Sprint/Current Board labels were removed from the top page.
 - The current public shell uses `INSERT COIN -> CREDIT READY -> PRESS PLAY` for playable cabinets and `COMING SOON` for concept cabinets.
 - Game descriptions shown in the parent arcade were changed to Japanese, while arcade/system labels can remain in English where they support the atmosphere.
+- Human review of Cabinet Row Shell v2 found it improved but still visually close to v1, so Phase 1 Sprint 2/3 added a bolder v3 prototype direction.
+- Arcade Room Prototype v3 was created as a comparison candidate that treats the top page as a night arcade room rather than a game list.

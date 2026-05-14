@@ -13,11 +13,11 @@
   <body>
     <div class="arcade-shell">
       <header class="arcade-header">
-        <div class="sign-block">
-          <p class="eyebrow">ONLINE GAME CENTER</p>
+        <div class="sign-block" aria-label="Arcade sign">
+          <p class="eyebrow">OPEN NOW / ONLINE GAME CENTER</p>
           <h1>Codex Arcade</h1>
           <p class="intro">
-            小さなWebゲームが並ぶ、オンラインゲーセン。CREDITを入れて、起動中のCabinetを選んでください。
+            夜の入口でCREDITを受け取り、光っている筐体にコインを入れてください。
           </p>
           <p class="agent-note">AI agents are setting up the cabinets.</p>
         </div>
@@ -29,7 +29,7 @@
           </div>
           <div class="credit-rules">
             <span>1 CREDIT = 1 PLAY</span>
-            <button id="freeCoinButton" type="button">SERVICE COIN</button>
+            <button id="freeCoinButton" type="button">CREDITを受け取る</button>
           </div>
         </section>
       </header>
@@ -37,11 +37,15 @@
       <main>
         <section class="cabinet-section" aria-labelledby="cabinetHeading">
           <div class="section-heading">
-            <p class="eyebrow">SELECT CABINET</p>
+            <p class="eyebrow">SELECT YOUR CABINET</p>
             <h2 id="cabinetHeading">本日の稼働筐体</h2>
           </div>
 
-          <div id="cabinetGrid" class="cabinet-row" aria-live="polite"></div>
+          <div class="arcade-room" aria-label="Cabinet floor">
+            <div class="wall-sign">INSERT COIN</div>
+            <div id="cabinetGrid" class="cabinet-row" aria-live="polite"></div>
+            <div class="floor-grid" aria-hidden="true"></div>
+          </div>
         </section>
 
         <section class="arcade-note" aria-label="Credit policy">
