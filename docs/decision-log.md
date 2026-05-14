@@ -54,3 +54,4 @@ This file records decisions made in the Codex Arcade headquarters chat.
 - Marketing Agent scope was expanded from copy and announcements to strategic marketing leadership, including audience hypotheses, funnel thinking, future automation, and coordination with Creative, Analytics, and Monetization.
 - Organization structure was clarified in `docs/organization-map.md` with Created, Covered, and Planned statuses for positions.
 - Product & Experience was identified as an important function currently covered by Headquarters, Marketing, and Creative rather than a separate agent.
+- Roadmap versioning was added. `docs/roadmap.md` holds the current roadmap, and `docs/roadmap-history.md` records major roadmap and operating-model changes.

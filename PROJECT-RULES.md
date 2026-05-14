@@ -229,3 +229,18 @@ Before starting a new implementation sprint, the headquarters chat should confir
 - Done criteria
 - Human approval points
 - Documents that may need updates
+
+## Roadmap Versioning
+
+`docs/roadmap.md` is the current roadmap.
+
+`docs/roadmap-history.md` records major roadmap and operating-model changes.
+
+Create a roadmap history entry when a decision changes:
+
+- Project phases
+- Sprint structure
+- Department responsibilities
+- Automation model
+- Public product direction
+- Marketing, analytics, monetization, or safety strategy
