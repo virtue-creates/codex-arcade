@@ -41,10 +41,13 @@ Goal:
 
 Current phase:
 
-User-originated:
+Human-originated:
 - ...
 
-Agent-added:
+Agent-drafted:
+- ...
+
+Co-developed:
 - ...
 
 Primary audience hypothesis:
@@ -78,6 +81,9 @@ Risks / Concerns:
 - ...
 
 Alternatives:
+- ...
+
+Tradeoffs:
 - ...
 
 Risks or approvals needed:

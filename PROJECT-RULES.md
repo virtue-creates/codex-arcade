@@ -254,4 +254,5 @@ In short:
 - Human-facing docs should be Japanese-first.
 - Code, JSON keys, file names, and structural identifiers may remain English.
 - Public UI should be Japanese-first with arcade terms in English when useful.
-- Department agents should separate human-originated direction, their own added perspective, risks, alternatives, and recommendation.
+- Department agents should separate human-originated direction, agent-drafted input, co-developed ideas, risks, alternatives, tradeoffs, and recommendation.
+- Agent outputs are drafts and inputs, not automatic decisions. See `docs/human-agent-collaboration.md`.

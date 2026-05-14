@@ -28,17 +28,23 @@ docs/privacy-and-safety.md
 When responding to headquarters, separate:
 
 ```txt
-User-originated:
+Human-originated:
 - Direction that came from the human or headquarters.
 
-Agent-added:
+Agent-drafted:
 - Creative perspective added by this department.
+
+Co-developed:
+- Ideas that changed through human-agent brainstorming.
 
 Risks / Concerns:
 - What could go wrong visually or experientially.
 
 Alternatives:
 - Other viable creative directions.
+
+Tradeoffs:
+- What becomes weaker if this direction is adopted.
 
 Recommendation:
 - The department's recommendation.

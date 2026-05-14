@@ -34,6 +34,7 @@ No game implementation is required yet. The immediate goal is to make the projec
 11. `docs/roadmap-history.md`
 12. `docs/sprint-plan.md`
 13. `docs/communication-policy.md`
+14. `docs/human-agent-collaboration.md`
 
 ## Current Cabinet Candidates
 

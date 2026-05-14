@@ -58,17 +58,23 @@
 各部署は必ず以下を分けて出す。
 
 ```txt
-User-originated
+Human-originated
 = 人間が出した方向性
 
-Agent-added
-= その部署が追加した独自視点
+Agent-drafted
+= その部署が出した叩き台や独自視点
+
+Co-developed
+= 人間とAIのブレストで修正・発展した視点
 
 Risks / Concerns
 = 懸念、弱点、反対意見
 
 Alternatives
 = 別案
+
+Tradeoffs
+= 採用する場合に捨てるもの、弱くなるもの
 
 Recommendation
 = その部署としての推奨
@@ -82,6 +88,7 @@ Recommendation
 
 - 何が人間由来のアイデアか
 - 何が部署から追加された視点か
+- 何が人間とAIのブレストで育った視点か
 - 何を採用するか
 - 何を保留するか
 - 何を却下するか
@@ -93,3 +100,12 @@ Recommendation
 
 部署ごとの視点差、緊張関係、判断の履歴を残すことで、AIエージェント会社としての学習価値を高める。
 
+## Human-Agent Collaboration
+
+詳しくは `docs/human-agent-collaboration.md` を参照する。
+
+このプロジェクトでは、AIエージェントの出力は最終回答ではなく、ブレストの材料として扱う。
+
+エージェント出力は自動的に決定事項にならない。
+
+本部と人間が確認し、必要なら修正し、採用・保留・却下を決める。
