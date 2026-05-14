@@ -45,8 +45,8 @@ Current recommended build order:
 ## Current Project Status
 
 ```txt
-Current Position: Phase 1 Sprint 1/3 - Arcade MVP Design
-Next Position: Phase 1 Sprint 2/3 - Arcade MVP Implementation
+Current Position: Phase 1 Sprint 2/3 - Arcade MVP Implementation
+Next Position: Phase 1 Sprint 3/3 - Local QA and Polish
 ```
 
 See `docs/roadmap.md` for the full roadmap board.

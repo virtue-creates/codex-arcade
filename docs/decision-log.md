@@ -48,3 +48,5 @@ This file records decisions made in the Codex Arcade headquarters chat.
 - Cabinet 02 decisions: keep it planned for Phase 3, register as `concept` during Phase 1, use 90-150 second sessions, keep `supportsPostMessage: false`, use game UI screenshot thumbnails, and mark mobile as not recommended.
 - Cabinet 03 MVP reduction was received from the Specimen Night Shift chat and recorded in `docs/cabinet-03-mvp-plan.md`.
 - Cabinet 03 decisions: keep `specimen-night-shift` as the gameId, register as `concept` during Phase 1, keep desktop/tablet targets with mobile unsupported initially, use 60-second sessions, keep `supportsPostMessage: false`, and do not start implementation during Phase 1.
+- Phase 1 Sprint 1/3 Arcade MVP Design was cleared.
+- Phase 1 Sprint 2/3 Arcade MVP Implementation started.

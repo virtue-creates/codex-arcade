@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-05-14",
+  "games": [
+    {
+      "id": "neon-core-survivor",
+      "cabinet": "Cabinet 01",
+      "title": "Neon Core Survivor",
+      "description": "A neon one-screen bullet-survivor where the player holds the arena for 180 seconds.",
+      "status": "prototype",
+      "genre": ["survival", "bullet-hell", "arcade"],
+      "devices": ["desktop"],
+      "input": ["keyboard", "mouse"],
+      "orientation": "landscape",
+      "path": "games/neon-core-survivor/",
+      "thumbnail": "assets/thumbnails/neon-core-survivor.png",
+      "creditCost": 1,
+      "interfaceVersion": 1,
+      "createdAt": "2026-05-13",
+      "updatedAt": "2026-05-14"
+    },
+    {
+      "id": "metro-mender",
+      "cabinet": "Cabinet 02",
+      "title": "Metro Mender",
+      "description": "Repair a broken subway map and restore passenger flow in a short arcade route puzzle.",
+      "status": "concept",
+      "genre": ["puzzle", "arcade", "strategy"],
+      "devices": ["desktop", "tablet"],
+      "input": ["mouse"],
+      "orientation": "landscape",
+      "path": "games/metro-mender/",
+      "thumbnail": "assets/thumbnails/metro-mender.png",
+      "creditCost": 1,
+      "interfaceVersion": 1,
+      "createdAt": "2026-05-13",
+      "updatedAt": "2026-05-14"
+    },
+    {
+      "id": "specimen-night-shift",
+      "cabinet": "Cabinet 03",
+      "title": "Specimen Night Shift",
+      "description": "Guide tiny nocturnal specimens through a strange display box by moving pins before the night ends.",
+      "status": "concept",
+      "genre": ["puzzle", "arcade", "strategy"],
+      "devices": ["desktop", "tablet"],
+      "input": ["mouse", "touch"],
+      "orientation": "landscape",
+      "path": "games/specimen-night-shift/",
+      "thumbnail": "assets/thumbnails/specimen-night-shift.png",
+      "creditCost": 1,
+      "interfaceVersion": 1,
+      "createdAt": "2026-05-13",
+      "updatedAt": "2026-05-14"
+    }
+  ]
+}

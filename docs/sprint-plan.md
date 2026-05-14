@@ -13,11 +13,13 @@ For the full project view, see `docs/roadmap.md`.
 ```txt
 Phase 1: Arcade MVP構築
 
-IN PLAY
+CLEARED
 - Sprint 1/3: Arcade MVP設計
 
-UP NEXT
+IN PLAY
 - Sprint 2/3: Arcade MVP実装
+
+UP NEXT
 - Sprint 3/3: ローカルQAと調整
 ```
 
@@ -52,8 +54,8 @@ This means the project is in Phase 0, working on the 4th sprint out of 4 planned
 ## Current Position
 
 ```txt
-Current Position: Phase 1 Sprint 1/3 - Arcade MVP Design
-Next Position: Phase 1 Sprint 2/3 - Arcade MVP Implementation
+Current Position: Phase 1 Sprint 2/3 - Arcade MVP Implementation
+Next Position: Phase 1 Sprint 3/3 - Local QA and Polish
 ```
 
 ## Phase 0 Progress Board
@@ -100,28 +102,15 @@ Outcome:
 
 ## Phase 1 Sprint 1/3: Arcade MVP Design
 
-Goal:
+Outcome:
 
-```txt
-Design the minimum parent arcade before implementation.
-```
+- Created `docs/arcade-mvp-design.md`.
+- Confirmed parent arcade MVP file structure.
+- Confirmed initial cabinet registration states.
+- Confirmed credit and INSERT COIN responsibility split.
+- Confirmed implementation approval.
 
-Active workstreams:
-
-- Define minimum parent folder structure.
-- Define initial `games.json`.
-- Define initial credit UI.
-- Define initial game card UI.
-- Define implementation approval points.
-
-Done when:
-
-- Arcade MVP design is documented.
-- Human approves creating parent web app files.
-
-## UP NEXT
-
-## Phase 1 Sprint 2/3: Arcade MVP Implementation
+## IN PLAY
 
 Goal:
 
@@ -129,7 +118,7 @@ Goal:
 Create the first parent web app files.
 ```
 
-Planned workstreams:
+Active workstreams:
 
 - Create `index.html`.
 - Create `styles.css`.
@@ -137,6 +126,30 @@ Planned workstreams:
 - Create `games.json`.
 - Render cabinet cards.
 - Add MVP credit flow.
+
+Done when:
+
+- The arcade opens locally.
+- Cabinet cards render from `games.json`.
+- Credits display and basic play flow work.
+
+## UP NEXT
+
+## Phase 1 Sprint 3/3: Local QA and Polish
+
+Goal:
+
+```txt
+Check the MVP locally and polish obvious issues.
+```
+
+Planned workstreams:
+
+- Open locally in a browser.
+- Check desktop, tablet-like, and mobile widths.
+- Check credits and PLAY flow.
+- Check concept cabinet states.
+- Fix layout issues.
 
 Human approval needed before:
 

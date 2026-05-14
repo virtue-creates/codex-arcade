@@ -40,7 +40,7 @@ flowchart LR
 | Phase | Status | Sprint Progress | Next Focus |
 | --- | --- | ---: | --- |
 | Phase 0: 会社化・土台づくり | CLEARED | 4/4 | Done |
-| Phase 1: Arcade MVP構築 | IN PLAY | 1/3 | MVP設計 |
+| Phase 1: Arcade MVP構築 | IN PLAY | 2/3 | MVP実装 |
 | Phase 2: Cabinet 01統合 | UP NEXT | 0/3 | 移植計画 |
 | Phase 3: 3ゲーム体制 | UP NEXT | 0/3 | Metro Mender |
 | Phase 4: 公開・計測準備 | UP NEXT | 0/3 | 公開準備 |
@@ -55,11 +55,13 @@ This board shows only the current phase.
 ```txt
 Phase 1: Arcade MVP構築
 
-IN PLAY
+CLEARED
 - Sprint 1/3: Arcade MVP設計
 
-UP NEXT
+IN PLAY
 - Sprint 2/3: Arcade MVP実装
+
+UP NEXT
 - Sprint 3/3: ローカルQAと調整
 ```
 
@@ -107,11 +109,14 @@ Purpose:
 
 IN PLAY:
 
+- Sprint 2/3: Arcade MVP実装
+
+CLEARED:
+
 - Sprint 1/3: Arcade MVP設計
 
 UP NEXT:
 
-- Sprint 2/3: Arcade MVP実装
 - Sprint 3/3: ローカルQAと調整
 
 ## Phase 2 Board: Cabinet 01統合
@@ -209,4 +214,3 @@ UP NEXT:
 - Sprint 1/3: 収益化リサーチ
 - Sprint 2/3: 低リスク実験案
 - Sprint 3/3: Policy & Safety確認
-
