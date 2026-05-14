@@ -52,3 +52,5 @@ This file records decisions made in the Codex Arcade headquarters chat.
 - Phase 1 Sprint 2/3 Arcade MVP Implementation started.
 - Human feedback on the first MVP shell: it does not yet feel like an arcade, public surface should prioritize arcade feeling, Japanese-first copy should be explored, internal Phase/Sprint labels should be removed from the public UI, and Marketing/Creative should brainstorm before the next visual iteration.
 - Marketing Agent scope was expanded from copy and announcements to strategic marketing leadership, including audience hypotheses, funnel thinking, future automation, and coordination with Creative, Analytics, and Monetization.
+- Organization structure was clarified in `docs/organization-map.md` with Created, Covered, and Planned statuses for positions.
+- Product & Experience was identified as an important function currently covered by Headquarters, Marketing, and Creative rather than a separate agent.

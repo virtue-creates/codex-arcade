@@ -4,6 +4,8 @@ Codex Arcade is an AI-agent-operated arcade studio.
 
 The public product is a small web arcade. The deeper experiment is a miniature company where a human director and Codex departments plan, build, QA, publish, market, analyze, and improve games.
 
+See `docs/organization-map.md` for the current role registry and status of each position.
+
 ## Core Concept
 
 ```txt
@@ -48,6 +50,24 @@ Owns:
 - Release coordination
 - Decision log
 
+## Product & Experience
+
+Status:
+
+```txt
+Covered by Headquarters, Marketing, and Creative for now.
+```
+
+Owns:
+
+- Public arcade experience
+- First-play flow
+- Cabinet selection logic
+- Feature priority
+- The boundary between public arcade feeling and behind-the-scenes company story
+
+This may become a dedicated role later if product decisions become complex.
+
 ## Game Studio
 
 Owns:
@@ -80,7 +100,7 @@ Owns:
 - Production logs
 - Arcade worldbuilding
 
-## Marketing & Analytics Department
+## Marketing Department
 
 Owns:
 
@@ -89,11 +109,25 @@ Owns:
 - SEO basics
 - Social post drafts
 - Release announcement drafts
+- Positioning
+- Funnel thinking
+- Marketing automation planning
+- Coordination with Creative, Analytics, and Monetization
+
+Marketing is the strategic owner for who Codex Arcade is for and why people should care.
+
+## Analytics Department
+
+Owns:
+
 - Analytics planning
 - Traffic and behavior reports
 - Improvement proposals
+- Measurement design
+- Weekly or release-based reports
+- Coordination with Marketing and Product & Experience
 
-Marketing and analytics may split into separate departments later.
+Analytics should stay privacy-aware and should not add tracking without human approval.
 
 ## Business & Monetization Department
 
@@ -117,6 +151,23 @@ Owns:
 - Public publishing flow
 
 In early phases, Headquarters may also act as Publishing.
+
+## Support / Community
+
+Status:
+
+```txt
+Planned, not active yet.
+```
+
+May later own:
+
+- Feedback collection
+- Community response
+- Issue triage
+- Public questions
+
+Do not create this as a separate department until the arcade has public users.
 
 ## Policy & Safety Department
 

@@ -29,8 +29,9 @@ No game implementation is required yet. The immediate goal is to make the projec
 6. `docs/company-model.md`
 7. `docs/marketing-strategy.md`
 8. `docs/business-and-monetization.md`
-9. `docs/roadmap.md`
-10. `docs/sprint-plan.md`
+9. `docs/organization-map.md`
+10. `docs/roadmap.md`
+11. `docs/sprint-plan.md`
 
 ## Current Cabinet Candidates
 
