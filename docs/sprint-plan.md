@@ -126,12 +126,15 @@ Active workstreams:
 - Create `games.json`.
 - Render cabinet cards.
 - Add MVP credit flow.
+- Rework public arcade feeling using Marketing and Creative input.
+- Remove internal Phase/Sprint status from the public surface.
 
 Done when:
 
 - The arcade opens locally.
 - Cabinet cards render from `games.json`.
 - Credits display and basic play flow work.
+- Public-facing direction is approved by the human.
 
 ## UP NEXT
 

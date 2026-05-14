@@ -50,3 +50,4 @@ This file records decisions made in the Codex Arcade headquarters chat.
 - Cabinet 03 decisions: keep `specimen-night-shift` as the gameId, register as `concept` during Phase 1, keep desktop/tablet targets with mobile unsupported initially, use 60-second sessions, keep `supportsPostMessage: false`, and do not start implementation during Phase 1.
 - Phase 1 Sprint 1/3 Arcade MVP Design was cleared.
 - Phase 1 Sprint 2/3 Arcade MVP Implementation started.
+- Human feedback on the first MVP shell: it does not yet feel like an arcade, public surface should prioritize arcade feeling, Japanese-first copy should be explored, internal Phase/Sprint labels should be removed from the public UI, and Marketing/Creative should brainstorm before the next visual iteration.

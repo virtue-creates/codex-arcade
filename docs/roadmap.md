@@ -60,6 +60,7 @@ CLEARED
 
 IN PLAY
 - Sprint 2/3: Arcade MVP実装
+- Marketing/Creative: ゲーセン感の再設計
 
 UP NEXT
 - Sprint 3/3: ローカルQAと調整
@@ -110,6 +111,7 @@ Purpose:
 IN PLAY:
 
 - Sprint 2/3: Arcade MVP実装
+- Marketing/Creative: ゲーセン感の再設計
 
 CLEARED:
 
