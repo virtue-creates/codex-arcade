@@ -17,16 +17,16 @@
         <aside class="status-panel" aria-label="Game status">
           <p class="eyebrow">Cabinet 02</p>
           <h1 id="game-title">Metro Mender</h1>
-          <p class="tagline">Repair the broken subway grid before the city falls out of sync.</p>
+          <p class="tagline">You cannot fix every fault. Reconnect the city from CENTRAL with the best four repairs.</p>
 
           <div class="meter-grid">
             <div class="meter">
               <span>Time</span>
-              <strong id="time-readout">120</strong>
+              <strong id="time-readout">90</strong>
             </div>
             <div class="meter">
               <span>Repairs</span>
-              <strong id="repairs-readout">5</strong>
+              <strong id="repairs-readout">4</strong>
             </div>
             <div class="meter">
               <span>Restored</span>
@@ -39,7 +39,11 @@
           </div>
 
           <div class="instruction-box" id="instruction-box">
-            Click red fault lines to reconnect the network.
+            Red lines are broken. Repairs are limited. Restore stations from CENTRAL.
+          </div>
+
+          <div class="impact-box" id="impact-box">
+            Hover a fault line to preview its effect.
           </div>
 
           <button class="primary-button" id="start-button" type="button">START REPAIR</button>
@@ -57,9 +61,8 @@
         <div class="overlay-card">
           <p class="insert-text" id="insert-text">INSERT COIN</p>
           <h2>Metro Mender</h2>
-          <p>Restore the city by repairing faulted subway links. One click fixes one red segment.</p>
+          <p>Red lines are broken. You only have 4 repairs for 7 faults. Reconnect as many stations as possible from CENTRAL.</p>
           <button class="primary-button" id="title-start-button" type="button">START</button>
-          <a class="back-link overlay-link" href="../../index.html">BACK TO ARCADE</a>
         </div>
       </section>
 
@@ -84,9 +87,16 @@
               <dt>Faults Fixed</dt>
               <dd id="final-fixed">0</dd>
             </div>
+            <div>
+              <dt>Major Stations</dt>
+              <dd id="final-majors">0/0</dd>
+            </div>
+            <div>
+              <dt>Isolated</dt>
+              <dd id="final-isolated">0</dd>
+            </div>
           </dl>
           <button class="primary-button" id="retry-button" type="button">RETRY</button>
-          <a class="back-link overlay-link" href="../../index.html">BACK TO ARCADE</a>
         </div>
       </section>
     </main>

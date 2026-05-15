@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.2.0 - 2026-05-16
+
+- Changed the MVP rule set to 7 fault segments, 4 repair crews, and a 90 second timer.
+- Added visible CENTRAL and MAJOR station markers.
+- Added hover preview for fault repair impact.
+- Added repair feedback showing station, restoration, and score changes.
+- Added result details for major stations restored and isolated stations.
+- Updated copy to explain that not every fault can be repaired.
+
 ## 0.1.0 - 2026-05-15
 
 - Added first playable MVP for Metro Mender.

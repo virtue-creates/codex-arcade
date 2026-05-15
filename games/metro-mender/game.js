@@ -1,30 +1,31 @@
 const GAME_ID = "metro-mender";
-const GAME_SECONDS = 120;
-const MAX_REPAIRS = 5;
+const GAME_SECONDS = 90;
+const MAX_REPAIRS = 4;
+const CENTER_STATION = "central";
 
 const stations = [
-  { id: "north", name: "North", x: 150, y: 115, hub: true },
+  { id: "north", name: "North", x: 150, y: 115, major: true },
   { id: "museum", name: "Museum", x: 375, y: 115 },
   { id: "harbor", name: "Harbor", x: 625, y: 115 },
-  { id: "east", name: "East", x: 850, y: 170 },
+  { id: "east", name: "East", x: 850, y: 170, major: true },
   { id: "west", name: "West", x: 160, y: 335 },
-  { id: "central", name: "Central", x: 500, y: 330, hub: true },
+  { id: "central", name: "Central", x: 500, y: 330, center: true },
   { id: "market", name: "Market", x: 780, y: 365 },
   { id: "garden", name: "Garden", x: 320, y: 520 },
-  { id: "south", name: "South", x: 610, y: 520 }
+  { id: "south", name: "South", x: 610, y: 520, major: true }
 ];
 
 const initialEdges = [
   { id: "e1", from: "north", to: "museum", line: "blue", broken: false },
   { id: "e2", from: "museum", to: "harbor", line: "blue", broken: true },
-  { id: "e3", from: "harbor", to: "east", line: "blue", broken: false },
+  { id: "e3", from: "harbor", to: "east", line: "blue", broken: true },
   { id: "e4", from: "west", to: "central", line: "blue", broken: true },
   { id: "e5", from: "central", to: "market", line: "blue", broken: false },
   { id: "e6", from: "museum", to: "central", line: "amber", broken: true },
   { id: "e7", from: "central", to: "south", line: "amber", broken: false },
   { id: "e8", from: "garden", to: "south", line: "amber", broken: true },
   { id: "e9", from: "west", to: "garden", line: "amber", broken: false },
-  { id: "e10", from: "north", to: "west", line: "blue", broken: false },
+  { id: "e10", from: "north", to: "west", line: "blue", broken: true },
   { id: "e11", from: "harbor", to: "market", line: "amber", broken: true },
   { id: "e12", from: "market", to: "south", line: "blue", broken: false }
 ];
@@ -37,6 +38,9 @@ const state = {
   score: 0,
   restoredPercent: 0,
   onlineStations: new Set(),
+  previewEdgeId: null,
+  lastNewStations: new Set(),
+  impactText: "",
   timerId: null
 };
 
@@ -50,6 +54,7 @@ const elements = {
   creditPill: document.querySelector("#credit-pill"),
   insertText: document.querySelector("#insert-text"),
   instructionBox: document.querySelector("#instruction-box"),
+  impactBox: document.querySelector("#impact-box"),
   time: document.querySelector("#time-readout"),
   repairs: document.querySelector("#repairs-readout"),
   restored: document.querySelector("#restored-readout"),
@@ -58,7 +63,9 @@ const elements = {
   finalScore: document.querySelector("#final-score"),
   finalRestored: document.querySelector("#final-restored"),
   finalStations: document.querySelector("#final-stations"),
-  finalFixed: document.querySelector("#final-fixed")
+  finalFixed: document.querySelector("#final-fixed"),
+  finalMajors: document.querySelector("#final-majors"),
+  finalIsolated: document.querySelector("#final-isolated")
 };
 
 function stationById(id) {
@@ -69,10 +76,15 @@ function edgeIsOnline(edge) {
   return !edge.broken || state.repaired.has(edge.id);
 }
 
+function edgeIsOnlineFor(edge, repairedSet) {
+  return !edge.broken || repairedSet.has(edge.id);
+}
+
 function edgeClass(edge) {
   const classes = ["segment", `line-${edge.line}`];
   if (edge.broken && !state.repaired.has(edge.id)) classes.push("is-broken");
   if (edge.broken && state.repaired.has(edge.id)) classes.push("is-repaired");
+  if (state.previewEdgeId === edge.id) classes.push("is-preview");
   return classes.join(" ");
 }
 
@@ -90,6 +102,7 @@ function drawMap() {
 
   const online = getOnlineStations();
   const layerLines = createSvgElement("g", { "data-dynamic": "true" });
+  const layerPreview = createSvgElement("g", { "data-dynamic": "true" });
   const layerStations = createSvgElement("g", { "data-dynamic": "true" });
   const layerLabels = createSvgElement("g", { "data-dynamic": "true" });
 
@@ -112,6 +125,10 @@ function drawMap() {
       "data-edge-id": edge.id
     });
     hit.addEventListener("click", () => repairEdge(edge.id));
+    hit.addEventListener("mouseenter", () => previewEdge(edge.id));
+    hit.addEventListener("mouseleave", clearPreview);
+    hit.addEventListener("focus", () => previewEdge(edge.id));
+    hit.addEventListener("blur", clearPreview);
     layerLines.append(line, hit);
 
     if (edge.broken && !state.repaired.has(edge.id)) {
@@ -128,14 +145,35 @@ function drawMap() {
     if (edgeIsOnline(edge)) {
       drawPulseDot(layerLines, from, to, edge.id);
     }
+
+    if (state.previewEdgeId === edge.id && edge.broken && !state.repaired.has(edge.id)) {
+      const previewLine = createSvgElement("line", {
+        class: "preview-line",
+        x1: from.x,
+        y1: from.y,
+        x2: to.x,
+        y2: to.y
+      });
+      layerPreview.append(previewLine);
+    }
   });
+
+  const previewOutcome = state.previewEdgeId ? getRepairOutcome(state.previewEdgeId) : null;
+  const previewStations = previewOutcome ? previewOutcome.newStations : new Set();
 
   stations.forEach((station) => {
     const ring = createSvgElement("circle", {
-      class: `station-ring ${online.has(station.id) ? "is-online" : ""} ${station.hub ? "is-hub" : ""}`,
+      class: [
+        "station-ring",
+        online.has(station.id) ? "is-online" : "",
+        station.center ? "is-center" : "",
+        station.major ? "is-major" : "",
+        previewStations.has(station.id) ? "is-preview" : "",
+        state.lastNewStations.has(station.id) ? "is-new-online" : ""
+      ].filter(Boolean).join(" "),
       cx: station.x,
       cy: station.y,
-      r: station.hub ? 18 : 14
+      r: station.center ? 22 : station.major ? 17 : 14
     });
     const label = createSvgElement("text", {
       class: "station-label",
@@ -144,10 +182,31 @@ function drawMap() {
       "text-anchor": "middle"
     });
     label.textContent = station.name;
+    if (station.center || station.major) {
+      const badge = createSvgElement("text", {
+        class: "station-badge",
+        x: station.x,
+        y: station.y - 28,
+        "text-anchor": "middle"
+      });
+      badge.textContent = station.center ? "CENTRAL" : "MAJOR";
+      layerLabels.append(badge);
+    }
     layerStations.append(ring, label);
   });
 
-  elements.map.append(layerLines, layerStations, layerLabels);
+  if (state.impactText) {
+    const impact = createSvgElement("text", {
+      class: "floating-impact",
+      x: 500,
+      y: 74,
+      "text-anchor": "middle"
+    });
+    impact.textContent = state.impactText;
+    layerLabels.append(impact);
+  }
+
+  elements.map.append(layerLines, layerPreview, layerStations, layerLabels);
 }
 
 function drawPulseDot(layer, from, to, edgeId) {
@@ -185,12 +244,25 @@ function repairEdge(edgeId) {
     return;
   }
 
+  const before = getNetworkOutcome(state.repaired, state.secondsLeft, state.repairsLeft);
+  const projected = getRepairOutcome(edge.id);
   state.repaired.add(edge.id);
   state.repairsLeft -= 1;
   updateScore();
+  const after = getNetworkOutcome(state.repaired, state.secondsLeft, state.repairsLeft);
+  state.lastNewStations = projected.newStations;
+  state.impactText = `+${Math.max(0, after.score - before.score)} score`;
+  clearPreview(false);
   drawMap();
   updateHud();
-  setInstruction(`${stationById(edge.from).name} to ${stationById(edge.to).name} restored.`);
+  setInstruction(`${stationById(edge.from).name} to ${stationById(edge.to).name} repaired.`);
+  setImpact(buildImpactText(projected, after.score - before.score));
+
+  window.setTimeout(() => {
+    state.lastNewStations = new Set();
+    state.impactText = "";
+    drawMap();
+  }, 900);
 
   if (allFaultsFixed() || state.repairsLeft === 0) {
     window.setTimeout(() => finishGame("repairs-complete"), 500);
@@ -198,14 +270,20 @@ function repairEdge(edgeId) {
 }
 
 function getOnlineStations() {
+  const online = getOnlineStationsFor(state.repaired);
+  state.onlineStations = online;
+  return online;
+}
+
+function getOnlineStationsFor(repairedSet) {
   const adjacency = new Map();
   stations.forEach((station) => adjacency.set(station.id, []));
-  initialEdges.filter(edgeIsOnline).forEach((edge) => {
+  initialEdges.filter((edge) => edgeIsOnlineFor(edge, repairedSet)).forEach((edge) => {
     adjacency.get(edge.from).push(edge.to);
     adjacency.get(edge.to).push(edge.from);
   });
 
-  const start = "central";
+  const start = CENTER_STATION;
   const online = new Set([start]);
   const queue = [start];
 
@@ -219,25 +297,54 @@ function getOnlineStations() {
     });
   }
 
-  state.onlineStations = online;
   return online;
 }
 
 function updateScore() {
-  const online = getOnlineStations();
-  const repairedCount = state.repaired.size;
-  const hubBonus = online.has("north") ? 600 : 0;
-  const restoredPercent = Math.round((online.size / stations.length) * 100);
-  const timeBonus = state.mode === "play" ? state.secondsLeft * 8 : 0;
-  const unusedRepairBonus = state.repairsLeft * 150;
-  const fixedFaultBonus = repairedCount * 420;
-  const isolationPenalty = (stations.length - online.size) * 180;
+  const outcome = getNetworkOutcome(state.repaired, state.secondsLeft, state.repairsLeft);
+  state.onlineStations = outcome.online;
+  state.restoredPercent = outcome.restoredPercent;
+  state.score = outcome.score;
+}
 
-  state.restoredPercent = restoredPercent;
-  state.score = Math.max(
+function getNetworkOutcome(repairedSet, secondsLeft, repairsLeft) {
+  const online = getOnlineStationsFor(repairedSet);
+  const restoredPercent = Math.round((online.size / stations.length) * 100);
+  const repairedCount = repairedSet.size;
+  const majorOnline = getMajorOnlineCount(online);
+  const timeBonus = state.mode === "play" ? secondsLeft * 6 : 0;
+  const unusedRepairBonus = repairsLeft * 180;
+  const fixedFaultBonus = repairedCount * 260;
+  const majorBonus = majorOnline * 700;
+  const isolationPenalty = (stations.length - online.size) * 220;
+  const score = Math.max(
     0,
-    online.size * 260 + hubBonus + fixedFaultBonus + unusedRepairBonus + timeBonus - isolationPenalty
+    online.size * 320 + majorBonus + fixedFaultBonus + unusedRepairBonus + timeBonus - isolationPenalty
   );
+
+  return { online, restoredPercent, score, majorOnline };
+}
+
+function getRepairOutcome(edgeId) {
+  const before = getNetworkOutcome(state.repaired, state.secondsLeft, state.repairsLeft);
+  const nextRepaired = new Set(state.repaired);
+  nextRepaired.add(edgeId);
+  const after = getNetworkOutcome(nextRepaired, state.secondsLeft, Math.max(0, state.repairsLeft - 1));
+  const newStations = new Set([...after.online].filter((stationId) => !before.online.has(stationId)));
+  const newMajorStations = [...newStations].filter((stationId) => stationById(stationId).major);
+
+  return {
+    before,
+    after,
+    newStations,
+    newMajorStations,
+    scoreDelta: after.score - before.score,
+    restoredDelta: after.restoredPercent - before.restoredPercent
+  };
+}
+
+function getMajorOnlineCount(onlineSet) {
+  return stations.filter((station) => station.major && onlineSet.has(station.id)).length;
 }
 
 function updateHud() {
@@ -251,6 +358,47 @@ function setInstruction(message) {
   elements.instructionBox.textContent = message;
 }
 
+function setImpact(message, warning = false) {
+  elements.impactBox.textContent = message;
+  elements.impactBox.classList.toggle("is-warning", warning);
+}
+
+function buildImpactText(outcome, scoreDelta) {
+  const newCount = outcome.newStations.size;
+  const majorText = outcome.newMajorStations.length
+    ? ` Major online: ${outcome.newMajorStations.map((id) => stationById(id).name).join(", ")}.`
+    : "";
+
+  if (newCount === 0) {
+    return `No stations restored now. Score ${scoreDelta >= 0 ? "+" : ""}${scoreDelta}.`;
+  }
+
+  return `+${newCount} station${newCount === 1 ? "" : "s"}, +${outcome.restoredDelta}% restored, score ${scoreDelta >= 0 ? "+" : ""}${scoreDelta}.${majorText}`;
+}
+
+function previewEdge(edgeId) {
+  if (state.mode !== "play") return;
+
+  const edge = initialEdges.find((item) => item.id === edgeId);
+  if (!edge || !edge.broken || state.repaired.has(edge.id)) return;
+
+  state.previewEdgeId = edge.id;
+  const outcome = getRepairOutcome(edge.id);
+  const from = stationById(edge.from).name;
+  const to = stationById(edge.to).name;
+  const warning = outcome.newStations.size === 0;
+  setImpact(`Preview ${from}-${to}: ${buildImpactText(outcome, outcome.scoreDelta)}`, warning);
+  drawMap();
+}
+
+function clearPreview(redraw = true) {
+  state.previewEdgeId = null;
+  if (state.mode === "play") {
+    setImpact("Hover a fault line to preview its effect.");
+  }
+  if (redraw) drawMap();
+}
+
 function startGame() {
   state.mode = "play";
   state.secondsLeft = GAME_SECONDS;
@@ -258,9 +406,13 @@ function startGame() {
   state.repaired = new Set();
   state.score = 0;
   state.restoredPercent = 0;
+  state.previewEdgeId = null;
+  state.lastNewStations = new Set();
+  state.impactText = "";
   hideOverlay(elements.titleScreen);
   hideOverlay(elements.resultScreen);
-  setInstruction("Click red fault lines to reconnect the network.");
+  setInstruction("Red faults are choices. Use 4 repairs to restore the best route from CENTRAL.");
+  setImpact("Hover a fault line to preview its effect.");
   updateScore();
   drawMap();
   updateHud();
@@ -294,7 +446,10 @@ function finishGame(reason) {
   elements.finalRestored.textContent = `${state.restoredPercent}%`;
   elements.finalStations.textContent = `${state.onlineStations.size}/${stations.length}`;
   elements.finalFixed.textContent = `${state.repaired.size}/${initialEdges.filter((edge) => edge.broken).length}`;
+  elements.finalMajors.textContent = `${getMajorOnlineCount(state.onlineStations)}/${stations.filter((station) => station.major).length}`;
+  elements.finalIsolated.textContent = String(stations.length - state.onlineStations.size);
   setInstruction(reason === "time-up" ? "Shift ended. Review the service report." : "Repair crews have returned. Review the service report.");
+  setImpact("Retry and choose a better route from CENTRAL.");
   showOverlay(elements.resultScreen);
 }
 
@@ -345,7 +500,7 @@ function init() {
 
   window.CodexArcadeGame = {
     id: GAME_ID,
-    version: "0.1.0",
+    version: "0.2.0",
     supportsArcadeParams: true,
     supportsPostMessage: false,
     start: startGame,

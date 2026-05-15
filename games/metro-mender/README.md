@@ -8,6 +8,8 @@ Metro Mender is a one-screen route repair puzzle. The player fixes broken subway
 
 - Click a red fault line to repair it.
 - Each repair uses one repair crew.
+- There are more faults than repair crews, so the player must choose which route to restore.
+- Hover a fault line to preview how many stations it can restore from CENTRAL.
 - The game ends when the timer reaches zero, all faults are fixed, or repair crews are exhausted.
 - Use RETRY to start another run.
 
@@ -27,9 +29,12 @@ This only changes the INSERT COIN / 1 CREDIT presentation. Parent arcade credit 
 - SVG route map
 - 9 stations
 - 2 line colors
-- 5 fault segments
-- 5 repairs
-- 120 second timer
+- 7 fault segments
+- 4 repairs
+- 90 second timer
+- CENTRAL station and major station markers
+- Hover preview for station and score impact
+- Repair impact feedback after each click
 - Score, restoration percentage, rank, and result screen
 - `supportsPostMessage: false`
 

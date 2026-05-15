@@ -100,3 +100,45 @@ Metro Menderの開発意図は良い。
 - 中心駅からつなぐゲームだと分かるか。
 - クリックした結果、何が良くなったか分かるか。
 - もう一度やればもっと良くできそうと思えるか。
+
+## 2026-05-16 Studio Response
+
+Cabinet 02 Studioから、HQ Direction対応版の変更報告を受領した。
+
+Studio reported changes:
+
+- 制限時間: 120秒から90秒へ変更。
+- 故障区間数: 5本から7本へ変更。
+- 修理回数: 5回から4回へ変更。
+- 全故障を直せないため、どの区間を捨てるか選ぶ必要がある。
+- 修理数を使い切るとリザルトへ進む。
+- `CENTRAL` 駅を専用バッジと強い表示で見える化。
+- `MAJOR` 駅を通常駅と別表示。
+- HUD横に、赤い故障区間、修理数制限、CENTRALから復旧する目的の説明文を追加。
+- リザルトに `Major Stations` と `Isolated` を追加。
+- 故障区間ホバー時に、その修理で増える駅数、復旧率、スコア変化を表示。
+- 修理後に `+stations`, `+restored%`, `score +N` を表示。
+- 新しく復旧した駅を短く強調表示。
+- 主要駅が復旧した場合は `Major online` として表示。
+
+Studio reported checks:
+
+- `node --check games/metro-mender/game.js` passed.
+- `game.json` JSON parse passed.
+- `http://localhost:8000/games/metro-mender/?from=arcade&credit=1` returned `200 OK`.
+- Browser check confirmed `1 CREDIT`, 7 faults, 4 repairs, 90 seconds, and `CENTRAL` / `MAJOR` display.
+- Studio confirmed result display after 4 repairs.
+- Test route reached `Rank S / 100% / 9/9 stations / 3/3 majors / isolated 0`.
+
+Studio remaining concerns:
+
+- ホバー予測が人間QAで読めるか。
+- 最適ルートが分かると簡単すぎる可能性。
+- 音がないため、クリック後の手応えはまだ弱い。
+- `CENTRAL` から復旧する概念が説明文なしでも伝わるか。
+- モバイル最適化は引き続き対象外。
+
+HQ intake note:
+
+- HQ Directionの必須変更には概ね対応している。
+- 次は本部リポジトリへ改善版ファイルを取り込み、静的QA後に人間QAへ進める。

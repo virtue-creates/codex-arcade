@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-05-15",
+  "updatedAt": "2026-05-16",
   "games": [
     {
       "id": "neon-core-survivor",
@@ -34,7 +34,7 @@
       "creditCost": 1,
       "interfaceVersion": 1,
       "createdAt": "2026-05-13",
-      "updatedAt": "2026-05-15"
+      "updatedAt": "2026-05-16"
     },
     {
       "id": "specimen-night-shift",
