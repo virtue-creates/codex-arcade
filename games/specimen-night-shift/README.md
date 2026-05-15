@@ -11,7 +11,7 @@ Cabinet 03 for Codex Arcade.
 - 3 draggable pins
 - 1 moonlit exit
 - 60 seconds per play
-- Score is rescued specimens
+- Score is rescued specimens, with pin moves shown in the result for replay improvement
 - Mouse first, touch-capable where browser pointer events support it
 
 ## Arcade Integration
@@ -34,7 +34,8 @@ The query parameters are used only for cabinet flavor. Parent arcade credit bala
 
 - Drag pins with mouse or touch.
 - Specimens move automatically.
-- Pins bend nearby specimen paths.
+- The pale circles around pins show where they bend nearby specimen paths.
+- The moonlit crack on the right is the exit.
 
 ## Out of Scope for MVP
 

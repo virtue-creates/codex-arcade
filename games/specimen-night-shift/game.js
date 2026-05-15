@@ -12,7 +12,7 @@ const ui = {
   restartBtn: document.querySelector("#restartBtn"),
   time: document.querySelector("#time"),
   rescued: document.querySelector("#rescued"),
-  pins: document.querySelector("#pins"),
+  moves: document.querySelector("#moves"),
 };
 
 const params = new URLSearchParams(window.location.search);
@@ -21,6 +21,7 @@ const arcadeLaunch = params.get("from") === "arcade" && params.get("credit") ===
 const TAU = Math.PI * 2;
 const PLAY_SECONDS = 60;
 const SPECIMEN_COUNT = 3;
+const PIN_INFLUENCE = 122;
 
 let width = 0;
 let height = 0;
@@ -30,12 +31,15 @@ let state = "intro";
 let lastTime = 0;
 let elapsed = 0;
 let rescued = 0;
+let pinMoves = 0;
 let activePin = null;
 let pointer = { x: 0, y: 0, down: false };
 let motes = [];
 let pins = [];
 let bugs = [];
 let ripples = [];
+let bendBursts = [];
+let rescueBursts = [];
 let exit = { x: 0, y: 0, r: 36 };
 
 function resize() {
@@ -59,9 +63,9 @@ function resize() {
     y: (height - targetH) / 2 + 20,
   };
   exit = {
-    x: box.x + box.w - 72,
+    x: box.x + box.w - 28,
     y: box.y + box.h * 0.5,
-    r: Math.max(31, box.w * 0.037),
+    r: Math.max(34, box.w * 0.042),
   };
 
   motes = Array.from({ length: Math.floor((width * height) / 18000) }, () => ({
@@ -82,17 +86,20 @@ function setupSpecimenBox() {
   const px = (n) => box.x + box.w * n;
   const py = (n) => box.y + box.h * n;
   pins = [
-    { id: 1, x: px(0.34), y: py(0.31), r: 17 },
-    { id: 2, x: px(0.49), y: py(0.66), r: 17 },
-    { id: 3, x: px(0.66), y: py(0.42), r: 17 },
+    { id: 1, x: px(0.34), y: py(0.31), r: 17, startX: 0, startY: 0, moved: false },
+    { id: 2, x: px(0.49), y: py(0.66), r: 17, startX: 0, startY: 0, moved: false },
+    { id: 3, x: px(0.66), y: py(0.42), r: 17, startX: 0, startY: 0, moved: false },
   ];
   bugs = [
-    makeBug(px(0.15), py(0.25), 0.18, "#1a1714", "#c48653", 92),
-    makeBug(px(0.17), py(0.55), -0.08, "#24170f", "#ddb36d", 78),
-    makeBug(px(0.2), py(0.78), -0.34, "#111b1f", "#8bd8dd", 86),
+    makeBug(px(0.15), py(0.25), 0.18, "#1a1714", "#c48653", 76),
+    makeBug(px(0.17), py(0.55), -0.08, "#24170f", "#ddb36d", 66),
+    makeBug(px(0.2), py(0.78), -0.34, "#111b1f", "#8bd8dd", 72),
   ];
   ripples = [];
+  bendBursts = [];
+  rescueBursts = [];
   rescued = 0;
+  pinMoves = 0;
   updateHud();
 }
 
@@ -108,6 +115,7 @@ function makeBug(x, y, angle, body, accent, speed) {
     rescued: false,
     lost: false,
     wiggle: Math.random() * TAU,
+    bendGlow: 0,
     trail: [],
   };
 }
@@ -144,7 +152,7 @@ function endGame() {
         : "Some wings reached the light.";
   ui.endTitle.textContent = title;
   ui.endKicker.textContent = rescued === SPECIMEN_COUNT ? "Perfect Rescue" : "Night Shift Complete";
-  ui.endText.textContent = `${rescued}/${SPECIMEN_COUNT} rescued in ${formatTime(elapsed)}. The pins are still warm.`;
+  ui.endText.textContent = `${rescued}/${SPECIMEN_COUNT} rescued. Pin moves: ${pinMoves}. Best route: fewer moves, more moonlight.`;
   ui.end.classList.remove("hidden");
 }
 
@@ -168,6 +176,16 @@ function update(dt) {
     r.radius += dt * 48;
     return r.life > 0;
   });
+  bendBursts = bendBursts.filter((burst) => {
+    burst.life -= dt;
+    burst.radius += dt * 34;
+    return burst.life > 0;
+  });
+  rescueBursts = rescueBursts.filter((burst) => {
+    burst.life -= dt;
+    burst.y -= dt * 24;
+    return burst.life > 0;
+  });
 
   if (bugs.every((bug) => bug.rescued || bug.lost)) {
     endGame();
@@ -189,11 +207,20 @@ function updateBug(bug, dt) {
     const dx = bug.x - pin.x;
     const dy = bug.y - pin.y;
     const distance = Math.hypot(dx, dy);
-    const influence = 96;
-    if (distance < influence) {
+    if (distance < PIN_INFLUENCE) {
       const side = Math.sign(Math.sin(bug.angle) * dx - Math.cos(bug.angle) * dy) || 1;
-      const force = (1 - distance / influence) * 2.9;
+      const force = (1 - distance / PIN_INFLUENCE) * 4.8;
       bug.angle += side * force * dt;
+      bug.bendGlow = Math.min(1, bug.bendGlow + dt * 5);
+      if (Math.random() < 0.28) {
+        bendBursts.push({
+          x: bug.x,
+          y: bug.y,
+          radius: 8,
+          life: 0.34,
+          color: bug.accent,
+        });
+      }
       if (distance < pin.r + bug.r + 2) {
         bug.angle += side * 1.5;
         bug.x += Math.cos(bug.angle) * 3;
@@ -201,6 +228,7 @@ function updateBug(bug, dt) {
       }
     }
   }
+  bug.bendGlow = Math.max(0, bug.bendGlow - dt * 1.6);
 
   bug.x += Math.cos(bug.angle) * bug.speed * dt;
   bug.y += Math.sin(bug.angle) * bug.speed * dt;
@@ -228,10 +256,16 @@ function updateBug(bug, dt) {
     .filter((point) => point.life > 0)
     .slice(-28);
 
-  if (Math.hypot(bug.x - exit.x, bug.y - exit.y) < exit.r) {
+  if (Math.hypot(bug.x - exit.x, bug.y - exit.y) < exit.r || bug.x > box.x + box.w - 18) {
     bug.rescued = true;
     rescued += 1;
-    ripples.push({ x: exit.x, y: exit.y, radius: exit.r * 0.4, life: 0.8 });
+    ripples.push({ x: exit.x, y: exit.y, radius: exit.r * 0.45, life: 0.9 });
+    rescueBursts.push({
+      x: exit.x - 44,
+      y: exit.y - 34,
+      text: `RESCUED ${rescued}/${SPECIMEN_COUNT}`,
+      life: 1.35,
+    });
     updateHud();
   }
 }
@@ -243,7 +277,9 @@ function draw() {
   drawMoonExit();
   drawPins();
   drawBugs();
+  drawBendBursts();
   drawRipples();
+  drawRescueBursts();
 
   if (state === "intro") {
     drawIntroSpecimens();
@@ -311,33 +347,75 @@ function drawBox() {
 }
 
 function drawMoonExit() {
-  const glow = ctx.createRadialGradient(exit.x, exit.y, 5, exit.x, exit.y, exit.r * 2.6);
-  glow.addColorStop(0, "rgba(222, 249, 255, 0.95)");
-  glow.addColorStop(0.28, "rgba(167, 231, 255, 0.34)");
+  const beam = ctx.createLinearGradient(box.x + box.w - 160, exit.y, box.x + box.w + 16, exit.y);
+  beam.addColorStop(0, "rgba(167, 231, 255, 0)");
+  beam.addColorStop(0.62, "rgba(167, 231, 255, 0.22)");
+  beam.addColorStop(1, "rgba(222, 249, 255, 0.72)");
+  ctx.fillStyle = beam;
+  ctx.beginPath();
+  ctx.moveTo(box.x + box.w - 170, exit.y - 70);
+  ctx.lineTo(box.x + box.w + 12, exit.y - 48);
+  ctx.lineTo(box.x + box.w + 12, exit.y + 48);
+  ctx.lineTo(box.x + box.w - 170, exit.y + 70);
+  ctx.closePath();
+  ctx.fill();
+
+  const glow = ctx.createRadialGradient(exit.x, exit.y, 4, exit.x, exit.y, exit.r * 2.8);
+  glow.addColorStop(0, "rgba(222, 249, 255, 0.82)");
+  glow.addColorStop(0.28, "rgba(167, 231, 255, 0.42)");
   glow.addColorStop(1, "rgba(167, 231, 255, 0)");
   ctx.fillStyle = glow;
   ctx.beginPath();
-  ctx.arc(exit.x, exit.y, exit.r * 2.6, 0, TAU);
+  ctx.arc(exit.x, exit.y, exit.r * 2.8, 0, TAU);
   ctx.fill();
 
-  ctx.fillStyle = "rgba(232, 252, 255, 0.84)";
-  ctx.beginPath();
-  ctx.arc(exit.x, exit.y, exit.r, 0, TAU);
-  ctx.fill();
-  ctx.fillStyle = "rgba(57, 78, 87, 0.55)";
-  ctx.beginPath();
-  ctx.arc(exit.x - exit.r * 0.22, exit.y - exit.r * 0.12, exit.r * 0.92, 0, TAU);
-  ctx.fill();
+  ctx.fillStyle = "#10171a";
+  ctx.fillRect(box.x + box.w - 13, exit.y - exit.r * 1.35, 18, exit.r * 2.7);
+  ctx.fillStyle = "rgba(225, 250, 255, 0.9)";
+  ctx.fillRect(box.x + box.w - 6, exit.y - exit.r * 1.18, 7, exit.r * 2.36);
 
-  ctx.strokeStyle = "rgba(16, 23, 26, 0.38)";
+  ctx.strokeStyle = "rgba(222, 249, 255, 0.78)";
   ctx.lineWidth = 2;
   ctx.beginPath();
-  ctx.arc(exit.x, exit.y, exit.r + 5, 0, TAU);
+  ctx.moveTo(box.x + box.w - 21, exit.y - exit.r * 1.5);
+  ctx.lineTo(box.x + box.w + 3, exit.y - exit.r * 1.18);
+  ctx.lineTo(box.x + box.w + 3, exit.y + exit.r * 1.18);
+  ctx.lineTo(box.x + box.w - 21, exit.y + exit.r * 1.5);
   ctx.stroke();
+
+  ctx.fillStyle = "rgba(18, 16, 13, 0.78)";
+  ctx.font = "12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+  ctx.textAlign = "center";
+  ctx.fillText("MOON EXIT", exit.x - 42, exit.y - exit.r * 1.75);
+
+  ctx.fillStyle = "rgba(167, 231, 255, 0.55)";
+  ctx.beginPath();
+  ctx.moveTo(exit.x - 84, exit.y);
+  ctx.lineTo(exit.x - 64, exit.y - 8);
+  ctx.lineTo(exit.x - 64, exit.y + 8);
+  ctx.closePath();
+  ctx.fill();
 }
 
 function drawPins() {
   for (const pin of pins) {
+    const influenceGlow = ctx.createRadialGradient(pin.x, pin.y, pin.r, pin.x, pin.y, PIN_INFLUENCE);
+    influenceGlow.addColorStop(0, "rgba(167, 231, 255, 0.14)");
+    influenceGlow.addColorStop(0.55, "rgba(167, 231, 255, 0.07)");
+    influenceGlow.addColorStop(1, "rgba(167, 231, 255, 0)");
+    ctx.fillStyle = influenceGlow;
+    ctx.beginPath();
+    ctx.arc(pin.x, pin.y, PIN_INFLUENCE, 0, TAU);
+    ctx.fill();
+
+    ctx.strokeStyle = activePin === pin ? "rgba(167, 231, 255, 0.55)" : "rgba(61, 86, 91, 0.32)";
+    ctx.setLineDash([8, 8]);
+    ctx.lineWidth = activePin === pin ? 2 : 1;
+    ctx.beginPath();
+    ctx.arc(pin.x, pin.y, PIN_INFLUENCE, 0, TAU);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
     ctx.save();
     ctx.shadowColor = "rgba(0, 0, 0, 0.38)";
     ctx.shadowBlur = 12;
@@ -390,6 +468,15 @@ function drawBugs() {
     ctx.save();
     ctx.translate(bug.x, bug.y);
     ctx.rotate(bug.angle);
+    if (bug.bendGlow > 0) {
+      ctx.globalAlpha = bug.bendGlow * 0.75;
+      ctx.strokeStyle = bug.accent;
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.arc(0, 0, 22, -0.8, 0.8);
+      ctx.stroke();
+      ctx.globalAlpha = 1;
+    }
     ctx.fillStyle = "rgba(36, 23, 15, 0.22)";
     ctx.beginPath();
     ctx.ellipse(5, 9, 18, 6, 0, 0, TAU);
@@ -423,6 +510,18 @@ function drawBugs() {
   }
 }
 
+function drawBendBursts() {
+  for (const burst of bendBursts) {
+    ctx.globalAlpha = Math.max(0, burst.life * 1.7);
+    ctx.strokeStyle = burst.color;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(burst.x, burst.y, burst.radius, 0.2, TAU - 0.8);
+    ctx.stroke();
+  }
+  ctx.globalAlpha = 1;
+}
+
 function drawRipples() {
   for (const ripple of ripples) {
     ctx.globalAlpha = Math.max(0, ripple.life);
@@ -432,6 +531,21 @@ function drawRipples() {
     ctx.arc(ripple.x, ripple.y, ripple.radius, 0, TAU);
     ctx.stroke();
   }
+  ctx.globalAlpha = 1;
+}
+
+function drawRescueBursts() {
+  ctx.save();
+  ctx.font = "700 16px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+  ctx.textAlign = "center";
+  for (const burst of rescueBursts) {
+    ctx.globalAlpha = Math.min(1, burst.life);
+    ctx.fillStyle = "#e8fbff";
+    ctx.shadowColor = "rgba(167, 231, 255, 0.95)";
+    ctx.shadowBlur = 14;
+    ctx.fillText(burst.text, burst.x, burst.y);
+  }
+  ctx.restore();
   ctx.globalAlpha = 1;
 }
 
@@ -451,7 +565,7 @@ function updateHud() {
   const remaining = Math.max(0, PLAY_SECONDS - elapsed);
   ui.time.textContent = formatTime(remaining);
   ui.rescued.textContent = `${rescued}/${SPECIMEN_COUNT}`;
-  ui.pins.textContent = `${pins.length}`;
+  ui.moves.textContent = `${pinMoves}`;
 }
 
 function formatTime(seconds) {
@@ -486,6 +600,9 @@ function onPointerDown(event) {
   pointer = { ...getPointer(event), down: true };
   activePin = pins.find((pin) => Math.hypot(pointer.x - pin.x, pointer.y - pin.y) < pin.r + 16) || null;
   if (activePin) {
+    activePin.startX = activePin.x;
+    activePin.startY = activePin.y;
+    activePin.moved = false;
     canvas.setPointerCapture(event.pointerId);
     canvas.classList.add("dragging");
   }
@@ -498,6 +615,11 @@ function onPointerMove(event) {
   }
   activePin.x = clamp(pointer.x, box.x + 36, box.x + box.w - 36);
   activePin.y = clamp(pointer.y, box.y + 36, box.y + box.h - 36);
+  if (!activePin.moved && Math.hypot(activePin.x - activePin.startX, activePin.y - activePin.startY) > 12) {
+    activePin.moved = true;
+    pinMoves += 1;
+    updateHud();
+  }
 }
 
 function onPointerUp() {

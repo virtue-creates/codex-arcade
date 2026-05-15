@@ -94,3 +94,4 @@ This file records decisions made in the Codex Arcade headquarters chat.
 - Headquarters issued HQ Direction for Cabinet 02: prioritize gameplay redesign by making repair count lower than fault count, clarifying central/major stations, and showing repair impact.
 - Headquarters issued HQ Direction for Cabinet 03: prioritize clarity by making pin influence, moonlit exit, and rescue success visible before adding complex rules.
 - Cabinet 02 Studio reported an HQ Direction response: Metro Mender now uses 7 faults, 4 repairs, 90 seconds, CENTRAL/MAJOR station visibility, hover repair impact previews, post-repair feedback, and expanded results. Headquarters considers this ready for intake and human QA.
+- Cabinet 03 Studio reported an HQ Direction response: Specimen Night Shift now shows pin influence rings, bend feedback, a moonlit crack exit, rescue feedback, and move-count replay framing. Headquarters considers this ready for static QA and human clarity QA.

@@ -106,3 +106,51 @@ Specimen Night Shiftの世界観は悪くない。
 - 月明かりの出口がゴールとして読めるか。
 - 虫が出口へ入った時に成功したと分かるか。
 - 大人がもう一回やりたい理由があるか。
+
+## 2026-05-16 Studio Response
+
+Cabinet 03 Studioから、HQ Direction対応版の変更報告を受領した。
+
+Studio reported changes:
+
+- 各ピンの周囲に薄い影響範囲リングを表示。
+- 虫がピン影響圏に入ると、短い光跡/曲がりエフェクトを表示。
+- 虫の速度を少し落とし、ピンによる曲がりを強化。
+- 丸い月/容器っぽい表現をやめ、右端の「月明かりの割れ目」として出口を描画。
+- `MOON EXIT` の短いラベルを追加。
+- 救出時に `RESCUED 1/3` のような浮遊表示と光のリップルを追加。
+- HUDを `MOVES` 表示に変更。
+- リザルトに `Pin moves` と `fewer moves, more moonlight` の評価軸を追加。
+- タイトル文言を `Drag pins to bend the paths. Guide the specimens through the moonlit crack.` に変更。
+
+Studio target decision:
+
+- 本部推奨どおり、ゆるい玩具方向ではなく「大人向けの奇妙で美しい誘導パズル」に寄せた。
+- 難度を急に上げるのではなく、まず「少ないピン移動で救出する」再挑戦の芯を足す段階。
+
+Studio reported first-time understanding:
+
+- ドラッグする対象は虫ではなくピン。
+- ピンの周囲の円が影響範囲。
+- 虫が円に入ると進路が曲がる。
+- 右端の光る割れ目が出口。
+- 入ると `RESCUED` が出て成功。
+
+Studio reported checks:
+
+- `node --check games/specimen-night-shift/game.js` passed.
+- `game.json` / `games.json` JSON parse passed.
+- Direct launch returned `200 OK`.
+- Arcade launch returned `200 OK`.
+
+Studio remaining concerns:
+
+- 実際に出口が割れ目に見えるかは、人間QAで判断が必要。
+- ピンの影響を強めた分、簡単すぎる可能性。
+- `MOVES` 評価は再挑戦理由の入口だが、まだスコアリングとしては弱め。
+- 次に大人向けを強めるなら、予測軌跡か「少ない移動で全救出」ランク表示がよさそう。
+
+HQ intake note:
+
+- HQ Directionの必須変更には概ね対応している。
+- 次は本部リポジトリで静的QA後、人間QAへ進める。
