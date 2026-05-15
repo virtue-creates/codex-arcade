@@ -70,3 +70,6 @@ This file records decisions made in the Codex Arcade headquarters chat.
 - Cabinet 01 is approved to move to the next step: copy the prepared prototype into `games/neon-core-survivor/` and run parent-site integration QA.
 - Cabinet 01 was migrated into `games/neon-core-survivor/`.
 - Parent-site QA confirmed Cabinet 01 launches with `?from=arcade&credit=1`, shows arcade launch flavor, starts gameplay, and returns via BACK TO ARCADE.
+- Cabinet 02 and Cabinet 03 were approved to start MVP implementation in parallel game chats.
+- Headquarters created a repeatable Cabinet intake workflow in `docs/cabinet-intake.md`.
+- Roadmap advanced to v0.8: Phase 1 and Phase 2 are treated as cleared, and Phase 3 is in play with Cabinet 02/03 parallel production.

@@ -5,7 +5,7 @@ Codex Arcade uses phases to keep the project understandable.
 The goal is to grow from a planning folder into an AI-agent-operated arcade studio.
 
 ```txt
-Current Roadmap Version: v0.7
+Current Roadmap Version: v0.8
 Last Updated: 2026-05-15
 ```
 
@@ -31,9 +31,9 @@ This board shows the whole project at a glance.
 ```mermaid
 flowchart LR
   P0["Phase 0<br/>CLEARED<br/>会社化・土台づくり"]
-  P1["Phase 1<br/>IN PLAY<br/>Arcade MVP構築"]
-  P2["Phase 2<br/>UP NEXT<br/>Cabinet 01統合"]
-  P3["Phase 3<br/>UP NEXT<br/>3ゲーム体制"]
+  P1["Phase 1<br/>CLEARED<br/>Arcade MVP構築"]
+  P2["Phase 2<br/>CLEARED<br/>Cabinet 01統合"]
+  P3["Phase 3<br/>IN PLAY<br/>3ゲーム体制"]
   P4["Phase 4<br/>UP NEXT<br/>公開・計測準備"]
   P5["Phase 5<br/>UP NEXT<br/>半自動運用"]
   P6["Phase 6<br/>UP NEXT<br/>自働会社リズム"]
@@ -47,9 +47,9 @@ flowchart LR
 | Phase | Status | Sprint Progress | Next Focus |
 | --- | --- | ---: | --- |
 | Phase 0: 会社化・土台づくり | CLEARED | 4/4 | Done |
-| Phase 1: Arcade MVP構築 | IN PLAY | 2/3 | MVP実装 |
-| Phase 2: Cabinet 01統合 | UP NEXT | 0/3 | 移植計画 |
-| Phase 3: 3ゲーム体制 | UP NEXT | 0/3 | Metro Mender |
+| Phase 1: Arcade MVP構築 | CLEARED | 3/3 | Done |
+| Phase 2: Cabinet 01統合 | CLEARED | 3/3 | Done |
+| Phase 3: 3ゲーム体制 | IN PLAY | 1/3 | Cabinet 02/03並行制作 |
 | Phase 4: 公開・計測準備 | UP NEXT | 0/3 | 公開準備 |
 | Phase 5: 半自動運用 | UP NEXT | 0/3 | Agentフロー試運転 |
 | Phase 6: 自働会社リズム | UP NEXT | 0/3 | 週次レビュー |
@@ -60,16 +60,22 @@ flowchart LR
 This board shows only the current phase.
 
 ```txt
-Phase 1: Arcade MVP構築
+Phase 3: 3ゲーム体制
 
 CLEARED
-- Sprint 1/3: Arcade MVP設計
+- Phase 1: Arcade MVP構築
+- Phase 2: Cabinet 01統合
+- Cabinet 01: Neon Core Survivor移植/親起動QA
 
 IN PLAY
-- Sprint 2/3: Arcade MVP実装
+- Sprint 1/3: Cabinet 02/03 MVP実装依頼
+- Cabinet 02: Metro Mender制作中
+- Cabinet 03: Specimen Night Shift制作中
+- 本部: 受け入れQA/移植手順整備
 
 UP NEXT
-- Sprint 3/3: ローカルQAと調整
+- Sprint 2/3: Cabinet 02/03移植
+- Sprint 3/3: 3ゲームQAとサムネイル
 ```
 
 ## Status Key
@@ -106,7 +112,7 @@ CLEARED:
 
 ## Phase 1 Board: Arcade MVP構築
 
-Status: IN PLAY
+Status: CLEARED
 
 Purpose:
 
@@ -114,22 +120,16 @@ Purpose:
 親サイトとして最低限動くCodex Arcadeを作る。
 ```
 
-IN PLAY:
-
-- Sprint 2/3: Arcade MVP実装
-
 CLEARED:
 
 - Sprint 1/3: Arcade MVP設計
-- Marketing/Creative: ゲーセン感の再設計
-
-UP NEXT:
-
+- Sprint 2/3: Arcade MVP実装
 - Sprint 3/3: ローカルQAと調整
+- Marketing/Creative: ゲーセン感の再設計
 
 ## Phase 2 Board: Cabinet 01統合
 
-Status: UP NEXT
+Status: CLEARED
 
 Purpose:
 
@@ -137,15 +137,22 @@ Purpose:
 Neon Core Survivorを最初の実ゲームとして統合する。
 ```
 
-UP NEXT:
+CLEARED:
 
 - Sprint 1/3: 移植計画
 - Sprint 2/3: ゲームファイル移植
 - Sprint 3/3: QAとサムネイル
+- Cabinet 01親サイト起動QA
+
+Remaining note:
+
+```txt
+サムネイルは未完成。ただしCabinet 01統合フェーズの主要目的である親サイト起動は達成済み。
+```
 
 ## Phase 3 Board: 3ゲーム体制
 
-Status: UP NEXT
+Status: IN PLAY
 
 Purpose:
 
@@ -153,11 +160,17 @@ Purpose:
 3つのゲームが並ぶArcadeにする。
 ```
 
+IN PLAY:
+
+- Sprint 1/3: Cabinet 02/03 MVP実装依頼
+- Cabinet 02: Metro Mender制作中
+- Cabinet 03: Specimen Night Shift制作中
+- 本部: 受け入れQA/移植手順整備
+
 UP NEXT:
 
-- Sprint 1/3: Metro Mender
-- Sprint 2/3: Specimen Night Shift
-- Sprint 3/3: 3ゲームQA
+- Sprint 2/3: Cabinet 02/03移植
+- Sprint 3/3: 3ゲームQAとサムネイル
 
 ## Phase 4 Board: 公開・計測準備
 

@@ -16,7 +16,7 @@ Use this for changes that affect:
 ## Current Version
 
 ```txt
-Roadmap Version: v0.7
+Roadmap Version: v0.8
 Last Updated: 2026-05-15
 ```
 
@@ -238,3 +238,33 @@ Impact:
 - Phase 1 Sprint 2/3 now has a concrete Cabinet Row shell for human review.
 - Sprint 3/3 can focus on local QA, visual adjustment, and readiness for Cabinet 01 integration.
 - Future Marketing/Creative review can critique an actual screen instead of only text direction.
+
+## v0.8 - Cabinet 01 Live and Parallel Cabinet Production
+
+Date:
+
+```txt
+2026-05-15
+```
+
+What changed:
+
+- Cabinet 01 `neon-core-survivor` was migrated into `games/neon-core-survivor/`.
+- Parent-site launch QA passed for Cabinet 01.
+- Phase 1 and Phase 2 were marked as cleared for roadmap purposes.
+- Phase 3 started as an active parallel production phase.
+- Cabinet 02 `metro-mender` and Cabinet 03 `specimen-night-shift` were both sent into MVP implementation in their game chats.
+- Added `docs/cabinet-intake.md` for headquarters intake, migration, and QA workflow.
+- Expanded `docs/qa-checklist.md` for parent launch QA and current cabinet notes.
+
+Why:
+
+- Codex Arcade now has its first game launching from the parent site.
+- The project can begin demonstrating the desired "parallel AI team" workflow.
+- Headquarters needs a repeatable intake process before Cabinet 02/03 return.
+
+Impact:
+
+- Current Board now shows Phase 3 in play.
+- Headquarters is responsible for receiving Cabinet 02/03, migrating them, and running QA.
+- Thumbnail and polish remain important, but they should not block MVP game intake.
