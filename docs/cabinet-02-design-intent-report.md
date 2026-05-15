@@ -4,7 +4,7 @@
 Cabinet Studio: Cabinet 02 Studio
 Game: Metro Mender
 Report received: 2026-05-16
-Status: received / HQ review pending
+Status: reviewed / HQ Direction issued
 ```
 
 ## 1. このゲームは何をするゲームか
@@ -192,3 +192,9 @@ Cabinet 02 Studioは、現MVPでは故障区間数と修理回数が同じなの
 - 現状の `故障5 / 修理5` では、プレイヤーが何を捨てるか考える場面がない。
 - まず改善すべきなのは、演出強化より先に「限られた修理で何を優先するか」が発生するルール調整。
 - 次の改善依頼では、`故障区間 > 修理回数`、重要駅の見える化、クリック前後の効果表示、短い初回説明を優先候補にする。
+
+HQ Direction:
+
+```txt
+docs/cabinet-02-hq-direction.md
+```

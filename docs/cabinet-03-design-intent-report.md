@@ -4,7 +4,7 @@
 Cabinet Studio: Cabinet 03 Studio
 Game: Specimen Night Shift
 Report received: 2026-05-16
-Status: received / HQ review pending
+Status: reviewed / HQ Direction issued
 ```
 
 ## 1. このゲームは何をするゲームか
@@ -191,3 +191,9 @@ MVPではまだ虫の挙動が単純なので、深い戦略までは出てい�
 - 面白さの核は「間接操作」だが、MVPでは因果の手応えが弱い。
 - 次の改善では、先に複雑なルールを足すより、出口表現、ピン影響の見える化、成功演出、最初の30秒の理解を優先する。
 - 大人向けに残すなら、虫の進路予測や複数虫の同時誘導など、上達の余地を追加する必要がある。
+
+HQ Direction:
+
+```txt
+docs/cabinet-03-hq-direction.md
+```
