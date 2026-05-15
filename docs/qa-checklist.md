@@ -27,6 +27,25 @@ For headquarters intake work, also see `docs/cabinet-intake.md`.
 - Player can lose, win, or finish the game.
 - Player does not get trapped in an unplayable state.
 
+## Game Design Intent QA
+
+ゲームを遊ぶ前に、開発者の `Game Design Intent Report` を確認する。
+
+- このゲームが何をするゲームか説明されている。
+- プレイヤーにとって何が楽しい想定か説明されている。
+- どこで悩ませるゲームか説明されている。
+- どこで気持ちよくさせるゲームか説明されている。
+- 初見プレイヤーに何が伝われば成功か説明されている。
+- 開発者が不安に思っている点が書かれている。
+
+人間QAでは、以下を判定する。
+
+- 意図どおり楽しい。
+- 意図は分かるが、伝わり方が弱い。
+- 操作や説明ではなく、ゲーム性自体に課題がある。
+- 開発者の想定とは違う楽しさがある。
+- Arcadeに並べる価値が現時点であるか。
+
 ## Arcade Integration
 
 - `game.json` exists.

@@ -21,6 +21,7 @@ Status: migrated / static intake passed / visual QA pending
 
 ゲームチャットから、本部に以下が返ってくること。
 
+- Game Design Intent Report
 - 実装済みファイル一式の場所
 - 変更したこと
 - 追加したファイル
@@ -53,8 +54,31 @@ CHANGELOG.md
 10. `?from=arcade&credit=1` が付いているか確認する。
 11. ゲーム内のArcade起動表示を確認する。
 12. Start / Retry / Result / BACK TO ARCADEを確認する。
-13. QA結果を該当Cabinet docsへ記録する。
-14. 問題がなければコミットする。
+13. `Game Design Intent Report` と人間QAの感想を照合する。
+14. QA結果を該当Cabinet docsへ記録する。
+15. 問題がなければコミットする。
+
+## Game Design Intent Report
+
+ゲームチャットは、MVP完成報告時に `docs/game-design-intent-report.md` の内容に沿って、ゲーム性の意図を本部へ返す。
+
+本部が知りたいのは、単に「実装した機能」ではない。
+
+- このゲームは何をするゲームなのか
+- プレイヤーにとって何が楽しい想定なのか
+- どこで悩ませるのか
+- どこで気持ちよくさせるのか
+- 初見プレイヤーに何が伝われば成功なのか
+- 開発者自身が不安に思っている点は何か
+
+人間QAは、この意図レポートを読んだうえで実際に遊ぶ。
+
+その結果、本部は以下を判断する。
+
+- 狙った楽しさが伝わっている
+- 狙いは分かるが、UI/説明/演出が足りない
+- ゲーム性そのものを再設計する必要がある
+- 開発者の想定とは違うが、別の面白さが見えている
 
 ## Required Local QA
 
@@ -101,6 +125,7 @@ CHANGELOG.md
 - 実決済、暗号資産、報酬機能を追加しない。
 - postMessageを無理に実装しない。
 - サムネイル未完成を理由にゲーム移植自体を止めない。
+- 人間QA前に、開発者のゲーム意図を曖昧なまま改善作業へ進めない。
 
 ## Commit Message Pattern
 

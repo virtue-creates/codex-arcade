@@ -85,3 +85,5 @@ This file records decisions made in the Codex Arcade headquarters chat.
 - Cabinet 02 `metro-mender` runs, but the player does not understand the intended strategy yet. It currently feels like clicking disconnected lines until the game clears, so the gameplay loop is not accepted.
 - Cabinet 03 `specimen-night-shift` runs, but the play goal and interaction are unclear. It may work better as a child-friendly or toy-like experience unless redesigned for adult puzzle interest.
 - Phase 3 should shift from "make three things launch" to "keep Cabinet 01 as the playable anchor and redesign/clarify Cabinet 02 and Cabinet 03 before public polish."
+- The intake process should ask each game developer for a Game Design Intent Report before improvement work, so human QA can compare intended fun against actual player experience.
+- Completion reports should include not only changed files and checks, but also what the game is, why it should be fun, where the player should think, where the player should feel satisfaction, and what the developer wants QA to evaluate.
