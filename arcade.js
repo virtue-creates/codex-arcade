@@ -22,14 +22,36 @@ const fallbackGames = [
     path: "games/neon-core-survivor/",
     thumbnail: "assets/thumbnails/neon-core-survivor.png",
     creditCost: 1
+  },
+  {
+    id: "metro-mender",
+    cabinet: "Cabinet 02",
+    title: "Metro Mender",
+    description: "壊れた地下鉄網をつなぎ直す、短時間ルート修理パズル。",
+    status: "concept",
+    genre: ["puzzle", "arcade", "strategy"],
+    devices: ["desktop", "tablet"],
+    input: ["mouse"],
+    orientation: "landscape",
+    path: "games/metro-mender/",
+    thumbnail: "assets/thumbnails/metro-mender.png",
+    creditCost: 1
+  },
+  {
+    id: "specimen-night-shift",
+    cabinet: "Cabinet 03",
+    title: "Specimen Night Shift",
+    description: "夜だけ動き出す標本箱の虫たちを、月明かりの出口へ導く奇妙なパズル。",
+    status: "concept",
+    genre: ["puzzle", "arcade", "strategy"],
+    devices: ["desktop", "tablet"],
+    input: ["mouse", "touch"],
+    orientation: "landscape",
+    path: "games/specimen-night-shift/",
+    thumbnail: "assets/thumbnails/specimen-night-shift.png",
+    creditCost: 1
   }
 ];
-
-const statusLabels = {
-  prototype: "NOW PLAYABLE",
-  playable: "NOW PLAYABLE",
-  concept: "AGENTS TUNING"
-};
 
 function getCredits() {
   const stored = Number.parseInt(localStorage.getItem(CREDIT_STORAGE_KEY), 10);
@@ -77,42 +99,28 @@ function createTag(label) {
   return tag;
 }
 
-function getScreenState(game) {
-  if (canPlay(game)) {
-    return {
-      state: "CABINET ONLINE",
-      title: "INSERT COIN"
-    };
-  }
-
-  return {
-    state: "COMING SOON",
-    title: game.id === "metro-mender" ? "路線修復中" : "夜間展示準備中"
-  };
-}
-
 function renderGameCard(game, index) {
-  const cabinet = cabinetCardTemplate.content.firstElementChild.cloneNode(true);
-  const number = cabinet.querySelector(".cabinet-number");
-  const status = cabinet.querySelector(".cabinet-status");
-  const screenState = cabinet.querySelector(".screen-state");
-  const screenTitle = cabinet.querySelector(".screen-overlay strong");
-  const cost = cabinet.querySelector(".cabinet-cost");
-  const signal = cabinet.querySelector(".cabinet-signal");
-  const title = cabinet.querySelector("h3");
-  const description = cabinet.querySelector(".cabinet-description");
-  const tagRow = cabinet.querySelector(".tag-row");
-  const button = cabinet.querySelector(".play-button");
-  const screen = getScreenState(game);
+  const card = cabinetCardTemplate.content.firstElementChild.cloneNode(true);
+  const image = card.querySelector("img");
+  const number = card.querySelector(".cabinet-number");
+  const status = card.querySelector(".cabinet-status");
+  const cost = card.querySelector(".cabinet-cost");
+  const title = card.querySelector("h3");
+  const description = card.querySelector(".cabinet-description");
+  const tagRow = card.querySelector(".tag-row");
+  const button = card.querySelector(".play-button");
 
-  cabinet.classList.add(game.id, game.status);
+  image.src = game.thumbnail || "";
+  image.alt = `${game.title} thumbnail`;
+  image.addEventListener("error", () => {
+    image.removeAttribute("src");
+    image.alt = "";
+  });
+
   number.textContent = game.cabinet || `Cabinet ${String(index + 1).padStart(2, "0")}`;
-  status.textContent = statusLabels[game.status] || game.status;
-  screenState.textContent = screen.state;
-  screenTitle.textContent = screen.title;
-  cost.textContent = `${game.creditCost} CREDIT = 1 PLAY`;
-  signal.textContent = canPlay(game) ? "READY" : "STANDBY";
-  signal.classList.toggle("ready", canPlay(game));
+  status.textContent = game.status;
+  status.classList.add(game.status);
+  cost.textContent = `${game.creditCost} credit`;
   title.textContent = game.title;
   description.textContent = game.description;
 
@@ -121,31 +129,14 @@ function renderGameCard(game, index) {
   });
 
   if (canPlay(game)) {
-    let creditReady = false;
-    button.textContent = "INSERT COIN";
-    button.addEventListener("click", () => {
-      if (!creditReady) {
-        if (getCredits() < game.creditCost) {
-          addFreeCoins();
-        }
-
-        creditReady = true;
-        button.textContent = "PRESS PLAY";
-        button.classList.add("ready");
-        screenState.textContent = "CREDIT READY";
-        screenTitle.textContent = "CABINET ONLINE";
-        signal.textContent = "ONLINE";
-        return;
-      }
-
-      launchGame(game);
-    });
+    button.textContent = "INSERT COIN / PLAY";
+    button.addEventListener("click", () => launchGame(game));
   } else {
     button.textContent = "COMING SOON";
     button.disabled = true;
   }
 
-  return cabinet;
+  return card;
 }
 
 async function loadGames() {

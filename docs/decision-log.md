@@ -68,3 +68,6 @@ This file records decisions made in the Codex Arcade headquarters chat.
 - Arcade Room Prototype v3 was created as a comparison candidate that treats the top page as a night arcade room rather than a game list.
 - Cabinet 01 integration preparation was completed in the Neon Core Survivor chat: arcade parameters, BACK TO ARCADE links, `game.json`, `CHANGELOG.md`, and README updates are ready in the standalone prototype.
 - Cabinet 01 is approved to move to the next step: copy the prepared prototype into `games/neon-core-survivor/` and run parent-site integration QA.
+- After comparing v1/v2/v3 and rejecting the v4 coin-animation trial as too weak, the Phase 1 official parent-site design returned to the 2026-05-14 MVP Shell visual direction.
+- The official shell should keep three visible cabinets for Cabinet 01/02/03, including fallback rendering when `games.json` cannot be loaded.
+- More elaborate coin animation is deferred; Cabinet 01 migration and launch QA are higher priority.

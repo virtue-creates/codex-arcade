@@ -1,83 +1,70 @@
 <!doctype html>
-<html lang="ja">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Codex Arcade</title>
     <meta
       name="description"
-      content="Codex Arcadeは、小さなWebゲームが並ぶオンラインゲーセンです。"
+      content="Codex Arcade is an AI-agent-operated online arcade experiment."
     >
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <div class="arcade-shell">
-      <header class="arcade-header">
-        <div class="sign-block" aria-label="Arcade sign">
-          <p class="eyebrow">OPEN NOW / ONLINE GAME CENTER</p>
-          <h1>Codex Arcade</h1>
-          <p class="intro">
-            夜の入口でCREDITを受け取り、光っている筐体にコインを入れてください。
-          </p>
-          <p class="agent-note">AI agents are setting up the cabinets.</p>
+    <header class="arcade-header">
+      <div>
+        <p class="eyebrow">AI-Agent Operated Arcade Studio</p>
+        <h1>Codex Arcade</h1>
+        <p class="intro">
+          Small web cabinets planned, built, QA'd, published, marketed, and improved with Codex departments.
+        </p>
+      </div>
+
+      <section class="credit-panel" aria-label="Arcade credits">
+        <div>
+          <span class="panel-label">CREDITS</span>
+          <strong id="creditCount">--</strong>
+        </div>
+        <button id="freeCoinButton" type="button">FREE COIN</button>
+      </section>
+    </header>
+
+    <main>
+      <section class="status-strip" aria-label="Current project status">
+        <div>
+          <span class="panel-label">CURRENT BOARD</span>
+          <strong>Phase 1 Sprint 2/3</strong>
+          <span>Arcade MVP Implementation</span>
+        </div>
+        <div>
+          <span class="panel-label">POLICY</span>
+          <span>Free virtual credits only. No monetary value.</span>
+        </div>
+      </section>
+
+      <section class="cabinet-section" aria-labelledby="cabinetHeading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Cabinet Select</p>
+            <h2 id="cabinetHeading">Choose Your Cabinet</h2>
+          </div>
+          <p>Prototype cabinets can launch. Concept cabinets are visible for the roadmap.</p>
         </div>
 
-        <section class="credit-panel" aria-label="Arcade credits">
-          <div class="credit-display">
-            <span>CREDITS</span>
-            <strong id="creditCount">--</strong>
-          </div>
-          <div class="credit-rules">
-            <span>1 CREDIT = 1 PLAY</span>
-            <button id="freeCoinButton" type="button">CREDITを受け取る</button>
-          </div>
-        </section>
-      </header>
-
-      <main>
-        <section class="cabinet-section" aria-labelledby="cabinetHeading">
-          <div class="section-heading">
-            <p class="eyebrow">SELECT YOUR CABINET</p>
-            <h2 id="cabinetHeading">本日の稼働筐体</h2>
-          </div>
-
-          <div class="arcade-room" aria-label="Cabinet floor">
-            <div class="wall-sign">INSERT COIN</div>
-            <div id="cabinetGrid" class="cabinet-row" aria-live="polite"></div>
-            <div class="floor-grid" aria-hidden="true"></div>
-          </div>
-        </section>
-
-        <section class="arcade-note" aria-label="Credit policy">
-          <p>
-            CREDITSは無料の演出用クレジットです。購入・交換・換金はできません。
-          </p>
-          <p>
-            Codex Arcadeは、人間ディレクターとCodexエージェントが育てている小さなアーケード実験です。
-          </p>
-        </section>
-      </main>
-    </div>
+        <div id="cabinetGrid" class="cabinet-grid" aria-live="polite"></div>
+      </section>
+    </main>
 
     <template id="cabinetCardTemplate">
-      <article class="cabinet">
-        <div class="cabinet-marquee">
+      <article class="cabinet-card">
+        <div class="cabinet-media">
+          <img alt="" loading="lazy">
           <span class="cabinet-number"></span>
-          <span class="cabinet-status"></span>
         </div>
-
-        <div class="cabinet-screen">
-          <div class="screen-art" aria-hidden="true"></div>
-          <div class="screen-overlay">
-            <span class="screen-state"></span>
-            <strong></strong>
-          </div>
-        </div>
-
-        <div class="cabinet-control">
-          <div class="cabinet-meta">
+        <div class="cabinet-body">
+          <div class="cabinet-topline">
+            <span class="cabinet-status"></span>
             <span class="cabinet-cost"></span>
-            <span class="cabinet-signal"></span>
           </div>
           <h3></h3>
           <p class="cabinet-description"></p>
