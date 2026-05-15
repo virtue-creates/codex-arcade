@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Specimen Night Shift</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="cabinet-shell">
+      <canvas id="game" aria-label="Specimen Night Shift game canvas"></canvas>
+
+      <section class="hud hud-top" aria-label="Game status">
+        <div>
+          <span class="label">TIME</span>
+          <strong id="time">01:00</strong>
+        </div>
+        <div>
+          <span class="label">RESCUED</span>
+          <strong id="rescued">0/3</strong>
+        </div>
+        <div>
+          <span class="label">PINS</span>
+          <strong id="pins">3</strong>
+        </div>
+      </section>
+
+      <section class="panel intro" id="intro">
+        <p class="eyebrow" id="introKicker">Codex Arcade Cabinet 03</p>
+        <h1>Specimen Night Shift</h1>
+        <p class="tagline">
+          Move the pins. Bend the little paths. Lead the specimens to moonlight.
+        </p>
+        <button id="startBtn">Start Night Shift</button>
+        <a class="back-link" href="../../index.html">Back to Arcade</a>
+        <div class="chips" aria-hidden="true">
+          <span>Mouse</span>
+          <span>Drag Pins</span>
+          <span>60 sec</span>
+        </div>
+      </section>
+
+      <section class="panel end hidden" id="end">
+        <p class="eyebrow" id="endKicker">Night Shift Complete</p>
+        <h2 id="endTitle">The box grows quiet.</h2>
+        <p id="endText"></p>
+        <button id="restartBtn">Retry</button>
+        <a class="back-link" href="../../index.html">Back to Arcade</a>
+      </section>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>

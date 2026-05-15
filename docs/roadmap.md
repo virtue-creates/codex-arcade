@@ -70,7 +70,7 @@ CLEARED
 IN PLAY
 - Sprint 1/3: Cabinet 02/03 MVP実装依頼
 - Cabinet 02: Metro Mender制作中
-- Cabinet 03: Specimen Night Shift制作中
+- Cabinet 03: Specimen Night Shift MVP受け入れQA
 - 本部: 受け入れQA/移植手順整備
 
 UP NEXT
@@ -164,7 +164,7 @@ IN PLAY:
 
 - Sprint 1/3: Cabinet 02/03 MVP実装依頼
 - Cabinet 02: Metro Mender制作中
-- Cabinet 03: Specimen Night Shift制作中
+- Cabinet 03: Specimen Night Shift MVP受け入れQA
 - 本部: 受け入れQA/移植手順整備
 
 UP NEXT:

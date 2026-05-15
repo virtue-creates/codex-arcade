@@ -154,3 +154,32 @@ MVP thumbnail can be static. Animated thumbnails are deferred.
 - Thumbnail path should be `assets/thumbnails/specimen-night-shift.png`.
 - Do not start Cabinet 03 implementation or repository migration during Phase 1.
 
+## 2026-05-15 MVP Implementation Report
+
+Cabinet 03 reported:
+
+- Implemented a one-screen Canvas specimen-box puzzle.
+- Added 3 insects, 3 draggable pins, and 1 moonlit exit.
+- Added 60-second play session, rescued count score, title, result, retry, and BACK TO ARCADE.
+- Added `?from=arcade&credit=1` launch flavor: `1 Credit / Night Shift Armed`.
+- Added `game.json`, `README.md`, and `CHANGELOG.md`.
+- Updated parent `games.json` to set Cabinet 03 to `prototype`.
+
+Headquarters static QA:
+
+- `node --check games/specimen-night-shift/game.js` passed.
+- `games/specimen-night-shift/game.json` parsed correctly.
+- Parent `games.json` parsed correctly.
+- Direct HTTP launch returned `200 OK`.
+- Arcade parameter HTTP launch returned `200 OK`.
+- `game.js` and `styles.css` returned `200 OK`.
+- BACK TO ARCADE link points to `../../index.html`.
+- `supportsPostMessage` remains `false`.
+
+Headquarters response:
+
+- Cabinet 03 may be treated as `prototype` for MVP intake.
+- `../../index.html` is approved for BACK TO ARCADE.
+- The pin influence constants look reasonable for MVP, but "触って分かる" strength requires human play QA.
+- Real thumbnail creation remains a next task.
+- Browser/visual QA was not completed in this pass because the browser integration module was unavailable.

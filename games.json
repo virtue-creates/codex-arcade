@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-05-14",
+  "updatedAt": "2026-05-15",
   "games": [
     {
       "id": "neon-core-survivor",
@@ -41,7 +41,7 @@
       "cabinet": "Cabinet 03",
       "title": "Specimen Night Shift",
       "description": "夜だけ動き出す標本箱の虫たちを、月明かりの出口へ導く奇妙なパズル。",
-      "status": "concept",
+      "status": "prototype",
       "genre": ["puzzle", "arcade", "strategy"],
       "devices": ["desktop", "tablet"],
       "input": ["mouse", "touch"],
@@ -51,7 +51,7 @@
       "creditCost": 1,
       "interfaceVersion": 1,
       "createdAt": "2026-05-13",
-      "updatedAt": "2026-05-14"
+      "updatedAt": "2026-05-15"
     }
   ]
 }

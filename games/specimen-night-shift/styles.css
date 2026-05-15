@@ -1,0 +1,233 @@
+:root {
+  color-scheme: dark;
+  --paper: #d8caa5;
+  --paper-deep: #9f865c;
+  --wood: #3a2118;
+  --wood-dark: #1a0f0d;
+  --ink: #17120f;
+  --moon: #a7e7ff;
+  --moon-soft: rgba(167, 231, 255, 0.22);
+  --amber: #f0c36b;
+  --pin: #17181c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 52% 34%, rgba(62, 74, 80, 0.28), transparent 31rem),
+    linear-gradient(140deg, #100d10 0%, #1b1110 44%, #091216 100%);
+  color: #f7ecd1;
+  font-family:
+    ui-serif,
+    Georgia,
+    Cambria,
+    "Times New Roman",
+    serif;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+.cabinet-shell {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  min-width: 320px;
+  overflow: hidden;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+
+canvas.dragging {
+  cursor: grabbing;
+}
+
+.hud {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.hud-top {
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hud div {
+  min-width: 96px;
+  padding: 9px 12px;
+  border: 1px solid rgba(240, 195, 107, 0.35);
+  background: rgba(15, 10, 8, 0.64);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.label {
+  display: block;
+  color: rgba(247, 236, 209, 0.62);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hud strong {
+  display: block;
+  margin-top: 3px;
+  color: #fff6d6;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 1rem;
+}
+
+.panel {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  top: 50%;
+  width: min(520px, calc(100vw - 34px));
+  padding: 28px;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(240, 195, 107, 0.42);
+  background:
+    linear-gradient(180deg, rgba(31, 22, 18, 0.94), rgba(16, 10, 9, 0.92)),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0 1px, transparent 1px 18px);
+  box-shadow:
+    0 28px 90px rgba(0, 0, 0, 0.48),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--moon);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.76rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 5vw, 4.8rem);
+  line-height: 0.95;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  line-height: 1;
+}
+
+.tagline,
+#endText {
+  max-width: 34rem;
+  margin: 17px auto 0;
+  color: rgba(247, 236, 209, 0.76);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+button {
+  min-width: 190px;
+  margin-top: 22px;
+  padding: 12px 18px;
+  border: 1px solid rgba(167, 231, 255, 0.62);
+  border-radius: 0;
+  background: rgba(167, 231, 255, 0.12);
+  color: #ecfbff;
+  cursor: pointer;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+button:hover,
+button:focus-visible {
+  background: rgba(167, 231, 255, 0.22);
+  outline: 2px solid rgba(167, 231, 255, 0.45);
+  outline-offset: 3px;
+}
+
+.back-link {
+  display: block;
+  width: max-content;
+  margin: 16px auto 0;
+  color: rgba(247, 236, 209, 0.72);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.back-link:hover,
+.back-link:focus-visible {
+  color: #ffffff;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.chips span {
+  padding: 6px 9px;
+  border: 1px solid rgba(240, 195, 107, 0.24);
+  color: rgba(247, 236, 209, 0.58);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+@media (max-width: 700px) {
+  .hud-top {
+    top: 10px;
+    width: calc(100vw - 20px);
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .hud div {
+    min-width: 0;
+    flex: 1;
+    padding: 7px 8px;
+  }
+
+  .panel {
+    padding: 22px 18px;
+  }
+}

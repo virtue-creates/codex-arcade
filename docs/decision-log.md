@@ -73,3 +73,4 @@ This file records decisions made in the Codex Arcade headquarters chat.
 - Cabinet 02 and Cabinet 03 were approved to start MVP implementation in parallel game chats.
 - Headquarters created a repeatable Cabinet intake workflow in `docs/cabinet-intake.md`.
 - Roadmap advanced to v0.8: Phase 1 and Phase 2 are treated as cleared, and Phase 3 is in play with Cabinet 02/03 parallel production.
+- Cabinet 03 `specimen-night-shift` returned an MVP implementation and is accepted as `prototype` for MVP intake, pending human play-feel QA and thumbnail work.
