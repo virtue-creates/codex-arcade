@@ -11,10 +11,10 @@ Cabinet 01: neon-core-survivor
 Status: migrated / QA passed for parent launch
 
 Cabinet 02: metro-mender
-Status: in production in game chat
+Status: migrated / static intake passed / visual QA pending
 
 Cabinet 03: specimen-night-shift
-Status: in production in game chat
+Status: migrated / static intake passed / visual QA pending
 ```
 
 ## Intake Inputs
@@ -81,6 +81,7 @@ CHANGELOG.md
 - Input: mouse
 - MVP risk: ルールが抽象的だと初見で分かりづらい。
 - 本部QAでは「壊れた線をクリックして直す」が伝わるかを見る。
+- 2026-05-15: 本部リポジトリへ搬入済み。構文/JSON/HTTP確認は通過。人間の目視QAとサムネイル作成が次。
 
 ### Cabinet 03: Specimen Night Shift
 
@@ -91,6 +92,7 @@ CHANGELOG.md
 - Input: mouse / touch
 - MVP risk: 虫の動きとピンの影響が分かりづらい可能性がある。
 - 本部QAでは「奇妙で美しい」方向に収まっているかを見る。
+- 2026-05-15: 本部リポジトリへ搬入済み。構文/JSON/HTTP確認は通過。人間の目視QAとサムネイル作成が次。
 
 ## Do Not Do During Intake
 

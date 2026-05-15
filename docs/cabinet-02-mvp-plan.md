@@ -171,3 +171,45 @@ Initial placeholder thumbnails are acceptable during development, but public QA 
 - Thumbnail should be based on actual game UI.
 - Mobile non-support should be shown on the game card.
 
+## 2026-05-15 本部受け入れ記録
+
+Cabinet 02 `Metro Mender` のMVP実装報告を受け、本部リポジトリへ搬入した。
+
+搬入元:
+
+```txt
+/Users/ogawakenji/Documents/Codex/2026-05-13/cabinet-02-codex-arcade-2-web/games/metro-mender/
+```
+
+搬入先:
+
+```txt
+games/metro-mender/
+```
+
+本部で確認した内容:
+
+- `index.html`, `styles.css`, `game.js`, `game.json`, `README.md`, `CHANGELOG.md` を搬入した。
+- 親 `games.json` の `metro-mender` を `status: "prototype"` に更新した。
+- `updatedAt` を `2026-05-15` に更新した。
+- タイトル画面とリザルト画面に `BACK TO ARCADE` 導線を追加した。
+- `node --check games/metro-mender/game.js` が通ることを確認した。
+- `games/metro-mender/game.json` と親 `games.json` がJSONとして読めることを確認した。
+- ローカルHTTPサーバーで `games/metro-mender/` が `200 OK` になることを確認した。
+- `game.js` と `styles.css` が `200 OK` で配信されることを確認した。
+
+本部判断:
+
+- 終了条件は、MVPでは「全故障修理 / 修理数ゼロ / 時間切れ」でよい。
+- `120秒 / 修理5回` は、まずMVP QA用の初期バランスとして採用する。
+- `BACK TO ARCADE` のリンク先は Phase 3 時点では `../../index.html` で統一する。
+- `supportsPostMessage: false` のまま開始する。
+- サムネイルは実ゲーム画面のスクリーンショットベースで作る。
+- Cabinet 02 は `prototype` として親Arcadeに登録する。
+
+残っている確認:
+
+- 人間の目視QAで、路線図が分かりやすいか確認する。
+- 「赤い故障区間をクリックして直す」が初見で伝わるか確認する。
+- 120秒/修理5回が長すぎる、短すぎる、簡単すぎるなどないか確認する。
+- 実サムネイル `assets/thumbnails/metro-mender.png` を作成する。

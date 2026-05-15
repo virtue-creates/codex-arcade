@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Metro Mender</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="cabinet" aria-labelledby="game-title">
+      <header class="topbar">
+        <a class="back-link" href="../../index.html">BACK TO ARCADE</a>
+        <div class="credit-pill" id="credit-pill">STANDALONE</div>
+      </header>
+
+      <section class="game-shell">
+        <aside class="status-panel" aria-label="Game status">
+          <p class="eyebrow">Cabinet 02</p>
+          <h1 id="game-title">Metro Mender</h1>
+          <p class="tagline">Repair the broken subway grid before the city falls out of sync.</p>
+
+          <div class="meter-grid">
+            <div class="meter">
+              <span>Time</span>
+              <strong id="time-readout">120</strong>
+            </div>
+            <div class="meter">
+              <span>Repairs</span>
+              <strong id="repairs-readout">5</strong>
+            </div>
+            <div class="meter">
+              <span>Restored</span>
+              <strong id="restored-readout">0%</strong>
+            </div>
+            <div class="meter">
+              <span>Score</span>
+              <strong id="score-readout">0</strong>
+            </div>
+          </div>
+
+          <div class="instruction-box" id="instruction-box">
+            Click red fault lines to reconnect the network.
+          </div>
+
+          <button class="primary-button" id="start-button" type="button">START REPAIR</button>
+        </aside>
+
+        <section class="map-panel" aria-label="Subway repair map">
+          <svg id="metro-map" class="metro-map" viewBox="0 0 1000 640" role="img" aria-labelledby="map-title map-desc">
+            <title id="map-title">Metro Mender route map</title>
+            <desc id="map-desc">A subway map with broken and repaired line segments.</desc>
+          </svg>
+        </section>
+      </section>
+
+      <section class="overlay is-visible" id="title-screen" aria-label="Title screen">
+        <div class="overlay-card">
+          <p class="insert-text" id="insert-text">INSERT COIN</p>
+          <h2>Metro Mender</h2>
+          <p>Restore the city by repairing faulted subway links. One click fixes one red segment.</p>
+          <button class="primary-button" id="title-start-button" type="button">START</button>
+          <a class="back-link overlay-link" href="../../index.html">BACK TO ARCADE</a>
+        </div>
+      </section>
+
+      <section class="overlay" id="result-screen" aria-label="Result screen">
+        <div class="overlay-card result-card">
+          <p class="insert-text">SERVICE REPORT</p>
+          <h2 id="rank-readout">Rank C</h2>
+          <dl class="result-list">
+            <div>
+              <dt>Score</dt>
+              <dd id="final-score">0</dd>
+            </div>
+            <div>
+              <dt>Restored</dt>
+              <dd id="final-restored">0%</dd>
+            </div>
+            <div>
+              <dt>Stations Online</dt>
+              <dd id="final-stations">0/0</dd>
+            </div>
+            <div>
+              <dt>Faults Fixed</dt>
+              <dd id="final-fixed">0</dd>
+            </div>
+          </dl>
+          <button class="primary-button" id="retry-button" type="button">RETRY</button>
+          <a class="back-link overlay-link" href="../../index.html">BACK TO ARCADE</a>
+        </div>
+      </section>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>

@@ -24,7 +24,7 @@
       "cabinet": "Cabinet 02",
       "title": "Metro Mender",
       "description": "壊れた地下鉄網をつなぎ直す、短時間ルート修理パズル。",
-      "status": "concept",
+      "status": "prototype",
       "genre": ["puzzle", "arcade", "strategy"],
       "devices": ["desktop", "tablet"],
       "input": ["mouse"],
@@ -34,7 +34,7 @@
       "creditCost": 1,
       "interfaceVersion": 1,
       "createdAt": "2026-05-13",
-      "updatedAt": "2026-05-14"
+      "updatedAt": "2026-05-15"
     },
     {
       "id": "specimen-night-shift",

@@ -76,10 +76,14 @@ Cabinet 01 `neon-core-survivor`:
 
 Cabinet 02 `metro-mender`:
 
-- Awaiting game chat implementation.
-- Check route repair readability first.
+- 本部リポジトリへ搬入済み。
+- `node --check`、JSON parse、HTTP配信確認は通過。
+- 目視QAでは、路線図の読みやすさと「赤い故障区間をクリックして直す」が伝わるかを優先して確認する。
+- Thumbnail still pending.
 
 Cabinet 03 `specimen-night-shift`:
 
-- Awaiting game chat implementation.
-- Check pin/bug causality and visual tone first.
+- 本部リポジトリへ搬入済み。
+- `node --check`、JSON parse、HTTP配信確認は通過。
+- 目視QAでは、ピンと虫の因果関係、救出の分かりやすさ、奇妙で美しい方向に収まっているかを優先して確認する。
+- Thumbnail still pending.

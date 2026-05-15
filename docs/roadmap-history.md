@@ -16,7 +16,7 @@ Use this for changes that affect:
 ## Current Version
 
 ```txt
-Roadmap Version: v0.8
+Roadmap Version: v0.9
 Last Updated: 2026-05-15
 ```
 
@@ -268,3 +268,31 @@ Impact:
 - Current Board now shows Phase 3 in play.
 - Headquarters is responsible for receiving Cabinet 02/03, migrating them, and running QA.
 - Thumbnail and polish remain important, but they should not block MVP game intake.
+
+## v0.9 - Three Prototype Cabinets Intake
+
+Date:
+
+```txt
+2026-05-15
+```
+
+What changed:
+
+- Cabinet 03 `specimen-night-shift` was migrated into `games/specimen-night-shift/`.
+- Cabinet 02 `metro-mender` was migrated into `games/metro-mender/`.
+- Parent `games.json` now treats Cabinet 02 and Cabinet 03 as `prototype`.
+- Static intake checks passed for both Cabinet 02 and Cabinet 03.
+- Phase 3 moved from "Cabinet 02/03 production" to "3ゲームQAとサムネイル準備".
+
+Why:
+
+- The parallel game chats returned MVP implementations.
+- Headquarters needed to turn those reports into actual parent repository state.
+- The project now needs human visual QA and play-feel QA, not more planning.
+
+Impact:
+
+- Codex Arcade has three prototype cabinets in the parent repository.
+- The next useful human check is to open each cabinet, play briefly, and decide what feels confusing, exciting, or too rough.
+- Thumbnail creation and public-readiness polish become the next visible work.

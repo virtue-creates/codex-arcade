@@ -5,7 +5,7 @@ Codex Arcade uses phases to keep the project understandable.
 The goal is to grow from a planning folder into an AI-agent-operated arcade studio.
 
 ```txt
-Current Roadmap Version: v0.8
+Current Roadmap Version: v0.9
 Last Updated: 2026-05-15
 ```
 
@@ -49,7 +49,7 @@ flowchart LR
 | Phase 0: 会社化・土台づくり | CLEARED | 4/4 | Done |
 | Phase 1: Arcade MVP構築 | CLEARED | 3/3 | Done |
 | Phase 2: Cabinet 01統合 | CLEARED | 3/3 | Done |
-| Phase 3: 3ゲーム体制 | IN PLAY | 1/3 | Cabinet 02/03並行制作 |
+| Phase 3: 3ゲーム体制 | IN PLAY | 2/3 | 3ゲームQAとサムネイル |
 | Phase 4: 公開・計測準備 | UP NEXT | 0/3 | 公開準備 |
 | Phase 5: 半自動運用 | UP NEXT | 0/3 | Agentフロー試運転 |
 | Phase 6: 自働会社リズム | UP NEXT | 0/3 | 週次レビュー |
@@ -66,15 +66,16 @@ CLEARED
 - Phase 1: Arcade MVP構築
 - Phase 2: Cabinet 01統合
 - Cabinet 01: Neon Core Survivor移植/親起動QA
+- Cabinet 02: Metro Mender搬入/静的QA
+- Cabinet 03: Specimen Night Shift搬入/静的QA
 
 IN PLAY
-- Sprint 1/3: Cabinet 02/03 MVP実装依頼
-- Cabinet 02: Metro Mender制作中
-- Cabinet 03: Specimen Night Shift MVP受け入れQA
-- 本部: 受け入れQA/移植手順整備
+- Sprint 2/3: Cabinet 02/03移植QA
+- Cabinet 02: Metro Mender目視QA/遊び心地確認
+- Cabinet 03: Specimen Night Shift目視QA/遊び心地確認
+- 本部: 3ゲーム表示確認
 
 UP NEXT
-- Sprint 2/3: Cabinet 02/03移植
 - Sprint 3/3: 3ゲームQAとサムネイル
 ```
 
@@ -160,16 +161,21 @@ Purpose:
 3つのゲームが並ぶArcadeにする。
 ```
 
-IN PLAY:
+CLEARED:
 
 - Sprint 1/3: Cabinet 02/03 MVP実装依頼
-- Cabinet 02: Metro Mender制作中
-- Cabinet 03: Specimen Night Shift MVP受け入れQA
-- 本部: 受け入れQA/移植手順整備
+- Cabinet 02: Metro Mender本部搬入/静的QA
+- Cabinet 03: Specimen Night Shift本部搬入/静的QA
+
+IN PLAY:
+
+- Sprint 2/3: Cabinet 02/03移植QA
+- Cabinet 02: Metro Mender目視QA/遊び心地確認
+- Cabinet 03: Specimen Night Shift目視QA/遊び心地確認
+- 本部: 3ゲーム表示確認
 
 UP NEXT:
 
-- Sprint 2/3: Cabinet 02/03移植
 - Sprint 3/3: 3ゲームQAとサムネイル
 
 ## Phase 4 Board: 公開・計測準備

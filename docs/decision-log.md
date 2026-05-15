@@ -74,3 +74,6 @@ This file records decisions made in the Codex Arcade headquarters chat.
 - Headquarters created a repeatable Cabinet intake workflow in `docs/cabinet-intake.md`.
 - Roadmap advanced to v0.8: Phase 1 and Phase 2 are treated as cleared, and Phase 3 is in play with Cabinet 02/03 parallel production.
 - Cabinet 03 `specimen-night-shift` returned an MVP implementation and is accepted as `prototype` for MVP intake, pending human play-feel QA and thumbnail work.
+- Cabinet 02 `metro-mender` returned an MVP implementation and was migrated into the headquarters repository as `prototype`.
+- Cabinet 02 headquarters intake confirmed syntax, JSON, and local HTTP serving. Human visual QA, play-feel QA, and thumbnail work remain.
+- Cabinet 02 Phase 3 MVP decisions: keep `120秒 / 修理5回` as the first QA balance, keep `supportsPostMessage: false`, use `../../index.html` for BACK TO ARCADE, and create the thumbnail from an actual game screenshot.
