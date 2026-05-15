@@ -16,8 +16,8 @@ Use this for changes that affect:
 ## Current Version
 
 ```txt
-Roadmap Version: v0.9
-Last Updated: 2026-05-15
+Roadmap Version: v0.10
+Last Updated: 2026-05-16
 ```
 
 ## v0.1 - Headquarters Foundation
@@ -296,3 +296,34 @@ Impact:
 - Codex Arcade has three prototype cabinets in the parent repository.
 - The next useful human check is to open each cabinet, play briefly, and decide what feels confusing, exciting, or too rough.
 - Thumbnail creation and public-readiness polish become the next visible work.
+
+## v0.10 - Human QA and Studio Report Line
+
+Date:
+
+```txt
+2026-05-16
+```
+
+What changed:
+
+- Human play QA confirmed that all three Cabinet prototypes launch and run.
+- Cabinet 01 `neon-core-survivor` was judged to have an accepted playable core.
+- Cabinet 02 `metro-mender` was judged to run, but not yet feel like a clear game.
+- Cabinet 03 `specimen-night-shift` was judged to run, but need a target/player-experience decision.
+- Added `docs/game-design-intent-report.md`.
+- Added a `Cabinet Studio -> Headquarters -> Human QA -> HQ Direction` report line.
+- Renamed the practical game production chat role to `Cabinet Studio`.
+- Updated the Game Design Intent Report so that high-level overview and concrete rules are separate.
+
+Why:
+
+- The project moved from technical QA to play-feel QA.
+- Human feedback showed that "it works" is not enough; the studio must explain why the game should be fun.
+- Future AI automation needs structured learning data: intent, rules, implementation, human QA, and HQ direction.
+
+Impact:
+
+- Cabinet Studio teams should not jump directly into fixes after negative QA.
+- First they should explain game intent and rules, then Headquarters compares that intent with human experience.
+- Roadmap history now preserves not only code milestones, but also the AI-company operating lessons from human QA.

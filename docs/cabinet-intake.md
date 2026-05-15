@@ -1,6 +1,8 @@
 # Cabinet Intake
 
-このファイルは、各ゲームチャットから完成報告が来たあと、本部がゲームをCodex Arcadeへ搬入するための手順。
+このファイルは、各 `Cabinet Studio` から完成報告が来たあと、本部がゲームをCodex Arcadeへ搬入するための手順。
+
+`Cabinet Studio` は、各Cabinetゲームを担当する制作チーム/チャットの呼び方。
 
 目的は、Cabinet 01で行った移植作業を、Cabinet 02/03以降でも迷わず再現できるようにすること。
 
@@ -19,7 +21,7 @@ Status: migrated / static intake passed / visual QA pending
 
 ## Intake Inputs
 
-ゲームチャットから、本部に以下が返ってくること。
+Cabinet Studioから、本部に以下が返ってくること。
 
 - Game Design Intent Report
 - 実装済みファイル一式の場所
@@ -60,11 +62,12 @@ CHANGELOG.md
 
 ## Game Design Intent Report
 
-ゲームチャットは、MVP完成報告時に `docs/game-design-intent-report.md` の内容に沿って、ゲーム性の意図を本部へ返す。
+Cabinet Studioは、MVP完成報告時に `docs/game-design-intent-report.md` の内容に沿って、ゲーム性の意図を本部へ返す。
 
 本部が知りたいのは、単に「実装した機能」ではない。
 
 - このゲームは何をするゲームなのか
+- 具体的なルールは何か
 - プレイヤーにとって何が楽しい想定なのか
 - どこで悩ませるのか
 - どこで気持ちよくさせるのか
@@ -76,9 +79,33 @@ CHANGELOG.md
 その結果、本部は以下を判断する。
 
 - 狙った楽しさが伝わっている
-- 狙いは分かるが、UI/説明/演出が足りない
+- ルールや狙いは良いが、UI/説明/演出が足りない
 - ゲーム性そのものを再設計する必要がある
 - 開発者の想定とは違うが、別の面白さが見えている
+
+## Report Line
+
+```txt
+Cabinet Studio
+  ↓
+Game Design Intent Report
+  ↓
+Implementation Report
+  ↓
+Headquarters Intake Review
+  ↓
+Human QA
+  ↓
+Human QA Summary
+  ↓
+HQ Direction
+  ↓
+Cabinet Studio revision
+```
+
+本部は、Cabinet Studioの意図、実装、QA結果、改善方針をつなぐ。
+
+改善依頼に入る前に、必ず「開発者の意図」と「人間QAの体験」を照合する。
 
 ## Required Local QA
 

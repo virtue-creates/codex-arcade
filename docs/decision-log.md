@@ -87,3 +87,5 @@ This file records decisions made in the Codex Arcade headquarters chat.
 - Phase 3 should shift from "make three things launch" to "keep Cabinet 01 as the playable anchor and redesign/clarify Cabinet 02 and Cabinet 03 before public polish."
 - The intake process should ask each game developer for a Game Design Intent Report before improvement work, so human QA can compare intended fun against actual player experience.
 - Completion reports should include not only changed files and checks, but also what the game is, why it should be fun, where the player should think, where the player should feel satisfaction, and what the developer wants QA to evaluate.
+- Game production chats are now referred to as `Cabinet Studio` teams, such as Cabinet 01 Studio, Cabinet 02 Studio, and Cabinet 03 Studio.
+- The Game Design Intent Report should separate a high-level game overview from concrete rules, because human QA needs rules to judge whether the intended fun, decisions, and satisfying moments actually exist.

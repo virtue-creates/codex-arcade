@@ -32,6 +32,7 @@ For headquarters intake work, also see `docs/cabinet-intake.md`.
 ゲームを遊ぶ前に、開発者の `Game Design Intent Report` を確認する。
 
 - このゲームが何をするゲームか説明されている。
+- 具体的なルールが説明されている。
 - プレイヤーにとって何が楽しい想定か説明されている。
 - どこで悩ませるゲームか説明されている。
 - どこで気持ちよくさせるゲームか説明されている。
