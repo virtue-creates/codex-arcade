@@ -89,3 +89,4 @@ This file records decisions made in the Codex Arcade headquarters chat.
 - Completion reports should include not only changed files and checks, but also what the game is, why it should be fun, where the player should think, where the player should feel satisfaction, and what the developer wants QA to evaluate.
 - Game production chats are now referred to as `Cabinet Studio` teams, such as Cabinet 01 Studio, Cabinet 02 Studio, and Cabinet 03 Studio.
 - The Game Design Intent Report should separate a high-level game overview from concrete rules, because human QA needs rules to judge whether the intended fun, decisions, and satisfying moments actually exist.
+- Cabinet 02 Studio submitted its Game Design Intent Report. Headquarters' preliminary read is that the Studio's intent and human QA are aligned: Metro Mender should be a route judgment puzzle, but the current MVP lacks meaningful choice because repair count equals fault count.
