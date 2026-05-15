@@ -66,12 +66,21 @@ For headquarters intake work, also see `docs/cabinet-intake.md`.
 
 ## Current Cabinet QA Notes
 
+## Human Play QA - 2026-05-16
+
+全体:
+
+- 親Arcadeから3つのCabinetが起動し、全体として「動いている」ことは確認済み。
+- 次の論点は、起動確認ではなく「ゲームとして面白いか」「遊び方が伝わるか」「Arcadeに並べる価値があるか」。
+
 Cabinet 01 `neon-core-survivor`:
 
 - Parent launch checked.
 - Arcade launch flavor checked.
 - Start Run checked.
 - BACK TO ARCADE checked.
+- Human play impression: 細かいことを抜きにして、現時点で「おもろい」。3本の中では遊びの核が一番成立している。
+- QA status: Playable core accepted. 次はサムネイル、軽い見た目調整、親Arcadeでの主役扱いを検討する。
 - Thumbnail still pending.
 
 Cabinet 02 `metro-mender`:
@@ -79,6 +88,8 @@ Cabinet 02 `metro-mender`:
 - 本部リポジトリへ搬入済み。
 - `node --check`、JSON parse、HTTP配信確認は通過。
 - 目視QAでは、路線図の読みやすさと「赤い故障区間をクリックして直す」が伝わるかを優先して確認する。
+- Human play impression: 遊び方が分かりづらい。現状では、つながっていない路線をクリックしたらクリアになるだけに見えて、ゲームとして成立している感覚が弱い。
+- QA status: Prototype runs, but gameplay loop is not accepted yet. ルール説明、失敗/選択/スコア差、修理の悩ましさを再設計する必要がある。
 - Thumbnail still pending.
 
 Cabinet 03 `specimen-night-shift`:
@@ -86,4 +97,6 @@ Cabinet 03 `specimen-night-shift`:
 - 本部リポジトリへ搬入済み。
 - `node --check`、JSON parse、HTTP配信確認は通過。
 - 目視QAでは、ピンと虫の因果関係、救出の分かりやすさ、奇妙で美しい方向に収まっているかを優先して確認する。
+- Human play impression: 遊び方が分かりづらい。虫を寄せる何かでバケツのような場所へ入れるゲームに見える。大人向けには現状つまらないが、小さい子なら楽しめる可能性はある。
+- QA status: Prototype runs, but target audience and game value need reconsideration. 子ども/ゆるい誘導遊びとして磨くか、大人にも面白いパズルへ再設計するか判断が必要。
 - Thumbnail still pending.

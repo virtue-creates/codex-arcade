@@ -77,3 +77,11 @@ This file records decisions made in the Codex Arcade headquarters chat.
 - Cabinet 02 `metro-mender` returned an MVP implementation and was migrated into the headquarters repository as `prototype`.
 - Cabinet 02 headquarters intake confirmed syntax, JSON, and local HTTP serving. Human visual QA, play-feel QA, and thumbnail work remain.
 - Cabinet 02 Phase 3 MVP decisions: keep `120秒 / 修理5回` as the first QA balance, keep `supportsPostMessage: false`, use `../../index.html` for BACK TO ARCADE, and create the thumbnail from an actual game screenshot.
+
+## 2026-05-16
+
+- Human play QA confirmed that all three prototype cabinets can launch and run from the parent Arcade.
+- Cabinet 01 `neon-core-survivor` is the strongest current game. The core play is already fun enough to treat as the Phase 3 anchor.
+- Cabinet 02 `metro-mender` runs, but the player does not understand the intended strategy yet. It currently feels like clicking disconnected lines until the game clears, so the gameplay loop is not accepted.
+- Cabinet 03 `specimen-night-shift` runs, but the play goal and interaction are unclear. It may work better as a child-friendly or toy-like experience unless redesigned for adult puzzle interest.
+- Phase 3 should shift from "make three things launch" to "keep Cabinet 01 as the playable anchor and redesign/clarify Cabinet 02 and Cabinet 03 before public polish."
