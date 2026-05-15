@@ -13,6 +13,8 @@ target: /Users/ogawakenji/Desktop/codex-arcade/games/neon-core-survivor/
 
 `Neon Core Survivor` is a playable standalone prototype.
 
+Cabinet 01 chat has completed the first arcade-integration preparation pass.
+
 Current implementation:
 
 - Static HTML/CSS/JavaScript
@@ -27,12 +29,18 @@ Current implementation:
 - Level-up with three upgrade choices
 - Game-over and retry flow
 
-Not yet supported:
+Prepared in the standalone prototype:
 
 - `?from=arcade&credit=1`
-- BACK TO ARCADE link
+- `1 CREDIT INSERTED` / `Core online...` title-screen flavor
+- BACK TO ARCADE link on the title screen
+- BACK TO ARCADE link on the result screen
 - `game.json`
 - `CHANGELOG.md`
+- README updates for Codex Arcade Cabinet 01
+
+Still not done:
+
 - Sound
 - `postMessage`
 - Migration into the Codex Arcade repository
@@ -175,3 +183,24 @@ assets/thumbnails/neon-core-survivor.png
 - The first thumbnail should be an in-game screenshot.
 - Parent `games.json` status should be `prototype`.
 
+## 2026-05-15 Cabinet 01 Report Review
+
+Cabinet 01 reported:
+
+- Arcade launch parameter support is prepared.
+- Direct launch remains playable.
+- BACK TO ARCADE links were added.
+- `game.json` and `CHANGELOG.md` were added.
+- README was updated.
+- Game logic was not changed.
+- `node --check game.js` passed.
+- `game.json` parsed correctly.
+- Direct local launch and arcade-parameter launch were checked.
+
+Headquarters response:
+
+- `../../index.html` is approved for BACK TO ARCADE after migration into `games/neon-core-survivor/`.
+- `devices: ["desktop"]` is approved for Phase 1/2.
+- `supportsPostMessage: false` is approved for Phase 1/2.
+- Next step may copy the prepared prototype into `codex-arcade/games/neon-core-survivor/`.
+- Parent `games.json` is already prepared with `status: "prototype"`; it becomes truly playable after migration and QA.
