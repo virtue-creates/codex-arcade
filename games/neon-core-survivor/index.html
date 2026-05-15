@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Neon Core Survivor</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <canvas id="game" aria-label="Neon Core Survivor game canvas"></canvas>
+
+      <section class="hud hud-top">
+        <div>
+          <span class="label">TIME</span>
+          <strong id="time">03:00</strong>
+        </div>
+        <div>
+          <span class="label">SCORE</span>
+          <strong id="score">0</strong>
+        </div>
+        <div>
+          <span class="label">WAVE</span>
+          <strong id="wave">1</strong>
+        </div>
+      </section>
+
+      <section class="hud hud-bottom">
+        <div class="meter">
+          <span>CORE</span>
+          <div class="bar"><i id="hpBar"></i></div>
+        </div>
+        <div class="meter xp">
+          <span>SYNC</span>
+          <div class="bar"><i id="xpBar"></i></div>
+        </div>
+      </section>
+
+      <section class="panel intro" id="intro">
+        <p class="eyebrow" id="introKicker">Codex Arcade Prototype</p>
+        <h1>Neon Core Survivor</h1>
+        <p class="tagline" id="introTagline">Hold the arena for 180 seconds as the grid gets meaner.</p>
+        <button id="startBtn">Start Run</button>
+        <a class="back-link" href="../../index.html">Back to Arcade</a>
+        <div class="chips" aria-hidden="true">
+          <span>WASD</span>
+          <span>Mouse</span>
+          <span>Space</span>
+        </div>
+      </section>
+
+      <section class="panel choices hidden" id="choices">
+        <p class="eyebrow">Core Mutation</p>
+        <h2>Choose an upgrade</h2>
+        <div class="choice-grid" id="choiceGrid"></div>
+      </section>
+
+      <section class="panel end hidden" id="end">
+        <p class="eyebrow" id="endKicker">Run Complete</p>
+        <h2 id="endTitle">Signal stabilized</h2>
+        <p id="endText"></p>
+        <button id="restartBtn">Run Again</button>
+        <a class="back-link" href="../../index.html">Back to Arcade</a>
+      </section>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>

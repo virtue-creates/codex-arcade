@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "id": "neon-core-survivor",
+  "title": "Neon Core Survivor",
+  "version": "0.1.0",
+  "entry": "index.html",
+  "creditCost": 1,
+  "supportsArcadeParams": true,
+  "supportsPostMessage": false,
+  "devices": ["desktop"],
+  "input": ["keyboard", "mouse"],
+  "orientation": "landscape",
+  "viewport": {
+    "recommendedWidth": 1280,
+    "recommendedHeight": 720,
+    "aspectRatio": "16:9"
+  }
+}

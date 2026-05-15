@@ -68,3 +68,5 @@ This file records decisions made in the Codex Arcade headquarters chat.
 - Arcade Room Prototype v3 was created as a comparison candidate that treats the top page as a night arcade room rather than a game list.
 - Cabinet 01 integration preparation was completed in the Neon Core Survivor chat: arcade parameters, BACK TO ARCADE links, `game.json`, `CHANGELOG.md`, and README updates are ready in the standalone prototype.
 - Cabinet 01 is approved to move to the next step: copy the prepared prototype into `games/neon-core-survivor/` and run parent-site integration QA.
+- Cabinet 01 was migrated into `games/neon-core-survivor/`.
+- Parent-site QA confirmed Cabinet 01 launches with `?from=arcade&credit=1`, shows arcade launch flavor, starts gameplay, and returns via BACK TO ARCADE.

@@ -204,3 +204,46 @@ Headquarters response:
 - `supportsPostMessage: false` is approved for Phase 1/2.
 - Next step may copy the prepared prototype into `codex-arcade/games/neon-core-survivor/`.
 - Parent `games.json` is already prepared with `status: "prototype"`; it becomes truly playable after migration and QA.
+
+## 2026-05-15 Migration QA
+
+Migration:
+
+- Copied the prepared standalone prototype into `games/neon-core-survivor/`.
+- Copied only the game files needed by Codex Arcade:
+  - `index.html`
+  - `styles.css`
+  - `game.js`
+  - `game.json`
+  - `README.md`
+  - `CHANGELOG.md`
+- Did not copy the standalone prototype's `.git` folder or unrelated repository files.
+
+Local QA URL:
+
+```txt
+http://127.0.0.1:8091/
+```
+
+Checks:
+
+- `node --check games/neon-core-survivor/game.js` passed.
+- `games/neon-core-survivor/game.json` parsed correctly.
+- Parent Arcade loaded Cabinet 01.
+- Parent Arcade launch reached:
+
+```txt
+games/neon-core-survivor/?from=arcade&credit=1
+```
+
+- Arcade launch showed `1 Credit Inserted`.
+- Arcade launch showed `Core online...` flavor.
+- `Start Run` entered gameplay.
+- `Back to Arcade` returned to the parent Arcade.
+
+Known notes:
+
+- Parent Arcade currently uses the existing two-step launch flow if the active design has `INSERT COIN -> PRESS PLAY`.
+- Thumbnail files are still placeholders/missing.
+- `postMessage` remains out of scope.
+- Mobile support remains out of scope.
