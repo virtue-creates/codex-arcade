@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.2.7 - 2026-05-17
+
+- Added delegated and global fallback repair handlers so fault buttons repair reliably during QA.
+- Replaced polygon SVG hit targets with wide line-based hit targets so visible FAULT segments can be clicked directly.
+- Switched the served script file to `game.v0.2.7.js` to avoid stale local browser scripts.
+
+## 0.2.6 - 2026-05-17
+
+- Changed fault repair buttons to direct onclick handlers for more reliable repair input during QA.
+
+## 0.2.5 - 2026-05-17
+
+- Added explicit repair buttons for each fault so repairs do not depend on SVG click precision.
+- Kept map clicking as supplemental, but made the fault list the reliable repair control.
+
 ## 0.2.4 - 2026-05-17
 
 - Prevented a single repair click from firing both segment and map fallback handlers.
