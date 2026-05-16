@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.4 - 2026-05-17
+
+- Prevented a single repair click from firing both segment and map fallback handlers.
+- Increased nearest-fault fallback tolerance for easier clicking around FAULT labels.
+
 ## 0.2.3 - 2026-05-17
 
 - Added map-level nearest-fault click handling so visible FAULT segments are easier to repair.

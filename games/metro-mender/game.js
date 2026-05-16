@@ -136,7 +136,10 @@ function drawMap() {
       points: getHitPolygonPoints(from, to),
       "data-edge-id": edge.id
     });
-    hit.addEventListener("click", () => repairEdge(edge.id));
+    hit.addEventListener("click", (event) => {
+      event.stopPropagation();
+      repairEdge(edge.id);
+    });
     hit.addEventListener("mouseenter", () => previewEdge(edge.id));
     hit.addEventListener("mouseleave", clearPreview);
     hit.addEventListener("focus", () => previewEdge(edge.id));
@@ -265,7 +268,7 @@ function getNearestRepairableEdge(point) {
     }
   });
 
-  return nearest && nearestDistance <= 42 ? nearest : null;
+  return nearest && nearestDistance <= 70 ? nearest : null;
 }
 
 function handleMapClick(event) {
@@ -570,7 +573,7 @@ function init() {
 
   window.CodexArcadeGame = {
     id: GAME_ID,
-    version: "0.2.3",
+    version: "0.2.4",
     supportsArcadeParams: true,
     supportsPostMessage: false,
     start: startGame,
