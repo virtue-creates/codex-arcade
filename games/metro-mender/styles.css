@@ -210,9 +210,9 @@ h2 {
 }
 
 .segment-hit {
-  pointer-events: stroke;
-  stroke: rgba(255, 255, 255, 0.01);
-  stroke-width: 34;
+  fill: rgba(255, 255, 255, 0.01);
+  pointer-events: all;
+  stroke: none;
   cursor: pointer;
 }
 

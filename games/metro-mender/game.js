@@ -96,6 +96,21 @@ function createSvgElement(tag, attrs = {}) {
   return element;
 }
 
+function getHitPolygonPoints(from, to, width = 44) {
+  const dx = to.x - from.x;
+  const dy = to.y - from.y;
+  const length = Math.hypot(dx, dy) || 1;
+  const offsetX = (-dy / length) * (width / 2);
+  const offsetY = (dx / length) * (width / 2);
+
+  return [
+    `${from.x + offsetX},${from.y + offsetY}`,
+    `${to.x + offsetX},${to.y + offsetY}`,
+    `${to.x - offsetX},${to.y - offsetY}`,
+    `${from.x - offsetX},${from.y - offsetY}`
+  ].join(" ");
+}
+
 function drawMap() {
   const existing = Array.from(elements.map.querySelectorAll("[data-dynamic='true']"));
   existing.forEach((node) => node.remove());
@@ -116,12 +131,9 @@ function drawMap() {
       x2: to.x,
       y2: to.y
     });
-    const hit = createSvgElement("line", {
+    const hit = createSvgElement("polygon", {
       class: `segment-hit ${edge.broken && !state.repaired.has(edge.id) ? "" : "is-locked"}`,
-      x1: from.x,
-      y1: from.y,
-      x2: to.x,
-      y2: to.y,
+      points: getHitPolygonPoints(from, to),
       "data-edge-id": edge.id
     });
     hit.addEventListener("click", () => repairEdge(edge.id));
