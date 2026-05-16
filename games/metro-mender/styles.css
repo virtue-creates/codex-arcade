@@ -210,7 +210,8 @@ h2 {
 }
 
 .segment-hit {
-  stroke: transparent;
+  pointer-events: stroke;
+  stroke: rgba(255, 255, 255, 0.01);
   stroke-width: 34;
   cursor: pointer;
 }
@@ -224,6 +225,15 @@ h2 {
   stroke-linecap: round;
   stroke-width: 14;
   opacity: 0.92;
+  pointer-events: none;
+}
+
+.station-ring,
+.station-label,
+.fault-label,
+.station-badge,
+.pulse-dot,
+.floating-impact {
   pointer-events: none;
 }
 

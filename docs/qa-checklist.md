@@ -110,6 +110,9 @@ Cabinet 02 `metro-mender`:
 - 目視QAでは、路線図の読みやすさと「赤い故障区間をクリックして直す」が伝わるかを優先して確認する。
 - Human play impression: 遊び方が分かりづらい。現状では、つながっていない路線をクリックしたらクリアになるだけに見えて、ゲームとして成立している感覚が弱い。
 - QA status: Prototype runs, but gameplay loop is not accepted yet. ルール説明、失敗/選択/スコア差、修理の悩ましさを再設計する必要がある。
+- Human QA after HQ Direction response: 画面は表示されるが、修理クリックが反応しないように見えるバグ感があった。さらに、ホバー予測で左下のスコアが高いものを選んで押すだけに見え、まだゲーム性や悩む感覚が弱い。
+- HQ bug response: Metro MenderのCSS/JSキャッシュとSVGクリック判定を調整した。次のQAでは、修理ラインが確実にクリックできるか確認する。
+- HQ gameplay response: スコア予測が答えを出しすぎている可能性がある。次の設計では、予測表示を弱める、複数目的を競合させる、またはスコア最大だけではない評価軸を作る必要がある。
 - Thumbnail still pending.
 
 Cabinet 03 `specimen-night-shift`:
