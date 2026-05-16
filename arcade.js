@@ -56,14 +56,6 @@ function canPlay(game) {
 }
 
 function launchGame(game) {
-  const credits = getCredits();
-
-  if (credits < game.creditCost) {
-    addFreeCoins();
-    return;
-  }
-
-  setCredits(credits - game.creditCost);
   const launchUrl = new URL(game.path, window.location.href);
   launchUrl.searchParams.set("from", "arcade");
   launchUrl.searchParams.set("credit", String(game.creditCost));
@@ -165,7 +157,7 @@ async function loadGames() {
 }
 
 async function initArcade() {
-  setCredits(getCredits());
+  setCredits(Math.max(getCredits(), INITIAL_CREDITS));
   freeCoinButton.addEventListener("click", addFreeCoins);
 
   const games = await loadGames();

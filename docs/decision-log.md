@@ -97,3 +97,5 @@ This file records decisions made in the Codex Arcade headquarters chat.
 - Cabinet 03 Studio reported an HQ Direction response: Specimen Night Shift now shows pin influence rings, bend feedback, a moonlit crack exit, rescue feedback, and move-count replay framing. Headquarters considers this ready for static QA and human clarity QA.
 - Human QA for Cabinet 02 after the HQ Direction response found two issues: repair clicking appeared broken, and the hover score preview made the game feel like choosing the highest displayed score rather than making a meaningful route decision.
 - Headquarters fixed Metro Mender's CSS/JS cache and SVG click-target behavior, and identified the next gameplay issue as "score preview gives away the answer."
+- Headquarters changed the parent Arcade so local MVP/QA launches do not spend down the virtual credit counter. Credits remain an INSERT COIN ceremony during this phase.
+- Headquarters added map-level nearest-fault click handling to Metro Mender because SVG line hit targets were still unreliable in human QA.

@@ -221,6 +221,63 @@ function drawMap() {
   elements.map.append(layerLines, layerPreview, layerStations, layerLabels);
 }
 
+function getSvgPoint(event) {
+  const rect = elements.map.getBoundingClientRect();
+  const scaleX = 1000 / rect.width;
+  const scaleY = 640 / rect.height;
+
+  return {
+    x: (event.clientX - rect.left) * scaleX,
+    y: (event.clientY - rect.top) * scaleY
+  };
+}
+
+function pointToSegmentDistance(point, from, to) {
+  const dx = to.x - from.x;
+  const dy = to.y - from.y;
+  const lengthSquared = dx * dx + dy * dy;
+
+  if (lengthSquared === 0) {
+    return Math.hypot(point.x - from.x, point.y - from.y);
+  }
+
+  const t = Math.max(0, Math.min(1, ((point.x - from.x) * dx + (point.y - from.y) * dy) / lengthSquared));
+  const projected = {
+    x: from.x + t * dx,
+    y: from.y + t * dy
+  };
+
+  return Math.hypot(point.x - projected.x, point.y - projected.y);
+}
+
+function getNearestRepairableEdge(point) {
+  let nearest = null;
+  let nearestDistance = Number.POSITIVE_INFINITY;
+
+  initialEdges.forEach((edge) => {
+    if (!edge.broken || state.repaired.has(edge.id)) return;
+
+    const distance = pointToSegmentDistance(point, stationById(edge.from), stationById(edge.to));
+
+    if (distance < nearestDistance) {
+      nearest = edge;
+      nearestDistance = distance;
+    }
+  });
+
+  return nearest && nearestDistance <= 42 ? nearest : null;
+}
+
+function handleMapClick(event) {
+  if (state.mode !== "play") return;
+
+  const edge = getNearestRepairableEdge(getSvgPoint(event));
+
+  if (edge) {
+    repairEdge(edge.id);
+  }
+}
+
 function drawPulseDot(layer, from, to, edgeId) {
   const dot = createSvgElement("circle", {
     class: "pulse-dot",
@@ -509,10 +566,11 @@ function init() {
   elements.startButton.addEventListener("click", startGame);
   elements.titleStartButton.addEventListener("click", startGame);
   elements.retryButton.addEventListener("click", startGame);
+  elements.map.addEventListener("click", handleMapClick);
 
   window.CodexArcadeGame = {
     id: GAME_ID,
-    version: "0.2.0",
+    version: "0.2.3",
     supportsArcadeParams: true,
     supportsPostMessage: false,
     start: startGame,

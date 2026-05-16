@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.3 - 2026-05-17
+
+- Added map-level nearest-fault click handling so visible FAULT segments are easier to repair.
+- Updated cache-busting query strings for the latest click handling.
+
 ## 0.2.0 - 2026-05-16
 
 - Changed the MVP rule set to 7 fault segments, 4 repair crews, and a 90 second timer.
