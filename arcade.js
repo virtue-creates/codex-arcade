@@ -1,6 +1,7 @@
 const CREDIT_STORAGE_KEY = "codexArcadeCredits";
 const INITIAL_CREDITS = 5;
 const FREE_COIN_AMOUNT = 3;
+const BGM_MASTER_VOLUME = 0.18;
 
 const creditCount = document.querySelector("#creditCount");
 const freeCoinButton = document.querySelector("#freeCoinButton");
@@ -150,16 +151,16 @@ function playMusicStep() {
   const bassNote = bass[audioState.beat % bass.length];
 
   if (audioState.beat % 2 === 0) {
-    playTone(bassNote, now, 0.16, "sine", 0.024);
+    playTone(bassNote, now, 0.18, "sine", 0.04);
   }
 
   if (note) {
-    playTone(note, now + 0.012, 0.12, "triangle", 0.032);
-    playTone(note * 2, now + 0.018, 0.055, "sine", 0.012);
+    playTone(note, now + 0.012, 0.13, "triangle", 0.055);
+    playTone(note * 2, now + 0.018, 0.06, "sine", 0.025);
   }
 
   if (audioState.beat % 8 === 0) {
-    playTone(1568, now + 0.026, 0.036, "square", 0.012);
+    playTone(1568, now + 0.026, 0.04, "square", 0.028);
   }
 
   audioState.beat += 1;
@@ -200,7 +201,7 @@ function setSoundEnabled(enabled) {
   if (enabled) {
     audioState.master.gain.cancelScheduledValues(context.currentTime);
     audioState.master.gain.setValueAtTime(audioState.master.gain.value, context.currentTime);
-    audioState.master.gain.linearRampToValueAtTime(0.052, context.currentTime + 0.08);
+    audioState.master.gain.linearRampToValueAtTime(BGM_MASTER_VOLUME, context.currentTime + 0.08);
     startMusicLoop();
   } else {
     stopMusicLoop();
