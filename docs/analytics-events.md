@@ -53,8 +53,12 @@ GA4のMeasurement IDを取得したら、ここに `G-XXXXXXXXXX` を入れる�
 | `insert_coin` | CabinetのINSERT COINを押した |
 | `launch_cabinet` | Cabinetを起動した |
 | `open_manager_memo` | 店長メモを開いた |
+| `memo_form_start` | 店長メモを書き始めた |
 | `submit_manager_memo` | 店長メモを送った |
+| `manager_memo_submit_result` | 店長メモの送信結果 |
 | `feedback_fallback_saved` | Formspree未接続のため仮保存した |
+| `select_cabinet` | Cabinetに触れた/選択した |
+| `return_to_arcade` | ゲームからArcadeへ戻った |
 
 ## Event Parameters
 
@@ -63,14 +67,46 @@ GA4のMeasurement IDを取得したら、ここに `G-XXXXXXXXXX` を入れる�
 - `game_id`
 - `cabinet`
 - `status`
-- `source`
+- `cabinet_id`
+- `cabinet_name`
+- `cabinet_status`
+- `ui_location`
+- `event_origin`
+- `cta_label`
+- `credit_count_before`
+- `credit_count_after`
+- `is_first_visit`
 
 店長メモ:
 
 - `cabinet`
+- `memo_cabinet_id`
 - `replay_intent`
 - `clarity`
 - `message_length`
+- `message_length_bucket`
+- `submit_result`
+
+## Marketing Departmentからの更新
+
+2026-05-21のMarketing Department回答を受けて、以下を追加する。
+
+- `select_cabinet`
+- `memo_form_start`
+- `manager_memo_submit_result`
+- `return_to_arcade`
+
+また、`source` はGA4の流入元用語と混ざりやすいため、UI上の発生場所には `ui_location` または `event_origin` を使う。
+
+最重要ファネル:
+
+```txt
+arcade_visit
+-> insert_coin
+-> launch_cabinet
+-> open_manager_memo
+-> submit_manager_memo
+```
 
 ## Privacy
 

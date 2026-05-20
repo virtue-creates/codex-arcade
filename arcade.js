@@ -6,6 +6,7 @@ const FREE_COIN_AMOUNT = 3;
 const BGM_MASTER_VOLUME = 0.18;
 const GA_MEASUREMENT_ID = "";
 const FEEDBACK_ENDPOINT = "";
+const VISIT_STORAGE_KEY = "codexArcadeFirstVisitSeen";
 
 const creditCount = document.querySelector("#creditCount");
 const freeCoinButton = document.querySelector("#freeCoinButton");
@@ -99,6 +100,21 @@ function trackArcadeEvent(eventName, params = {}) {
   }
 }
 
+function isFirstVisit() {
+  const seen = localStorage.getItem(VISIT_STORAGE_KEY) === "1";
+  if (!seen) {
+    localStorage.setItem(VISIT_STORAGE_KEY, "1");
+    return true;
+  }
+  return false;
+}
+
+function getMessageLengthBucket(length) {
+  if (length < 40) return "short";
+  if (length < 160) return "medium";
+  return "long";
+}
+
 function getCredits() {
   const stored = Number.parseInt(localStorage.getItem(CREDIT_STORAGE_KEY), 10);
 
@@ -135,7 +151,8 @@ function openManagerMemo() {
   memoStatus.textContent = "";
   managerMemoForm.querySelector("textarea")?.focus();
   trackArcadeEvent("open_manager_memo", {
-    source: "top"
+    ui_location: "arcade_note",
+    event_origin: "manager_memo_button"
   });
 }
 
@@ -149,10 +166,12 @@ function saveManagerMemoFallback(payload) {
   memos.push(payload);
   localStorage.setItem(MANAGER_MEMO_STORAGE_KEY, JSON.stringify(memos.slice(-50)));
   trackArcadeEvent("feedback_fallback_saved", {
-    cabinet: payload.cabinet,
+    memo_cabinet_id: payload.cabinet,
     replay_intent: payload.replay_intent,
     clarity: payload.clarity,
-    message_length: payload.message.length
+    message_length: payload.message.length,
+    message_length_bucket: getMessageLengthBucket(payload.message.length),
+    submit_result: "fallback_saved"
   });
 }
 
@@ -172,6 +191,13 @@ async function submitManagerMemo(event) {
     memoStatus.textContent = "メモ本文を書いてください。";
     return;
   }
+
+  trackArcadeEvent("memo_form_start", {
+    memo_cabinet_id: payload.cabinet,
+    replay_intent: payload.replay_intent,
+    clarity: payload.clarity,
+    message_length_bucket: getMessageLengthBucket(payload.message.length)
+  });
 
   const submitButton = managerMemoForm.querySelector(".memo-submit");
   submitButton.disabled = true;
@@ -196,11 +222,16 @@ async function submitManagerMemo(event) {
     }
 
     trackArcadeEvent("submit_manager_memo", {
-      cabinet: payload.cabinet,
+      memo_cabinet_id: payload.cabinet,
       replay_intent: payload.replay_intent,
       clarity: payload.clarity,
       message_length: payload.message.length,
+      message_length_bucket: getMessageLengthBucket(payload.message.length),
       mode: FEEDBACK_ENDPOINT ? "formspree" : "fallback"
+    });
+    trackArcadeEvent("manager_memo_submit_result", {
+      memo_cabinet_id: payload.cabinet,
+      submit_result: FEEDBACK_ENDPOINT ? "sent" : "fallback_saved"
     });
     managerMemoForm.reset();
     memoStatus.textContent = FEEDBACK_ENDPOINT
@@ -208,6 +239,10 @@ async function submitManagerMemo(event) {
       : "仮受付しました。Formspree接続後は店長室へ送れるようになります。";
   } catch (error) {
     saveManagerMemoFallback(payload);
+    trackArcadeEvent("manager_memo_submit_result", {
+      memo_cabinet_id: payload.cabinet,
+      submit_result: "fallback_after_error"
+    });
     memoStatus.textContent = "送信先に届かなかったため、仮受付として保存しました。";
   } finally {
     submitButton.disabled = false;
@@ -215,12 +250,16 @@ async function submitManagerMemo(event) {
 }
 
 function addFreeCoins() {
+  const before = getCredits();
   setCredits(getCredits() + FREE_COIN_AMOUNT);
   showCoinToast("+3 CREDITS");
   wakeArcade();
   playCoinSound();
   trackArcadeEvent("click_free_credit", {
-    credits_after: getCredits()
+    credit_count_before: before,
+    credit_count_after: getCredits(),
+    ui_location: "credit_panel",
+    cta_label: "CREDITを受け取る"
   });
 }
 
@@ -231,9 +270,13 @@ function canPlay(game) {
 function launchGame(game) {
   trackArcadeEvent("launch_cabinet", {
     game_id: game.id,
+    cabinet_id: game.id,
+    cabinet_name: game.title,
+    cabinet_status: game.status,
     cabinet: game.cabinet,
-    status: game.status,
-    credit_cost: game.creditCost
+    credit_cost: game.creditCost,
+    ui_location: "cabinet_button",
+    cta_label: "PRESS PLAY"
   });
   const launchUrl = new URL(game.path, window.location.href);
   launchUrl.searchParams.set("from", "arcade");
@@ -363,7 +406,9 @@ function setSoundEnabled(enabled) {
   soundButton.classList.toggle("is-on", enabled);
   soundButton.setAttribute("aria-pressed", String(enabled));
   trackArcadeEvent("toggle_bgm", {
-    enabled
+    enabled,
+    ui_location: "credit_panel",
+    cta_label: enabled ? "BGM ON" : "BGM OFF"
   });
 }
 
@@ -444,6 +489,17 @@ function renderGameCard(game, index) {
     let creditReady = false;
     button.textContent = "INSERT COIN";
     button.addEventListener("click", () => {
+      const creditsBefore = getCredits();
+      trackArcadeEvent("select_cabinet", {
+        game_id: game.id,
+        cabinet_id: game.id,
+        cabinet_name: game.title,
+        cabinet_status: game.status,
+        cabinet: game.cabinet,
+        ui_location: "cabinet_button",
+        cta_label: button.textContent
+      });
+
       if (!creditReady) {
         if (getCredits() < game.creditCost) {
           addFreeCoins();
@@ -461,9 +517,15 @@ function renderGameCard(game, index) {
         signal.textContent = "ONLINE";
         trackArcadeEvent("insert_coin", {
           game_id: game.id,
+          cabinet_id: game.id,
+          cabinet_name: game.title,
+          cabinet_status: game.status,
           cabinet: game.cabinet,
-          status: game.status,
-          credit_cost: game.creditCost
+          credit_cost: game.creditCost,
+          credit_count_before: creditsBefore,
+          credit_count_after: getCredits(),
+          ui_location: "cabinet_button",
+          cta_label: "INSERT COIN"
         });
         return;
       }
@@ -497,7 +559,8 @@ async function loadGames() {
 async function initArcade() {
   setupGoogleAnalytics();
   trackArcadeEvent("arcade_visit", {
-    source: "top"
+    event_origin: "top",
+    is_first_visit: isFirstVisit()
   });
   setCredits(Math.max(getCredits(), INITIAL_CREDITS));
   freeCoinButton.addEventListener("click", addFreeCoins);
