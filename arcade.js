@@ -1,7 +1,9 @@
 const CREDIT_STORAGE_KEY = "codexArcadeCredits";
+const ANALYTICS_STORAGE_KEY = "codexArcadeAnalyticsEvents";
 const INITIAL_CREDITS = 5;
 const FREE_COIN_AMOUNT = 3;
 const BGM_MASTER_VOLUME = 0.18;
+const GA_MEASUREMENT_ID = "";
 
 const creditCount = document.querySelector("#creditCount");
 const freeCoinButton = document.querySelector("#freeCoinButton");
@@ -43,6 +45,46 @@ const statusLabels = {
   concept: "AGENTS TUNING"
 };
 
+function setupGoogleAnalytics() {
+  if (!GA_MEASUREMENT_ID) return;
+
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function gtag() {
+    window.dataLayer.push(arguments);
+  };
+  window.gtag("js", new Date());
+  window.gtag("config", GA_MEASUREMENT_ID);
+
+  const script = document.createElement("script");
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+  document.head.append(script);
+}
+
+function getAnalyticsLog() {
+  try {
+    return JSON.parse(localStorage.getItem(ANALYTICS_STORAGE_KEY)) || [];
+  } catch (error) {
+    return [];
+  }
+}
+
+function trackArcadeEvent(eventName, params = {}) {
+  const payload = {
+    event: eventName,
+    timestamp: new Date().toISOString(),
+    path: window.location.pathname,
+    ...params
+  };
+  const log = getAnalyticsLog();
+  log.push(payload);
+  localStorage.setItem(ANALYTICS_STORAGE_KEY, JSON.stringify(log.slice(-120)));
+
+  if (typeof window.gtag === "function" && GA_MEASUREMENT_ID) {
+    window.gtag("event", eventName, params);
+  }
+}
+
 function getCredits() {
   const stored = Number.parseInt(localStorage.getItem(CREDIT_STORAGE_KEY), 10);
 
@@ -78,6 +120,9 @@ function addFreeCoins() {
   showCoinToast("+3 CREDITS");
   wakeArcade();
   playCoinSound();
+  trackArcadeEvent("click_free_credit", {
+    credits_after: getCredits()
+  });
 }
 
 function canPlay(game) {
@@ -85,6 +130,12 @@ function canPlay(game) {
 }
 
 function launchGame(game) {
+  trackArcadeEvent("launch_cabinet", {
+    game_id: game.id,
+    cabinet: game.cabinet,
+    status: game.status,
+    credit_cost: game.creditCost
+  });
   const launchUrl = new URL(game.path, window.location.href);
   launchUrl.searchParams.set("from", "arcade");
   launchUrl.searchParams.set("credit", String(game.creditCost));
@@ -212,6 +263,9 @@ function setSoundEnabled(enabled) {
   soundButton.textContent = enabled ? "BGM ON" : "BGM OFF";
   soundButton.classList.toggle("is-on", enabled);
   soundButton.setAttribute("aria-pressed", String(enabled));
+  trackArcadeEvent("toggle_bgm", {
+    enabled
+  });
 }
 
 function playCoinSound() {
@@ -306,6 +360,12 @@ function renderGameCard(game, index) {
         screenState.textContent = "CREDIT READY";
         screenTitle.textContent = "CABINET ONLINE";
         signal.textContent = "ONLINE";
+        trackArcadeEvent("insert_coin", {
+          game_id: game.id,
+          cabinet: game.cabinet,
+          status: game.status,
+          credit_cost: game.creditCost
+        });
         return;
       }
 
@@ -336,6 +396,10 @@ async function loadGames() {
 }
 
 async function initArcade() {
+  setupGoogleAnalytics();
+  trackArcadeEvent("arcade_visit", {
+    source: "top"
+  });
   setCredits(Math.max(getCredits(), INITIAL_CREDITS));
   freeCoinButton.addEventListener("click", addFreeCoins);
   soundButton.addEventListener("click", () => {
