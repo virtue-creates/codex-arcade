@@ -4,8 +4,18 @@ const FREE_COIN_AMOUNT = 3;
 
 const creditCount = document.querySelector("#creditCount");
 const freeCoinButton = document.querySelector("#freeCoinButton");
+const soundButton = document.querySelector("#soundButton");
 const cabinetGrid = document.querySelector("#cabinetGrid");
 const cabinetCardTemplate = document.querySelector("#cabinetCardTemplate");
+
+const audioState = {
+  context: null,
+  master: null,
+  bass: null,
+  shimmer: null,
+  filter: null,
+  isOn: false
+};
 
 const fallbackGames = [
   {
@@ -47,8 +57,17 @@ function setCredits(value) {
   creditCount.textContent = String(value).padStart(2, "0");
 }
 
+function wakeArcade() {
+  document.body.classList.add("is-awake", "coin-inserted");
+  window.setTimeout(() => {
+    document.body.classList.remove("coin-inserted");
+  }, 950);
+}
+
 function addFreeCoins() {
   setCredits(getCredits() + FREE_COIN_AMOUNT);
+  wakeArcade();
+  playCoinSound();
 }
 
 function canPlay(game) {
@@ -60,6 +79,92 @@ function launchGame(game) {
   launchUrl.searchParams.set("from", "arcade");
   launchUrl.searchParams.set("credit", String(game.creditCost));
   window.location.href = launchUrl.toString();
+}
+
+function getAudioContext() {
+  if (audioState.context) return audioState.context;
+
+  const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+  if (!AudioContextClass) return null;
+
+  const context = new AudioContextClass();
+  const master = context.createGain();
+  master.gain.value = 0;
+  master.connect(context.destination);
+
+  const filter = context.createBiquadFilter();
+  filter.type = "lowpass";
+  filter.frequency.value = 520;
+  filter.Q.value = 8;
+  filter.connect(master);
+
+  const bass = context.createOscillator();
+  bass.type = "sawtooth";
+  bass.frequency.value = 55;
+  bass.connect(filter);
+  bass.start();
+
+  const shimmer = context.createOscillator();
+  const shimmerGain = context.createGain();
+  shimmer.type = "triangle";
+  shimmer.frequency.value = 220;
+  shimmerGain.gain.value = 0.018;
+  shimmer.connect(shimmerGain);
+  shimmerGain.connect(master);
+  shimmer.start();
+
+  audioState.context = context;
+  audioState.master = master;
+  audioState.bass = bass;
+  audioState.shimmer = shimmer;
+  audioState.filter = filter;
+
+  window.setInterval(() => {
+    if (!audioState.isOn || !audioState.context) return;
+    const now = audioState.context.currentTime;
+    audioState.bass.frequency.setTargetAtTime(55 + Math.random() * 5, now, 0.08);
+    audioState.filter.frequency.setTargetAtTime(420 + Math.random() * 260, now, 0.18);
+  }, 700);
+
+  return context;
+}
+
+function setSoundEnabled(enabled) {
+  const context = getAudioContext();
+  if (!context || !audioState.master) return;
+
+  if (context.state === "suspended") {
+    context.resume();
+  }
+
+  audioState.isOn = enabled;
+  audioState.master.gain.setTargetAtTime(enabled ? 0.075 : 0, context.currentTime, 0.08);
+  soundButton.textContent = enabled ? "BGM ON" : "BGM OFF";
+  soundButton.classList.toggle("is-on", enabled);
+  soundButton.setAttribute("aria-pressed", String(enabled));
+}
+
+function playCoinSound() {
+  const context = getAudioContext();
+  if (!context || !audioState.master) return;
+
+  if (context.state === "suspended") {
+    context.resume();
+  }
+
+  const now = context.currentTime;
+  const coinGain = context.createGain();
+  const coin = context.createOscillator();
+  coin.type = "square";
+  coin.frequency.setValueAtTime(880, now);
+  coin.frequency.exponentialRampToValueAtTime(1320, now + 0.08);
+  coinGain.gain.setValueAtTime(0, now);
+  coinGain.gain.linearRampToValueAtTime(0.12, now + 0.01);
+  coinGain.gain.exponentialRampToValueAtTime(0.001, now + 0.22);
+  coin.connect(coinGain);
+  coinGain.connect(context.destination);
+  coin.start(now);
+  coin.stop(now + 0.24);
 }
 
 function createTag(label) {
@@ -122,6 +227,9 @@ function renderGameCard(game, index) {
         }
 
         creditReady = true;
+        wakeArcade();
+        playCoinSound();
+        cabinet.classList.add("credit-ready");
         button.textContent = "PRESS PLAY";
         button.classList.add("ready");
         screenState.textContent = "CREDIT READY";
@@ -159,6 +267,10 @@ async function loadGames() {
 async function initArcade() {
   setCredits(Math.max(getCredits(), INITIAL_CREDITS));
   freeCoinButton.addEventListener("click", addFreeCoins);
+  soundButton.addEventListener("click", () => {
+    setSoundEnabled(!audioState.isOn);
+    wakeArcade();
+  });
 
   const games = await loadGames();
   cabinetGrid.replaceChildren(...games.map(renderGameCard));

@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
+    <div class="ambient-layer" aria-hidden="true">
+      <div class="light-sweep"></div>
+      <div class="coin-sparks"></div>
+    </div>
+
     <div class="arcade-shell">
       <header class="arcade-header">
         <div class="sign-block" aria-label="Arcade sign">
@@ -30,6 +35,7 @@
           <div class="credit-rules">
             <span>1 CREDIT = 1 PLAY</span>
             <button id="freeCoinButton" type="button">CREDITを受け取る</button>
+            <button id="soundButton" class="sound-button" type="button" aria-pressed="false">BGM OFF</button>
           </div>
         </section>
       </header>
@@ -43,6 +49,11 @@
 
           <div class="arcade-room" aria-label="Cabinet floor">
             <div class="wall-sign">INSERT COIN</div>
+            <div class="room-status" aria-hidden="true">
+              <span>OPEN</span>
+              <span>CABINET 01 ONLINE</span>
+              <span>02/03 LAB STANDBY</span>
+            </div>
             <div id="cabinetGrid" class="cabinet-row" aria-live="polite"></div>
             <div class="floor-grid" aria-hidden="true"></div>
           </div>

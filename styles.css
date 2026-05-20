@@ -33,6 +33,10 @@ body {
     sans-serif;
 }
 
+body.is-awake {
+  --room-wake: 1;
+}
+
 body::before,
 body::after {
   position: fixed;
@@ -61,6 +65,117 @@ body::after {
   transform: perspective(520px) rotateX(62deg);
   transform-origin: bottom;
   opacity: 0.22;
+}
+
+@keyframes signFlicker {
+  0%,
+  18%,
+  20%,
+  100% {
+    opacity: 1;
+    filter: saturate(1.04);
+  }
+
+  19% {
+    opacity: 0.7;
+    filter: saturate(0.75);
+  }
+}
+
+@keyframes sweepMove {
+  from {
+    transform: translateX(-130%) skewX(-18deg);
+  }
+
+  to {
+    transform: translateX(130%) skewX(-18deg);
+  }
+}
+
+@keyframes cabinetHum {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+
+  50% {
+    filter: brightness(1.18);
+  }
+}
+
+@keyframes screenDrift {
+  from {
+    background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+  }
+
+  to {
+    background-position: 34px 0, -22px 16px, 0 0, 18px 0, 0 18px, 0 0;
+  }
+}
+
+@keyframes insertPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 10px rgba(255, 79, 216, 0.25);
+  }
+
+  50% {
+    box-shadow: 0 0 28px rgba(255, 79, 216, 0.62);
+  }
+}
+
+@keyframes coinFlash {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+  }
+
+  18% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-22px) scale(1.04);
+  }
+}
+
+.ambient-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.light-sweep {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 24vw;
+  background: linear-gradient(90deg, transparent, rgba(71, 231, 255, 0.08), transparent);
+  animation: sweepMove 8s linear infinite;
+  opacity: 0.55;
+}
+
+.coin-sparks {
+  position: absolute;
+  top: 84px;
+  right: 11vw;
+  width: 90px;
+  height: 90px;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 30% 40%, rgba(255, 209, 102, 0.9) 0 2px, transparent 3px),
+    radial-gradient(circle at 72% 24%, rgba(182, 255, 99, 0.9) 0 2px, transparent 3px),
+    radial-gradient(circle at 58% 72%, rgba(71, 231, 255, 0.9) 0 2px, transparent 3px);
+  opacity: 0;
+}
+
+body.coin-inserted .coin-sparks {
+  animation: coinFlash 900ms ease-out;
 }
 
 button {
@@ -99,6 +214,7 @@ button {
     inset 0 0 36px rgba(255, 255, 255, 0.05),
     0 0 44px rgba(71, 231, 255, 0.12),
     0 30px 80px rgba(0, 0, 0, 0.5);
+  animation: signFlicker 7.5s linear infinite;
 }
 
 .sign-block::before {
@@ -240,6 +356,18 @@ h1 {
   box-shadow: 0 0 20px rgba(71, 231, 255, 0.2);
 }
 
+.sound-button {
+  border-color: rgba(255, 209, 102, 0.48) !important;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.1), transparent),
+    linear-gradient(180deg, rgba(255, 209, 102, 0.16), rgba(255, 79, 216, 0.08)) !important;
+}
+
+.sound-button.is-on {
+  color: var(--amber);
+  text-shadow: 0 0 12px rgba(255, 209, 102, 0.5);
+}
+
 .cabinet-section {
   margin-top: 28px;
 }
@@ -290,6 +418,16 @@ h2 {
   content: "";
 }
 
+.arcade-room::after {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 76%, rgba(255, 79, 216, calc(0.12 + var(--room-wake, 0) * 0.1)), transparent 18rem),
+    radial-gradient(circle at 82% 68%, rgba(71, 231, 255, calc(0.12 + var(--room-wake, 0) * 0.1)), transparent 18rem);
+  opacity: 0.85;
+  content: "";
+}
+
 .wall-sign {
   position: absolute;
   top: 22px;
@@ -306,6 +444,35 @@ h2 {
   text-align: center;
   text-shadow: 0 0 18px rgba(255, 79, 216, 0.72);
   transform: translateX(-50%);
+  animation: insertPulse 1.7s ease-in-out infinite;
+}
+
+.room-status {
+  position: absolute;
+  top: 78px;
+  right: 22px;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+  max-width: 520px;
+}
+
+.room-status span {
+  border: 1px solid rgba(71, 231, 255, 0.28);
+  border-radius: 999px;
+  background: rgba(5, 6, 9, 0.68);
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 900;
+  padding: 6px 9px;
+  text-transform: uppercase;
+}
+
+.room-status span:first-child {
+  border-color: rgba(182, 255, 99, 0.42);
+  color: var(--lime);
 }
 
 .floor-grid {
@@ -397,6 +564,7 @@ h2 {
 
 .cabinet.neon-core-survivor {
   --accent: var(--pink);
+  animation: cabinetHum 2.8s ease-in-out infinite;
 }
 
 .cabinet.metro-mender {
@@ -467,6 +635,7 @@ h2 {
     repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.06) 0 1px, transparent 1px 28px),
     #071019;
   opacity: 0.9;
+  animation: screenDrift 9s linear infinite;
 }
 
 .metro-mender .screen-art {
@@ -494,6 +663,10 @@ h2 {
 .concept .screen-art {
   filter: grayscale(0.45);
   opacity: 0.32;
+}
+
+.cabinet:not(.neon-core-survivor) .screen-art {
+  animation-duration: 14s;
 }
 
 .screen-overlay {
@@ -588,6 +761,17 @@ h3 {
     linear-gradient(180deg, rgba(182, 255, 99, 0.26), rgba(71, 231, 255, 0.08));
   color: var(--lime);
   text-shadow: 0 0 12px rgba(182, 255, 99, 0.45);
+}
+
+.cabinet.credit-ready {
+  animation: cabinetHum 900ms ease-in-out 2;
+}
+
+.cabinet.credit-ready .cabinet-screen {
+  box-shadow:
+    inset 0 0 44px rgba(0, 0, 0, 0.9),
+    0 0 34px color-mix(in srgb, var(--accent), transparent 42%),
+    0 0 80px color-mix(in srgb, var(--accent), transparent 72%);
 }
 
 .play-button:disabled {
