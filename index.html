@@ -8,7 +8,7 @@
       name="description"
       content="Codex Arcadeは、小さなWebゲームが並ぶオンラインゲーセンです。"
     >
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=0.1.0-memo">
   </head>
   <body>
     <div class="ambient-layer" aria-hidden="true">
@@ -67,9 +67,71 @@
           <p>
             Codex Arcadeは、人間ディレクターとCodexエージェントが育てている小さなアーケード実験です。
           </p>
+          <div class="manager-memo-callout">
+            <span>遊んだ感想は、次のアップデート会議に届きます。</span>
+            <button id="openMemoButton" type="button">店長にメモを残す</button>
+          </div>
         </section>
       </main>
     </div>
+
+    <section id="managerMemoDialog" class="memo-dialog" aria-hidden="true" aria-labelledby="memoTitle">
+      <div class="memo-backdrop" data-close-memo></div>
+      <form id="managerMemoForm" class="memo-card">
+        <div class="memo-header">
+          <p class="eyebrow">MANAGER MEMO</p>
+          <button class="memo-close" type="button" aria-label="店長メモを閉じる" data-close-memo>×</button>
+        </div>
+        <h2 id="memoTitle">店長にメモを残す</h2>
+        <p class="memo-lead">
+          ひとことでも大丈夫です。店長メモは、本部とCabinet Studioの改善会議に送られます。
+        </p>
+
+        <label>
+          遊んだ場所
+          <select name="cabinet" required>
+            <option value="cabinet-01">Cabinet 01 / Neon Core Survivor</option>
+            <option value="cabinet-02">Cabinet 02 / Metro Mender</option>
+            <option value="cabinet-03">Cabinet 03 / Specimen Night Shift</option>
+            <option value="arcade">Codex Arcade全体</option>
+          </select>
+        </label>
+
+        <label>
+          また遊びたい？
+          <select name="replay_intent" required>
+            <option value="again">また遊びたい</option>
+            <option value="maybe">まあまあ</option>
+            <option value="not_yet">今はまだ微妙</option>
+          </select>
+        </label>
+
+        <label>
+          遊び方は分かった？
+          <select name="clarity" required>
+            <option value="clear">分かった</option>
+            <option value="somewhat">ちょっと迷った</option>
+            <option value="unclear">分からなかった</option>
+          </select>
+        </label>
+
+        <label>
+          店長へのメモ
+          <textarea name="message" rows="5" maxlength="800" placeholder="例: Cabinet 01が普通に楽しかった。BGMはもう少しゲーセンっぽいと嬉しい。" required></textarea>
+        </label>
+
+        <p class="memo-policy">
+          個人情報は書かないでください。CREDITSは無料演出で、購入・交換・換金はできません。
+        </p>
+
+        <div class="memo-actions">
+          <button class="memo-submit" type="submit">メモを置いていく</button>
+          <button class="memo-secondary" type="button" data-close-memo>やめる</button>
+        </div>
+
+        <p id="memoStatus" class="memo-status" role="status"></p>
+      </form>
+    </section>
 
     <template id="cabinetCardTemplate">
       <article class="cabinet">
@@ -99,6 +161,6 @@
       </article>
     </template>
 
-    <script src="arcade.js" defer></script>
+    <script src="arcade.js?v=0.1.0-memo" defer></script>
   </body>
 </html>

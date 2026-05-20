@@ -1,15 +1,21 @@
 const CREDIT_STORAGE_KEY = "codexArcadeCredits";
 const ANALYTICS_STORAGE_KEY = "codexArcadeAnalyticsEvents";
+const MANAGER_MEMO_STORAGE_KEY = "codexArcadeManagerMemos";
 const INITIAL_CREDITS = 5;
 const FREE_COIN_AMOUNT = 3;
 const BGM_MASTER_VOLUME = 0.18;
 const GA_MEASUREMENT_ID = "";
+const FEEDBACK_ENDPOINT = "";
 
 const creditCount = document.querySelector("#creditCount");
 const freeCoinButton = document.querySelector("#freeCoinButton");
 const soundButton = document.querySelector("#soundButton");
 const cabinetGrid = document.querySelector("#cabinetGrid");
 const cabinetCardTemplate = document.querySelector("#cabinetCardTemplate");
+const openMemoButton = document.querySelector("#openMemoButton");
+const managerMemoDialog = document.querySelector("#managerMemoDialog");
+const managerMemoForm = document.querySelector("#managerMemoForm");
+const memoStatus = document.querySelector("#memoStatus");
 
 const audioState = {
   context: null,
@@ -69,6 +75,14 @@ function getAnalyticsLog() {
   }
 }
 
+function getStoredManagerMemos() {
+  try {
+    return JSON.parse(localStorage.getItem(MANAGER_MEMO_STORAGE_KEY)) || [];
+  } catch (error) {
+    return [];
+  }
+}
+
 function trackArcadeEvent(eventName, params = {}) {
   const payload = {
     event: eventName,
@@ -112,6 +126,91 @@ function showCoinToast(message) {
   const toast = document.querySelector("#coinToast");
   if (toast) {
     toast.textContent = message;
+  }
+}
+
+function openManagerMemo() {
+  managerMemoDialog.classList.add("is-open");
+  managerMemoDialog.setAttribute("aria-hidden", "false");
+  memoStatus.textContent = "";
+  managerMemoForm.querySelector("textarea")?.focus();
+  trackArcadeEvent("open_manager_memo", {
+    source: "top"
+  });
+}
+
+function closeManagerMemo() {
+  managerMemoDialog.classList.remove("is-open");
+  managerMemoDialog.setAttribute("aria-hidden", "true");
+}
+
+function saveManagerMemoFallback(payload) {
+  const memos = getStoredManagerMemos();
+  memos.push(payload);
+  localStorage.setItem(MANAGER_MEMO_STORAGE_KEY, JSON.stringify(memos.slice(-50)));
+  trackArcadeEvent("feedback_fallback_saved", {
+    cabinet: payload.cabinet,
+    replay_intent: payload.replay_intent,
+    clarity: payload.clarity,
+    message_length: payload.message.length
+  });
+}
+
+async function submitManagerMemo(event) {
+  event.preventDefault();
+
+  const formData = new FormData(managerMemoForm);
+  const payload = {
+    cabinet: formData.get("cabinet"),
+    replay_intent: formData.get("replay_intent"),
+    clarity: formData.get("clarity"),
+    message: String(formData.get("message") || "").trim(),
+    created_at: new Date().toISOString()
+  };
+
+  if (!payload.message) {
+    memoStatus.textContent = "メモ本文を書いてください。";
+    return;
+  }
+
+  const submitButton = managerMemoForm.querySelector(".memo-submit");
+  submitButton.disabled = true;
+  memoStatus.textContent = "店長室へ送っています...";
+
+  try {
+    if (FEEDBACK_ENDPOINT) {
+      const response = await fetch(FEEDBACK_ENDPOINT, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (!response.ok) {
+        throw new Error(`Feedback endpoint failed: ${response.status}`);
+      }
+    } else {
+      saveManagerMemoFallback(payload);
+    }
+
+    trackArcadeEvent("submit_manager_memo", {
+      cabinet: payload.cabinet,
+      replay_intent: payload.replay_intent,
+      clarity: payload.clarity,
+      message_length: payload.message.length,
+      mode: FEEDBACK_ENDPOINT ? "formspree" : "fallback"
+    });
+    managerMemoForm.reset();
+    memoStatus.textContent = FEEDBACK_ENDPOINT
+      ? "メモを受け取りました。次の改善会議に回します。"
+      : "仮受付しました。Formspree接続後は店長室へ送れるようになります。";
+  } catch (error) {
+    saveManagerMemoFallback(payload);
+    memoStatus.textContent = "送信先に届かなかったため、仮受付として保存しました。";
+  } finally {
+    submitButton.disabled = false;
   }
 }
 
@@ -406,6 +505,16 @@ async function initArcade() {
     showCoinToast(audioState.isOn ? "BGM OFF" : "BGM ON");
     setSoundEnabled(!audioState.isOn);
     wakeArcade();
+  });
+  openMemoButton.addEventListener("click", openManagerMemo);
+  managerMemoForm.addEventListener("submit", submitManagerMemo);
+  managerMemoDialog.querySelectorAll("[data-close-memo]").forEach((button) => {
+    button.addEventListener("click", closeManagerMemo);
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && managerMemoDialog.classList.contains("is-open")) {
+      closeManagerMemo();
+    }
   });
 
   const games = await loadGames();
