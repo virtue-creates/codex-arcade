@@ -11,6 +11,8 @@ const cabinetCardTemplate = document.querySelector("#cabinetCardTemplate");
 const audioState = {
   context: null,
   master: null,
+  delay: null,
+  activeNodes: new Set(),
   musicTimer: null,
   beat: 0,
   isOn: false
@@ -97,15 +99,23 @@ function getAudioContext() {
   const context = new AudioContextClass();
   const master = context.createGain();
   master.gain.value = 0;
+
+  const delay = context.createDelay(0.45);
+  const delayGain = context.createGain();
+  delay.delayTime.value = 0.18;
+  delayGain.gain.value = 0.16;
+  delay.connect(delayGain);
+  delayGain.connect(master);
   master.connect(context.destination);
 
   audioState.context = context;
   audioState.master = master;
+  audioState.delay = delay;
 
   return context;
 }
 
-function playTone(frequency, startTime, duration, type = "square", volume = 0.045) {
+function playTone(frequency, startTime, duration, type = "triangle", volume = 0.03, destination = audioState.master) {
   if (!audioState.context || !audioState.master) return;
 
   const oscillator = audioState.context.createOscillator();
@@ -116,7 +126,16 @@ function playTone(frequency, startTime, duration, type = "square", volume = 0.04
   gain.gain.exponentialRampToValueAtTime(volume, startTime + 0.018);
   gain.gain.exponentialRampToValueAtTime(0.0001, startTime + duration);
   oscillator.connect(gain);
-  gain.connect(audioState.master);
+  gain.connect(destination);
+  if (destination === audioState.master && audioState.delay) {
+    gain.connect(audioState.delay);
+  }
+  audioState.activeNodes.add(oscillator);
+  oscillator.addEventListener("ended", () => {
+    audioState.activeNodes.delete(oscillator);
+    oscillator.disconnect();
+    gain.disconnect();
+  });
   oscillator.start(startTime);
   oscillator.stop(startTime + duration + 0.03);
 }
@@ -125,18 +144,22 @@ function playMusicStep() {
   if (!audioState.isOn || !audioState.context) return;
 
   const now = audioState.context.currentTime;
-  const melody = [392, 0, 523, 587, 0, 523, 659, 784];
-  const bass = [98, 98, 130, 130, 110, 110, 146, 146];
+  const melody = [330, 392, 494, 0, 440, 392, 294, 0, 330, 392, 587, 494, 440, 0, 392, 0];
+  const bass = [82, 82, 98, 98, 73, 73, 110, 110];
   const note = melody[audioState.beat % melody.length];
+  const bassNote = bass[audioState.beat % bass.length];
 
-  playTone(bass[audioState.beat % bass.length], now, 0.12, "triangle", 0.028);
-
-  if (note) {
-    playTone(note, now + 0.015, 0.095, "square", 0.036);
+  if (audioState.beat % 2 === 0) {
+    playTone(bassNote, now, 0.16, "sine", 0.024);
   }
 
-  if (audioState.beat % 4 === 0) {
-    playTone(1760, now + 0.025, 0.035, "square", 0.022);
+  if (note) {
+    playTone(note, now + 0.012, 0.12, "triangle", 0.032);
+    playTone(note * 2, now + 0.018, 0.055, "sine", 0.012);
+  }
+
+  if (audioState.beat % 8 === 0) {
+    playTone(1568, now + 0.026, 0.036, "square", 0.012);
   }
 
   audioState.beat += 1;
@@ -154,6 +177,17 @@ function stopMusicLoop() {
   audioState.musicTimer = null;
 }
 
+function stopActiveMusicNodes() {
+  audioState.activeNodes.forEach((node) => {
+    try {
+      node.stop();
+    } catch (error) {
+      // Already stopped.
+    }
+  });
+  audioState.activeNodes.clear();
+}
+
 function setSoundEnabled(enabled) {
   const context = getAudioContext();
   if (!context || !audioState.master) return;
@@ -163,11 +197,16 @@ function setSoundEnabled(enabled) {
   }
 
   audioState.isOn = enabled;
-  audioState.master.gain.setTargetAtTime(enabled ? 0.075 : 0, context.currentTime, 0.08);
   if (enabled) {
+    audioState.master.gain.cancelScheduledValues(context.currentTime);
+    audioState.master.gain.setValueAtTime(audioState.master.gain.value, context.currentTime);
+    audioState.master.gain.linearRampToValueAtTime(0.052, context.currentTime + 0.08);
     startMusicLoop();
   } else {
     stopMusicLoop();
+    stopActiveMusicNodes();
+    audioState.master.gain.cancelScheduledValues(context.currentTime);
+    audioState.master.gain.setValueAtTime(0, context.currentTime);
   }
   soundButton.textContent = enabled ? "BGM ON" : "BGM OFF";
   soundButton.classList.toggle("is-on", enabled);
