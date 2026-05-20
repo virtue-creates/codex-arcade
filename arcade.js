@@ -11,9 +11,8 @@ const cabinetCardTemplate = document.querySelector("#cabinetCardTemplate");
 const audioState = {
   context: null,
   master: null,
-  bass: null,
-  shimmer: null,
-  filter: null,
+  musicTimer: null,
+  beat: 0,
   isOn: false
 };
 
@@ -64,8 +63,16 @@ function wakeArcade() {
   }, 950);
 }
 
+function showCoinToast(message) {
+  const toast = document.querySelector("#coinToast");
+  if (toast) {
+    toast.textContent = message;
+  }
+}
+
 function addFreeCoins() {
   setCredits(getCredits() + FREE_COIN_AMOUNT);
+  showCoinToast("+3 CREDITS");
   wakeArcade();
   playCoinSound();
 }
@@ -92,41 +99,59 @@ function getAudioContext() {
   master.gain.value = 0;
   master.connect(context.destination);
 
-  const filter = context.createBiquadFilter();
-  filter.type = "lowpass";
-  filter.frequency.value = 520;
-  filter.Q.value = 8;
-  filter.connect(master);
-
-  const bass = context.createOscillator();
-  bass.type = "sawtooth";
-  bass.frequency.value = 55;
-  bass.connect(filter);
-  bass.start();
-
-  const shimmer = context.createOscillator();
-  const shimmerGain = context.createGain();
-  shimmer.type = "triangle";
-  shimmer.frequency.value = 220;
-  shimmerGain.gain.value = 0.018;
-  shimmer.connect(shimmerGain);
-  shimmerGain.connect(master);
-  shimmer.start();
-
   audioState.context = context;
   audioState.master = master;
-  audioState.bass = bass;
-  audioState.shimmer = shimmer;
-  audioState.filter = filter;
-
-  window.setInterval(() => {
-    if (!audioState.isOn || !audioState.context) return;
-    const now = audioState.context.currentTime;
-    audioState.bass.frequency.setTargetAtTime(55 + Math.random() * 5, now, 0.08);
-    audioState.filter.frequency.setTargetAtTime(420 + Math.random() * 260, now, 0.18);
-  }, 700);
 
   return context;
+}
+
+function playTone(frequency, startTime, duration, type = "square", volume = 0.045) {
+  if (!audioState.context || !audioState.master) return;
+
+  const oscillator = audioState.context.createOscillator();
+  const gain = audioState.context.createGain();
+  oscillator.type = type;
+  oscillator.frequency.setValueAtTime(frequency, startTime);
+  gain.gain.setValueAtTime(0.0001, startTime);
+  gain.gain.exponentialRampToValueAtTime(volume, startTime + 0.018);
+  gain.gain.exponentialRampToValueAtTime(0.0001, startTime + duration);
+  oscillator.connect(gain);
+  gain.connect(audioState.master);
+  oscillator.start(startTime);
+  oscillator.stop(startTime + duration + 0.03);
+}
+
+function playMusicStep() {
+  if (!audioState.isOn || !audioState.context) return;
+
+  const now = audioState.context.currentTime;
+  const melody = [392, 0, 523, 587, 0, 523, 659, 784];
+  const bass = [98, 98, 130, 130, 110, 110, 146, 146];
+  const note = melody[audioState.beat % melody.length];
+
+  playTone(bass[audioState.beat % bass.length], now, 0.12, "triangle", 0.028);
+
+  if (note) {
+    playTone(note, now + 0.015, 0.095, "square", 0.036);
+  }
+
+  if (audioState.beat % 4 === 0) {
+    playTone(1760, now + 0.025, 0.035, "square", 0.022);
+  }
+
+  audioState.beat += 1;
+}
+
+function startMusicLoop() {
+  if (audioState.musicTimer) return;
+  playMusicStep();
+  audioState.musicTimer = window.setInterval(playMusicStep, 250);
+}
+
+function stopMusicLoop() {
+  if (!audioState.musicTimer) return;
+  window.clearInterval(audioState.musicTimer);
+  audioState.musicTimer = null;
 }
 
 function setSoundEnabled(enabled) {
@@ -139,6 +164,11 @@ function setSoundEnabled(enabled) {
 
   audioState.isOn = enabled;
   audioState.master.gain.setTargetAtTime(enabled ? 0.075 : 0, context.currentTime, 0.08);
+  if (enabled) {
+    startMusicLoop();
+  } else {
+    stopMusicLoop();
+  }
   soundButton.textContent = enabled ? "BGM ON" : "BGM OFF";
   soundButton.classList.toggle("is-on", enabled);
   soundButton.setAttribute("aria-pressed", String(enabled));
@@ -227,6 +257,7 @@ function renderGameCard(game, index) {
         }
 
         creditReady = true;
+        showCoinToast("CREDIT READY");
         wakeArcade();
         playCoinSound();
         cabinet.classList.add("credit-ready");
@@ -268,6 +299,7 @@ async function initArcade() {
   setCredits(Math.max(getCredits(), INITIAL_CREDITS));
   freeCoinButton.addEventListener("click", addFreeCoins);
   soundButton.addEventListener("click", () => {
+    showCoinToast(audioState.isOn ? "BGM OFF" : "BGM ON");
     setSoundEnabled(!audioState.isOn);
     wakeArcade();
   });
