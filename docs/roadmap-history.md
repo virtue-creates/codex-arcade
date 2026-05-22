@@ -361,3 +361,36 @@ Impact:
 - v0.1 now has a concrete public-release checklist.
 - Marketing can advise on GA4, UTM, first review timing, and release reporting from shared docs.
 - Headquarters can continue with GA4/Formspree connection once the human director provides the needed external IDs.
+
+## v0.12 - Marketing Analytics Operating Rhythm
+
+Date:
+
+```txt
+2026-05-22
+```
+
+What changed:
+
+- Marketing Department reviewed the v0.1 Analytics implementation update.
+- Marketing approved `return_to_arcade` and input-time `memo_form_start` as aligned with the v0.1 purpose.
+- Added `docs/marketing-release-ops-response.md`.
+- Updated the release checklist with GA4 Realtime minimum checks.
+- Updated Analytics operations with the recommended UTM set.
+- Fixed the public review rhythm:
+  - release day connection check
+  - 3-day first improvement review
+  - 7-day v0.1.1 direction review
+- Added a repeatable `v0.1 Analytics & Player Memo Report` format.
+
+Why:
+
+- The project needs a repeatable operating rhythm after publication.
+- Marketing should not only advise abstract strategy; it should return structured evidence and next-step recommendations.
+- Headquarters needs concrete acceptance criteria before connecting GA4/Formspree and publishing.
+
+Impact:
+
+- v0.1 release readiness can now be checked against a concrete Analytics funnel.
+- Marketing reports can be compared over time.
+- The AI-company experiment now has a clearer loop: publish, measure, collect player memos, report, assign improvements, update.

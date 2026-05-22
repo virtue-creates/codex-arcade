@@ -37,6 +37,7 @@ Codex Arcade v0.1を「遊ばれながら改造されるオンラインゲーセ
 ## Analytics
 
 - [ ] `arcade_visit` が記録される。
+- [ ] `select_cabinet` が記録される。
 - [ ] `click_free_credit` が記録される。
 - [ ] `insert_coin` が記録される。
 - [ ] `launch_cabinet` が記録される。
@@ -44,7 +45,9 @@ Codex Arcade v0.1を「遊ばれながら改造されるオンラインゲーセ
 - [ ] `open_manager_memo` が記録される。
 - [ ] `memo_form_start` が記録される。
 - [ ] `submit_manager_memo` が記録される。
+- [ ] `manager_memo_submit_result` が記録される。
 - [ ] GA4 Measurement IDを入れるか、v0.1ではlocalStorageのみで始めるかを決める。
+- [ ] GA4接続時はRealtimeで `arcade_visit -> manager_memo_submit_result` まで確認する。
 
 ## Privacy / Safety
 
@@ -58,8 +61,11 @@ Codex Arcade v0.1を「遊ばれながら改造されるオンラインゲーセ
 
 - [ ] 公開URLを決める。
 - [ ] 告知リンクにUTMを付ける方針を決める。
+- [ ] 初期UTMセットを決める。
 - [ ] 初回告知先を決める。
-- [ ] 公開後の初回レビュー日を決める。
+- [ ] 公開当日の接続確認を行う。
+- [ ] 公開3日後の初回改善レビュー日を決める。
+- [ ] 公開7日後のv0.1.1方針レビュー日を決める。
 - [ ] Marketing Departmentが、公開後に見る指標を確認している。
 
 ## Human Approval
@@ -71,4 +77,3 @@ Codex Arcade v0.1を「遊ばれながら改造されるオンラインゲーセ
 - [ ] 店長メモの文言が世界観に合っているか。
 - [ ] GA4/Formspree接続の有無。
 - [ ] GitHub Pagesで公開してよいか。
-
