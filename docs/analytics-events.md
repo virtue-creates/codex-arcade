@@ -17,6 +17,8 @@ v0.1では、まずGA4に接続できるイベント送信の土台を入れる�
 - `arcade.js` に `trackArcadeEvent` を追加。
 - GA4 Measurement IDが未設定の場合は、外部送信せず `localStorage` に保存。
 - GA4 Measurement IDを設定すると、`gtag("event", ...)` で送信する。
+- `memo_form_start` は、店長メモの入力/選択を始めた時点で1回だけ記録する。
+- `return_to_arcade` は、ゲーム側のBACK TO ARCADEリンクに `returned_from` を付け、親Arcade側で受け取って記録する。
 
 設定箇所:
 
@@ -104,9 +106,18 @@ GA4のMeasurement IDを取得したら、ここに `G-XXXXXXXXXX` を入れる�
 arcade_visit
 -> insert_coin
 -> launch_cabinet
+-> return_to_arcade
 -> open_manager_memo
 -> submit_manager_memo
 ```
+
+## 2026-05-22 本部実装メモ
+
+- `return_to_arcade` を実装した。
+- `games/neon-core-survivor/`, `games/metro-mender/`, `games/specimen-night-shift/` のBACK TO ARCADEリンクに `returned_from=[gameId]` を付けた。
+- 親Arcadeは `returned_from` を受け取ると `return_to_arcade` を記録し、URLからパラメータを消す。
+- `memo_form_start` は送信時ではなく、店長メモフォームの入力/選択開始時に記録するよう修正した。
+- GA4 Measurement IDとFormspree endpointは未設定。公開前に人間ディレクター確認後に設定する。
 
 ## Privacy
 

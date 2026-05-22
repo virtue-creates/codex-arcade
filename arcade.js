@@ -17,6 +17,7 @@ const openMemoButton = document.querySelector("#openMemoButton");
 const managerMemoDialog = document.querySelector("#managerMemoDialog");
 const managerMemoForm = document.querySelector("#managerMemoForm");
 const memoStatus = document.querySelector("#memoStatus");
+const memoMessageField = managerMemoForm.querySelector("textarea");
 
 const audioState = {
   context: null,
@@ -27,6 +28,8 @@ const audioState = {
   beat: 0,
   isOn: false
 };
+
+let memoFormStarted = false;
 
 const fallbackGames = [
   {
@@ -149,7 +152,7 @@ function openManagerMemo() {
   managerMemoDialog.classList.add("is-open");
   managerMemoDialog.setAttribute("aria-hidden", "false");
   memoStatus.textContent = "";
-  managerMemoForm.querySelector("textarea")?.focus();
+  memoMessageField?.focus();
   trackArcadeEvent("open_manager_memo", {
     ui_location: "arcade_note",
     event_origin: "manager_memo_button"
@@ -175,6 +178,39 @@ function saveManagerMemoFallback(payload) {
   });
 }
 
+function trackMemoFormStart() {
+  if (memoFormStarted) return;
+  memoFormStarted = true;
+
+  const formData = new FormData(managerMemoForm);
+  const message = String(formData.get("message") || "");
+  trackArcadeEvent("memo_form_start", {
+    memo_cabinet_id: formData.get("cabinet"),
+    replay_intent: formData.get("replay_intent"),
+    clarity: formData.get("clarity"),
+    message_length_bucket: getMessageLengthBucket(message.length),
+    ui_location: "manager_memo_modal"
+  });
+}
+
+function handleReturnToArcade() {
+  const params = new URLSearchParams(window.location.search);
+  const returnedFrom = params.get("returned_from");
+
+  if (!returnedFrom) return;
+
+  trackArcadeEvent("return_to_arcade", {
+    game_id: returnedFrom,
+    cabinet_id: returnedFrom,
+    event_origin: "game_back_link",
+    ui_location: "arcade_entry"
+  });
+
+  params.delete("returned_from");
+  const cleanUrl = `${window.location.pathname}${params.toString() ? `?${params.toString()}` : ""}${window.location.hash}`;
+  window.history.replaceState({}, "", cleanUrl);
+}
+
 async function submitManagerMemo(event) {
   event.preventDefault();
 
@@ -191,13 +227,6 @@ async function submitManagerMemo(event) {
     memoStatus.textContent = "メモ本文を書いてください。";
     return;
   }
-
-  trackArcadeEvent("memo_form_start", {
-    memo_cabinet_id: payload.cabinet,
-    replay_intent: payload.replay_intent,
-    clarity: payload.clarity,
-    message_length_bucket: getMessageLengthBucket(payload.message.length)
-  });
 
   const submitButton = managerMemoForm.querySelector(".memo-submit");
   submitButton.disabled = true;
@@ -558,6 +587,7 @@ async function loadGames() {
 
 async function initArcade() {
   setupGoogleAnalytics();
+  handleReturnToArcade();
   trackArcadeEvent("arcade_visit", {
     event_origin: "top",
     is_first_visit: isFirstVisit()
@@ -570,6 +600,8 @@ async function initArcade() {
     wakeArcade();
   });
   openMemoButton.addEventListener("click", openManagerMemo);
+  managerMemoForm.addEventListener("input", trackMemoFormStart);
+  managerMemoForm.addEventListener("change", trackMemoFormStart);
   managerMemoForm.addEventListener("submit", submitManagerMemo);
   managerMemoDialog.querySelectorAll("[data-close-memo]").forEach((button) => {
     button.addEventListener("click", closeManagerMemo);
