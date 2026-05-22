@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-05-16",
+  "updatedAt": "2026-05-22",
   "games": [
     {
       "id": "neon-core-survivor",
@@ -24,7 +24,7 @@
       "cabinet": "Cabinet 02",
       "title": "Metro Mender",
       "description": "壊れた地下鉄網をつなぎ直す、短時間ルート修理パズル。",
-      "status": "prototype",
+      "status": "concept",
       "genre": ["puzzle", "arcade", "strategy"],
       "devices": ["desktop", "tablet"],
       "input": ["mouse"],
@@ -34,14 +34,14 @@
       "creditCost": 1,
       "interfaceVersion": 1,
       "createdAt": "2026-05-13",
-      "updatedAt": "2026-05-16"
+      "updatedAt": "2026-05-22"
     },
     {
       "id": "specimen-night-shift",
       "cabinet": "Cabinet 03",
       "title": "Specimen Night Shift",
       "description": "夜だけ動き出す標本箱の虫たちを、月明かりの出口へ導く奇妙なパズル。",
-      "status": "prototype",
+      "status": "concept",
       "genre": ["puzzle", "arcade", "strategy"],
       "devices": ["desktop", "tablet"],
       "input": ["mouse", "touch"],
@@ -51,7 +51,7 @@
       "creditCost": 1,
       "interfaceVersion": 1,
       "createdAt": "2026-05-13",
-      "updatedAt": "2026-05-15"
+      "updatedAt": "2026-05-22"
     }
   ]
 }
