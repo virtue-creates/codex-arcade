@@ -39,6 +39,13 @@ Codex Arcade v0.1は、完成版ではなく「遊ばれながら改造される
 - CREDITSが無料演出であり、購入/換金/報酬ではないことが分かる。
 - GitHub Pagesで公開できる。
 
+## Operational Docs
+
+- `docs/release-v0.1-checklist.md`
+- `docs/release-analytics-operations.md`
+- `docs/analytics-events.md`
+- `docs/feedback-loop.md`
+
 ## v0.1 では後回し
 
 - 本格BGM制作

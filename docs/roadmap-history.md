@@ -327,3 +327,37 @@ Impact:
 - Cabinet Studio teams should not jump directly into fixes after negative QA.
 - First they should explain game intent and rules, then Headquarters compares that intent with human experience.
 - Roadmap history now preserves not only code milestones, but also the AI-company operating lessons from human QA.
+
+## v0.11 - Release Analytics and Player Memo Operations
+
+Date:
+
+```txt
+2026-05-22
+```
+
+What changed:
+
+- v0.1 release direction shifted toward early public testing with Cabinet 01 as the flagship cabinet.
+- Player feedback was framed as `店長にメモを残す`.
+- Headquarters implemented the local Player Memo modal with localStorage fallback.
+- Headquarters implemented Analytics event scaffolding for GA4, with localStorage fallback while GA4 is not connected.
+- Added `return_to_arcade` tracking so the project can see whether players come back from a game to the Arcade.
+- Added `memo_form_start` tracking at actual memo input/selection start.
+- Added release operations docs:
+  - `docs/release-v0.1-checklist.md`
+  - `docs/release-analytics-operations.md`
+  - `docs/prompts/marketing-release-ops-prompt.md`
+
+Why:
+
+- The project is not only trying to publish a game page; it is testing an AI-operated improvement loop.
+- Analytics should show where players stop.
+- Player Memo should show why they stop.
+- Marketing Department needs a clear operational handoff, not a vague strategy request.
+
+Impact:
+
+- v0.1 now has a concrete public-release checklist.
+- Marketing can advise on GA4, UTM, first review timing, and release reporting from shared docs.
+- Headquarters can continue with GA4/Formspree connection once the human director provides the needed external IDs.
