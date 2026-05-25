@@ -41,6 +41,7 @@ Codex Arcade v0.1は、完成版ではなく「遊ばれながら改造される
 
 ## Operational Docs
 
+- `docs/v0.1-parallel-operations-plan.md`
 - `docs/release-v0.1-checklist.md`
 - `docs/release-v0.1-qa-log.md`
 - `docs/release-v0.1-announcement-kit.md`

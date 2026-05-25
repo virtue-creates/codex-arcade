@@ -575,3 +575,37 @@ Impact:
 
 - The first announcement now has Marketing Department review.
 - Human Director can make the final publication decision using a reviewed copy rather than a Headquarters-only draft.
+
+## v0.19 - Parallel Quality Operations Started
+
+Date:
+
+```txt
+2026-05-25
+```
+
+What changed:
+
+- Human Director clarified that release announcement and quality improvement should proceed in parallel.
+- Added `docs/v0.1-parallel-operations-plan.md`.
+- Defined parallel tracks:
+  - Announcement / Marketing
+  - Parent Arcade Quality / Headquarters + Creative
+  - Cabinet 01 Polish / Cabinet 01 Studio
+  - Cabinet 02 Redesign / Cabinet 02 Studio
+  - Cabinet 03 Redesign / Cabinet 03 Studio
+  - Public QA / QA Department
+  - Analytics / Marketing + Analytics
+  - Policy / Safety
+- Added department-specific prompts for Marketing, Creative, QA, Cabinet 01, Cabinet 02, and Cabinet 03.
+
+Why:
+
+- v0.1 is public but unfinished by design.
+- The project must now prove the "played while being improved" operating model.
+- Headquarters must coordinate without crossing into specialist department ownership.
+
+Impact:
+
+- Multiple agents/departments can now work in parallel without blurring responsibilities.
+- v0.1.1 can be planned from department outputs rather than Headquarters guessing all next fixes.

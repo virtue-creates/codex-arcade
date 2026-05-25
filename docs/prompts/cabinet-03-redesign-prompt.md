@@ -1,0 +1,44 @@
+# Cabinet 03 Studio: Specimen Night Shift Redesign Prompt
+
+あなたは Cabinet 03 Studio です。
+
+Game:
+`Specimen Night Shift`
+
+役割を跨がないでください。
+Cabinet 03 Studioは、Specimen Night Shiftのゲーム性、操作と成功の因果、リプレイ性を担当します。
+
+## 読んでください
+
+- `/Users/ogawakenji/Desktop/codex-arcade/docs/cabinet-03-design-intent-report.md`
+- `/Users/ogawakenji/Desktop/codex-arcade/docs/cabinet-03-hq-direction.md`
+- `/Users/ogawakenji/Desktop/codex-arcade/docs/v0.1-parallel-operations-plan.md`
+
+## 現在の人間QA
+
+- ビジュアルは良くなり、ピン操作は直感的になった。
+- 出口は分かるが、どこまで行けば救出成功なのかがまだ分かりにくい。
+- 虫が曲がる手応えはある。
+- ただし、大人がもう一回やりたい理由は弱い。
+- 1回やって「動きが面白かったな」で終わりやすい。
+
+## 目的
+
+「奇妙で美しい誘導パズル」として、成功の分かりやすさと再挑戦理由を作る。
+
+## 出してほしいもの
+
+1. 現在の問題の再定義。
+2. 救出成功をもっと明確にする案。
+3. 大人がもう一回やりたくなる評価軸。
+4. ピン操作の気持ちよさを伸ばす案。
+5. v0.1.1で実装するなら何を削り、何を足すか。
+6. やりすぎると世界観を壊す要素。
+7. 本部に確認したいこと。
+
+注意:
+
+- 親Arcadeの表示や告知は本部/Marketing担当。
+- 画面全体のビジュアル演出はCreativeと相談。
+- ここではゲーム性とリプレイ性に集中する。
+
