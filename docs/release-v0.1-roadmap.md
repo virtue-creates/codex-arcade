@@ -43,6 +43,7 @@ Codex Arcade v0.1は、完成版ではなく「遊ばれながら改造される
 
 - `docs/release-v0.1-checklist.md`
 - `docs/release-v0.1-qa-log.md`
+- `docs/release-v0.1-announcement-kit.md`
 - `docs/release-analytics-operations.md`
 - `docs/analytics-events.md`
 - `docs/feedback-loop.md`

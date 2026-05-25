@@ -502,3 +502,32 @@ Impact:
 
 - Codex Arcade v0.1 now has a public web address.
 - Remaining release work is public URL behavioral QA, GA4/Formspree confirmation on the public URL, and first announcement preparation.
+
+## v0.17 - v0.1 Announcement Kit
+
+Date:
+
+```txt
+2026-05-25
+```
+
+What changed:
+
+- Added `docs/release-v0.1-announcement-kit.md`.
+- Created UTM links for:
+  - X / SNS launch post
+  - X / SNS follow-up post
+  - early tester direct messages
+  - GitHub README / repo traffic
+  - Devlog / Behind the Arcade traffic
+- Drafted first launch copy for SNS, early testers, README, and Devlog.
+
+Why:
+
+- v0.1 now has a public URL, so release work moves from publishing infrastructure to first distribution.
+- UTM links let Marketing Department compare where early visitors came from.
+
+Impact:
+
+- Codex Arcade can now be shared with an intentional message and measurable links.
+- Next step is to choose the first announcement channel and begin the first player memo cycle.

@@ -2,13 +2,19 @@
 
 Codex Arcade is a small online arcade built with Codex.
 
-The first goal is to create a simple web arcade that lists multiple small games made in separate Codex chats. The headquarters chat manages the parent site, shared rules, game registration, QA, documentation, release flow, and future automation.
+The project is an experiment in running a small web arcade with a human director and Codex agents.
+
+Play v0.1:
+
+https://virtue-creates.github.io/codex-arcade/?utm_source=github&utm_medium=referral&utm_campaign=v0_1_launch&utm_content=readme
 
 ## Current Phase
 
-Planning and studio setup.
+v0.1 is public.
 
-No game implementation is required yet. The immediate goal is to make the project rules visible so game chats and future Codex agents can follow the same process.
+Cabinet 01, `Neon Core Survivor`, is playable.
+
+Cabinet 02 and Cabinet 03 are visible as lab cabinets for the roadmap.
 
 ## Project Direction
 
@@ -42,7 +48,7 @@ No game implementation is required yet. The immediate goal is to make the projec
 
 See `docs/game-pipeline.md`.
 
-Current recommended build order:
+Current cabinet order:
 
 1. `neon-core-survivor`
 2. `metro-mender`
@@ -51,8 +57,8 @@ Current recommended build order:
 ## Current Project Status
 
 ```txt
-Current Position: Phase 1 Sprint 2/3 - Arcade MVP Implementation
-Next Position: Phase 1 Sprint 3/3 - Local QA and Polish
+Current Position: v0.1 Public Release
+Next Position: First Player Memo Cycle and v0.1.1 Planning
 ```
 
 See `docs/roadmap.md` for the full roadmap board.
