@@ -57,6 +57,26 @@ Marketing Departmentは、専門部署として以下を見る。
 | 制作過程に興味がある人 | 人間QA、店長メモ、Studio改善の流れが面白い |
 | 身近な知人/初期テスター | 最初のPlayer Memoを残してくれる可能性が高い |
 
+## Offline Card Campaign
+
+身近な初期テスター導線として、URLをただ送るだけでなく、手渡し名刺/カードを使う施策を追加する。
+
+目的:
+
+1. Codex Arcadeにアクセスする。
+2. Cabinet 01: Neon Core Survivor をプレイする。
+3. 店長メモを残す。
+
+この施策は `docs/offline-card-campaign.md` にまとめる。
+
+Creative Departmentへのデザイン依頼は `docs/prompts/creative-offline-card-prompt.md` を使う。
+
+使用URL:
+
+```txt
+https://virtue-creates.github.io/codex-arcade/?utm_source=offline_card&utm_medium=physical&utm_campaign=v0_1_launch&utm_content=namecard
+```
+
 ## v0.1 コピー仮説
 
 短い紹介:

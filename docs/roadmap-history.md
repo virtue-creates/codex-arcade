@@ -664,3 +664,35 @@ Operating principle:
 - Internal evaluation can be blunt, including "this feels like a bad game".
 - Public presentation should not pre-label it as a joke or bad game.
 - The arcade should leave room for players to think "何これ?" and for the operation to turn that reaction into a future event.
+
+## v0.22 - Offline Card Campaign
+
+Date:
+
+```txt
+2026-05-26
+```
+
+What changed:
+
+- Added `docs/offline-card-campaign.md`.
+- Added `docs/prompts/creative-offline-card-prompt.md`.
+- Linked the offline card campaign from `docs/marketing-release-plan.md`.
+
+Why:
+
+- Marketing Department proposed a physical handoff route for close early testers.
+- The goal is not only to send a URL, but to hand over a small arcade-like invitation card that leads to Codex Arcade, Cabinet 01, and Manager Memo.
+- This fits the PR tone: "オンラインゲーセンやってます" and "店長メモ置いてってください".
+
+Campaign URL:
+
+```txt
+https://virtue-creates.github.io/codex-arcade/?utm_source=offline_card&utm_medium=physical&utm_campaign=v0_1_launch&utm_content=namecard
+```
+
+Impact:
+
+- Offline initial tester traffic can be measured separately in GA4.
+- Creative Department now has a dedicated prompt for print-card design.
+- The launch operation now includes a physical touchpoint, not only SNS or direct message links.
