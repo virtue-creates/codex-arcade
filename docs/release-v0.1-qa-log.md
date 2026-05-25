@@ -96,9 +96,29 @@ http://127.0.0.1:8094/
 
 本部だけで進められる公開前QAとしては、トップ導線、Cabinet 01起動、Back to Arcade、店長メモfallbackまで確認済み。
 
+## 2026-05-25 Public URL QA
+
+Public URL:
+
+```txt
+https://virtue-creates.github.io/codex-arcade/
+```
+
+Checks:
+
+- GitHub repository was made public: OK
+- GitHub Pages was enabled from `main` / root: OK
+- Public top page returned HTTP 200: OK
+- Public `games.json` returned HTTP 200: OK
+- Public `games.json` shows:
+  - Cabinet 01 `neon-core-survivor`: `prototype`
+  - Cabinet 02 `metro-mender`: `concept`
+  - Cabinet 03 `specimen-night-shift`: `concept`
+- Public Cabinet 01 direct URL returned HTTP 200:
+  - `https://virtue-creates.github.io/codex-arcade/games/neon-core-survivor/?from=arcade&credit=1`
+
 次に必要なもの:
 
-- GitHubへPush。
-- GitHub Pages公開。
-- 公開URLでGA4 / Formspree / Cabinet 01を再確認。
-- GitHub Pages公開前の最終承認。
+- 公開URLでGA4 Realtimeの追加確認。
+- 公開URLでFormspree送信の追加確認。
+- v0.1公開告知文とUTMリンク作成。

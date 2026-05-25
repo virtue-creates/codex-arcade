@@ -13,7 +13,7 @@ Codex Arcade v0.1を「遊ばれながら改造されるオンラインゲーセ
 | Cabinet 03 | Lab | 伝達とリプレイ性は再設計待ち |
 | 店長メモ | In play | Formspree受信確認済み |
 | Analytics | In play | GA4 Realtimeで受信確認済み |
-| GitHub Pages | Up next | 公開URL確認が必要 |
+| GitHub Pages | In play | 公開URL確認済み |
 
 ## Product
 
@@ -61,7 +61,7 @@ Codex Arcade v0.1を「遊ばれながら改造されるオンラインゲーセ
 
 ## Marketing / Release
 
-- [ ] 公開URLを決める。
+- [x] 公開URLを決める。
 - [ ] 告知リンクにUTMを付ける方針を決める。
 - [ ] 初期UTMセットを決める。
 - [ ] 初回告知先を決める。
@@ -78,4 +78,4 @@ Codex Arcade v0.1を「遊ばれながら改造されるオンラインゲーセ
 - [ ] Cabinet 01を看板として出してよいか。
 - [ ] 店長メモの文言が世界観に合っているか。
 - [ ] GA4/Formspreeの接続確認結果。
-- [ ] GitHub Pagesで公開してよいか。
+- [x] GitHub Pagesで公開されたことを確認する。

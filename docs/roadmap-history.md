@@ -475,3 +475,30 @@ Impact:
 
 - The two external integrations for v0.1 are now locally confirmed.
 - Remaining work shifts to GitHub push, GitHub Pages enablement, and public URL QA.
+
+## v0.16 - GitHub Pages Public URL Live
+
+Date:
+
+```txt
+2026-05-25
+```
+
+What changed:
+
+- The `codex-arcade` repository was made public.
+- GitHub Pages was enabled from the `main` branch root.
+- Public URL was confirmed live:
+  - `https://virtue-creates.github.io/codex-arcade/`
+- Public `games.json` was confirmed live.
+- Public Cabinet 01 direct URL was confirmed live.
+
+Why:
+
+- v0.1 needed to move from local QA to a shareable public URL.
+- Public URL QA is required before announcement and UTM distribution.
+
+Impact:
+
+- Codex Arcade v0.1 now has a public web address.
+- Remaining release work is public URL behavioral QA, GA4/Formspree confirmation on the public URL, and first announcement preparation.
