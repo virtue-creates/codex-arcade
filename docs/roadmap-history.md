@@ -546,3 +546,32 @@ Marketing Department
 ```
 
 This correction reinforces department boundaries and prevents Headquarters from becoming a substitute for every specialist branch.
+
+## v0.18 - Marketing Review of Announcement Kit
+
+Date:
+
+```txt
+2026-05-25
+```
+
+What changed:
+
+- Marketing Department reviewed the v0.1 Announcement Kit.
+- Marketing approved the overall direction and UTM structure.
+- Marketing recommended softening strong improvement promises.
+- Announcement copy was updated from "本当に改造していきます" to "メモは次の改造の参考にします".
+- X/SNS and early tester copy were revised to use "人間ディレクターとCodex agents".
+- Avoid list was expanded with risky or overpromising expressions.
+- Announcement Kit status changed from `HQ Draft` to `Marketing Reviewed Draft`.
+
+Why:
+
+- Announcement copy and first distribution are Marketing Department responsibilities.
+- The project needed to restore department ownership after Headquarters created an initial draft.
+- Player feedback should be invited without promising that every memo will be reflected immediately.
+
+Impact:
+
+- The first announcement now has Marketing Department review.
+- Human Director can make the final publication decision using a reviewed copy rather than a Headquarters-only draft.
