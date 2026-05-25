@@ -609,3 +609,32 @@ Impact:
 
 - Multiple agents/departments can now work in parallel without blurring responsibilities.
 - v0.1.1 can be planned from department outputs rather than Headquarters guessing all next fixes.
+
+## v0.20 - PR Tone Policy
+
+Date:
+
+```txt
+2026-05-26
+```
+
+What changed:
+
+- Added `docs/pr-tone-policy.md`.
+- Defined the operating tone as: ノリはふざける。運用はちゃんとする。
+- Clarified that 店長メモ is not only a feedback form, but also a trigger for removal, repair, return, and COMING SOON events.
+- Clarified that weak cabinets can be pulled back, marked as under repair, and later reintroduced as a PR/operation event.
+- Added guidance to leave room for players to think "何これ?" instead of over-explaining "変な筐体" or "ネタゲー".
+- Linked the policy from `docs/marketing-release-plan.md`.
+
+Why:
+
+- Marketing tone needed to become an operating policy, not just copywriting taste.
+- Codex Arcade's differentiation is not only that AI agents help make games, but that the arcade operation itself becomes content.
+- Future announcements, manager memo language, COMING SOON states, and cabinet re-entry events need a shared reference.
+
+Impact:
+
+- Marketing Department now has a formal PR tone reference.
+- Headquarters can apply the tone to implementation and documentation without owning final Marketing judgment.
+- Cabinet 02/03 can be handled as operational events when they are pulled back, modified, or reintroduced.
