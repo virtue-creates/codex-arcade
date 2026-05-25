@@ -638,3 +638,29 @@ Impact:
 - Marketing Department now has a formal PR tone reference.
 - Headquarters can apply the tone to implementation and documentation without owning final Marketing judgment.
 - Cabinet 02/03 can be handled as operational events when they are pulled back, modified, or reintroduced.
+
+## v0.21 - Cabinet Studio PR Tone Handoff
+
+Date:
+
+```txt
+2026-05-26
+```
+
+What changed:
+
+- Added PR/operation tone handoff rules to `docs/cabinet-intake.md`.
+- Updated Cabinet 02 and Cabinet 03 Studio prompts so they read `docs/pr-tone-policy.md`.
+- Added a Cabinet 02 operational read to `docs/cabinet-02-hq-direction.md`.
+
+Why:
+
+- Human Director identified that the "bad cabinet / repair / return" cycle itself can be part of Codex Arcade's entertainment.
+- Cabinet 02 currently works technically, but feels simply boring rather than mysterious or strategically interesting.
+- Instead of only polishing Cabinet 02 immediately, the team may use it later as a Lab Cabinet / under-repair / re-entry event once Cabinet 01 starts getting players.
+
+Operating principle:
+
+- Internal evaluation can be blunt, including "this feels like a bad game".
+- Public presentation should not pre-label it as a joke or bad game.
+- The arcade should leave room for players to think "何これ?" and for the operation to turn that reaction into a future event.
