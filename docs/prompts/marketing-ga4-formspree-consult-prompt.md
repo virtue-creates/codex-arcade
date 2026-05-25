@@ -31,12 +31,14 @@
 
 ```js
 const GA_MEASUREMENT_ID = "G-VBKHF7QYE0";
-const FEEDBACK_ENDPOINT = "";
+const FEEDBACK_ENDPOINT = "https://formspree.io/f/xkoevqod";
 ```
 
 GA4 Measurement IDは設定済みです。
 
-Formspree endpoint が未設定の間は、店長メモはlocalStorage fallbackで開発確認する方針です。
+Formspree endpointも設定済みです。
+
+Formspree送信に失敗した場合は、店長メモはlocalStorage fallbackで仮保存する方針です。
 
 ## 相談したいこと
 
@@ -58,6 +60,6 @@ Formspree endpoint が未設定の間は、店長メモはlocalStorage fallback�
 ## 前提
 
 - GitHub Pages公開は最終確認でよい。
-- 現時点ではGA4 Measurement IDは取得済み、Formspree endpointは未取得。
+- 現時点ではGA4 Measurement IDとFormspree endpointは取得済み。
 - ヒートマップ、セッション録画、ログイン、個人単位追跡はv0.1ではやらない。
 - 店長メモは軽い改善メモであり、問い合わせフォームや会員登録ではない。

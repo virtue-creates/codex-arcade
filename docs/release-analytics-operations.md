@@ -56,12 +56,12 @@ v0.1ではやらない:
 
 人間ディレクター側で必要:
 
-- Formspreeでフォームを作る。
-- Endpoint URLを本部に渡す。
+- Formspreeでフォームを作る。完了。
+- Endpoint URL `https://formspree.io/f/xkoevqod` を本部に渡す。完了。
 
 本部側でやる:
 
-- `arcade.js` の `FEEDBACK_ENDPOINT` に設定する。
+- `arcade.js` の `FEEDBACK_ENDPOINT` に設定する。完了。
 - テストメモを送る。
 - 成功時の表示を確認する。
 - 失敗時にlocalStorage fallbackへ逃げることを確認する。

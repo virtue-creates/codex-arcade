@@ -420,3 +420,28 @@ Impact:
 - Local and public Arcade pages can now load the GA4 tag once served in a browser.
 - Public Realtime confirmation still depends on GitHub Pages being enabled and the page being reachable.
 - Formspree remains the main external integration still unset.
+
+## v0.14 - Formspree Feedback Endpoint Connected
+
+Date:
+
+```txt
+2026-05-25
+```
+
+What changed:
+
+- Human Director provided the Formspree endpoint `https://formspree.io/f/xkoevqod`.
+- Headquarters set `FEEDBACK_ENDPOINT` in `arcade.js`.
+- Feedback, Analytics, release checklist, release operations, and marketing prompt docs were updated from "Formspree未設定" to "endpoint設定済み、送信確認待ち".
+
+Why:
+
+- Player Memo needs to reach a real collection destination for v0.1 public release.
+- localStorage fallback is useful for development, but public feedback should not only live in the visitor's browser.
+
+Impact:
+
+- The site is now configured to submit manager memos to Formspree.
+- A real submit test is still needed before public release.
+- If Formspree submission fails, the code still falls back to localStorage.

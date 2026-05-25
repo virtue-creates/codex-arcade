@@ -5,7 +5,7 @@ const INITIAL_CREDITS = 5;
 const FREE_COIN_AMOUNT = 3;
 const BGM_MASTER_VOLUME = 0.18;
 const GA_MEASUREMENT_ID = "G-VBKHF7QYE0";
-const FEEDBACK_ENDPOINT = "";
+const FEEDBACK_ENDPOINT = "https://formspree.io/f/xkoevqod";
 const VISIT_STORAGE_KEY = "codexArcadeFirstVisitSeen";
 
 const creditCount = document.querySelector("#creditCount");

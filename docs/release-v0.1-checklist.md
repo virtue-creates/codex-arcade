@@ -11,7 +11,7 @@ Codex Arcade v0.1を「遊ばれながら改造されるオンラインゲーセ
 | Cabinet 01 | In play | 看板筐体として公開候補 |
 | Cabinet 02 | Lab | ゲーム性は再設計待ち |
 | Cabinet 03 | Lab | 伝達とリプレイ性は再設計待ち |
-| 店長メモ | In play | localStorage fallbackまで実装済み |
+| 店長メモ | In play | Formspree endpoint設定済み、送信確認待ち |
 | Analytics | In play | GA4 ID設定済み、Realtime確認待ち |
 | GitHub Pages | Up next | 公開URL確認が必要 |
 
@@ -31,8 +31,9 @@ Codex Arcade v0.1を「遊ばれながら改造されるオンラインゲーセ
 - [ ] 店長メモを開ける。
 - [ ] 店長メモを書き始めた時に `memo_form_start` が記録される。
 - [ ] 店長メモ送信時に `submit_manager_memo` が記録される。
-- [ ] Formspree未接続時はlocalStorage fallbackで仮保存される。
-- [ ] 公開前にFormspree endpointを接続するか、v0.1では仮受付のまま出すかを人間ディレクターが判断する。
+- [x] Formspree endpointを設定する。
+- [ ] Formspree送信成功時に `manager_memo_submit_result: sent` が記録される。
+- [ ] Formspree送信失敗時はlocalStorage fallbackで仮保存される。
 
 ## Analytics
 
@@ -75,5 +76,5 @@ Codex Arcade v0.1を「遊ばれながら改造されるオンラインゲーセ
 - [ ] いま出してよい見た目か。
 - [ ] Cabinet 01を看板として出してよいか。
 - [ ] 店長メモの文言が世界観に合っているか。
-- [ ] GA4/Formspree接続の有無。
+- [ ] GA4/Formspreeの接続確認結果。
 - [ ] GitHub Pagesで公開してよいか。

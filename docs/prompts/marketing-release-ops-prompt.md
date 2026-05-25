@@ -30,7 +30,7 @@
 - `feedback_fallback_saved`
 
 GA4 Measurement ID `G-VBKHF7QYE0` は設定済みです。
-Formspree endpointも未設定です。
+Formspree endpoint `https://formspree.io/f/xkoevqod` も設定済みです。
 
 ## 相談したいこと
 

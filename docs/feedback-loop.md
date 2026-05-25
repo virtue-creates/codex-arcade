@@ -46,11 +46,13 @@ Phase v0.1では、サイト内フォームの見た目はCodex Arcadeで作る�
 
 送信先のみFormspreeを使う想定。
 
-Formspreeエンドポイントが未設定の場合は、開発用の仮受付としてブラウザ内に保存する。
+Formspreeエンドポイント `https://formspree.io/f/xkoevqod` を設定済み。
+
+送信に失敗した場合は、開発用の仮受付としてブラウザ内に保存する。
 
 本番公開前にやること:
 
-- Formspreeでフォームを作る。
-- エンドポイントURLを `arcade.js` の `FEEDBACK_ENDPOINT` に設定する。
+- Formspreeでフォームを作る。完了。
+- エンドポイントURLを `arcade.js` の `FEEDBACK_ENDPOINT` に設定する。完了。
 - 送信テストを行う。
 - 個人情報を取らない方針を確認する。

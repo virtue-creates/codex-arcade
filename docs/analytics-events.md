@@ -58,7 +58,7 @@ GA4のMeasurement IDは `G-VBKHF7QYE0` を設定済み。
 | `memo_form_start` | 店長メモを書き始めた |
 | `submit_manager_memo` | 店長メモを送った |
 | `manager_memo_submit_result` | 店長メモの送信結果 |
-| `feedback_fallback_saved` | Formspree未接続のため仮保存した |
+| `feedback_fallback_saved` | Formspree送信失敗時に仮保存した |
 | `select_cabinet` | Cabinetに触れた/選択した |
 | `return_to_arcade` | ゲームからArcadeへ戻った |
 
@@ -118,7 +118,9 @@ arcade_visit
 - 親Arcadeは `returned_from` を受け取ると `return_to_arcade` を記録し、URLからパラメータを消す。
 - `memo_form_start` は送信時ではなく、店長メモフォームの入力/選択開始時に記録するよう修正した。
 - GA4 Measurement ID `G-VBKHF7QYE0` を設定済み。
-- Formspree endpointは未設定。公開前に人間ディレクター確認後に設定する。
+- Formspree endpoint `https://formspree.io/f/xkoevqod` を設定済み。
+- Formspree送信成功時は `manager_memo_submit_result` の `submit_result: "sent"` を記録する。
+- Formspree送信失敗時はlocalStorage fallbackへ保存する。
 
 ## Privacy
 
