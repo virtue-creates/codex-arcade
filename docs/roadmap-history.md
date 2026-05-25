@@ -394,3 +394,29 @@ Impact:
 - v0.1 release readiness can now be checked against a concrete Analytics funnel.
 - Marketing reports can be compared over time.
 - The AI-company experiment now has a clearer loop: publish, measure, collect player memos, report, assign improvements, update.
+
+## v0.13 - GA4 Measurement ID Connected
+
+Date:
+
+```txt
+2026-05-25
+```
+
+What changed:
+
+- Human Director provided the GA4 Measurement ID `G-VBKHF7QYE0`.
+- Headquarters set `GA_MEASUREMENT_ID` in `arcade.js`.
+- Analytics docs and release operations docs were updated from "GA4未接続" to "GA4 ID設定済み、Realtime確認待ち".
+- Marketing prompts were updated so future department handoffs do not say that GA4 is still unset.
+
+Why:
+
+- GA4 connection is required before public v0.1 measurement can work.
+- The next release QA needs to confirm GA4 Realtime events, not debate the measurement tool again.
+
+Impact:
+
+- Local and public Arcade pages can now load the GA4 tag once served in a browser.
+- Public Realtime confirmation still depends on GitHub Pages being enabled and the page being reachable.
+- Formspree remains the main external integration still unset.

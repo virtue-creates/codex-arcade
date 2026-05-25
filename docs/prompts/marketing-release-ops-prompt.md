@@ -29,7 +29,7 @@
 - `manager_memo_submit_result`
 - `feedback_fallback_saved`
 
-GA4 Measurement IDは未設定です。
+GA4 Measurement ID `G-VBKHF7QYE0` は設定済みです。
 Formspree endpointも未設定です。
 
 ## 相談したいこと
@@ -49,4 +49,3 @@ Formspree endpointも未設定です。
 - CREDITSは無料演出で、購入、換金、報酬ではない。
 - 個人情報、決済情報、ウォレット情報は取らない。
 - v0.1は完成版ではなく、実験的な早期公開。
-

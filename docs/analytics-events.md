@@ -23,10 +23,10 @@ v0.1では、まずGA4に接続できるイベント送信の土台を入れる�
 設定箇所:
 
 ```js
-const GA_MEASUREMENT_ID = "";
+const GA_MEASUREMENT_ID = "G-VBKHF7QYE0";
 ```
 
-GA4のMeasurement IDを取得したら、ここに `G-XXXXXXXXXX` を入れる。
+GA4のMeasurement IDは `G-VBKHF7QYE0` を設定済み。
 
 ## GA4で見たいこと
 
@@ -117,7 +117,8 @@ arcade_visit
 - `games/neon-core-survivor/`, `games/metro-mender/`, `games/specimen-night-shift/` のBACK TO ARCADEリンクに `returned_from=[gameId]` を付けた。
 - 親Arcadeは `returned_from` を受け取ると `return_to_arcade` を記録し、URLからパラメータを消す。
 - `memo_form_start` は送信時ではなく、店長メモフォームの入力/選択開始時に記録するよう修正した。
-- GA4 Measurement IDとFormspree endpointは未設定。公開前に人間ディレクター確認後に設定する。
+- GA4 Measurement ID `G-VBKHF7QYE0` を設定済み。
+- Formspree endpointは未設定。公開前に人間ディレクター確認後に設定する。
 
 ## Privacy
 
@@ -128,8 +129,7 @@ arcade_visit
 
 ## GA4接続時の注意
 
-- Measurement IDを取得する。
-- `arcade.js` の `GA_MEASUREMENT_ID` に設定する。
+- Measurement ID `G-VBKHF7QYE0` を設定済み。
 - `trackArcadeEvent` から `gtag("event", ...)` を送る。
 - プライバシー表記を確認する。
 

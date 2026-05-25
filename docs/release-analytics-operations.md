@@ -33,13 +33,13 @@ Analyticsは「どこで止まったか」を見る。
 
 人間ディレクター側で必要:
 
-- GA4プロパティを作る。
-- Webデータストリームを作る。
-- Measurement ID `G-XXXXXXXXXX` を本部に渡す。
+- GA4プロパティを作る。完了。
+- Webデータストリームを作る。完了。
+- Measurement ID `G-VBKHF7QYE0` を本部に渡す。完了。
 
 本部側でやる:
 
-- `arcade.js` の `GA_MEASUREMENT_ID` に設定する。
+- `arcade.js` の `GA_MEASUREMENT_ID` に設定する。完了。
 - ローカルでページを開いて、Realtimeにイベントが来るか確認する。
 - `arcade_visit`, `select_cabinet`, `insert_coin`, `launch_cabinet`, `return_to_arcade`, `open_manager_memo`, `memo_form_start`, `submit_manager_memo`, `manager_memo_submit_result` を確認する。
 - 公開後にGitHub Pages URLでも確認する。

@@ -5,7 +5,8 @@
 Purpose:
 
 - v0.1公開前に、本部だけで確認できる最低限の導線を確認する。
-- GA4 Measurement IDとFormspree endpointは未接続のため、外部送信確認は対象外。
+- GA4 Measurement IDは接続済み。
+- Formspree endpointは未接続のため、Formspree外部送信確認は対象外。
 
 Local URL:
 
@@ -73,7 +74,8 @@ http://127.0.0.1:8094/
 
 - Event hooks exist in `arcade.js` for the v0.1 funnel.
 - Browser QA verified the user-facing return flow and memo flow.
-- GA4 Realtime confirmation is blocked until a real `GA_MEASUREMENT_ID` is provided.
+- GA4 Measurement ID `G-VBKHF7QYE0` was configured after this QA pass.
+- GA4 Realtime confirmation still needs to be done against the active local/public page.
 - Formspree success confirmation is blocked until a real `FEEDBACK_ENDPOINT` is provided.
 - localStorage log inspection was not reliable from the current in-app browser automation surface, so this QA does not mark localStorage event inspection as fully verified.
 
@@ -84,7 +86,6 @@ http://127.0.0.1:8094/
 次に必要なもの:
 
 - Marketing DepartmentへのGA4/Formspree導入手順確認。
-- Human DirectorによるGA4 Measurement ID提供。
+- GA4 Realtime確認。
 - Human DirectorによるFormspree endpoint提供、またはv0.1ではfallback運用で出す判断。
 - GitHub Pages公開前の最終承認。
-

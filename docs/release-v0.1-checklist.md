@@ -12,7 +12,7 @@ Codex Arcade v0.1を「遊ばれながら改造されるオンラインゲーセ
 | Cabinet 02 | Lab | ゲーム性は再設計待ち |
 | Cabinet 03 | Lab | 伝達とリプレイ性は再設計待ち |
 | 店長メモ | In play | localStorage fallbackまで実装済み |
-| Analytics | In play | GA4未接続、localStorageログは実装済み |
+| Analytics | In play | GA4 ID設定済み、Realtime確認待ち |
 | GitHub Pages | Up next | 公開URL確認が必要 |
 
 ## Product
@@ -46,7 +46,7 @@ Codex Arcade v0.1を「遊ばれながら改造されるオンラインゲーセ
 - [ ] `memo_form_start` が記録される。
 - [ ] `submit_manager_memo` が記録される。
 - [ ] `manager_memo_submit_result` が記録される。
-- [ ] GA4 Measurement IDを入れるか、v0.1ではlocalStorageのみで始めるかを決める。
+- [x] GA4 Measurement IDを設定する。
 - [ ] GA4接続時はRealtimeで `arcade_visit -> manager_memo_submit_result` まで確認する。
 
 ## Privacy / Safety

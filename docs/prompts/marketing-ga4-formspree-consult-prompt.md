@@ -30,11 +30,13 @@
 `arcade.js`:
 
 ```js
-const GA_MEASUREMENT_ID = "";
+const GA_MEASUREMENT_ID = "G-VBKHF7QYE0";
 const FEEDBACK_ENDPOINT = "";
 ```
 
-GA4 Measurement ID と Formspree endpoint が未設定の間は、localStorage fallbackで開発確認する方針です。
+GA4 Measurement IDは設定済みです。
+
+Formspree endpoint が未設定の間は、店長メモはlocalStorage fallbackで開発確認する方針です。
 
 ## 相談したいこと
 
@@ -42,8 +44,8 @@ GA4 Measurement ID と Formspree endpoint が未設定の間は、localStorage f
 
 以下を日本語でお願いします。
 
-1. GA4を使う場合、人間ディレクターがどの画面で何を作ればよいか。
-2. 本部に渡すべきGA4情報は何か。例: `G-XXXXXXXXXX`
+1. GA4を使う場合、人間ディレクターが次にどの画面で何を確認すればよいか。
+2. GA4 Measurement ID `G-VBKHF7QYE0` 設定後、本部と人間ディレクターがRealtimeで何を見ればよいか。
 3. GA4で「Realtime」と「DebugView」のどちらをまず見ればよいか。
 4. Formspreeを使う場合、人間ディレクターがどの画面で何を作ればよいか。
 5. 本部に渡すべきFormspree情報は何か。例: endpoint URL
@@ -56,7 +58,6 @@ GA4 Measurement ID と Formspree endpoint が未設定の間は、localStorage f
 ## 前提
 
 - GitHub Pages公開は最終確認でよい。
-- 現時点ではGA4 Measurement IDもFormspree endpointも未取得。
+- 現時点ではGA4 Measurement IDは取得済み、Formspree endpointは未取得。
 - ヒートマップ、セッション録画、ログイン、個人単位追跡はv0.1ではやらない。
 - 店長メモは軽い改善メモであり、問い合わせフォームや会員登録ではない。
-
