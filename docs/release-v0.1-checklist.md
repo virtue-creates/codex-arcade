@@ -11,8 +11,8 @@ Codex Arcade v0.1を「遊ばれながら改造されるオンラインゲーセ
 | Cabinet 01 | In play | 看板筐体として公開候補 |
 | Cabinet 02 | Lab | ゲーム性は再設計待ち |
 | Cabinet 03 | Lab | 伝達とリプレイ性は再設計待ち |
-| 店長メモ | In play | Formspree endpoint設定済み、送信確認待ち |
-| Analytics | In play | GA4 ID設定済み、Realtime確認待ち |
+| 店長メモ | In play | Formspree受信確認済み |
+| Analytics | In play | GA4 Realtimeで受信確認済み |
 | GitHub Pages | Up next | 公開URL確認が必要 |
 
 ## Product
@@ -32,14 +32,15 @@ Codex Arcade v0.1を「遊ばれながら改造されるオンラインゲーセ
 - [ ] 店長メモを書き始めた時に `memo_form_start` が記録される。
 - [ ] 店長メモ送信時に `submit_manager_memo` が記録される。
 - [x] Formspree endpointを設定する。
-- [ ] Formspree送信成功時に `manager_memo_submit_result: sent` が記録される。
+- [x] Formspreeで店長メモを受信できる。
+- [ ] Formspree送信成功時に `manager_memo_submit_result: sent` がGA4で確認できる。
 - [ ] Formspree送信失敗時はlocalStorage fallbackで仮保存される。
 
 ## Analytics
 
-- [ ] `arcade_visit` が記録される。
-- [ ] `select_cabinet` が記録される。
-- [ ] `click_free_credit` が記録される。
+- [x] `arcade_visit` が記録される。
+- [x] `select_cabinet` が記録される。
+- [x] `click_free_credit` が記録される。
 - [ ] `insert_coin` が記録される。
 - [ ] `launch_cabinet` が記録される。
 - [ ] `return_to_arcade` が記録される。
@@ -48,7 +49,7 @@ Codex Arcade v0.1を「遊ばれながら改造されるオンラインゲーセ
 - [ ] `submit_manager_memo` が記録される。
 - [ ] `manager_memo_submit_result` が記録される。
 - [x] GA4 Measurement IDを設定する。
-- [ ] GA4接続時はRealtimeで `arcade_visit -> manager_memo_submit_result` まで確認する。
+- [x] GA4 Realtimeでイベント受信を確認する。
 
 ## Privacy / Safety
 

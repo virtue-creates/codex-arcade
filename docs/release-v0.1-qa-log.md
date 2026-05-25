@@ -75,9 +75,21 @@ http://127.0.0.1:8094/
 - Event hooks exist in `arcade.js` for the v0.1 funnel.
 - Browser QA verified the user-facing return flow and memo flow.
 - GA4 Measurement ID `G-VBKHF7QYE0` was configured after this QA pass.
-- GA4 Realtime confirmation still needs to be done against the active local/public page.
+- GA4 Realtime confirmation was done on 2026-05-25.
+- GA4 Realtime showed active users and received events:
+  - `click_free_credit`
+  - `select_cabinet`
+  - `arcade_visit`
+  - `page_view`
+  - `scroll`
+  - `first_visit`
 - Formspree endpoint `https://formspree.io/f/xkoevqod` was configured after this QA pass.
-- Formspree success confirmation still needs to be done with a real submit test.
+- Formspree submit confirmation was done on 2026-05-25.
+- Formspree received a manager memo submission for `キャビネット-01`.
+- The submitted memo included:
+  - message: `音楽がダサイ`
+  - replay intent: `再び`
+  - clarity: `クリア`
 - localStorage log inspection was not reliable from the current in-app browser automation surface, so this QA does not mark localStorage event inspection as fully verified.
 
 ## Result
@@ -86,7 +98,7 @@ http://127.0.0.1:8094/
 
 次に必要なもの:
 
-- Marketing DepartmentへのGA4/Formspree導入手順確認。
-- GA4 Realtime確認。
-- Formspree送信成功確認。
+- GitHubへPush。
+- GitHub Pages公開。
+- 公開URLでGA4 / Formspree / Cabinet 01を再確認。
 - GitHub Pages公開前の最終承認。

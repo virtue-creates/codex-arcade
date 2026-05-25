@@ -445,3 +445,33 @@ Impact:
 - The site is now configured to submit manager memos to Formspree.
 - A real submit test is still needed before public release.
 - If Formspree submission fails, the code still falls back to localStorage.
+
+## v0.15 - GA4 and Formspree Local QA Confirmed
+
+Date:
+
+```txt
+2026-05-25
+```
+
+What changed:
+
+- Human Director confirmed GA4 Realtime received Arcade activity from local QA.
+- GA4 showed active users and events including:
+  - `click_free_credit`
+  - `select_cabinet`
+  - `arcade_visit`
+  - `page_view`
+  - `scroll`
+  - `first_visit`
+- Human Director confirmed Formspree received a `店長メモ` submission.
+- Release checklist and QA log were updated from "connection pending" to "local QA confirmed".
+
+Why:
+
+- v0.1 release needs evidence that both measurement and player feedback collection work before GitHub Pages publication.
+
+Impact:
+
+- The two external integrations for v0.1 are now locally confirmed.
+- Remaining work shifts to GitHub push, GitHub Pages enablement, and public URL QA.
