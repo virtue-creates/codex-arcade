@@ -531,3 +531,18 @@ Impact:
 
 - Codex Arcade can now be shared with an intentional message and measurable links.
 - Next step is to choose the first announcement channel and begin the first player memo cycle.
+
+Correction:
+
+- Human Director pointed out that announcement copy and distribution planning should be owned by Marketing Department, not Headquarters.
+- The announcement kit is therefore classified as `HQ Draft`.
+- Future announcement work should follow:
+
+```txt
+Marketing Department
+-> Headquarters integration
+-> Human Director approval
+-> publish
+```
+
+This correction reinforces department boundaries and prevents Headquarters from becoming a substitute for every specialist branch.
