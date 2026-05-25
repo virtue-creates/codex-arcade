@@ -696,3 +696,34 @@ Impact:
 - Offline initial tester traffic can be measured separately in GA4.
 - Creative Department now has a dedicated prompt for print-card design.
 - The launch operation now includes a physical touchpoint, not only SNS or direct message links.
+
+## v0.23 - Cabinet 01 v0.1.1 Studio Report
+
+Date:
+
+```txt
+2026-05-26
+```
+
+What changed:
+
+- Added `docs/cabinet-01-v0.1.1-studio-report.md`.
+- Updated `docs/cabinet-01-polish-plan.md` with the Studio report and HQ judgment.
+
+Why:
+
+- Cabinet 01 Studio reported that Neon Core Survivor is ready to be treated as Codex Arcade's signature game.
+- Reported v0.1.1 changes include 120-second runs, clearer controls, stronger Arcade launch copy, Best/Survived result info, best score storage, and a minimal SFX toggle.
+
+HQ judgment:
+
+- The v0.1.1 direction is approved as a candidate.
+- Cabinet 01 should remain the primary public playable cabinet.
+- The headquarters repository has not yet received the reported v0.1.1 implementation files, so repository intake is still pending.
+
+Next:
+
+- Receive or locate Cabinet 01 v0.1.1 files.
+- Update `games/neon-core-survivor/`.
+- Update parent `games.json`.
+- Run static and local QA before publishing.

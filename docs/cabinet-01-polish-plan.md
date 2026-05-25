@@ -65,3 +65,23 @@ Cabinet 01は、現時点で人間QAから「普通に面白い」という評�
 ## Cabinet 01 Studioへ依頼する時の要約
 
 `Neon Core Survivor` はCodex Arcadeの看板筐体として仕上げたい。ゲーム性の大改造ではなく、Arcade起動体験、初見説明、BACK TO ARCADE、サムネイル候補、音/演出、QAを中心に、普通の人が遊べる公開候補へ近づけてください。
+
+## 2026-05-26 Studio Report
+
+Cabinet 01 Studioから、v0.1.1仕上げ報告を受領した。
+
+Studio判断:
+
+- Neon Core Survivorは、Codex Arcadeのシグネチャーゲームとして十分よい状態。
+- v0.1.1では、180秒から120秒への短縮、操作説明改善、Arcade起動コピー改善、Best/Survived表示、ベストスコア保存、最小SFXトグルを実装したとの報告。
+- 大改造より、公開後の反応を見ながら小さく調整する方針がよい。
+
+本部判断:
+
+- v0.1.1方針は採用候補として承認。
+- ただし、本部リポジトリ上ではまだ `game.json` が `0.1.0`、クリア条件も180秒のまま。
+- 実ファイル受領後、`games/neon-core-survivor/` へ反映し、静的QAとローカルQAを行う。
+
+詳細:
+
+- `docs/cabinet-01-v0.1.1-studio-report.md`
