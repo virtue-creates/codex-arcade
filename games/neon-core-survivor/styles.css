@@ -46,6 +46,7 @@ button:hover {
   transform: translateY(-1px);
 }
 
+.sound-toggle,
 .back-link {
   display: inline-flex;
   align-items: center;
@@ -64,6 +65,20 @@ button:hover {
   background: rgba(255, 255, 255, 0.06);
 }
 
+.sound-toggle {
+  margin-left: 10px;
+  box-shadow: none;
+  color: #dbeafe;
+}
+
+.back-link-corner {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  margin-left: 0;
+}
+
+.sound-toggle:hover,
 .back-link:hover {
   border-color: rgba(64, 233, 255, 0.55);
   color: #ffffff;
@@ -228,7 +243,7 @@ h2 {
 }
 
 .chips span {
-  min-width: 68px;
+  min-width: 112px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 999px;
   color: #dbeafe;
@@ -302,9 +317,14 @@ h2 {
     padding: 22px;
   }
 
+  .sound-toggle,
   .back-link {
     display: flex;
     width: fit-content;
     margin: 12px auto 0;
+  }
+
+  .back-link-corner {
+    position: static;
   }
 }

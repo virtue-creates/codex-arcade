@@ -18,12 +18,16 @@ const ui = {
   endText: document.querySelector("#endText"),
   startBtn: document.querySelector("#startBtn"),
   restartBtn: document.querySelector("#restartBtn"),
+  soundBtn: document.querySelector("#soundBtn"),
 };
 
 const TAU = Math.PI * 2;
-const WIN_TIME = 180;
+const WIN_TIME = 120;
+const BEST_SCORE_KEY = "neon-core-survivor-best-score";
 const params = new URLSearchParams(window.location.search);
 const arcadeLaunch = params.get("from") === "arcade" && params.get("credit") === "1";
+let soundEnabled = false;
+let audioContext = null;
 
 let width = 0;
 let height = 0;
@@ -281,6 +285,7 @@ function shoot() {
     });
   }
   spark(player.x, player.y, "#40e9ff", 5, 2.4);
+  playTone(660, 0.025, "triangle", 0.018);
 }
 
 function enemyShoot(enemy) {
@@ -339,6 +344,7 @@ function killEnemy(enemy) {
   shake = Math.max(shake, enemy.type === "bruiser" ? 9 : 4);
   spark(enemy.x, enemy.y, enemy.color, enemy.type === "bruiser" ? 34 : 18, enemy.type === "bruiser" ? 1.3 : 1);
   dropOrb(enemy);
+  playTone(enemy.type === "bruiser" ? 120 : 180, 0.06, "sawtooth", 0.035);
 }
 
 function damagePlayer(amount) {
@@ -348,6 +354,7 @@ function damagePlayer(amount) {
   shake = 12;
   flash = 0.18;
   spark(player.x, player.y, "#ff4fd8", 22, 1.1);
+  playTone(96, 0.16, "sawtooth", 0.06);
   if (player.hp <= 0) endRun(false);
 }
 
@@ -372,10 +379,15 @@ function levelUp() {
 
 function endRun(won) {
   state = "end";
+  const score = Math.floor(player.score);
+  const survived = Math.floor(player.elapsed);
+  const best = Math.max(score, readBestScore());
+  writeBestScore(best);
   ui.endKicker.textContent = won ? "Run Complete" : "Core Collapse";
   ui.endTitle.textContent = won ? "Signal stabilized" : "The grid consumed the core";
-  ui.endText.textContent = `Score ${Math.floor(player.score).toLocaleString()} - Level ${player.level} - Wave ${wave()}`;
+  ui.endText.textContent = `Score ${score.toLocaleString()} - Best ${best.toLocaleString()} - Survived ${formatTime(survived)} - Level ${player.level} - Wave ${wave()}`;
   ui.end.classList.remove("hidden");
+  playTone(won ? 720 : 140, won ? 0.28 : 0.35, won ? "sine" : "sawtooth", 0.07);
 }
 
 function update(dt) {
@@ -541,6 +553,7 @@ function updateOrbs(dt) {
         player.xp -= player.nextXp;
         player.level += 1;
         player.nextXp = Math.floor(player.nextXp * 1.24 + 18);
+        playTone(880, 0.12, "sine", 0.08);
         levelUp();
       }
     }
@@ -621,8 +634,46 @@ function updateHud() {
 
 function applyLaunchFlavor() {
   if (!arcadeLaunch) return;
-  ui.introKicker.textContent = "1 Credit Inserted";
-  ui.introTagline.textContent = "Core online. Hold the arena for 180 seconds as the grid gets meaner.";
+  ui.introKicker.textContent = "1 Credit Inserted - Core Online";
+  ui.introTagline.textContent = "Survive 120 seconds. Auto-fire aims at your mouse.";
+}
+
+function formatTime(totalSeconds) {
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = Math.floor(totalSeconds % 60).toString().padStart(2, "0");
+  return `${minutes}:${seconds}`;
+}
+
+function readBestScore() {
+  return Number.parseInt(localStorage.getItem(BEST_SCORE_KEY) || "0", 10) || 0;
+}
+
+function writeBestScore(score) {
+  localStorage.setItem(BEST_SCORE_KEY, String(score));
+}
+
+function playTone(frequency, duration, type = "sine", volume = 0.04) {
+  if (!soundEnabled) return;
+  audioContext ||= new (window.AudioContext || window.webkitAudioContext)();
+  const now = audioContext.currentTime;
+  const oscillator = audioContext.createOscillator();
+  const gain = audioContext.createGain();
+  oscillator.type = type;
+  oscillator.frequency.setValueAtTime(frequency, now);
+  gain.gain.setValueAtTime(0.0001, now);
+  gain.gain.exponentialRampToValueAtTime(volume, now + 0.01);
+  gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+  oscillator.connect(gain);
+  gain.connect(audioContext.destination);
+  oscillator.start(now);
+  oscillator.stop(now + duration + 0.02);
+}
+
+function toggleSound() {
+  soundEnabled = !soundEnabled;
+  ui.soundBtn.textContent = soundEnabled ? "Sound On" : "Sound Off";
+  ui.soundBtn.setAttribute("aria-pressed", String(soundEnabled));
+  if (soundEnabled) playTone(520, 0.09, "sine", 0.06);
 }
 
 function draw() {
@@ -829,6 +880,7 @@ window.addEventListener("keyup", (event) => {
 
 ui.startBtn.addEventListener("click", resetGame);
 ui.restartBtn.addEventListener("click", resetGame);
+ui.soundBtn.addEventListener("click", toggleSound);
 
 resize();
 mouse.x = width / 2 + 140;

@@ -16,7 +16,7 @@ HQ status:
 
 - Studio report received.
 - HQ adoption: approved as candidate.
-- Repository intake: pending. The headquarters repository still shows `game.json` version `0.1.0` and `WIN_TIME = 180`.
+- Repository intake: completed on 2026-05-26.
 
 ## Studio Evaluation
 
@@ -66,18 +66,48 @@ Neon Core Survivorは、現時点では大きく作り替えず、Codex Arcade�
 
 - v0.1.1方針は採用してよい。
 - Cabinet 01は当面、Codex Arcadeのシグネチャーゲームとして扱う。
-- ただし、現時点の本部リポジトリにはStudio報告のv0.1.1ファイルがまだ反映されていない。
-- 実ファイル受領後、本部で静的QA、ローカルQA、`games.json`更新、コミットを行う。
+- 本部リポジトリ側のv0.1.1反映は、2026-05-26に確認済み。
+- 本部で静的QA、`games.json`更新、記録更新、コミットを行う。
+
+## 2026-05-26 HQ Intake
+
+Cabinet 01 Studioから、v0.1.1実装済みファイルは本部リポジトリ側の以下であると回答を受けた。
+
+```txt
+/Users/ogawakenji/Desktop/codex-arcade/games/neon-core-survivor/
+```
+
+HQ verified:
+
+- `games/neon-core-survivor/game.json` is `0.1.1`.
+- `games/neon-core-survivor/game.js` uses `WIN_TIME = 120`.
+- Title copy says `Survive 120 seconds. Auto-fire aims at your mouse.`
+- `Sound Off` toggle exists.
+- `README.md` describes the 120-second version.
+- `CHANGELOG.md` includes `0.1.1 - 2026-05-26`.
+
+HQ updated parent `games.json`:
+
+- Cabinet 01 description now says 120 seconds.
+- Cabinet 01 `updatedAt` is now `2026-05-26`.
+
+Repository intake status:
+
+- Completed.
+- Static QA completed.
+
+Static QA:
+
+- `node --check games/neon-core-survivor/game.js`: passed.
+- `games/neon-core-survivor/game.json` parse: passed.
+- parent `games.json` parse: passed.
+- `git diff --check`: passed.
 
 ## HQ Follow-up
 
 本部で次に必要なこと:
 
-1. Cabinet 01 Studioからv0.1.1実装ファイルの場所を受け取る。
-2. `games/neon-core-survivor/` に反映する。
-3. `games/neon-core-survivor/game.json` を `0.1.1` に更新する。
-4. 親 `games.json` のCabinet 01 `description` / `updatedAt` を更新する。
-5. `node --check games/neon-core-survivor/game.js` を実行する。
-6. `game.json` / `games.json` のJSON parseを確認する。
-7. ローカルで `?from=arcade&credit=1` 起動を確認する。
-8. GitHubへcommit/pushする。
+1. Cabinet 01 v0.1.1関連ファイルを本部コミットにまとめる。
+2. GitHubへpushする。
+3. GitHub Pages公開後、公開URLでCabinet 01起動を確認する。
+4. 公開後の店長メモ/Analyticsを見て、次の小改善を判断する。

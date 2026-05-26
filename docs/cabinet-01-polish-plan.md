@@ -79,8 +79,9 @@ Studio判断:
 本部判断:
 
 - v0.1.1方針は採用候補として承認。
-- ただし、本部リポジトリ上ではまだ `game.json` が `0.1.0`、クリア条件も180秒のまま。
-- 実ファイル受領後、`games/neon-core-survivor/` へ反映し、静的QAとローカルQAを行う。
+- 本部リポジトリ側の `games/neon-core-survivor/` にv0.1.1実装が入っていることを確認した。
+- `game.json` は `0.1.1`、クリア条件は120秒。
+- 親 `games.json` のCabinet 01説明と `updatedAt` を更新する。
 
 詳細:
 

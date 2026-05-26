@@ -24,13 +24,14 @@ http://127.0.0.1:4173/?from=arcade&credit=1
 
 ## Goal
 
-Survive for 180 seconds, collect sync shards, and choose core upgrades as the arena escalates.
+Survive for 120 seconds, collect sync shards, and choose core upgrades as the arena escalates.
 
 ## Controls
 
 - WASD / arrow keys: move
 - Mouse: aim
 - Space: dash
+- Sound Off / Sound On: toggle minimal sound effects
 
 ## Codex Arcade Interface
 

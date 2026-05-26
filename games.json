@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-05-22",
+  "updatedAt": "2026-05-26",
   "games": [
     {
       "id": "neon-core-survivor",
       "cabinet": "Cabinet 01",
       "title": "Neon Core Survivor",
-      "description": "ネオンアリーナで180秒生き残る、1画面弾幕サバイバー。",
+      "description": "ネオンアリーナで120秒生き残る、1画面弾幕サバイバー。",
       "status": "prototype",
       "genre": ["survival", "bullet-hell", "arcade"],
       "devices": ["desktop"],
@@ -17,7 +17,7 @@
       "creditCost": 1,
       "interfaceVersion": 1,
       "createdAt": "2026-05-13",
-      "updatedAt": "2026-05-14"
+      "updatedAt": "2026-05-26"
     },
     {
       "id": "metro-mender",

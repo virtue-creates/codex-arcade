@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.1 - 2026-05-26
+
+- Shortened the clear timer from 180 seconds to 120 seconds.
+- Made title controls more explicit for first-time players.
+- Strengthened the arcade launch copy for `?from=arcade&credit=1`.
+- Moved the title screen arcade return link into a quieter corner position.
+- Added result details for survival time and local best score.
+- Added an optional minimal sound-effects toggle.
+
 ## 0.1.0 - 2026-05-15
 
 - Added Codex Arcade launch flavor for `?from=arcade&credit=1`.
