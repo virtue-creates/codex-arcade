@@ -110,7 +110,7 @@ https://virtue-creates.github.io/codex-arcade/?utm_source=offline_card&utm_mediu
 7. 色、質感、フォント方向
 8. 印刷時に注意すること
 9. やりすぎると危ない表現
-10. 本部/Marketing/Human Directorに確認したいこと
+10. 確認事項の仕分け
 
 ## 必須要件
 
@@ -154,3 +154,18 @@ Cabinet 01をプレイ
 ```
 
 この文言をそのまま使っても、Creative判断で調整しても構いません。
+
+## 確認事項の出し方
+
+確認事項は以下に分けてください。
+
+```md
+## AI間確認
+本部、Marketing、Creative間で処理してよい確認事項。
+
+## 人間ディレクター判断
+人間の感覚、好み、公開判断が必要な事項。
+
+## 共有のみ
+返答不要の報告事項。
+```

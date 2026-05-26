@@ -727,3 +727,41 @@ Next:
 - Update `games/neon-core-survivor/`.
 - Update parent `games.json`.
 - Run static and local QA before publishing.
+
+## v0.24 - Confirmation Triage Model
+
+Date:
+
+```txt
+2026-05-26
+```
+
+What changed:
+
+- Added Headquarters triage rules to `docs/department-operating-model.md`.
+- Updated `docs/cabinet-intake.md` with confirmation triage.
+- Updated `docs/game-design-intent-report.md` so Studio reports separate confirmations into:
+  - AI間確認
+  - 人間ディレクター判断
+  - 共有のみ
+- Updated Cabinet 01, Cabinet 02, Cabinet 03, and Creative offline card prompts to use the same classification.
+
+Why:
+
+- Human Director noticed that department reports were ending with broad "please confirm" lists.
+- Some of those items were AI-to-AI operational questions, while others required human taste or release judgment.
+- Mixing them made the human director act as traffic control for things Headquarters should filter.
+
+Operating principle:
+
+- Headquarters should not pass every department question directly to the human.
+- Headquarters first triages.
+- AI間確認 is handled by Headquarters or the relevant department.
+- 人間ディレクター判断 is the only category that should be escalated to the human as a decision request.
+- 共有のみ is logged without requiring a response.
+
+Impact:
+
+- The semi-automated company model becomes clearer.
+- Human judgment remains important, but human attention is reserved for the right decisions.
+- Department reports become easier to route and automate later.
