@@ -765,3 +765,34 @@ Impact:
 - The semi-automated company model becomes clearer.
 - Human judgment remains important, but human attention is reserved for the right decisions.
 - Department reports become easier to route and automate later.
+
+## v0.25 - BACKYARD Hidden Door
+
+Date:
+
+```txt
+2026-05-28
+```
+
+What changed:
+
+- Added `docs/backyard-policy.md`.
+- Added a small `BACKYARD` link to the public top page.
+- Added `backyard.html` as a minimal workroom page.
+- Added `open_backyard` as an Analytics event.
+- Updated the offline card campaign docs so business/AI-agent explanation is not forced onto the card.
+
+Why:
+
+- Marketing Department recommended that the handoff card stay focused on the player flow:
+  - Come to Codex Arcade.
+  - Play Cabinet 01.
+  - Leave a manager memo.
+- The business/AI-agent layer should exist as a hidden-feeling door inside the Arcade, not as a loud sales explanation.
+
+Operating principle:
+
+- Do not explain too much.
+- `BACKYARD` should feel like a small secret door.
+- The inside can eventually show manager memos, Analytics, mod meetings, agent roles, removal/return events, and logs.
+- This keeps the public arcade playful while still preserving the company-building experiment.

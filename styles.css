@@ -959,6 +959,117 @@ h3 {
     linear-gradient(180deg, rgba(255, 209, 102, 0.14), rgba(255, 79, 216, 0.08));
 }
 
+.backyard-link {
+  justify-self: end;
+  align-self: end;
+  width: fit-content;
+  color: rgba(170, 180, 193, 0.42);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+}
+
+.backyard-link:hover,
+.backyard-link:focus-visible {
+  color: rgba(71, 231, 255, 0.92);
+  text-shadow: 0 0 14px rgba(71, 231, 255, 0.45);
+}
+
+.backyard-body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(71, 231, 255, 0.08), transparent 24rem),
+    radial-gradient(circle at 82% 10%, rgba(255, 79, 216, 0.1), transparent 26rem),
+    linear-gradient(180deg, #040507, #08080b 70%, #030304);
+}
+
+.backyard-shell {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  min-height: 100vh;
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 28px 0 44px;
+}
+
+.backyard-return {
+  justify-self: start;
+  align-self: start;
+  border: 1px solid rgba(71, 231, 255, 0.22);
+  border-radius: 999px;
+  color: rgba(247, 251, 255, 0.68);
+  font-size: 0.78rem;
+  font-weight: 1000;
+  letter-spacing: 0.12em;
+  padding: 9px 14px;
+  text-decoration: none;
+}
+
+.backyard-return:hover,
+.backyard-return:focus-visible {
+  border-color: rgba(71, 231, 255, 0.52);
+  color: var(--text);
+}
+
+.backyard-room {
+  align-self: center;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 8px;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.07), transparent 24%, transparent 76%, rgba(255, 255, 255, 0.04)),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 6px),
+    rgba(8, 9, 13, 0.82);
+  box-shadow:
+    inset 0 0 70px rgba(71, 231, 255, 0.04),
+    0 40px 110px rgba(0, 0, 0, 0.54);
+  padding: clamp(24px, 5vw, 56px);
+}
+
+.backyard-room h1 {
+  margin-bottom: clamp(28px, 5vw, 54px);
+  font-size: clamp(4rem, 13vw, 9rem);
+  line-height: 0.9;
+  text-shadow:
+    0 0 16px rgba(247, 251, 255, 0.7),
+    0 0 54px rgba(71, 231, 255, 0.22);
+}
+
+.backyard-ledger {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.backyard-ledger article {
+  min-height: 108px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent),
+    rgba(255, 255, 255, 0.035);
+  padding: 15px;
+}
+
+.backyard-ledger span,
+.backyard-ledger strong {
+  display: block;
+}
+
+.backyard-ledger span {
+  color: rgba(170, 180, 193, 0.72);
+  font-size: 0.74rem;
+  font-weight: 1000;
+  letter-spacing: 0.08em;
+}
+
+.backyard-ledger strong {
+  margin-top: 18px;
+  color: rgba(247, 251, 255, 0.9);
+  font-size: clamp(1.25rem, 2.8vw, 2rem);
+}
+
 .memo-dialog {
   position: fixed;
   inset: 0;
@@ -1082,6 +1193,14 @@ h3 {
     grid-template-columns: 1fr;
   }
 
+  .backyard-link {
+    justify-self: start;
+  }
+
+  .backyard-ledger {
+    grid-template-columns: 1fr 1fr;
+  }
+
   .credit-panel {
     max-width: 420px;
   }
@@ -1141,5 +1260,9 @@ h3 {
 
   .cabinet-screen {
     min-height: 205px;
+  }
+
+  .backyard-ledger {
+    grid-template-columns: 1fr;
   }
 }

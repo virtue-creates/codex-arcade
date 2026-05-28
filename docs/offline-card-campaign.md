@@ -176,3 +176,21 @@ Creative Departmentは、サイズ候補も含めて提案する。
 カードはふざけていてよい。
 
 ただし、URL、QR、CREDITS表記、店長メモ導線、計測はちゃんとする。
+
+## Relationship To BACKYARD
+
+Marketing Departmentの方針として、名刺/カードにはビジネス導線やAIエージェント活用説明を盛り込みすぎない。
+
+名刺/カードの主導線は、あくまで以下に絞る。
+
+1. Codex Arcadeへ来てもらう。
+2. Cabinet 01を遊ぶ。
+3. 店長メモを残す。
+
+AIエージェント活用、改造会議、Analytics、運営の裏側は、Arcade本体内の目立たない `BACKYARD` 導線で扱う。
+
+`BACKYARD` は説明文を付けず、小さく置く。
+
+詳細:
+
+- `docs/backyard-policy.md`

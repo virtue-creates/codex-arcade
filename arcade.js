@@ -14,6 +14,7 @@ const soundButton = document.querySelector("#soundButton");
 const cabinetGrid = document.querySelector("#cabinetGrid");
 const cabinetCardTemplate = document.querySelector("#cabinetCardTemplate");
 const openMemoButton = document.querySelector("#openMemoButton");
+const backyardLink = document.querySelector("#backyardLink");
 const managerMemoDialog = document.querySelector("#managerMemoDialog");
 const managerMemoForm = document.querySelector("#managerMemoForm");
 const memoStatus = document.querySelector("#memoStatus");
@@ -600,6 +601,13 @@ async function initArcade() {
     wakeArcade();
   });
   openMemoButton.addEventListener("click", openManagerMemo);
+  backyardLink?.addEventListener("click", () => {
+    trackArcadeEvent("open_backyard", {
+      ui_location: "arcade_note",
+      event_origin: "backyard_link",
+      cta_label: "BACKYARD"
+    });
+  });
   managerMemoForm.addEventListener("input", trackMemoFormStart);
   managerMemoForm.addEventListener("change", trackMemoFormStart);
   managerMemoForm.addEventListener("submit", submitManagerMemo);

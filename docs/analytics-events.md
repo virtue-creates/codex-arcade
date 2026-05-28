@@ -61,6 +61,7 @@ GA4のMeasurement IDは `G-VBKHF7QYE0` を設定済み。
 | `feedback_fallback_saved` | Formspree送信失敗時に仮保存した |
 | `select_cabinet` | Cabinetに触れた/選択した |
 | `return_to_arcade` | ゲームからArcadeへ戻った |
+| `open_backyard` | `BACKYARD` へ入った |
 
 ## Event Parameters
 
@@ -121,6 +122,12 @@ arcade_visit
 - Formspree endpoint `https://formspree.io/f/xkoevqod` を設定済み。
 - Formspree送信成功時は `manager_memo_submit_result` の `submit_result: "sent"` を記録する。
 - Formspree送信失敗時はlocalStorage fallbackへ保存する。
+
+## 2026-05-28 本部実装メモ
+
+- Marketing DepartmentのBACKYARD方針を受けて、`open_backyard` を追加した。
+- `BACKYARD` はトップの目立たないリンクから入る、知る人ぞ知る裏口として扱う。
+- 計測目的は、説明しない導線がどの程度発見されるかを見ること。
 
 ## Privacy
 
