@@ -61,3 +61,10 @@ Marketing Departmentから、名刺施策とArcade本体の接続として提案
 - `backyard.html` を追加。
 - `open_backyard` イベントを追加。
 - `BACKYARD` ページは営業LPではなく、作業場の棚として最小表示にする。
+
+## Related Docs
+
+- `docs/backyard-showcase-plan.md`
+- `docs/hq-dashboard.md`
+- `docs/offline-card-campaign.md`
+- `docs/pr-tone-policy.md`

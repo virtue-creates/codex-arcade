@@ -796,3 +796,30 @@ Operating principle:
 - `BACKYARD` should feel like a small secret door.
 - The inside can eventually show manager memos, Analytics, mod meetings, agent roles, removal/return events, and logs.
 - This keeps the public arcade playful while still preserving the company-building experiment.
+
+## v0.26 - HQ Dashboard and BACKYARD Showcase Plan
+
+Date:
+
+```txt
+2026-05-28
+```
+
+What changed:
+
+- Added `docs/hq-dashboard.md`.
+- Added `docs/backyard-showcase-plan.md`.
+- Linked BACKYARD policy to the new dashboard and showcase plan.
+
+Why:
+
+- The project now has many docs, departments, and concurrent workstreams.
+- Headquarters needs one first-stop document that tells the human director and future agents where the project stands.
+- BACKYARD needs a content strategy so it becomes part of the arcade's entertainment, not just a hidden explanation page.
+
+Operating principle:
+
+- Headquarters owns the dashboard and BACKYARD information architecture.
+- Creative owns how the BACKYARD feels.
+- Marketing owns whether the BACKYARD helps the public story without over-explaining.
+- The Human Director decides the level of weirdness, secrecy, and public exposure.
