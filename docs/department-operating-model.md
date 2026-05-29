@@ -48,6 +48,32 @@ Marketing
 - Headquartersは、部署案を整理し、実装判断とdocs更新を行う。
 - QAは、実装されたものが本当に伝わるか確認する。
 
+## Marketing Branch Structure
+
+2026-05-29時点では、Creative DepartmentとAnalytics DepartmentはMarketing Department配下の専門部門として扱う。
+
+```txt
+Marketing Department
+  |
+  +-- Strategy / Distribution
+  +-- Creative Department
+  +-- Analytics Department
+```
+
+意味:
+
+- Marketingは「誰に、どう届くか」の上位戦略を持つ。
+- Creativeは、その戦略を見た目、空気、演出、カード、告知画像、BACKYARD表現に落とす。
+- Analyticsは、流入、UTM、店長メモ、行動イベントを見て、Marketingの改善判断を支える。
+- Headquartersは、Marketing Branchの成果物を受け取り、正本管理、実装、GitHub、公開判断を行う。
+
+注意:
+
+- CreativeとAnalyticsはMarketing配下だが、ただの作業係ではない。
+- Creativeは表現の専門性を持つ。
+- Analyticsは計測/解釈の専門性を持つ。
+- Human Directorが各専門部門と直接ブレストしてよいが、採用版や公開版は本部で受領・整理する。
+
 ## Asset Handoff Rule
 
 Creative Departmentが作ったデザイン資産は、原則として一度本部を通す。
@@ -74,7 +100,9 @@ Creative Department
 - BACKYARDビジュアル
 - Cabinet marquee画像
 
-CreativeからMarketingへ直接送ってよいのは、ブレスト中のラフ共有まで。
+CreativeはMarketing配下だが、採用版デザイン資産は本部で正本化する。
+
+CreativeからMarketingへ直接送ってよいのは、ブレスト中のラフ共有、方向性相談、非正式な参考案まで。
 
 採用版、入稿版、公開版は本部で受領・保存してから共有する。
 
@@ -214,6 +242,12 @@ Marketingは、公開前に以下をレビューする。
 
 ## Creative
 
+Status:
+
+```txt
+Marketing Department配下の専門部門
+```
+
 責任:
 
 - 見た目
@@ -232,6 +266,32 @@ Marketingは、公開前に以下をレビューする。
 - 法務/安全の最終判断
 
 Creativeは、Marketing戦略を受けて表現案を作る。
+
+Creativeは、Marketingのための下請けではない。
+
+Creativeは、見た目、空気、気持ちよさ、違和感、余白、世界観について専門判断を出す。
+
+## Analytics
+
+Status:
+
+```txt
+Marketing Department配下の専門部門
+```
+
+責任:
+
+- GA4
+- UTM
+- 店長メモとの突き合わせ
+- 流入元
+- イベント計測
+- 公開後の行動レポート
+- Marketing施策の振り返り
+
+Analyticsは、Marketingの改善判断を支える。
+
+ただし、個人情報、詳細追跡、広告/計測タグ追加などは、Policy & SafetyとHuman Director確認を通す。
 
 ## Product & Experience
 

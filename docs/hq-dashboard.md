@@ -84,6 +84,7 @@ Reference:
 
 | Area | Current setup |
 |---|---|
+| Marketing Branch | Marketing配下にCreative/Analyticsを置く |
 | GA4 | Measurement ID設定済み |
 | Formspree | 店長メモendpoint設定済み |
 | UTM | SNS、early testers、GitHub、offline cardなどを区別 |

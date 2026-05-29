@@ -24,9 +24,10 @@ Human CEO / Creative Director
       |
       +-- Product & Experience
       +-- Game Studio
-      +-- Creative
       +-- Marketing
-      +-- Analytics
+      |   |
+      |   +-- Creative
+      |   +-- Analytics
       +-- Business & Monetization
       +-- QA
       +-- Integrator
@@ -43,9 +44,9 @@ Human CEO / Creative Director
 | Producer Agent | Created | `agents/producer-agent.md` | New game concepts and scoped briefs |
 | Game Builder Agent | Created | `agents/game-builder-agent.md` | Approved game implementation |
 | QA Agent | Created | `agents/qa-agent.md` | QA checks, risk notes, release readiness |
-| Creative Agent | Created | `agents/creative-agent.md` | Visual direction, thumbnails, copy, worldbuilding |
 | Marketing Agent | Created | `agents/marketing-agent.md` | Audience, positioning, funnel, entry paths, marketing automation |
-| Analytics Agent | Created | `agents/analytics-agent.md` | Measurement planning, reports, behavior insights |
+| Creative Agent | Created | `agents/creative-agent.md` | Marketing配下の表現部門。Visual direction, thumbnails, card design, worldbuilding |
+| Analytics Agent | Created | `agents/analytics-agent.md` | Marketing配下の計測部門。Measurement planning, reports, behavior insights |
 | Monetization Agent | Created | `agents/monetization-agent.md` | Revenue model research and low-risk experiments |
 | Policy & Safety Agent | Created | `agents/policy-safety-agent.md` | Privacy, credits, payments, wallet, copyright, safety review |
 | Integrator Agent | Created | `agents/integrator-agent.md` | `games.json`, parent arcade integration, docs alignment |
@@ -65,13 +66,36 @@ Headquarters
 
 Marketing
 - Owns target audience, first impression, public-facing story.
+- Contains Creative and Analytics as near-term subfunctions.
 
 Creative
-- Owns arcade feeling, visual direction, cabinet selection experience.
+- Reports through Marketing for public-facing materials, cards, announcement visuals, BACKYARD presentation, and first-impression creative.
+- Collaborates with Headquarters and Cabinet Studios when implementation or game-specific UI is involved.
 
 Game Studio
 - Keeps Cabinet 01/02/03 plans ready, but does not expand implementation beyond current phase.
 ```
+
+## Reporting Note
+
+2026-05-29時点の整理:
+
+```txt
+Marketing Department
+  |
+  +-- Creative Department
+  +-- Analytics Department
+```
+
+CreativeとAnalyticsは、独立した専門性を持つが、初期フェーズではMarketing配下として扱う。
+
+理由:
+
+- Creativeの主な仕事が、名刺、告知ビジュアル、トップの第一印象、BACKYARDの見せ方など、外向きの伝わり方に寄っているため。
+- Analyticsの主な仕事が、流入、店長メモ、UTM、公開後の反応を見ることで、Marketingの改善ループと強く結びつくため。
+- 本部直下に全機能を並べるより、Marketingの中に「Strategy / Creative / Analytics」がある方が会社構造として自然なため。
+
+ただし、最終的な正本管理、実装、GitHub、公開判断はHeadquartersが持つ。
 
 ## Strategic Premise
 

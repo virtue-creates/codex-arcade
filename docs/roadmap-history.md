@@ -896,3 +896,42 @@ Creative Department
 ```
 
 This keeps role boundaries clear and preserves the adopted design as a project asset.
+
+## v0.29 - Marketing Branch Reorganization
+
+Date:
+
+```txt
+2026-05-29
+```
+
+What changed:
+
+- Updated `docs/organization-map.md`.
+- Updated `docs/company-model.md`.
+- Updated `docs/department-operating-model.md`.
+- Updated `docs/hq-dashboard.md`.
+- Added `docs/prompts/marketing-branch-reorg-share-prompt.md`.
+
+Why:
+
+- Human Director noted that placing every function directly under Headquarters felt unnatural.
+- In the current phase, Creative and Analytics are tightly connected to Marketing:
+  - Creative shapes first impression, cards, announcement visuals, and BACKYARD presentation.
+  - Analytics measures traffic, UTM, manager memo behavior, and release response.
+- Therefore, Creative and Analytics should be treated as specialist subfunctions under Marketing Department for now.
+
+New branch:
+
+```txt
+Marketing Department
+  |
+  +-- Strategy / Distribution
+  +-- Creative Department
+  +-- Analytics Department
+```
+
+Boundary:
+
+- Headquarters still owns parent Arcade implementation, docs, GitHub, public release coordination, BACKYARD implementation, and canonical asset storage.
+- Creative/Analytics remain specialist departments, not simple execution workers.

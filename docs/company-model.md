@@ -89,17 +89,6 @@ Owns:
 - Release risk notes
 - QA reports
 
-## Creative Department
-
-Owns:
-
-- Game thumbnails
-- Visual direction notes
-- Copywriting
-- Release notes
-- Production logs
-- Arcade worldbuilding
-
 ## Marketing Department
 
 Owns:
@@ -116,7 +105,41 @@ Owns:
 
 Marketing is the strategic owner for who Codex Arcade is for and why people should care.
 
+Near-term subfunctions:
+
+- Creative Department
+- Analytics Department
+
+Marketing should not flatten those subfunctions into simple agreement roles.
+
+Creative and Analytics still provide specialist judgment, but their work is routed through the Marketing Department when it concerns public-facing entry paths, first impression, announcements, cards, BACKYARD presentation, or audience behavior.
+
+## Creative Department
+
+Status:
+
+```txt
+Subfunction of Marketing Department
+```
+
+Owns:
+
+- Game thumbnails
+- Visual direction notes
+- Announcement and card visuals
+- BACKYARD presentation
+- Public-facing worldbuilding
+- First-impression creative
+
+Creative collaborates with Headquarters and Cabinet Studios when the work affects parent Arcade implementation or game-specific UI.
+
 ## Analytics Department
+
+Status:
+
+```txt
+Subfunction of Marketing Department
+```
 
 Owns:
 
