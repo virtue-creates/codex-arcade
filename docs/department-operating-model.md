@@ -48,6 +48,36 @@ Marketing
 - Headquartersは、部署案を整理し、実装判断とdocs更新を行う。
 - QAは、実装されたものが本当に伝わるか確認する。
 
+## Asset Handoff Rule
+
+Creative Departmentが作ったデザイン資産は、原則として一度本部を通す。
+
+```txt
+Creative Department
+-> Headquarters
+-> Marketing / Publishing / Product
+```
+
+理由:
+
+- 本部が正本の保存場所を決めるため。
+- 個人情報、注文番号、請求情報などが混ざっていないか確認するため。
+- Marketingが使う素材と、GitHubに保存する素材を分けるため。
+- 後から見返した時に、どのデザインが採用版か分かるようにするため。
+
+例:
+
+- 名刺/入場券カード
+- サムネイル
+- ロゴ
+- 告知画像
+- BACKYARDビジュアル
+- Cabinet marquee画像
+
+CreativeからMarketingへ直接送ってよいのは、ブレスト中のラフ共有まで。
+
+採用版、入稿版、公開版は本部で受領・保存してから共有する。
+
 ## Headquarters
 
 責任:

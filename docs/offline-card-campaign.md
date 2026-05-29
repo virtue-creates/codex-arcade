@@ -18,6 +18,15 @@ Support:
 - Headquarters
 - Publishing
 
+Asset storage:
+
+- `assets/offline-card/`
+
+Handoff prompts:
+
+- `docs/prompts/creative-offline-card-assets-handoff-prompt.md`
+- `docs/prompts/marketing-offline-card-completion-share-prompt.md`
+
 ## Purpose
 
 身近な初期テスターにURLをただ送るのではなく、リアルに小さなカードを渡して、Codex Arcadeへ入ってもらう。
@@ -49,6 +58,24 @@ Support:
 - 余白確認済み
 - QR配置確認済み
 - 表面/裏面ともに確認用PDFでチェック済み
+
+Asset handoff status:
+
+```txt
+Waiting for Creative Department assets
+```
+
+Creative Departmentが持っている最終デザイン資産は、本部が受領して `assets/offline-card/` に保存する。
+
+CreativeからMarketingへ直接渡すのではなく、以下の順で扱う。
+
+```txt
+Creative Department
+-> Headquarters
+-> Marketing Department
+```
+
+本部は、個人情報、注文番号、請求情報が混ざっていないことを確認してから保存/共有する。
 
 ## Print Specification
 

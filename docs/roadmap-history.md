@@ -863,3 +863,36 @@ Important note:
 
 - The card clearly states that CREDITS are a free effect and are not purchase, exchange, or reward.
 - The card presents Codex Arcade as an experimental online arcade run by a human manager and Codex agents.
+
+## v0.28 - Offline Card Asset Handoff Route
+
+Date:
+
+```txt
+2026-05-29
+```
+
+What changed:
+
+- Added `assets/offline-card/README.md`.
+- Added Creative asset handoff prompt:
+  - `docs/prompts/creative-offline-card-assets-handoff-prompt.md`
+- Added Marketing completion share prompt:
+  - `docs/prompts/marketing-offline-card-completion-share-prompt.md`
+- Updated `docs/department-operating-model.md` with an asset handoff rule.
+- Updated `docs/offline-card-campaign.md` and `docs/hq-dashboard.md`.
+
+Why:
+
+- Human Director clarified that Creative has the card design assets, but the company flow should not be Creative -> Marketing directly.
+- Headquarters should receive the final design assets first, check that no private/order information is included, save the clean assets, and then share to Marketing.
+
+Operating principle:
+
+```txt
+Creative Department
+-> Headquarters
+-> Marketing Department
+```
+
+This keeps role boundaries clear and preserves the adopted design as a project asset.

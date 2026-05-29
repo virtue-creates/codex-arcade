@@ -89,6 +89,7 @@ Reference:
 | UTM | SNS、early testers、GitHub、offline cardなどを区別 |
 | Store memo | 店長メモとしてプレイヤー感想を収集 |
 | Offline card | ラクスルで100部発注完了 |
+| Offline card assets | Creativeから本部への受領待ち |
 | BACKYARD | ビジネス説明を表に出しすぎない裏口 |
 
 Reference:
@@ -98,6 +99,7 @@ Reference:
 - `docs/feedback-loop.md`
 - `docs/marketing-release-plan.md`
 - `docs/offline-card-campaign.md`
+- `assets/offline-card/README.md`
 
 ## Public Site
 
