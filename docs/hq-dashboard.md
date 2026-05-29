@@ -10,7 +10,7 @@ Codex Arcade本部が、いま何を握っているかを1枚で見るための�
 Public status: v0.1公開済み
 Current operating mode: 公開しながら改造
 Main version feeling: v0.1 -> v0.1.1 quality cycle
-Last dashboard update: 2026-05-28
+Last dashboard update: 2026-05-29
 ```
 
 Codex Arcadeは、完成版として固定するのではなく、遊ばれながら改造されるオンラインゲーセンとして運用中。
@@ -21,7 +21,7 @@ Codex Arcadeは、完成版として固定するのではなく、遊ばれな�
 |---|---|---|---|---|
 | 1 | Parent Arcade | Headquarters | In play | トップ崩れ、BGM、Cabinet 01導線を改善 |
 | 2 | Cabinet 01 | Cabinet 01 Studio + HQ | In play | 看板筐体としてv0.1.1を反映/公開確認 |
-| 3 | Marketing | Marketing Department | In play | 告知、名刺施策、UTM、初回導線 |
+| 3 | Marketing | Marketing Department | In play | 名刺施策は発注完了。次は配布/反応確認 |
 | 4 | BACKYARD | Headquarters + Marketing + Creative | In play | 裏側をどう魅せるか設計 |
 | 5 | Cabinet 02 | Cabinet 02 Studio | Parked / Lab | つまらなさを運営イベント化する余地あり |
 | 6 | Cabinet 03 | Cabinet 03 Studio | Parked / Lab | 成功体験とリプレイ性を再設計 |
@@ -88,7 +88,7 @@ Reference:
 | Formspree | 店長メモendpoint設定済み |
 | UTM | SNS、early testers、GitHub、offline cardなどを区別 |
 | Store memo | 店長メモとしてプレイヤー感想を収集 |
-| Offline card | QR付き手渡しカード施策を設計中 |
+| Offline card | ラクスルで100部発注完了 |
 | BACKYARD | ビジネス説明を表に出しすぎない裏口 |
 
 Reference:
@@ -124,6 +124,7 @@ Current public meaning:
 
 1. GitHub Desktopで未pushコミットをpushする。
 2. 公開URLでCabinet 01 v0.1.1とBACKYARDを確認する。
-3. BACKYARDの見せ方をCreative/Marketingに相談する。
-4. Parent Arcadeの表示崩れとBGMをv0.1.1候補として整理する。
-5. Cabinet 02/03は無理に磨かず、Lab/改造イベント扱いも含めて判断する。
+3. 名刺到着後、offline_card UTMでアクセスが発生するか確認する。
+4. BACKYARDの見せ方をCreative/Marketingに相談する。
+5. Parent Arcadeの表示崩れとBGMをv0.1.1候補として整理する。
+6. Cabinet 02/03は無理に磨かず、Lab/改造イベント扱いも含めて判断する。

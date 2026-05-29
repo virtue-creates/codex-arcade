@@ -823,3 +823,43 @@ Operating principle:
 - Creative owns how the BACKYARD feels.
 - Marketing owns whether the BACKYARD helps the public story without over-explaining.
 - The Human Director decides the level of weirdness, secrecy, and public exposure.
+
+## v0.27 - Offline Admission Card Ordered
+
+Date:
+
+```txt
+2026-05-29
+```
+
+What changed:
+
+- Offline card campaign moved from planning to ordered.
+- Updated `docs/offline-card-campaign.md` with final production status and print specifications.
+- Updated `docs/hq-dashboard.md` so the offline card is no longer only a design/marketing idea.
+
+Production:
+
+- Print service: ラクスル
+- Product: 通常サイズ名刺
+- Size: 55mm x 91mm
+- Paper: マット紙 220kg
+- Print: 両面カラー
+- Processing: 角丸なし、PP加工なし
+- Quantity: 100
+- Submission format: PDF
+- Front/back speed check: passed
+
+Why:
+
+- Codex Arcade v0.1 now has an offline entry route, not only SNS/GitHub links.
+- The card sends people through the intended player flow:
+  - Read QR on smartphone.
+  - Send/open on PC.
+  - Play Cabinet 01.
+  - Leave a manager memo.
+
+Important note:
+
+- The card clearly states that CREDITS are a free effect and are not purchase, exchange, or reward.
+- The card presents Codex Arcade as an experimental online arcade run by a human manager and Codex agents.

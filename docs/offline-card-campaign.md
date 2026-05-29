@@ -2,6 +2,12 @@
 
 Codex Arcade v0.1の初期テスター導線として、手渡し名刺/カードを使う施策。
 
+Status:
+
+```txt
+Ordered / 発注完了
+```
+
 Owner:
 
 - Marketing Department
@@ -10,6 +16,7 @@ Support:
 
 - Creative Department
 - Headquarters
+- Publishing
 
 ## Purpose
 
@@ -22,6 +29,60 @@ Support:
 3. 店長メモを残す。
 
 この施策は、Codex Arcadeの「オンラインゲーセンやってます」「店長メモ置いてってください」というPRトーンと相性がよい。
+
+## Production Status
+
+2026-05-29時点で、カード制作と印刷発注は完了。
+
+完了済み:
+
+- デザイン作成
+- Figma調整
+- PDF書き出し
+- ラクスル入稿
+- スピードチェック通過
+- 注文作成
+
+確認済み:
+
+- 文字切れなし
+- 余白確認済み
+- QR配置確認済み
+- 表面/裏面ともに確認用PDFでチェック済み
+
+## Print Specification
+
+| Item | Spec |
+|---|---|
+| 印刷サービス | ラクスル |
+| 商品 | 通常サイズ名刺 |
+| サイズ | 55mm x 91mm |
+| 用紙 | マット紙 220kg |
+| 印刷 | 両面カラー |
+| 加工 | 角丸なし、PP加工なし |
+| 部数 | 100部 |
+| 入稿形式 | PDF |
+
+## Final Card Structure
+
+表面:
+
+- `CODEX ARCADE` の世界観を伝える入場券風デザイン。
+- v0.1のオンラインゲーセンとしての雰囲気を優先。
+
+裏面:
+
+- スマホでQRを読み取る。
+- PCへ送って遊ぶ導線を案内する。
+- Cabinet 01を遊び、店長メモへ進む流れを想定。
+
+カード内の明記:
+
+```txt
+CREDITSは無料の演出です。購入・換金・報酬はありません。
+```
+
+Codex Arcadeは、店長（human）とCodex agentsによる実験的なオンラインゲーセンとして表現した。
 
 ## Campaign URL
 
