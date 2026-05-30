@@ -59,6 +59,14 @@ Before using external assets:
 - Avoid protected characters, brands, logos, and trademark-like naming.
 - Document asset sources when needed.
 
+## AI-Generated Audio
+
+SunoなどのAI音源を使う場合、作成時のプランと利用条件を確認する。
+
+2026-05-30時点の `Arcade Afterglow` は、Codex Arcade v0.1の非商用実験BGMとして扱う。
+
+収益化、広告、スポンサー、課金、商用告知に使う場合は、利用条件を再確認し、必要なら差し替える。
+
 ## Game Content
 
 Avoid:

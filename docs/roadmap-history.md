@@ -935,3 +935,31 @@ Boundary:
 
 - Headquarters still owns parent Arcade implementation, docs, GitHub, public release coordination, BACKYARD implementation, and canonical asset storage.
 - Creative/Analytics remain specialist departments, not simple execution workers.
+
+## v0.30 - Arcade Afterglow BGM Added
+
+Date:
+
+```txt
+2026-05-30
+```
+
+What changed:
+
+- Added `assets/audio/arcade-afterglow.mp3`.
+- Added `assets/audio/README.md`.
+- Added `docs/audio-assets.md`.
+- Updated parent Arcade BGM toggle to play the uploaded MP3 instead of the earlier generated loop.
+- Updated `docs/privacy-and-safety.md` with AI-generated audio handling.
+- Updated `docs/hq-dashboard.md`.
+
+Why:
+
+- Human Director created a top-page BGM in Suno.
+- The previous generated BGM felt weak and did not match the arcade feeling.
+- The uploaded track is now treated as the top page's v0.1 non-commercial experiment BGM.
+
+Policy note:
+
+- Codex Arcade is currently a free, non-commercial experiment.
+- If ads, sponsorship, paid content, or other monetization starts later, the audio usage terms must be reviewed again.

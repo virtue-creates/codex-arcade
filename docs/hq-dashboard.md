@@ -92,6 +92,7 @@ Reference:
 | Offline card | ラクスルで100部発注完了 |
 | Offline card assets | Creativeから本部への受領待ち |
 | BACKYARD | ビジネス説明を表に出しすぎない裏口 |
+| Audio | Suno曲 `Arcade Afterglow` をトップBGMとして追加 |
 
 Reference:
 
@@ -101,6 +102,7 @@ Reference:
 - `docs/marketing-release-plan.md`
 - `docs/offline-card-campaign.md`
 - `assets/offline-card/README.md`
+- `docs/audio-assets.md`
 
 ## Public Site
 

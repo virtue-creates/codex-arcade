@@ -3,7 +3,8 @@ const ANALYTICS_STORAGE_KEY = "codexArcadeAnalyticsEvents";
 const MANAGER_MEMO_STORAGE_KEY = "codexArcadeManagerMemos";
 const INITIAL_CREDITS = 5;
 const FREE_COIN_AMOUNT = 3;
-const BGM_MASTER_VOLUME = 0.18;
+const BGM_TRACK_SRC = "assets/audio/arcade-afterglow.mp3";
+const BGM_TRACK_VOLUME = 0.42;
 const GA_MEASUREMENT_ID = "G-VBKHF7QYE0";
 const FEEDBACK_ENDPOINT = "https://formspree.io/f/xkoevqod";
 const VISIT_STORAGE_KEY = "codexArcadeFirstVisitSeen";
@@ -23,10 +24,7 @@ const memoMessageField = managerMemoForm.querySelector("textarea");
 const audioState = {
   context: null,
   master: null,
-  delay: null,
-  activeNodes: new Set(),
-  musicTimer: null,
-  beat: 0,
+  track: null,
   isOn: false
 };
 
@@ -323,96 +321,29 @@ function getAudioContext() {
   const context = new AudioContextClass();
   const master = context.createGain();
   master.gain.value = 0;
-
-  const delay = context.createDelay(0.45);
-  const delayGain = context.createGain();
-  delay.delayTime.value = 0.18;
-  delayGain.gain.value = 0.16;
-  delay.connect(delayGain);
-  delayGain.connect(master);
   master.connect(context.destination);
 
   audioState.context = context;
   audioState.master = master;
-  audioState.delay = delay;
 
   return context;
 }
 
-function playTone(frequency, startTime, duration, type = "triangle", volume = 0.03, destination = audioState.master) {
-  if (!audioState.context || !audioState.master) return;
+function getBgmTrack() {
+  if (audioState.track) return audioState.track;
 
-  const oscillator = audioState.context.createOscillator();
-  const gain = audioState.context.createGain();
-  oscillator.type = type;
-  oscillator.frequency.setValueAtTime(frequency, startTime);
-  gain.gain.setValueAtTime(0.0001, startTime);
-  gain.gain.exponentialRampToValueAtTime(volume, startTime + 0.018);
-  gain.gain.exponentialRampToValueAtTime(0.0001, startTime + duration);
-  oscillator.connect(gain);
-  gain.connect(destination);
-  if (destination === audioState.master && audioState.delay) {
-    gain.connect(audioState.delay);
-  }
-  audioState.activeNodes.add(oscillator);
-  oscillator.addEventListener("ended", () => {
-    audioState.activeNodes.delete(oscillator);
-    oscillator.disconnect();
-    gain.disconnect();
-  });
-  oscillator.start(startTime);
-  oscillator.stop(startTime + duration + 0.03);
+  const track = document.createElement("audio");
+  track.src = BGM_TRACK_SRC;
+  track.loop = true;
+  track.preload = "auto";
+  track.volume = BGM_TRACK_VOLUME;
+  track.hidden = true;
+  document.body.append(track);
+  audioState.track = track;
+  return track;
 }
 
-function playMusicStep() {
-  if (!audioState.isOn || !audioState.context) return;
-
-  const now = audioState.context.currentTime;
-  const melody = [330, 392, 494, 0, 440, 392, 294, 0, 330, 392, 587, 494, 440, 0, 392, 0];
-  const bass = [82, 82, 98, 98, 73, 73, 110, 110];
-  const note = melody[audioState.beat % melody.length];
-  const bassNote = bass[audioState.beat % bass.length];
-
-  if (audioState.beat % 2 === 0) {
-    playTone(bassNote, now, 0.18, "sine", 0.04);
-  }
-
-  if (note) {
-    playTone(note, now + 0.012, 0.13, "triangle", 0.055);
-    playTone(note * 2, now + 0.018, 0.06, "sine", 0.025);
-  }
-
-  if (audioState.beat % 8 === 0) {
-    playTone(1568, now + 0.026, 0.04, "square", 0.028);
-  }
-
-  audioState.beat += 1;
-}
-
-function startMusicLoop() {
-  if (audioState.musicTimer) return;
-  playMusicStep();
-  audioState.musicTimer = window.setInterval(playMusicStep, 250);
-}
-
-function stopMusicLoop() {
-  if (!audioState.musicTimer) return;
-  window.clearInterval(audioState.musicTimer);
-  audioState.musicTimer = null;
-}
-
-function stopActiveMusicNodes() {
-  audioState.activeNodes.forEach((node) => {
-    try {
-      node.stop();
-    } catch (error) {
-      // Already stopped.
-    }
-  });
-  audioState.activeNodes.clear();
-}
-
-function setSoundEnabled(enabled) {
+async function setSoundEnabled(enabled) {
   const context = getAudioContext();
   if (!context || !audioState.master) return;
 
@@ -422,23 +353,25 @@ function setSoundEnabled(enabled) {
 
   audioState.isOn = enabled;
   if (enabled) {
-    audioState.master.gain.cancelScheduledValues(context.currentTime);
-    audioState.master.gain.setValueAtTime(audioState.master.gain.value, context.currentTime);
-    audioState.master.gain.linearRampToValueAtTime(BGM_MASTER_VOLUME, context.currentTime + 0.08);
-    startMusicLoop();
+    const track = getBgmTrack();
+    try {
+      await track.play();
+    } catch (error) {
+      console.warn("Unable to start BGM", error);
+      audioState.isOn = false;
+      showCoinToast("BGM BLOCKED");
+    }
   } else {
-    stopMusicLoop();
-    stopActiveMusicNodes();
-    audioState.master.gain.cancelScheduledValues(context.currentTime);
-    audioState.master.gain.setValueAtTime(0, context.currentTime);
+    audioState.track?.pause();
   }
-  soundButton.textContent = enabled ? "BGM ON" : "BGM OFF";
-  soundButton.classList.toggle("is-on", enabled);
-  soundButton.setAttribute("aria-pressed", String(enabled));
+  soundButton.textContent = audioState.isOn ? "BGM ON" : "BGM OFF";
+  soundButton.classList.toggle("is-on", audioState.isOn);
+  soundButton.setAttribute("aria-pressed", String(audioState.isOn));
   trackArcadeEvent("toggle_bgm", {
-    enabled,
+    enabled: audioState.isOn,
+    track: "arcade-afterglow",
     ui_location: "credit_panel",
-    cta_label: enabled ? "BGM ON" : "BGM OFF"
+    cta_label: audioState.isOn ? "BGM ON" : "BGM OFF"
   });
 }
 
