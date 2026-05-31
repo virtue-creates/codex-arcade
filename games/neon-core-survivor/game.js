@@ -24,10 +24,13 @@ const ui = {
 const TAU = Math.PI * 2;
 const WIN_TIME = 120;
 const BEST_SCORE_KEY = "neon-core-survivor-best-score";
+const BGM_SRC = "../../assets/audio/neon-core-run.mp3";
 const params = new URLSearchParams(window.location.search);
 const arcadeLaunch = params.get("from") === "arcade" && params.get("credit") === "1";
-let soundEnabled = false;
+let soundEnabled = true;
 let audioContext = null;
+let bgmAudio = null;
+let bgmFadeTimer = null;
 
 let width = 0;
 let height = 0;
@@ -217,6 +220,7 @@ function resetGame() {
   ui.end.classList.add("hidden");
   ui.choices.classList.add("hidden");
   updateHud();
+  startBgm();
 }
 
 function rand(min, max) {
@@ -388,6 +392,7 @@ function endRun(won) {
   ui.endText.textContent = `Score ${score.toLocaleString()} - Best ${best.toLocaleString()} - Survived ${formatTime(survived)} - Level ${player.level} - Wave ${wave()}`;
   ui.end.classList.remove("hidden");
   playTone(won ? 720 : 140, won ? 0.28 : 0.35, won ? "sine" : "sawtooth", 0.07);
+  fadeOutBgm();
 }
 
 function update(dt) {
@@ -652,6 +657,44 @@ function writeBestScore(score) {
   localStorage.setItem(BEST_SCORE_KEY, String(score));
 }
 
+function getBgm() {
+  if (bgmAudio) return bgmAudio;
+  bgmAudio = new Audio(BGM_SRC);
+  bgmAudio.loop = true;
+  bgmAudio.preload = "auto";
+  bgmAudio.volume = 0.35;
+  return bgmAudio;
+}
+
+function startBgm() {
+  if (!soundEnabled) return;
+  const bgm = getBgm();
+  window.clearInterval(bgmFadeTimer);
+  bgmFadeTimer = null;
+  bgm.volume = 0.35;
+  bgm.play().catch(() => {});
+}
+
+function stopBgm(reset = false) {
+  if (!bgmAudio) return;
+  window.clearInterval(bgmFadeTimer);
+  bgmFadeTimer = null;
+  bgmAudio.pause();
+  if (reset) bgmAudio.currentTime = 0;
+}
+
+function fadeOutBgm() {
+  if (!bgmAudio || bgmAudio.paused) return;
+  window.clearInterval(bgmFadeTimer);
+  bgmFadeTimer = window.setInterval(() => {
+    bgmAudio.volume = Math.max(0, bgmAudio.volume - 0.05);
+    if (bgmAudio.volume <= 0.01) {
+      stopBgm(true);
+      bgmAudio.volume = 0.35;
+    }
+  }, 50);
+}
+
 function playTone(frequency, duration, type = "sine", volume = 0.04) {
   if (!soundEnabled) return;
   audioContext ||= new (window.AudioContext || window.webkitAudioContext)();
@@ -669,11 +712,21 @@ function playTone(frequency, duration, type = "sine", volume = 0.04) {
   oscillator.stop(now + duration + 0.02);
 }
 
-function toggleSound() {
-  soundEnabled = !soundEnabled;
+function syncSoundButton() {
   ui.soundBtn.textContent = soundEnabled ? "Sound On" : "Sound Off";
   ui.soundBtn.setAttribute("aria-pressed", String(soundEnabled));
-  if (soundEnabled) playTone(520, 0.09, "sine", 0.06);
+}
+
+function toggleSound() {
+  soundEnabled = !soundEnabled;
+  syncSoundButton();
+  if (soundEnabled) {
+    getBgm();
+    playTone(520, 0.09, "sine", 0.06);
+    if (state === "playing") startBgm();
+  } else {
+    stopBgm();
+  }
 }
 
 function draw() {
@@ -888,5 +941,6 @@ mouse.y = height / 2;
 player.x = width / 2;
 player.y = height / 2;
 applyLaunchFlavor();
+syncSoundButton();
 updateHud();
 requestAnimationFrame(loop);

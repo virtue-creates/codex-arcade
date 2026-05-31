@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.2 - 2026-05-30
+
+- Added Neon Core Run as looped gameplay BGM.
+- Expanded the sound toggle to control both BGM and minimal SFX.
+- Added BGM fade-out on clear and game over.
+- Made sound enabled by default so Start Run begins the BGM unless muted.
+
 ## 0.1.1 - 2026-05-26
 
 - Shortened the clear timer from 180 seconds to 120 seconds.

@@ -31,7 +31,7 @@ Survive for 120 seconds, collect sync shards, and choose core upgrades as the ar
 - WASD / arrow keys: move
 - Mouse: aim
 - Space: dash
-- Sound Off / Sound On: toggle minimal sound effects
+- Sound Off / Sound On: toggle BGM and minimal sound effects
 
 ## Codex Arcade Interface
 
@@ -42,3 +42,9 @@ Survive for 120 seconds, collect sync shards, and choose core upgrades as the ar
 - `supportsPostMessage`: false for Phase 1
 
 The game does not manage the parent arcade credit balance and does not include payment, crypto, prizes, or cash-like rewards.
+
+## Audio
+
+- BGM: ../../assets/audio/neon-core-run.mp3
+- BGM starts after Start Run by default. Use Sound Off to mute BGM and SFX.
+- BGM fades out on clear or game over.
