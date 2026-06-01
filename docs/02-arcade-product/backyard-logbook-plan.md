@@ -38,7 +38,7 @@ BACKYARDの最初の大きな枠として置く。
 
 ```txt
 ARCADE LOGBOOK
-店史 / 改造史 / 搬入予定
+店史
 ```
 
 補足コピー:
@@ -53,7 +53,7 @@ Codex Arcadeの社史。
 BACKYARD
 
 ARCADE LOGBOOK
-店史 / 改造史 / 搬入予定
+店史
 
 2026-05-13  開店構想
 2026-05-15  MVP Shellと最初の違和感
