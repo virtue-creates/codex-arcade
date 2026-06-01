@@ -1,0 +1,190 @@
+# Marketing Release Plan
+
+Codex Arcade v0.1では、Marketing Departmentも公開前後から参加する。
+
+目的は、単にアクセスを集めることではなく、AIエージェント開発会社として「誰に何が刺さるか」を実験すること。
+
+## 前提の修正
+
+Marketing Departmentは、今回初めて呼ばれた外部担当ではない。
+
+これまでの本部/マーケ/クリエイティブのブレストでは、以下の方向性を確認している。
+
+- Codex Arcadeは、単なるゲーム置き場ではなく「Codex / AIエージェントが運営しているオンラインArcade」として見せる。
+- 表面はオンラインゲーセンとして楽しく見せる。
+- 裏側にCodex / AI agentsが動いている感じをにじませる。
+- Phase / Sprint / Current Boardのような開発進捗は公開トップに出さない。
+- レトロゲーセン再現ではなく、「Codexが経営する少し未来の無人オンラインゲーセン」を目指す。
+- CREDITSは金銭価値ではなく、Arcade体験の開始儀式として扱う。
+- 「購入」「チャージ」「報酬」「換金」を連想させる表現は避ける。
+
+PR/運営トーンの正式方針は `docs/01-strategy/pr-tone-policy.md` を参照する。
+Codex Arcadeでは「ノリはふざける。運用はちゃんとする。」を基本に、告知文、店長メモ、COMING SOON、撤去/再搬入イベントを設計する。
+
+また、部署運用上の重要な反省として、マーケ/クリエイティブ/本部が同じようなことを同調的に言うだけでは価値が弱い。
+
+Marketing Departmentは、専門部署として以下を見る。
+
+- 誰がどこから来ているか。
+- どの導線で遊び始めたか。
+- どの言葉や見せ方が刺さっているか。
+- 店長メモやアクセスデータから、次の改善仮説をどう立てるか。
+
+## 現在の優先順位
+
+初期ターゲット仮説や大きなマーケ戦略は重要だが、v0.1直前では先にAnalytics計測基盤を入れる。
+
+先にやること:
+
+- GA4を導入できる状態にする。
+- `arcade_visit`, `insert_coin`, `launch_cabinet` などのイベントを送れるようにする。
+- GA4未接続でも、開発中はlocalStorageにイベントを残す。
+- 公開後に「いつ、どこから来て、何を押したか」を見られる状態にする。
+
+後でやること:
+
+- 初期ターゲットの深掘り。
+- 告知媒体ごとのコピー最適化。
+- 流入元ごとの改善仮説。
+- Player MemoとAnalyticsを合わせた改善会議。
+
+## 初期ターゲット仮説
+
+| Target | 仮説 |
+|---|---|
+| AI/Codexに興味がある人 | AIが作るだけでなく、運営しながら改善するプロダクトに興味を持つ |
+| ブラウザゲーム好き | すぐ遊べるCabinet 01があれば触ってくれる |
+| 制作過程に興味がある人 | 人間QA、店長メモ、Studio改善の流れが面白い |
+| 身近な知人/初期テスター | 最初のPlayer Memoを残してくれる可能性が高い |
+
+## Offline Card Campaign
+
+身近な初期テスター導線として、URLをただ送るだけでなく、手渡し名刺/カードを使う施策を追加する。
+
+目的:
+
+1. Codex Arcadeにアクセスする。
+2. Cabinet 01: Neon Core Survivor をプレイする。
+3. 店長メモを残す。
+
+この施策は `docs/04-marketing/offline-card-campaign.md` にまとめる。
+
+Creative Departmentへのデザイン依頼は `docs/prompts/creative-offline-card-prompt.md` を使う。
+
+使用URL:
+
+```txt
+https://virtue-creates.github.io/codex-arcade/?utm_source=offline_card&utm_medium=physical&utm_campaign=v0_1_launch&utm_content=namecard
+```
+
+## v0.1 コピー仮説
+
+短い紹介:
+
+```txt
+Codex Arcadeは、遊ばれながら改造されるオンラインゲーセンです。
+まずはCabinet 01をプレイして、店長にメモを残してください。
+```
+
+SNS向け:
+
+```txt
+AIエージェントたちと作っている小さなオンラインゲーセン「Codex Arcade」をv0.1として公開予定です。
+まずは看板筐体 Neon Core Survivor を遊べます。
+遊んだら「店長にメモ」を残してください。感想をもとに本当に改造していきます。
+```
+
+## 公開前タスク
+
+- 初期ターゲットを仮決めする。
+- 告知文を作る。
+- 店長メモ導線を作る。
+- Analyticsイベントを決める。
+- GitHub PagesのURLを確認する。
+- CREDITSが無料演出であることを明記する。
+
+## 公開後に見るもの
+
+- 何人来たか
+- どこから来たか
+- BGMを押したか
+- CREDITを受け取ったか
+- Cabinet 01を起動したか
+- 店長メモを開いたか
+- 店長メモを送ったか
+- また遊びたいという反応があるか
+
+## Marketing Departmentのレポート観点
+
+- どの導線から来た人が遊んでいるか。
+- 「AIが作ったゲーム」より「AIが運営するアーケード」の方が刺さるか。
+- Cabinet 01のゲーム性が入口として機能しているか。
+- 店長メモの言い方はプレイヤーに伝わっているか。
+- 次の告知ネタは何か。
+
+## Marketing Agentへの指示文: Analytics First
+
+```md
+# Codex Arcade Marketing Department: v0.1 Analytics Brief
+
+あなたは Codex Arcade の Marketing Department です。
+
+これは新規の外部依頼ではありません。
+これまで本部とマーケで話してきた「Codex / AIエージェントが運営しているオンラインArcade」という文脈を継承してください。
+
+Codex Arcade は、完成品としてのゲームサイトではなく、「遊ばれながら改造されるオンラインゲーセン」として v0.1 公開を目指しています。
+
+今回の看板筐体は Cabinet 01: Neon Core Survivor です。
+Cabinet 02 / Cabinet 03 は現時点では Lab Cabinet です。
+
+## 今回マーケに優先して考えてほしいこと
+
+今回は初期ターゲットや大きなコピー戦略の深掘りより先に、Analytics / 計測の設計を優先します。
+
+目的は、公開後に以下を見られるようにすることです。
+
+- いつ見に来たか
+- どこから来たか
+- トップを見ただけか
+- CREDITを受け取ったか
+- INSERT COINしたか
+- Cabinet 01を起動したか
+- 店長メモを開いたか
+- 店長メモを送ったか
+
+## 現在の実装方針
+
+- GA4を導入候補にします。
+- GA4 Measurement IDが未設定の間は、localStorageに簡易イベントログを残します。
+- 個人情報は取りません。
+- CREDITSは無料演出です。
+
+## 見たいイベント
+
+- `arcade_visit`
+- `click_free_credit`
+- `toggle_bgm`
+- `insert_coin`
+- `launch_cabinet`
+- `open_manager_memo`
+- `submit_manager_memo`
+
+## 出してほしいもの
+
+以下を日本語で出してください。
+
+1. v0.1でGA4を入れる場合の見るべき画面/レポート
+2. 上記イベントで十分か、不足があるか
+3. どのイベントを最優先で見るべきか
+4. 公開後1週間で見るべき数字
+5. Player MemoとAnalyticsをどう組み合わせて改善会議に使うか
+6. プライバシー/表記上の注意
+7. 本部に確認したいこと
+
+## 今回は後回し
+
+- 初期ターゲットの詳細設計
+- SNS告知文の本格作成
+- コピーA/Bテスト
+- 広告出稿
+```

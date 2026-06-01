@@ -32,6 +32,7 @@ let lastTime = 0;
 let elapsed = 0;
 let rescued = 0;
 let pinMoves = 0;
+let rescueTimes = [];
 let activePin = null;
 let pointer = { x: 0, y: 0, down: false };
 let motes = [];
@@ -40,7 +41,7 @@ let bugs = [];
 let ripples = [];
 let bendBursts = [];
 let rescueBursts = [];
-let exit = { x: 0, y: 0, r: 36 };
+let exit = { x: 0, y: 0, lineX: 0, top: 0, bottom: 0, r: 36 };
 
 function resize() {
   dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -65,6 +66,9 @@ function resize() {
   exit = {
     x: box.x + box.w - 28,
     y: box.y + box.h * 0.5,
+    lineX: box.x + box.w - 42,
+    top: box.y + box.h * 0.5 - Math.max(54, box.h * 0.17),
+    bottom: box.y + box.h * 0.5 + Math.max(54, box.h * 0.17),
     r: Math.max(34, box.w * 0.042),
   };
 
@@ -100,6 +104,7 @@ function setupSpecimenBox() {
   rescueBursts = [];
   rescued = 0;
   pinMoves = 0;
+  rescueTimes = [];
   updateHud();
 }
 
@@ -113,6 +118,8 @@ function makeBug(x, y, angle, body, accent, speed) {
     body,
     accent,
     rescued: false,
+    escaping: false,
+    escapeLife: 0,
     lost: false,
     wiggle: Math.random() * TAU,
     bendGlow: 0,
@@ -144,6 +151,7 @@ function endGame() {
   state = "result";
   activePin = null;
   canvas.classList.remove("dragging");
+  const routeRank = getRouteRank();
   const title =
     rescued === SPECIMEN_COUNT
       ? "Every specimen found the moon."
@@ -151,8 +159,8 @@ function endGame() {
         ? "The box kept its secrets."
         : "Some wings reached the light.";
   ui.endTitle.textContent = title;
-  ui.endKicker.textContent = rescued === SPECIMEN_COUNT ? "Perfect Rescue" : "Night Shift Complete";
-  ui.endText.textContent = `${rescued}/${SPECIMEN_COUNT} rescued. Pin moves: ${pinMoves}. Best route: fewer moves, more moonlight.`;
+  ui.endKicker.textContent = routeRank;
+  ui.endText.textContent = `${rescued}/${SPECIMEN_COUNT} rescued. Pin moves: ${pinMoves}. Chain: ${getBestChain()} specimens. Fewer moves make the cleaner route.`;
   ui.end.classList.remove("hidden");
 }
 
@@ -196,6 +204,21 @@ function update(dt) {
 
 function updateBug(bug, dt) {
   if (bug.rescued || bug.lost) {
+    return;
+  }
+
+  if (bug.escaping) {
+    bug.escapeLife -= dt;
+    bug.x += Math.cos(bug.angle) * bug.speed * 1.45 * dt;
+    bug.y += Math.sin(bug.angle) * bug.speed * 0.22 * dt;
+    bug.trail.push({ x: bug.x, y: bug.y, life: 0.55 });
+    bug.trail = bug.trail
+      .map((point) => ({ ...point, life: point.life - dt }))
+      .filter((point) => point.life > 0)
+      .slice(-18);
+    if (bug.escapeLife <= 0 || bug.x > box.x + box.w + 42) {
+      bug.rescued = true;
+    }
     return;
   }
 
@@ -256,18 +279,25 @@ function updateBug(bug, dt) {
     .filter((point) => point.life > 0)
     .slice(-28);
 
-  if (Math.hypot(bug.x - exit.x, bug.y - exit.y) < exit.r || bug.x > box.x + box.w - 18) {
-    bug.rescued = true;
+  if (crossedExitLine(bug)) {
+    bug.escaping = true;
+    bug.escapeLife = 0.48;
+    bug.angle = 0;
     rescued += 1;
-    ripples.push({ x: exit.x, y: exit.y, radius: exit.r * 0.45, life: 0.9 });
+    rescueTimes.push(elapsed);
+    ripples.push({ x: exit.lineX, y: bug.y, radius: exit.r * 0.38, life: 0.9 });
     rescueBursts.push({
-      x: exit.x - 44,
-      y: exit.y - 34,
-      text: `RESCUED ${rescued}/${SPECIMEN_COUNT}`,
+      x: exit.lineX - 58,
+      y: bug.y - 26,
+      text: getBestChain() > 1 ? `CHAIN ${getBestChain()} / RESCUED ${rescued}/${SPECIMEN_COUNT}` : `RESCUED ${rescued}/${SPECIMEN_COUNT}`,
       life: 1.35,
     });
     updateHud();
   }
+}
+
+function crossedExitLine(bug) {
+  return bug.x >= exit.lineX && bug.y >= exit.top && bug.y <= exit.bottom;
 }
 
 function draw() {
@@ -275,6 +305,7 @@ function draw() {
   drawRoom();
   drawBox();
   drawMoonExit();
+  drawProjectedPaths();
   drawPins();
   drawBugs();
   drawBendBursts();
@@ -370,23 +401,44 @@ function drawMoonExit() {
   ctx.fill();
 
   ctx.fillStyle = "#10171a";
-  ctx.fillRect(box.x + box.w - 13, exit.y - exit.r * 1.35, 18, exit.r * 2.7);
-  ctx.fillStyle = "rgba(225, 250, 255, 0.9)";
-  ctx.fillRect(box.x + box.w - 6, exit.y - exit.r * 1.18, 7, exit.r * 2.36);
+  ctx.fillRect(box.x + box.w - 13, exit.top - 8, 18, exit.bottom - exit.top + 16);
+  ctx.fillStyle = "rgba(225, 250, 255, 0.84)";
+  ctx.fillRect(box.x + box.w - 6, exit.top, 7, exit.bottom - exit.top);
 
   ctx.strokeStyle = "rgba(222, 249, 255, 0.78)";
   ctx.lineWidth = 2;
   ctx.beginPath();
-  ctx.moveTo(box.x + box.w - 21, exit.y - exit.r * 1.5);
-  ctx.lineTo(box.x + box.w + 3, exit.y - exit.r * 1.18);
-  ctx.lineTo(box.x + box.w + 3, exit.y + exit.r * 1.18);
-  ctx.lineTo(box.x + box.w - 21, exit.y + exit.r * 1.5);
+  ctx.moveTo(box.x + box.w - 21, exit.top - 12);
+  ctx.lineTo(box.x + box.w + 3, exit.top);
+  ctx.lineTo(box.x + box.w + 3, exit.bottom);
+  ctx.lineTo(box.x + box.w - 21, exit.bottom + 12);
   ctx.stroke();
+
+  ctx.save();
+  ctx.strokeStyle = "rgba(255, 255, 255, 0.86)";
+  ctx.shadowColor = "rgba(167, 231, 255, 0.95)";
+  ctx.shadowBlur = 12;
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.moveTo(exit.lineX, exit.top);
+  ctx.lineTo(exit.lineX, exit.bottom);
+  ctx.stroke();
+  ctx.restore();
+
+  ctx.fillStyle = "rgba(232, 252, 255, 0.78)";
+  for (let y = exit.top + 13; y < exit.bottom; y += 22) {
+    ctx.beginPath();
+    ctx.moveTo(exit.lineX - 16, y);
+    ctx.lineTo(exit.lineX - 7, y - 5);
+    ctx.lineTo(exit.lineX - 7, y + 5);
+    ctx.closePath();
+    ctx.fill();
+  }
 
   ctx.fillStyle = "rgba(18, 16, 13, 0.78)";
   ctx.font = "12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
   ctx.textAlign = "center";
-  ctx.fillText("MOON EXIT", exit.x - 42, exit.y - exit.r * 1.75);
+  ctx.fillText("CROSS TO RESCUE", exit.lineX - 64, exit.top - 16);
 
   ctx.fillStyle = "rgba(167, 231, 255, 0.55)";
   ctx.beginPath();
@@ -395,6 +447,53 @@ function drawMoonExit() {
   ctx.lineTo(exit.x - 64, exit.y + 8);
   ctx.closePath();
   ctx.fill();
+}
+
+function drawProjectedPaths() {
+  if (!activePin || state !== "playing") {
+    return;
+  }
+
+  for (const bug of bugs) {
+    if (bug.rescued || bug.escaping || bug.lost) {
+      continue;
+    }
+    if (Math.hypot(bug.x - activePin.x, bug.y - activePin.y) > PIN_INFLUENCE * 1.55) {
+      continue;
+    }
+
+    let x = bug.x;
+    let y = bug.y;
+    let angle = bug.angle;
+    ctx.save();
+    ctx.globalAlpha = 0.48;
+    ctx.fillStyle = bug.accent;
+    for (let step = 1; step <= 11; step += 1) {
+      angle = steerAngleAt(x, y, angle, 0.08);
+      x += Math.cos(angle) * bug.speed * 0.1;
+      y += Math.sin(angle) * bug.speed * 0.1;
+      ctx.beginPath();
+      ctx.arc(x, y, Math.max(1.6, 4 - step * 0.18), 0, TAU);
+      ctx.fill();
+    }
+    ctx.restore();
+    ctx.globalAlpha = 1;
+  }
+}
+
+function steerAngleAt(x, y, angle, dt) {
+  let nextAngle = angle;
+  for (const pin of pins) {
+    const dx = x - pin.x;
+    const dy = y - pin.y;
+    const distance = Math.hypot(dx, dy);
+    if (distance < PIN_INFLUENCE) {
+      const side = Math.sign(Math.sin(nextAngle) * dx - Math.cos(nextAngle) * dy) || 1;
+      const force = (1 - distance / PIN_INFLUENCE) * 4.8;
+      nextAngle += side * force * dt;
+    }
+  }
+  return nextAngle;
 }
 
 function drawPins() {
@@ -466,6 +565,9 @@ function drawBugs() {
     ctx.globalAlpha = 1;
 
     ctx.save();
+    if (bug.escaping) {
+      ctx.globalAlpha = Math.max(0.1, bug.escapeLife / 0.48);
+    }
     ctx.translate(bug.x, bug.y);
     ctx.rotate(bug.angle);
     if (bug.bendGlow > 0) {
@@ -507,6 +609,7 @@ function drawBugs() {
     ctx.arc(11, 2.5, 1.6, 0, TAU);
     ctx.fill();
     ctx.restore();
+    ctx.globalAlpha = 1;
   }
 }
 
@@ -566,6 +669,36 @@ function updateHud() {
   ui.time.textContent = formatTime(remaining);
   ui.rescued.textContent = `${rescued}/${SPECIMEN_COUNT}`;
   ui.moves.textContent = `${pinMoves}`;
+}
+
+function getBestChain() {
+  let best = 0;
+  for (let i = 0; i < rescueTimes.length; i += 1) {
+    let chain = 1;
+    for (let j = i + 1; j < rescueTimes.length; j += 1) {
+      if (rescueTimes[j] - rescueTimes[j - 1] <= 4.5) {
+        chain += 1;
+      }
+    }
+    best = Math.max(best, chain);
+  }
+  return best;
+}
+
+function getRouteRank() {
+  if (rescued === SPECIMEN_COUNT && pinMoves <= 3) {
+    return "Silent Route";
+  }
+  if (rescued === SPECIMEN_COUNT) {
+    return "Clean Escape";
+  }
+  if (rescued > 0 && getBestChain() > 1) {
+    return "Moon Chain";
+  }
+  if (rescued > 0) {
+    return "Some Wings Free";
+  }
+  return "Box Kept Them";
 }
 
 function formatTime(seconds) {

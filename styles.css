@@ -1028,12 +1028,100 @@ h3 {
 }
 
 .backyard-room h1 {
-  margin-bottom: clamp(28px, 5vw, 54px);
+  margin-bottom: clamp(20px, 3vw, 34px);
   font-size: clamp(4rem, 13vw, 9rem);
   line-height: 0.9;
   text-shadow:
     0 0 16px rgba(247, 251, 255, 0.7),
     0 0 54px rgba(71, 231, 255, 0.22);
+}
+
+.backyard-logbook {
+  margin-bottom: clamp(18px, 3vw, 30px);
+  border: 1px solid rgba(71, 231, 255, 0.18);
+  border-radius: 6px;
+  background:
+    linear-gradient(135deg, rgba(71, 231, 255, 0.09), transparent 38%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.07), transparent),
+    rgba(255, 255, 255, 0.035);
+  padding: clamp(18px, 3vw, 28px);
+}
+
+.backyard-logbook .eyebrow {
+  margin-bottom: 12px;
+}
+
+.backyard-logbook h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 3.4rem);
+  line-height: 1.05;
+  text-shadow:
+    0 0 14px rgba(247, 251, 255, 0.32),
+    0 0 28px rgba(71, 231, 255, 0.18);
+}
+
+.backyard-logbook p {
+  max-width: 42rem;
+  margin: 16px 0 0;
+  color: rgba(215, 224, 234, 0.78);
+  font-size: clamp(0.92rem, 1.4vw, 1.08rem);
+  line-height: 1.8;
+}
+
+.logbook-records {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-top: clamp(18px, 3vw, 28px);
+}
+
+.logbook-record {
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 6px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.07), transparent 42%),
+    rgba(0, 0, 0, 0.2);
+  padding: clamp(14px, 2vw, 20px);
+}
+
+.logbook-record:nth-child(1),
+.logbook-record:nth-child(4),
+.logbook-record:nth-child(5) {
+  border-color: rgba(71, 231, 255, 0.18);
+}
+
+.logbook-record header {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.logbook-record time {
+  color: rgba(71, 231, 255, 0.84);
+  font-size: 0.76rem;
+  font-weight: 1000;
+  letter-spacing: 0.1em;
+}
+
+.logbook-record h3 {
+  margin: 0;
+  color: rgba(247, 251, 255, 0.94);
+  font-size: clamp(1.15rem, 2vw, 1.7rem);
+  line-height: 1.15;
+}
+
+.logbook-record ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 1.15rem;
+  color: rgba(215, 224, 234, 0.82);
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.logbook-record li::marker {
+  color: rgba(255, 209, 102, 0.78);
 }
 
 .backyard-ledger {

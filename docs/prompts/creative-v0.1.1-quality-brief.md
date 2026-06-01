@@ -7,10 +7,10 @@ Creative Departmentは、見た目、空気感、演出、BGM/音、筐体感、
 
 ## 読んでください
 
-- `/Users/ogawakenji/Desktop/codex-arcade/docs/v0.1-parallel-operations-plan.md`
-- `/Users/ogawakenji/Desktop/codex-arcade/docs/arcade-redesign-direction.md`
-- `/Users/ogawakenji/Desktop/codex-arcade/docs/design-history.md`
-- `/Users/ogawakenji/Desktop/codex-arcade/docs/release-v0.1-qa-log.md`
+- `/Users/ogawakenji/Desktop/codex-arcade/docs/05-release-qa/v0.1-parallel-operations-plan.md`
+- `/Users/ogawakenji/Desktop/codex-arcade/docs/02-arcade-product/arcade-redesign-direction.md`
+- `/Users/ogawakenji/Desktop/codex-arcade/docs/02-arcade-product/design-history.md`
+- `/Users/ogawakenji/Desktop/codex-arcade/docs/05-release-qa/release-v0.1-qa-log.md`
 
 ## 現在の懸念
 

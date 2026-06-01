@@ -4,10 +4,10 @@
 
 今回は特に以下の更新ファイルを読んでください。
 
-- `/Users/ogawakenji/Desktop/codex-arcade/docs/release-v0.1-roadmap.md`
-- `/Users/ogawakenji/Desktop/codex-arcade/docs/feedback-loop.md`
-- `/Users/ogawakenji/Desktop/codex-arcade/docs/marketing-release-plan.md`
-- `/Users/ogawakenji/Desktop/codex-arcade/docs/analytics-events.md`
+- `/Users/ogawakenji/Desktop/codex-arcade/docs/05-release-qa/release-v0.1-roadmap.md`
+- `/Users/ogawakenji/Desktop/codex-arcade/docs/02-arcade-product/feedback-loop.md`
+- `/Users/ogawakenji/Desktop/codex-arcade/docs/04-marketing/marketing-release-plan.md`
+- `/Users/ogawakenji/Desktop/codex-arcade/docs/04-marketing/analytics-events.md`
 
 まず回答の冒頭で、読んだファイルを列挙してください。
 

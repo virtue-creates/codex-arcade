@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.2 - 2026-05-26
+
+- Added a clear moonlit rescue line inside the right-side crack.
+- Changed rescue detection to line crossing so the success boundary is easier to read.
+- Added a short escape animation before rescued specimens disappear.
+- Added route ranks, chain rescue tracking, and stronger result text for replay goals.
+- Added a small projected path hint while dragging a pin near a specimen.
+
 ## 0.1.1 - 2026-05-16
 
 - Made pin influence visible with pale radius rings.

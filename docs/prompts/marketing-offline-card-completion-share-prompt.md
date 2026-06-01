@@ -74,7 +74,7 @@ Creative Department
 
 ## Relevant Docs
 
-- `docs/offline-card-campaign.md`
-- `docs/hq-dashboard.md`
-- `docs/roadmap-history.md`
+- `docs/04-marketing/offline-card-campaign.md`
+- `docs/00-hq/hq-dashboard.md`
+- `docs/00-hq/roadmap-history.md`
 - `assets/offline-card/README.md`

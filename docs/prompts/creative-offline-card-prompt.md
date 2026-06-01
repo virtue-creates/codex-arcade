@@ -61,10 +61,10 @@ v0.1は完成版ではなく、「遊ばれながら改造されるオンライ�
 
 ## 読んでください
 
-- `/Users/ogawakenji/Desktop/codex-arcade/docs/offline-card-campaign.md`
-- `/Users/ogawakenji/Desktop/codex-arcade/docs/pr-tone-policy.md`
-- `/Users/ogawakenji/Desktop/codex-arcade/docs/marketing-release-plan.md`
-- `/Users/ogawakenji/Desktop/codex-arcade/docs/release-v0.1-announcement-kit.md`
+- `/Users/ogawakenji/Desktop/codex-arcade/docs/04-marketing/offline-card-campaign.md`
+- `/Users/ogawakenji/Desktop/codex-arcade/docs/01-strategy/pr-tone-policy.md`
+- `/Users/ogawakenji/Desktop/codex-arcade/docs/04-marketing/marketing-release-plan.md`
+- `/Users/ogawakenji/Desktop/codex-arcade/docs/05-release-qa/release-v0.1-announcement-kit.md`
 
 ## 使用URL
 

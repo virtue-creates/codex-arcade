@@ -15,11 +15,11 @@
 
 ## まず読んでください
 
-- `/Users/ogawakenji/Desktop/codex-arcade/docs/release-v0.1-checklist.md`
-- `/Users/ogawakenji/Desktop/codex-arcade/docs/release-analytics-operations.md`
-- `/Users/ogawakenji/Desktop/codex-arcade/docs/analytics-events.md`
-- `/Users/ogawakenji/Desktop/codex-arcade/docs/feedback-loop.md`
-- `/Users/ogawakenji/Desktop/codex-arcade/docs/marketing-release-ops-response.md`
+- `/Users/ogawakenji/Desktop/codex-arcade/docs/05-release-qa/release-v0.1-checklist.md`
+- `/Users/ogawakenji/Desktop/codex-arcade/docs/04-marketing/release-analytics-operations.md`
+- `/Users/ogawakenji/Desktop/codex-arcade/docs/04-marketing/analytics-events.md`
+- `/Users/ogawakenji/Desktop/codex-arcade/docs/02-arcade-product/feedback-loop.md`
+- `/Users/ogawakenji/Desktop/codex-arcade/docs/04-marketing/marketing-release-ops-response.md`
 
 回答の冒頭で、読んだファイルを列挙してください。
 

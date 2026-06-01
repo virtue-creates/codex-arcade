@@ -69,10 +69,10 @@ Creative Department
 
 本部で以下を更新しました。
 
-- `docs/organization-map.md`
-- `docs/company-model.md`
-- `docs/department-operating-model.md`
-- `docs/hq-dashboard.md`
+- `docs/01-strategy/organization-map.md`
+- `docs/01-strategy/company-model.md`
+- `docs/01-strategy/department-operating-model.md`
+- `docs/00-hq/hq-dashboard.md`
 
 ## Marketingに確認したいこと
 

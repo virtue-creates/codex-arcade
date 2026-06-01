@@ -10,10 +10,10 @@ Cabinet 02 Studioは、Metro Menderのゲーム性、ルール、面白さ、再
 
 ## 読んでください
 
-- `/Users/ogawakenji/Desktop/codex-arcade/docs/cabinet-02-design-intent-report.md`
-- `/Users/ogawakenji/Desktop/codex-arcade/docs/cabinet-02-hq-direction.md`
-- `/Users/ogawakenji/Desktop/codex-arcade/docs/v0.1-parallel-operations-plan.md`
-- `/Users/ogawakenji/Desktop/codex-arcade/docs/pr-tone-policy.md`
+- `/Users/ogawakenji/Desktop/codex-arcade/docs/03-cabinets/cabinet-02/cabinet-02-design-intent-report.md`
+- `/Users/ogawakenji/Desktop/codex-arcade/docs/03-cabinets/cabinet-02/cabinet-02-hq-direction.md`
+- `/Users/ogawakenji/Desktop/codex-arcade/docs/05-release-qa/v0.1-parallel-operations-plan.md`
+- `/Users/ogawakenji/Desktop/codex-arcade/docs/01-strategy/pr-tone-policy.md`
 
 ## 現在の人間QA
 

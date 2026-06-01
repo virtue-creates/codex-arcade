@@ -7,10 +7,10 @@
 
 ## 読んでください
 
-- `/Users/ogawakenji/Desktop/codex-arcade/docs/release-v0.1-announcement-kit.md`
-- `/Users/ogawakenji/Desktop/codex-arcade/docs/marketing-release-plan.md`
-- `/Users/ogawakenji/Desktop/codex-arcade/docs/release-analytics-operations.md`
-- `/Users/ogawakenji/Desktop/codex-arcade/docs/v0.1-parallel-operations-plan.md`
+- `/Users/ogawakenji/Desktop/codex-arcade/docs/05-release-qa/release-v0.1-announcement-kit.md`
+- `/Users/ogawakenji/Desktop/codex-arcade/docs/04-marketing/marketing-release-plan.md`
+- `/Users/ogawakenji/Desktop/codex-arcade/docs/04-marketing/release-analytics-operations.md`
+- `/Users/ogawakenji/Desktop/codex-arcade/docs/05-release-qa/v0.1-parallel-operations-plan.md`
 
 ## 現在地
 
