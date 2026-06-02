@@ -5,7 +5,7 @@ Codex Arcade v0.1の初期テスター導線として、手渡し名刺/カー�
 Status:
 
 ```txt
-Ordered / 発注完了
+Arrived / 到着済み・未配布
 ```
 
 Owner:
@@ -42,6 +42,9 @@ Handoff prompts:
 ## Production Status
 
 2026-05-29時点で、カード制作と印刷発注は完了。
+2026-06-02時点で、Offline Card / 名刺は到着済み。
+
+現時点ではまだ配布していない。
 
 完了済み:
 
@@ -51,6 +54,7 @@ Handoff prompts:
 - ラクスル入稿
 - スピードチェック通過
 - 注文作成
+- カード到着
 
 確認済み:
 
@@ -76,6 +80,26 @@ Creative Department
 ```
 
 本部は、個人情報、注文番号、請求情報が混ざっていないことを確認してから保存/共有する。
+
+## Pre-Distribution Check
+
+配布前に、まず人間ディレクターまたは本部で以下を確認する。
+
+- QRからCodex Arcadeへ入れるか。
+- URLに `utm_source=offline_card` が付いているか。
+- スマホで表示できるか。
+- Cabinet 01まで進めるか。
+- 店長メモを送れるか。
+- GA4で `offline_card / physical` が確認できるか。
+- Formspreeに店長メモが届くか。
+
+## First Distribution
+
+初回配布は一気に広げない。
+
+まず身近な初期テスター2〜3人に小さく配る。
+
+名刺の役割はURL配布ではなく、Codex Arcadeへ入る小さな入場券として扱う。
 
 ## Print Specification
 

@@ -77,6 +77,22 @@ Creative Departmentへのデザイン依頼は `docs/prompts/creative-offline-ca
 https://virtue-creates.github.io/codex-arcade/?utm_source=offline_card&utm_medium=physical&utm_campaign=v0_1_launch&utm_content=namecard
 ```
 
+## SNS Operations
+
+X / Facebookは、単なる宣伝場所ではなく、名刺、店長メモ、改造ログ、BACKYARDにつながる導線として扱う。
+
+正本:
+
+```txt
+docs/04-marketing/social-media-operations.md
+```
+
+基本方針:
+
+```txt
+ノリはふざける。運用はちゃんとする。
+```
+
 ## v0.1 コピー仮説
 
 短い紹介:

@@ -91,8 +91,9 @@ Reference:
 | GA4 | Measurement ID設定済み |
 | Formspree | 店長メモendpoint設定済み |
 | UTM | SNS、early testers、GitHub、offline cardなどを区別 |
+| SNS | X/Facebookを名刺、店長メモ、改造ログ、BACKYARDへの導線として運用 |
 | Store memo | 店長メモとしてプレイヤー感想を収集 |
-| Offline card | ラクスルで100部発注完了 |
+| Offline card | 100部到着済み。配布前QA中 |
 | Offline card assets | Creativeから本部への受領待ち |
 | BACKYARD | ビジネス説明を表に出しすぎない裏口 |
 | ARCADE LOGBOOK | 店史としてAIと人間の制作/運営過程を見せる |
@@ -104,6 +105,7 @@ Reference:
 - `docs/04-marketing/release-analytics-operations.md`
 - `docs/02-arcade-product/feedback-loop.md`
 - `docs/04-marketing/marketing-release-plan.md`
+- `docs/04-marketing/social-media-operations.md`
 - `docs/04-marketing/offline-card-campaign.md`
 - `assets/offline-card/README.md`
 - `docs/02-arcade-product/audio-assets.md`

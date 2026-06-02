@@ -1056,3 +1056,51 @@ Operating rule:
 - `docs/00-hq/arcade-store-history.md` is the canonical store-history source.
 - BACKYARD should show this as `ARCADE LOGBOOK`, not as a normal corporate case study.
 - Creative can later improve the visual treatment, but Headquarters owns the historical source material.
+
+## v0.34 - SNS Operations Added
+
+Date:
+
+```txt
+2026-06-02
+```
+
+What changed:
+
+- Added `docs/04-marketing/social-media-operations.md`.
+- Updated `docs/04-marketing/marketing-release-plan.md`.
+- Updated `docs/00-hq/hq-dashboard.md`.
+
+Why:
+
+- Marketing Department整理として、X / Facebookを単なる宣伝ではなく、名刺、店長メモ、改造ログ、BACKYARDへつながる導線として扱う方針が固まった。
+- `#CodexArcade`、X/Facebook用UTM、投稿後のGA4確認タイミングを正本化した。
+
+Operating rule:
+
+- Xは小さく噂のように回す場所。
+- Facebookは関係と文脈を育てる場所。
+- どちらも「ノリはふざける。運用はちゃんとする。」に従う。
+
+## v0.35 - Offline Card Arrived
+
+Date:
+
+```txt
+2026-06-02
+```
+
+What changed:
+
+- Updated `docs/04-marketing/offline-card-campaign.md`.
+- Updated `docs/00-hq/hq-dashboard.md`.
+
+Why:
+
+- Offline Card / 名刺が到着した。
+- まだ配布はせず、QR、UTM、スマホ表示、Cabinet 01起動、店長メモ、GA4、Formspreeを確認してから小さく配る方針にした。
+
+Operating rule:
+
+- 初回配布は2〜3人から。
+- 名刺はURL配布ではなく、Codex Arcadeへ入る小さな入場券として扱う。
