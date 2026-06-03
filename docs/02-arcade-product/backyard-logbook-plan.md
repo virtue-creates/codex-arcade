@@ -44,7 +44,7 @@ ARCADE LOGBOOK
 補足コピー:
 
 ```txt
-Codex Arcadeの社史。
+Codex Arcadeの店史。
 ```
 
 ## First Screen Structure
