@@ -45,7 +45,7 @@ BACKYARDのネタは、すでにある。
 
 ## First BACKYARD Version
 
-今の最小版は、店史を主役にして、その下に棚を置く。
+今の最小版は、店史を主役にして、その下に展示棚を置く。
 
 表示:
 
@@ -62,6 +62,22 @@ AGENT ROLES        整理中
 REMOVAL / RETURN   未発生
 ODD NOTES          空き棚
 ```
+
+現行の展示棚:
+
+```txt
+STAFF FILES
+
+MARKETING FILE       X / Facebook / 名刺
+CABINET CHART        筐体カルテ
+HUMAN QA LOG         人間QAログ
+AGENT ROLES          部署表
+ANALYTICS TERMINAL   計測端末
+BACKYARD PLAN        裏口設計
+```
+
+BACKYARDでは要約だけ見せる。
+原本はdocsへリンクする。
 
 狙い:
 

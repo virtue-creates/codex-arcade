@@ -1124,6 +1124,78 @@ h3 {
   color: rgba(255, 209, 102, 0.78);
 }
 
+.backyard-files {
+  border: 1px solid rgba(255, 209, 102, 0.16);
+  border-radius: 6px;
+  background:
+    linear-gradient(135deg, rgba(255, 209, 102, 0.08), transparent 34%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent),
+    rgba(255, 255, 255, 0.03);
+  padding: clamp(18px, 3vw, 28px);
+}
+
+.backyard-files h2 {
+  margin: 0 0 clamp(16px, 2vw, 24px);
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  line-height: 1.05;
+}
+
+.backyard-file-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.backyard-file-grid article {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  min-height: 190px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent),
+    rgba(0, 0, 0, 0.2);
+  padding: 15px;
+}
+
+.backyard-file-grid span {
+  color: rgba(170, 180, 193, 0.72);
+  font-size: 0.72rem;
+  font-weight: 1000;
+  letter-spacing: 0.08em;
+}
+
+.backyard-file-grid h3 {
+  margin: 0;
+  color: rgba(247, 251, 255, 0.94);
+  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  line-height: 1.2;
+}
+
+.backyard-file-grid p {
+  margin: 0;
+  color: rgba(215, 224, 234, 0.76);
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+.backyard-file-grid a {
+  align-self: end;
+  width: fit-content;
+  color: rgba(71, 231, 255, 0.86);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+}
+
+.backyard-file-grid a:hover,
+.backyard-file-grid a:focus-visible {
+  color: var(--text);
+  text-shadow: 0 0 14px rgba(71, 231, 255, 0.5);
+}
+
 .backyard-ledger {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1289,6 +1361,10 @@ h3 {
     grid-template-columns: 1fr 1fr;
   }
 
+  .backyard-file-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
   .credit-panel {
     max-width: 420px;
   }
@@ -1351,6 +1427,10 @@ h3 {
   }
 
   .backyard-ledger {
+    grid-template-columns: 1fr;
+  }
+
+  .backyard-file-grid {
     grid-template-columns: 1fr;
   }
 }

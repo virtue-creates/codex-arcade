@@ -1104,3 +1104,37 @@ Operating rule:
 
 - 初回配布は2〜3人から。
 - 名刺はURL配布ではなく、Codex Arcadeへ入る小さな入場券として扱う。
+
+## v0.36 - BACKYARD Staff Files Shelf
+
+Date:
+
+```txt
+2026-06-04
+```
+
+What changed:
+
+- Updated `backyard.html`.
+- Updated `styles.css`.
+- Updated `docs/02-arcade-product/backyard-showcase-plan.md`.
+
+Why:
+
+- Human Director noted that MarketingのX/Facebook方針など、各部署の作戦メモ自体がBACKYARDコンテンツとして面白い。
+- 店史の下に、docs原本へつながる展示棚を追加した。
+
+Added shelves:
+
+- Marketing File
+- Cabinet Chart
+- Human QA Log
+- Agent Roles
+- Analytics Terminal
+- Backyard Plan
+
+Operating rule:
+
+- BACKYARD is the exhibition shelf.
+- docs are the source archive.
+- Creative can later polish the visual treatment, but Headquarters owns the information structure.
