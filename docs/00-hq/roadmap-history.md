@@ -1191,3 +1191,30 @@ Impact:
 - Future Cabinet Studio, Marketing, Creative, QA, and Analytics reports should include `Log Candidate`.
 - BACKYARD can grow from actual operating records instead of separate exhibition copies.
 - The project moves one step closer to semi-automated documentation without removing human/HQ judgment.
+
+## v0.13 - Department Rules Refresh Prompt
+
+Date:
+
+```txt
+2026-06-04
+```
+
+What changed:
+
+- Added an all-departments rules refresh prompt.
+- The prompt asks each department to re-read the operating model, communication policy, human-agent collaboration rules, organization map, roadmap history, and BACKYARD showcase plan before resuming work.
+- It also requires actual product review when giving UI, experience, game, PR, BACKYARD, or release-flow feedback.
+- It asks every department to include `Log Candidate` when relevant.
+
+Why:
+
+- Some department chats may not have touched the project recently.
+- The operating model changed meaningfully: human-led department-by-department brainstorming, no approval theater, actual product review, and log-candidate reporting.
+- The project needs a repeatable way to refresh department context before asking for new work.
+
+Impact:
+
+- Headquarters can now paste one prompt to any department before restarting work.
+- Departments should not rely on stale memory or instruction-only review.
+- This supports semi-automation later by making the starting context explicit.
