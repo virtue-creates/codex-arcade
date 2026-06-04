@@ -1124,6 +1124,140 @@ h3 {
   color: rgba(255, 209, 102, 0.78);
 }
 
+
+.backyard-organization {
+  margin-bottom: clamp(18px, 3vw, 30px);
+  border: 1px solid rgba(182, 255, 99, 0.16);
+  border-radius: 6px;
+  background:
+    linear-gradient(135deg, rgba(182, 255, 99, 0.08), transparent 32%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent),
+    rgba(255, 255, 255, 0.03);
+  padding: clamp(18px, 3vw, 28px);
+}
+
+.backyard-organization h2 {
+  margin: 0 0 clamp(16px, 2vw, 24px);
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  line-height: 1.05;
+}
+
+.org-board {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  align-items: stretch;
+}
+
+.org-card {
+  position: relative;
+  display: grid;
+  gap: 10px;
+  min-height: 150px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 6px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 44%),
+    rgba(0, 0, 0, 0.22);
+  padding: 15px;
+}
+
+.org-card-hq {
+  grid-column: 1 / -1;
+  min-height: 128px;
+  border-color: rgba(71, 231, 255, 0.28);
+  background:
+    linear-gradient(90deg, rgba(71, 231, 255, 0.14), transparent 54%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent),
+    rgba(0, 0, 0, 0.24);
+}
+
+.org-card span,
+.department-shelf span {
+  color: rgba(170, 180, 193, 0.72);
+  font-size: 0.72rem;
+  font-weight: 1000;
+  letter-spacing: 0.08em;
+}
+
+.org-card h3,
+.department-shelf h3 {
+  margin: 0;
+  color: rgba(247, 251, 255, 0.94);
+  font-size: clamp(1.08rem, 1.9vw, 1.45rem);
+  line-height: 1.2;
+}
+
+.org-card p {
+  margin: 0;
+  color: rgba(215, 224, 234, 0.76);
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+.backyard-source-link {
+  display: inline-block;
+  margin-top: 16px;
+  color: rgba(71, 231, 255, 0.86);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+}
+
+.department-shelves {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.department-shelf {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent),
+    rgba(0, 0, 0, 0.2);
+  padding: 16px;
+}
+
+.department-shelf header {
+  display: grid;
+  gap: 7px;
+}
+
+.department-shelf ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.department-shelf a {
+  display: block;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.035);
+  color: rgba(215, 224, 234, 0.86);
+  padding: 10px 11px;
+  font-size: 0.88rem;
+  font-weight: 800;
+  line-height: 1.35;
+  text-decoration: none;
+}
+
+.department-shelf a:hover,
+.department-shelf a:focus-visible,
+.backyard-source-link:hover,
+.backyard-source-link:focus-visible {
+  color: var(--text);
+  border-color: rgba(71, 231, 255, 0.28);
+  text-shadow: 0 0 14px rgba(71, 231, 255, 0.5);
+}
+
 .backyard-files {
   border: 1px solid rgba(255, 209, 102, 0.16);
   border-radius: 6px;
@@ -1361,8 +1495,17 @@ h3 {
     grid-template-columns: 1fr 1fr;
   }
 
-  .backyard-file-grid {
+  .backyard-file-grid,
+  .department-shelves {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .org-board {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .org-card-hq {
+    grid-column: 1 / -1;
   }
 
   .credit-panel {
@@ -1430,7 +1573,13 @@ h3 {
     grid-template-columns: 1fr;
   }
 
-  .backyard-file-grid {
+  .backyard-file-grid,
+  .department-shelves,
+  .org-board {
     grid-template-columns: 1fr;
+  }
+
+  .org-card-hq {
+    grid-column: auto;
   }
 }

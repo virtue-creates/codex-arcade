@@ -66,46 +66,31 @@ BACKYARDで面白いのは、きれいに加工された紹介文ではなく、
 
 ## First BACKYARD Version
 
-今の最小版は、店史を主役にして、その下に展示棚を置く。
-
-表示:
+最小版の画面順は以下に固定する。
 
 ```txt
 BACKYARD
 
-ARCADE LOGBOOK
-店史 / 改造史 / 搬入予定
+1. ARCADE LOGBOOK / 店史
+   まず、この店がどう始まり、どう公開され、どう改造されてきたかを見る。
 
-MANAGER MEMO       受付中
-ANALYTICS          稼働中
-MOD MEETING        準備中
-AGENT ROLES        整理中
-REMOVAL / RETURN   未発生
-ODD NOTES          空き棚
+2. STAFF BOARD / 組織図
+   次に、本部、Marketing、Creative、Cabinet Studio、QA/Policyの分業を見る。
+
+3. DEPARTMENT FILES / 部署別資料棚
+   最後に、各部署の原本ログを読む。
 ```
 
-現行の展示棚:
-
-```txt
-STAFF FILES
-
-MARKETING FILE       X / Facebook / 名刺
-CABINET CHART        筐体カルテ
-HUMAN QA LOG         人間QAログ
-AGENT ROLES          部署表
-ANALYTICS TERMINAL   計測端末
-BACKYARD PLAN        裏口設計
-```
-
-BACKYARDでは、要約だけで薄めない。
+部署別資料棚では、資料を要約カード化しすぎない。
 面白い資料は、日付つきのDecision Logや作戦メモとして、その温度を残して見せる。
 原本docsへもリンクする。
 
 狙い:
 
-- 何かありそう。
-- でも説明しすぎない。
-- 気づいた人だけが「裏がある」と分かる。
+- 店史で文脈をつかむ。
+- 組織図で構造をつかむ。
+- 部署別棚で、マーケ、筐体、QA、Creative、本部の生ログへ入る。
+- 読んだ人に「AIエージェント会社っぽく本当に回している」と感じてもらう。
 
 ## Second Version Ideas
 

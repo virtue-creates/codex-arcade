@@ -126,51 +126,108 @@
           </div>
         </article>
 
+        <section class="backyard-organization" aria-labelledby="orgTitle">
+          <p class="eyebrow">STAFF BOARD</p>
+          <h2 id="orgTitle">組織図</h2>
+
+          <div class="org-board" aria-label="Codex Arcade organization chart">
+            <article class="org-card org-card-hq">
+              <span>HQ / 本部</span>
+              <h3>全体統括</h3>
+              <p>店史、方針、公開、トップページ、BACKYARDを握る。</p>
+            </article>
+
+            <article class="org-card">
+              <span>MARKETING</span>
+              <h3>導線と反応</h3>
+              <p>X、Facebook、名刺、Analytics、店長メモを運用する。</p>
+            </article>
+
+            <article class="org-card">
+              <span>CREATIVE</span>
+              <h3>見た目とノリ</h3>
+              <p>ゲーセン感、カード、BACKYARDの魅せ方を磨く。</p>
+            </article>
+
+            <article class="org-card">
+              <span>CABINET STUDIO</span>
+              <h3>筐体制作</h3>
+              <p>各ゲームの企画、実装、改造ログを持つ。</p>
+            </article>
+
+            <article class="org-card">
+              <span>QA / POLICY</span>
+              <h3>人間QAと安全</h3>
+              <p>遊んだ感想、公開前確認、危ない表現を確認する。</p>
+            </article>
+          </div>
+
+          <a class="backyard-source-link" href="docs/01-strategy/organization-map.md">組織図の原本を見る</a>
+        </section>
+
         <section class="backyard-files" aria-labelledby="staffFilesTitle">
-          <p class="eyebrow">STAFF FILES</p>
-          <h2 id="staffFilesTitle">展示棚</h2>
+          <p class="eyebrow">DEPARTMENT FILES</p>
+          <h2 id="staffFilesTitle">部署別資料棚</h2>
 
-          <div class="backyard-file-grid">
-            <article>
-              <span>MARKETING FILE</span>
-              <h3>X / Facebook / 名刺</h3>
-              <p>Xは小さく噂のように回す場所。Facebookは関係と文脈を育てる場所。</p>
-              <a href="docs/04-marketing/social-media-operations.md">原本を見る</a>
+          <div class="department-shelves">
+            <article class="department-shelf">
+              <header>
+                <span>HQ</span>
+                <h3>本部</h3>
+              </header>
+              <ul>
+                <li><a href="docs/00-hq/arcade-store-history.md">店史</a></li>
+                <li><a href="docs/00-hq/decision-log.md">Decision Log</a></li>
+                <li><a href="docs/02-arcade-product/backyard-showcase-plan.md">BACKYARD展示方針</a></li>
+              </ul>
             </article>
 
-            <article>
-              <span>CABINET CHART</span>
-              <h3>筐体カルテ</h3>
-              <p>01は看板。02はゲーム性が弱い。03は雰囲気あり、リプレイ性待ち。</p>
-              <a href="docs/03-cabinets/README.md">原本を見る</a>
+            <article class="department-shelf">
+              <header>
+                <span>MARKETING</span>
+                <h3>マーケ</h3>
+              </header>
+              <ul>
+                <li><a href="docs/04-marketing/social-media-operations.md">X / Facebook運用メモ</a></li>
+                <li><a href="docs/04-marketing/offline-card-campaign.md">名刺 / 入場券施策</a></li>
+                <li><a href="docs/04-marketing/release-analytics-operations.md">Analytics運用</a></li>
+              </ul>
             </article>
 
-            <article>
-              <span>HUMAN QA LOG</span>
-              <h3>人間QAログ</h3>
-              <p>「ゲーセン感が足りない」「音がしょぼい」「2はつまらない」など。</p>
-              <a href="docs/05-release-qa/human-qa-log.md">原本を見る</a>
+            <article class="department-shelf">
+              <header>
+                <span>CABINET STUDIO</span>
+                <h3>筐体チーム</h3>
+              </header>
+              <ul>
+                <li><a href="docs/03-cabinets/cabinet-01/cabinet-01-v0.1.1-studio-report.md">Cabinet 01 Studio報告</a></li>
+                <li><a href="docs/03-cabinets/cabinet-02/cabinet-02-design-intent-report.md">Cabinet 02 意図レポート</a></li>
+                <li><a href="docs/03-cabinets/cabinet-03/cabinet-03-design-intent-report.md">Cabinet 03 意図レポート</a></li>
+              </ul>
             </article>
 
-            <article>
-              <span>AGENT ROLES</span>
-              <h3>部署表</h3>
-              <p>本部、Cabinet Studio、Marketing、Creative、Analytics、QAの役割分担。</p>
-              <a href="docs/01-strategy/organization-map.md">原本を見る</a>
+            <article class="department-shelf">
+              <header>
+                <span>CREATIVE</span>
+                <h3>クリエイティブ</h3>
+              </header>
+              <ul>
+                <li><a href="docs/02-arcade-product/design-history.md">デザイン履歴</a></li>
+                <li><a href="docs/02-arcade-product/audio-assets.md">音楽素材メモ</a></li>
+                <li><a href="docs/04-marketing/marketing-creative-prompts.md">Creative連携メモ</a></li>
+              </ul>
             </article>
 
-            <article>
-              <span>ANALYTICS TERMINAL</span>
-              <h3>計測端末</h3>
-              <p>どこから来て、コインを入れて、筐体を起動して、店長メモまで進んだか。</p>
-              <a href="docs/04-marketing/release-analytics-operations.md">原本を見る</a>
-            </article>
-
-            <article>
-              <span>BACKYARD PLAN</span>
-              <h3>裏口設計</h3>
-              <p>BACKYARDは説明ページではなく、見つけた人だけが読める作業場。</p>
-              <a href="docs/02-arcade-product/backyard-showcase-plan.md">原本を見る</a>
+            <article class="department-shelf">
+              <header>
+                <span>QA / RELEASE</span>
+                <h3>QAと公開</h3>
+              </header>
+              <ul>
+                <li><a href="docs/05-release-qa/human-qa-log.md">人間QAログ</a></li>
+                <li><a href="docs/05-release-qa/release-v0.1-qa-log.md">v0.1 QAログ</a></li>
+                <li><a href="docs/05-release-qa/v0.1-parallel-operations-plan.md">同時並行運用計画</a></li>
+              </ul>
             </article>
           </div>
         </section>
