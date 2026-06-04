@@ -186,4 +186,10 @@ Marketing判断:
 - Creativeに見直してほしいこと
 - QAに確認してほしいこと
 - 次回レビューまでに見る数字
+
+Log Candidate:
+- 残すべき出来事
+- 残す理由
+- 推奨保存先: 店史 / roadmap-history / decision-log / Marketing docs / BACKYARD展示候補
+- 公開してよいか: yes / needs masking / internal only
 ```

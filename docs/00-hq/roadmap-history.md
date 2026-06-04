@@ -1165,3 +1165,29 @@ Impact:
 - Marketing, Creative, Cabinet Studio, QA, and other departments should review the actual public URL, local URL, screenshots, or source files before giving design/experience feedback.
 - Department responses should add specialist perspective, weak points, risks, alternatives, or next-department briefs.
 - Semi-automation remains a future goal, but the current roadmap treats human-led department-by-department co-creation as the real operating model.
+
+## v0.12 - Log Candidate Reporting
+
+Date:
+
+```txt
+2026-06-04
+```
+
+What changed:
+
+- Added `Log Candidate` as a standard section for department reports.
+- Departments should now identify important events, decisions, and operational changes that may belong in store history, roadmap history, Decision Log, department docs, or BACKYARD exhibits.
+- Headquarters still decides whether to adopt, defer, mask, or reject each candidate.
+
+Why:
+
+- Codex Arcade's process itself is part of the product.
+- Important human-agent operating changes can become BACKYARD material later.
+- Departments should help surface record-worthy moments instead of relying only on Headquarters to notice them.
+
+Impact:
+
+- Future Cabinet Studio, Marketing, Creative, QA, and Analytics reports should include `Log Candidate`.
+- BACKYARD can grow from actual operating records instead of separate exhibition copies.
+- The project moves one step closer to semi-automated documentation without removing human/HQ judgment.

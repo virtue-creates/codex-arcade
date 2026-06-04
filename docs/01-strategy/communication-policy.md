@@ -100,6 +100,9 @@ Tradeoffs
 
 Recommendation
 = その部署としての推奨
+
+Log Candidate
+= 店史、ロードマップ履歴、Decision Log、BACKYARD展示候補に残すべきこと
 ```
 
 ## 本部の姿勢

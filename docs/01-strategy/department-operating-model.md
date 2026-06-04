@@ -170,6 +170,31 @@ CreativeからMarketingへ直接送ってよいのは、ブレスト中のラフ
 
 採用版、入稿版、公開版は本部で受領・保存してから共有する。
 
+
+## Log Candidate Rule
+
+各部署は、レポートやレビューの最後に `Log Candidate` を付ける。
+
+目的は、部署側が「これは店史、ロードマップ履歴、Decision Log、BACKYARD展示候補に残すべきかもしれない」と思う論点を自動で提示すること。
+
+形式:
+
+```txt
+Log Candidate
+- 残すべき出来事:
+- 残す理由:
+- 推奨保存先: 店史 / roadmap-history / decision-log / department docs / BACKYARD展示候補
+- 公開してよいか: yes / needs masking / internal only
+```
+
+重要:
+
+- `Log Candidate` は自動採用ではない。
+- 本部が採用、保留、却下、マスクを判断する。
+- ただし、各部署は「これは重要かも」を遠慮なく出す。
+
+これにより、重要な変化を本部が拾い漏らしにくくし、BACKYARDで見せられる運用ログの素材を増やす。
+
 ## Headquarters
 
 責任:

@@ -175,3 +175,10 @@ Analyticsは「どこで止まったか」、店長メモは「なぜ止まっ�
 
 この2つを同じレポートで扱うことで、Codex Arcadeを「遊ばれながら改造されるオンラインゲーセン」として回していく。
 
+Log Candidate:
+
+- 残すべき出来事
+- 残す理由
+- 推奨保存先: 店史 / roadmap-history / decision-log / Marketing docs / BACKYARD展示候補
+- 公開してよいか: yes / needs masking / internal only
+

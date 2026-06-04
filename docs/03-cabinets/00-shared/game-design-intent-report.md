@@ -134,6 +134,15 @@ Cabinet Studioは、以下のタイミングで提出する。
 ```
 
 今後、本部はこの仕分けを見て、人間ディレクターに聞くべきことだけを出す。
+
+## 10. Log Candidate
+
+今回、店史、ロードマップ履歴、Decision Log、BACKYARD展示候補に残すべきこと。
+
+- 残すべき出来事:
+- 残す理由:
+- 推奨保存先: 店史 / roadmap-history / decision-log / Cabinet docs / BACKYARD展示候補
+- 公開してよいか: yes / needs masking / internal only
 ```
 
 ## 本部での使い方

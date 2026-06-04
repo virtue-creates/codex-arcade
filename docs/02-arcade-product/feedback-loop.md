@@ -11,6 +11,7 @@ Codex Arcadeでは、プレイヤーの感想を「店長にメモを残す」�
 | Director QA | 人間ディレクター | 本部判断、ゲーム性、制作方針の確認 | `docs/05-release-qa/human-qa-log.md` |
 | Player Memo | 一般プレイヤー | 初見感想、分かりづらさ、また遊びたいか | Formspree/将来の集計先 |
 | Studio Report | 各Cabinet Studio | 実装意図、変更内容、開発者の不安 | `docs/03-cabinets/cabinet-*/` |
+| Log Candidate | 各部署 | 店史、Decision Log、BACKYARD展示候補に残すべき論点 | 本部が採用先を判断 |
 
 ## 店長メモの項目
 
@@ -37,8 +38,10 @@ Codex Arcadeでは、プレイヤーの感想を「店長にメモを残す」�
 3. Marketing Departmentが、刺さった表現や流入仮説を確認する。
 4. QA Departmentが、バグ/分かりづらさ/ゲーム性不足を分ける。
 5. Producer Departmentが、Studioへの改善指示にまとめる。
-6. Cabinet Studioが改善する。
-7. v0.1.1などのアップデートとして反映する。
+6. 各部署が必要に応じて `Log Candidate` を出す。
+7. 本部が店史、Decision Log、roadmap-history、BACKYARD展示候補への採用を判断する。
+8. Cabinet Studioが改善する。
+9. v0.1.1などのアップデートとして反映する。
 
 ## Formspree接続方針
 
