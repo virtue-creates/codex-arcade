@@ -1138,3 +1138,30 @@ Operating rule:
 - BACKYARD is the exhibition shelf.
 - docs are the source archive.
 - Creative can later polish the visual treatment, but Headquarters owns the information structure.
+
+## v0.11 - Human-Led Department Review / 現物確認前提
+
+Date:
+
+```txt
+2026-06-04
+```
+
+What changed:
+
+- Clarified that Codex Arcade is currently not operating as autonomous AI departments approving each other.
+- Locked the actual operating model as: Human Director brainstorms with each specialized department, then Headquarters records decisions and routes next actions.
+- Added an anti approval-theater rule: departments should not simply say “looks good” to human-originated direction.
+- Added a “see the actual site” rule for department reviews.
+
+Why:
+
+- The project was drifting toward AI departments confirming each other without adding enough expertise.
+- Human direction, taste, discomfort, and judgment are the current engine of the project.
+- Department advice feels weak if the department has not inspected the actual Arcade page, Cabinet, BACKYARD, or relevant docs.
+
+Impact:
+
+- Marketing, Creative, Cabinet Studio, QA, and other departments should review the actual public URL, local URL, screenshots, or source files before giving design/experience feedback.
+- Department responses should add specialist perspective, weak points, risks, alternatives, or next-department briefs.
+- Semi-automation remains a future goal, but the current roadmap treats human-led department-by-department co-creation as the real operating model.
