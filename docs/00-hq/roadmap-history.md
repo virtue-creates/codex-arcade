@@ -1218,3 +1218,26 @@ Impact:
 - Headquarters can now paste one prompt to any department before restarting work.
 - Departments should not rely on stale memory or instruction-only review.
 - This supports semi-automation later by making the starting context explicit.
+
+## v0.14 - New Department Start Rule
+
+Date:
+
+```txt
+2026-06-04
+```
+
+What changed:
+
+- Added a rule that every new department chat starts with the all-departments rules refresh prompt.
+- New departments must first confirm current operating rules, actual product review expectations, and `Log Candidate` reporting before receiving concrete work.
+
+Why:
+
+- Department chats can otherwise start from stale context or generic role assumptions.
+- The project now depends on human-led department brainstorming, not autonomous approval theater.
+
+Impact:
+
+- Headquarters should paste the refresh prompt before creating or resuming any department.
+- New departments must return role understanding and concerns before task execution.

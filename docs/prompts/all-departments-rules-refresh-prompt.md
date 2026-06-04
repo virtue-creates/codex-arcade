@@ -2,6 +2,8 @@
 
 以下を、Marketing / Creative / Analytics / Cabinet Studio / QA / Policy など、各担当部署チャットに貼る。
 
+新部署チャットを作る時も、このプロンプトから開始する。
+
 ```md
 本部共有です。
 

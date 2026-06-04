@@ -127,6 +127,24 @@ Codex Arcade社は、現時点では全自動会社ではなく、人間とAI部
 
 部署ごとの詳しい責任範囲と引き渡しは `docs/01-strategy/department-operating-model.md` を参照する。
 
+
+## New Department Start Rule
+
+新しい部署チャットを作る時は、作業依頼から始めない。
+
+最初に必ず `docs/prompts/all-departments-rules-refresh-prompt.md` を貼り、以下を揃える。
+
+- 現在の部署運用ルール
+- 承認ごっこを避ける姿勢
+- 現物確認の前提
+- `Log Candidate` の提出
+- その部署が担当すること / 担当しないこと
+
+新部署は、初回返答で自部署の役割理解と違和感を返す。
+本部はそれを受けて、正式な作業依頼へ進む。
+
+目的は、部署が古い前提や一般論で動き始めるのを防ぐこと。
+
 ## When To Create More Departments
 
 Do not create departments just because they are conceptually possible.
