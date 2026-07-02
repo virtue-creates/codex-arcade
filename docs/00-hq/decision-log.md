@@ -99,3 +99,11 @@ This file records decisions made in the Codex Arcade headquarters chat.
 - Headquarters fixed Metro Mender's CSS/JS cache and SVG click-target behavior, and identified the next gameplay issue as "score preview gives away the answer."
 - Headquarters changed the parent Arcade so local MVP/QA launches do not spend down the virtual credit counter. Credits remain an INSERT COIN ceremony during this phase.
 - Headquarters added map-level nearest-fault click handling to Metro Mender because SVG line hit targets were still unreliable in human QA.
+
+## 2026-07-02
+
+- Marketing reported that the first offline-card test generated a small number of visits but was strongly mobile-biased, with no measured PC handoff and no submitted manager memo.
+- A new online self-introduction entry test started inside a learning community to compare device mix, Cabinet 01 launch behavior, BGM interaction, and BACKYARD interest.
+- Headquarters adopted this as a Marketing experiment log and future BACKYARD candidate.
+- Public records must mask the institution, personal identifiers, and detailed campaign identifiers.
+- Results remain pending; Marketing will review after traffic appears.

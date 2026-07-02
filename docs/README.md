@@ -14,6 +14,7 @@ Codex Arcadeの資料室です。
 | 公開前後の進行 | `05-release-qa/release-v0.1-roadmap.md` |
 | 担当チャットへの依頼文 | `prompts/` |
 | 全部署ルール再確認 | `prompts/all-departments-rules-refresh-prompt.md` |
+| 流入導線実験 | `04-marketing/learning-community-entry-test.md` |
 
 ## フォルダ構成
 
